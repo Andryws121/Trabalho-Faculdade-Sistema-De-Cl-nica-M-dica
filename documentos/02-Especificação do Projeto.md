@@ -66,29 +66,35 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |Médico | Enviar lembretes de consulta.   | Reduzir os números de faltas. |
 |Paciente | Receber notificações de lembrete de consulta.  | Evitar não comparecimento.. |
 
-## Requisitos do Projeto
-
-[Com base nas Histórias de Usuários, enumere os requisitos da solução. Lembre-se que cada requisito deve corresponder a uma, e somente uma, característica alvo da solução. Além disso, certifique-se de que todos os aspectos capturados nas Histórias de Usuário foram cobertos.]
+## Requisitos
 
 ### Requisitos Funcionais
 
-[Utilize o modelo de tabela abaixo para apresentar os requisitos funcionais]
-
-|ID    | Descrição                | Prioridade |
-|-------|---------------------------------|----|
-| RF-01 |  ...                    | ...   | 
-|  ...  |  ...                    | ...   |
+|ID    | Descrição do Requisito  | Prioridade |
+|------|-----------------------------------------|----|
+|RF-01| A aplicação deve permitir cadastro de conta do paciente e profissional da saúde.   | ALTA | 
+|RF-02| A aplicação deve permitir que o paciente e profissional da saúde façam login.   | ALTA | 
+|RF-03| A aplicação deve permitir marcação de consulta online.    | ALTA |
+|RF-04| A aplicação deve permitir a funcionalidade de busca e filtro de pesquisa.    | ALTA |
+|RF-05| A aplicação deve permitir remarcar uma consulta já marcada previamente.  | MÉDIA |
+|RF-06| A aplicação deve permitir acesso a agenda.    | ALTA |
+|RF-07| A aplicação deve permitir acesso ao histórico de consultas.    | MÉDIA |
+|RF-08| A aplicação deve permitir cancelar consulta.   | ALTA |
+|RF-09| A aplicação deve permitir notificações de consulta.  | MÉDIA |
+|RF-10| A aplicação deve permitir que o paciente tenha acesso a informações do profissional de saúde.  | ALTA |
+|RF-11| A aplicação deve permitir cadastro de perfil de usuário.  | MÉDIA |
 
 **Prioridade: Alta / Média / Baixa. 
 
-### Requisitos não Funcionais
+### Requisitos Não Funcionais
 
-[Utilize o modelo de tabela abaixo para apresentar os requisitos não-funcionais]
+|ID     | Descrição do Requisito  |Prioridade |
+|-------|-------------------------|----|
+|RNF-01| A aplicação deve ter sistema disponível 24 horas.  | ALTA | 
+|RNF-02| A aplicação deverá ser acessível em diferentes dispositivos.  | ALTA | 
+|RNF-03| A aplicação deve manter os dados dos pacientes armazenados de forma segura e anônima de acordo com a LGPD.  | MÉDIA | 
+|RNF-04| A aplicação deve ser compatível com os principais navegadores de internet. Google Chrome, Mozilla Firefox, Microsoft Edge. | ALTA | 
 
-|ID      | Descrição               |Prioridade |
-|--------|-------------------------|----|
-| RNF-01 |  ...                    | ...   | 
-| ...    |  ...                    | ...   | 
 
 **Prioridade: Alta / Média / Baixa. 
 
