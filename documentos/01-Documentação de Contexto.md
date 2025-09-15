@@ -21,11 +21,17 @@ O objetivo geral deste projeto é desenvolver um site de agendamento hospitalar 
 Como objetivos específicos, o projeto visa:
 
 •	Disponibilizar uma plataforma online acessível 24 horas por dia, permitindo que os pacientes realizem agendamentos de forma rápida e prática;
+
 •	Melhorar a comunicação entre pacientes e hospital, com envio de confirmações e lembretes automáticos das consultas;
+
 •	Reduzir o índice de faltas por meio de notificações e possibilidade de cancelamento ou reagendamento online;
+
 •	Garantir acessibilidade da plataforma em diferentes dispositivos, como computadores, tablets e smartphones;
+
 •	Disponibilizar informações claras e organizadas sobre especialidades médicas, profissionais disponíveis e horários;
+
 •	Contribuir para a modernização dos serviços de saúde, por meio da digitalização e automatização dos processos;
+
 •	Assegurar a proteção e privacidade dos dados pessoais e médicos dos pacientes, de acordo com a LGPD.
 
  
