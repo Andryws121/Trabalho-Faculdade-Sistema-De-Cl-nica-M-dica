@@ -1,25 +1,50 @@
-# Especificação do Projeto
+# Especificações do Projeto
 
 ## Perfis de Usuários
 
-[Enumere e faça o detalhamento dos perfis de usuários. Utilize o modelo de tabela abaixo para sintetizá-los.]
-
 <table>
 <tbody>
-<tr align=center>
-<th colspan="2">Perfil Nome </th>
+<tr>
+<th colspan="2">Perfil 1: Paciente </th>
 </tr>
 <tr>
 <td width="150px"><b>Descrição</b></td>
-<td width="600px">...</td>
+<td width="600px">
+Pacientes que desejam marcar consulta. 
+</td>
 </tr>
 <tr>
 <td><b>Necessidades</b></td>
-<td>...</td>
+<td>
+1. Agendar de forma prática e rápida uma consulta; 
+2. Acessar agenda das próximas consultas; 
+3. Deixar um feedback de como foi todo processo de atendimento;
+4. Possibilidade de remarcar com antecedência consultas já agendadas. 
+</td>
 </tr>
 </tbody>
 </table>
 
+<table>
+<tbody>
+<tr>
+<th colspan="2">Perfil 2: Profissional de saúde </th>
+</tr>
+<tr>
+<td width="150px"><b>Descrição</b></td>
+<td width="600px">
+Profissionais da área da saúde disponíveis para atendimento. 
+</td>
+</tr>
+<tr>
+<td><b>Necessidades</b></td>
+<td>
+1. Receber as consultas agendadas.; 
+2. Acessar agenda das próximas consultas.
+</td>
+</tr>
+</tbody>
+</table>
 
 ## Histórias de Usuários
 
