@@ -52,17 +52,19 @@ Profissionais da área da saúde disponíveis para atendimento.
 
 ## Histórias de Usuários
 
-[Apresente aqui as histórias de usuários que são relevantes para o projeto da solução.]
+Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-> **Link Útil**:
-> - [Como escrever boas histórias de usuário](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-
-[Utilize o modelo de tabela abaixo para apresentar as histórias de usuários.]
-
-|EU COMO... `QUEM`   | QUERO/PRECISO ... `O QUE` |PARA ... `PORQUE`                 |
-|--------------------|---------------------------|----------------------------------|
-| ...                | ...                       | ...                              |
-| ...                | ...                       | ...                              |
+|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE`                                             |PARA ... `MOTIVO/VALOR`                 |
+|--------------------|--------------------------------------------------------------------------------|----------------------------------------|
+|Paciente | Marcar consulta online.  | É uma forma mais ágil. |
+|paciente | Remarcar uma consulta já marcada previamente.  | Preciso de uma nova data.  |
+|Médico|Disponibilizar atendimento.  | Para conseguir pacientes dessa forma.  |
+|Paciente/Médico | Ter acesso a agenda.   | Acompanhar consultas agendadas. |
+|Paciente | Ter acesso ao histórico de consultas.  | Ter um melhor controle das atividades feitas. |
+|Médico |Ter acesso ao histórico de atendimentos realizados. | Acompanhar o desempenho das consultas. |
+|Paciente |procurar livros que me ajudem a ter melhor compreensão da matéria  | encontrar livros sobre determinadas matérias que tenham uma boa didática para iniciantes.|
+|Médico | Enviar lembretes de consulta.   | Reduzir os números de faltas. |
+|Paciente | Receber notificações de lembrete de consulta.  | Evitar não comparecimento.. |
 
 ## Requisitos do Projeto
 
