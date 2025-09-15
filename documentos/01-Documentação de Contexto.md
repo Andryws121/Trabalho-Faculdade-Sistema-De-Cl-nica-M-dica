@@ -51,7 +51,9 @@ Um estudo da empresa independente de pesquisa de saúde Eliciting Insights entre
 A plataforma atende a diferentes perfis de usuários contemplando diversas demandas no quesito agendamento e gestão de filas:
 
 •	Clinicas de pequena, médio e grande porte que poderão adotar a solução para automatizar processos, propondo modernidade aos seus usuários.
+
 •	Profissionais autônomos, contarão com agendas práticas e úteis com flexibilidade de horários.
+
 •	O consumidor final, podendo também chamar de cliente ou paciente, que terá acesso a um atendimento pratico, e ágil nos seus agendamentos.
 
 Essa proposta responde à crescente demanda por serviços com horários flexíveis e atendimento rápido, em um contexto social marcado pelo imediatismo e pela valorização da tecnologia. Além disso, a possibilidade de marcar consultas médicas em qualquer horário e local representa um diferencial competitivo, unindo comodidade e eficiência.
