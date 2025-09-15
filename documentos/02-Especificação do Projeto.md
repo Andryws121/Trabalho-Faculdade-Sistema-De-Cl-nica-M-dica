@@ -16,10 +16,13 @@ Pacientes que desejam marcar consulta.
 <tr>
 <td><b>Necessidades</b></td>
 <td>
-1. Agendar de forma prática e rápida uma consulta; 
-2. Acessar agenda das próximas consultas; 
-3. Deixar um feedback de como foi todo processo de atendimento;
-4. Possibilidade de remarcar com antecedência consultas já agendadas. 
+1. Agendar de forma prática e rápida uma consulta;
+  
+2. Acessar agenda das próximas consultas;
+3. 
+4. Deixar um feedback de como foi todo processo de atendimento;
+5. 
+6. Possibilidade de remarcar com antecedência consultas já agendadas. 
 </td>
 </tr>
 </tbody>
@@ -39,7 +42,8 @@ Profissionais da área da saúde disponíveis para atendimento.
 <tr>
 <td><b>Necessidades</b></td>
 <td>
-1. Receber as consultas agendadas.; 
+1. Receber as consultas agendadas;
+  
 2. Acessar agenda das próximas consultas.
 </td>
 </tr>
