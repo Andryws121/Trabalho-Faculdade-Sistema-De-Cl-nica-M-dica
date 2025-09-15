@@ -1,25 +1,25 @@
-# Título do Projeto
+# Sistema de Agendamento de Consultas
 
-`CURSO`
+`Análise e Desenvolvimento de Sistemas - PUC Minas`
 
-`DISCIPLINA`
+`Desenvolvimento de aplicação web front-end`
 
-`SEMESTRE`
+`2º semestre/2025`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto desenvolvido.
+O objetivo deste projeto é a criação de uma aplicação web de fácil acesso e uso que permita aos usuários marcar consultas de forma online rápidas e seguras. 
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
-* Nome completo do aluno 6
+* Andryws Pedro da Silva
+* Gustavo Vieira Leite
+* Lorena Nascimento Carneiro
+* Maria Eduarda Rodrigues dos Santos
+* Ozias de Souza Costa
+* Sérvulo Pereira de Oliveira
 
 ## Orientador
 
-* Nome completo do professor
+* Clóvis Lemos Tavares
 
 # Documentação
 
