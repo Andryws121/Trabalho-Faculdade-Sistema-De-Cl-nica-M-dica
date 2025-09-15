@@ -62,7 +62,7 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |Paciente/Médico | Ter acesso a agenda.   | Acompanhar consultas agendadas. |
 |Paciente | Ter acesso ao histórico de consultas.  | Ter um melhor controle das atividades feitas. |
 |Médico |Ter acesso ao histórico de atendimentos realizados. | Acompanhar o desempenho das consultas. |
-|Paciente |procurar livros que me ajudem a ter melhor compreensão da matéria  | encontrar livros sobre determinadas matérias que tenham uma boa didática para iniciantes.|
+|Paciente |Cancelar uma consulta.  | Não poderei comparecer.|
 |Médico | Enviar lembretes de consulta.   | Reduzir os números de faltas. |
 |Paciente | Receber notificações de lembrete de consulta.  | Evitar não comparecimento.. |
 
