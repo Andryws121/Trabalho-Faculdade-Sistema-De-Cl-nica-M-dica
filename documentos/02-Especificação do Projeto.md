@@ -19,10 +19,10 @@ Pacientes que desejam marcar consulta.
 1. Agendar de forma prática e rápida uma consulta;
   
 2. Acessar agenda das próximas consultas;
-3. 
-4. Deixar um feedback de como foi todo processo de atendimento;
-5. 
-6. Possibilidade de remarcar com antecedência consultas já agendadas. 
+ 
+3. Deixar um feedback de como foi todo processo de atendimento;
+ 
+4. Possibilidade de remarcar com antecedência consultas já agendadas. 
 </td>
 </tr>
 </tbody>
