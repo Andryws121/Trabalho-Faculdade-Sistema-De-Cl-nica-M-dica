@@ -7,6 +7,10 @@ O fluxograma apresentado na figura 1 mostra o fluxo de interação do usuário p
 
 ![Fluxograma do Processo](assets/images/fluxograma.png)
 
+<figure> 
+    <figcaption>Figura 1 - Fluxo de telas do usuário
+</figure> 
+
 
 ## Protótipo
 
