@@ -14,7 +14,7 @@ Desta forma, a equipe está organizada da seguinte maneira:
   <li>Scrum Master: Sérvulo Oliveira</li>
   <li>Product Owner: Lorena Carneiro </li>
   <li>Equipe de Desenvolvimento: Andryws Silva, Gustavo Leite, Lorena Carneiro, Maria Santos, Ozias Costa, Sérvulo Oliveira</li>
-  <li>Equipe de Design: Gustavo Leite</li>
+  <li>Equipe de Design: Ozias Costa</li>
 </ul>
 
 ### Processo
