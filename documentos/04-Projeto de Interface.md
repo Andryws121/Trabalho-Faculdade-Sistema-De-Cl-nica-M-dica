@@ -5,7 +5,8 @@
 
 O fluxograma apresentado na figura 1 mostra o fluxo de interação do usuário pelas telas do sistema. Cada uma das telas deste fluxo é detalhada na seção de Protótipo de baixa fidelidade que se segue. Para visualizar o protótipo interativo,  acesse o <a href="https://miro.com/welcomeonboard/cW5sejZaQ1hZR3RsanBXajI0Z3RqQlltN0pJc2lqWXFSUjRZWSs1MVIvUjFON3RQVlhESHNwZEo5a1pyamc1c1lteFJhN0lsc3d0QWMzcjl3cy8wTTlEZjhPK3cvekk4SCtQKzJxdGNCZkxJdzhXNUxteEVrc3U3RHY0SWp2SGZ3VHhHVHd5UWtSM1BidUtUYmxycDRnPT0hdjE=?share_link_id=207637701563">fluxograma no miro</a>.
 
-<img width="1588" height="914" alt="image" src="https://github.com/user-attachments/assets/87e43481-d3c1-43c7-8145-5b4455118a57" />
+<img width="1308" height="830" alt="image" src="https://github.com/user-attachments/assets/0ad58db5-97cb-49b2-8062-5185e3154e83" />
+
 
 
 <figure> 
