@@ -38,7 +38,7 @@ Tela Menu Principal
 
 Tela Busca 
 
-![LOGIN](../documentos/img/tela_busca.png)
+![LOGIN](../documentos/img/tela_menu_de_busca.png)
 
 Tela Menu de busca
 
