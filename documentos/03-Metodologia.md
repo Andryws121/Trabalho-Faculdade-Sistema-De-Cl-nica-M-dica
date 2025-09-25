@@ -54,13 +54,16 @@ Figura 2 - Tela do kanban no GitHub utilizada pelo grupo
 Para assegurar um desenvolvimento eficiente, adotamos diversas ferramentas para auxiliar na comunicação, organização, versionamento de código, design e implementação do projeto. Cada uma delas foi selecionada com base em sua capacidade de atender às necessidades da equipe e em suas funcionalidades.
 
 *1. Ferramentas de Desenvolvimento*
+
 GitHub: Uma plataforma de hospedagem de repositórios que utiliza o sistema de controle de versão distribuído Git, permitindo o armazenamento, a organização e o gerenciamento de projetos de software de forma colaborativa. Possibilitando registrar o histórico de alterações no código-fonte, assegurando maior controle e rastreabilidade durante o processo de desenvolvimento.
 
 *2. Ferramentas de Comunicação e Gestão de Projetos*
+
 Whatsapp: Ferramenta utilizada como canal complementar de comunicação ágil e informal, adequada para o envio de mensagens instantâneas, atualizações urgentes e alinhamentos rápidos, garantindo a integração da equipe mesmo fora dos momentos formais de reunião. 
 Microsoft Teams: Definido como a principal ferramenta de comunicação da equipe, por disponibilizar chamadas de vídeo, chats em grupo e compartilhamento de arquivos. Sua integração com outras soluções da Microsoft potencializa a colaboração e assegura a manutenção de um histórico organizado das discussões do projeto.
 
 *3. Ferramentas de Design e Prototipagem*
+
 Figma: Uma plataforma baseada em nuvem destinada ao design de interfaces e à prototipagem de sistemas digitais. Trata-se de uma ferramenta colaborativa que possibilita a criação, edição e compartilhamento de projetos de design em tempo real, favorecendo a integração entre os membros da equipe.
 
 
