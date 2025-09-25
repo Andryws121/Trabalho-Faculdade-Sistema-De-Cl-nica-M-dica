@@ -20,6 +20,54 @@ Tela Login
 
 ![LOGIN](../documentos/img/tela_login.png)
 
+Tela Cadastro Usuario
+
+![LOGIN](../documentos/img/tela_cadastro.png)
+
+Tela Cadastro Médico 
+
+![LOGIN](../documentos/img/tela_cadastro_medico.png)
+
+Tela Cadastro Paciente
+
+![LOGIN](../documentos/img/tela_cadastro_paciente.png)
+
+Tela Menu Principal 
+
+![LOGIN](../documentos/img/tela_menu_principal.png)
+
+Tela Busca 
+
+![LOGIN](../documentos/img/tela_busca.png)
+
+Tela Menu de busca
+
+![LOGIN](../documentos/img/tela_menu_de_busca.png)
+
+Tela perfil publico do medico
+
+![LOGIN](../documentos/img/tela_perfil_publico_do_medico.png)
+
+Tela agenda consulta paciente 
+
+![LOGIN](../documentos/img/tela_agenda_consulta_paciente.png)
+
+Tela consultas
+
+![LOGIN](../documentos/img/tela_consultas.png)
+
+Tela perfil paciente
+
+![LOGIN](../documentos/img/tela_perfil_paciente.png)
+
+Tela minha agenda
+
+![LOGIN](../documentos/img/tela_minha_agenda.png)
+
+Tela configurações de agenda
+
+![LOGIN](../documentos/img/tela_configuracoes_de_agenda.png)
+
 ### Protótipo de baixa fidelidade
 
 Protótipos de baixa fidelidade apresentam de forma simplificada o design da interface e o relacionamento entre suas páginas, permitindo evolução da proposta da solução. Neste projeto, os utilizaremos para apoiar a validação dos requisitos e efetuar mudanças dos mesmos, caso seja necessário, para menor impacto na codificação da aplicação.
