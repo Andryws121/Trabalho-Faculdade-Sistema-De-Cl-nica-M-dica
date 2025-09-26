@@ -17,7 +17,8 @@ O fluxograma apresentado na figura 4 mostra o fluxo de interação do usuário p
 
 
 ## Protótipo de Média Fidelidade (wireframe)
-O projeto de média fidelidade tem como objetivo oferecer uma solução prática e eficiente para atender as necessidades especificas dos usuários, sem perder a flexibilidades para futuras adaptações e  equilibrando a funcionalidade e simplicidade do projeto. Permitindo a organização de processos, a facilidade de uso e a integração de novos recursos. 
+O projeto de média fidelidade tem como objetivo oferecer uma solução prática e eficiente para atender as necessidades especificas dos usuários, sem perder a flexibilidades para futuras adaptações e  equilibrando a funcionalidade e simplicidade do projeto. Permitindo a organização de processos, a facilidade de uso e a integração de novos recursos. Para acessar o protótipo interativo, acesse o <a href="https://marvelapp.com/prototype/i39bj37/screen/86143037">Projeto no Figma</a>.
+
 
 
 ## Tela Login 
