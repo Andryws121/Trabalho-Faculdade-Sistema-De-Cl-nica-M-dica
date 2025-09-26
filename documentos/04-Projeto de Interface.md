@@ -22,8 +22,7 @@ Desenvolver um protótipo emerge como uma das maneiras mais ágeis e econômicas
 
 ## Tela Login 
 
-<img width="1436" height="1016" alt="image" src="https://github.com/user-attachments/assets/0adaef3c-a652-44d5-b79c-84d41e2b0275" />
-<h4 align="center">FIGURA 5 </h4>
+
 
 Nesta página, o usuário deve inserir seu e-mail e senha cadastrados para acessar o sistema. Caso tenha esquecido a senha, pode clicar em "esqueci minha senha" para recuperá-la. Novos usuários devem clicar em "CADASTRAR" para iniciar.
 
