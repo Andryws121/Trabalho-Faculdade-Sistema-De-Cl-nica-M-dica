@@ -27,7 +27,8 @@ Para organização e distribuição das tarefas do projeto, a equipe está utili
 - Done: nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Não há mais edições ou revisões necessárias, ele está agendado e pronto para a ação.
 
 - O quadro kanban do grupo no GitHub está disponível no link https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/2344 e é apresentado, no estado atual, na figura abaixo:
-<img width="1112" height="488" alt="image" src="https://github.com/user-attachments/assets/0943eb91-cdac-4eb5-8ab2-b6c3cdffec0c" />
+<img width="1432" height="1076" alt="image" src="https://github.com/user-attachments/assets/55bf8716-ac16-4f06-9e24-aac15dd0a7c0" />
+
 
 
 Figura 2 - Tela do kanban no GitHub utilizada pelo grupo
