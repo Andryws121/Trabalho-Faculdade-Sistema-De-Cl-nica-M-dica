@@ -13,7 +13,6 @@ O objetivo deste projeto é a criação de uma aplicação web de fácil acesso 
 * Andryws Pedro da Silva
 * Gustavo Vieira Leite
 * Lorena Nascimento Carneiro
-* Maria Eduarda Rodrigues dos Santos
 * Ozias de Souza Costa
 * Sérvulo Pereira de Oliveira
 
