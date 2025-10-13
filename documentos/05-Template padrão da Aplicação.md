@@ -30,8 +30,8 @@ UMA PLATAFORMA ONLINE QUE PERMITE O AGEDAMENTO DE CONSULTAS DE UMA FORMA RAPIDA 
 
 |                   |FONTE    |     TAMANHO                  |
 |-----------------|---------|-------------------------------|
-|  TITULOS        |poetsenone|negrito 64 pix                |
-| TEXTO           | poetsenone |seminegrito 24 pix          | 
+|  TITULOS        |poetsen one|negrito 64 pix                |
+| TEXTO           | poetsen one |seminegrito 24 pix          | 
 <img width="366" height="331" alt="image" src="https://github.com/user-attachments/assets/1e434aa4-7c59-449f-8e1e-9015a932f8d9" />
 
 
