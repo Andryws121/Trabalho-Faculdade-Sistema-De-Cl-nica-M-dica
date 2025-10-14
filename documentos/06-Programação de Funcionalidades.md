@@ -31,11 +31,11 @@ Após a conclusão do cadastro, o usuário pode acessar sua conta. O sistema tam
 
 
 
-### Título da funcionalidade
+### **Título da funcionalidade**
 Tela de Cadastro (RF-002) Responsável: Ozias
 RF-002: O site deve permitir ao usuário cadastrar uma conta
 
-Exemplo da tela de cadastro
+###**Exemplo da tela de cadastro**
 ![LOGIN](../documentos/img/tela_de_cadastro.png)
 
 #### Requisito atendido
@@ -50,7 +50,7 @@ A escolha do perfil redireciona o usuário para a página específica de registr
 A interface do sistema é composta por duas seções distintas, conforme a funcionalidade desejada pelo usuário:
 #### **Acesso à Conta Existente**
 
-Na seção da esquerda, é disponibilizada a área de login para usuários já cadastrados na plataforma **Medzo**. O texto "Bem-vindo de volta!" e a opção **"ENTRAR"** direcionam o usuário ao acesso de sua conta. Caso o usuário não se recorde de sua senha, a funcionalidade **"Esqueci minha senha"** permite a recuperação dos dados de acesso.
+Na seção da esquerda, é disponibilizada a área de login para usuários já cadastrados na plataforma **Medzo**. O texto "Bem-vindo de volta!" e a opção **"ENTRAR"** direcionam o usuário ao acesso de sua conta. Caso o usuário não se recorde de sua senha, a funcionalidade **"Esqueci minha senha"** permite a recuperação dos dados de acesso. O Botão "ENTRAR" retorna para tela de login. 
 
 #### **Criação de Nova Conta**
 
