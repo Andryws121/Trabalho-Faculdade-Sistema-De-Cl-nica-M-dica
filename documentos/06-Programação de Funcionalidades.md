@@ -15,12 +15,6 @@ Exemplo da tela de login
 O acesso a tela de cadastro poderá ser feito através da opção de menu “Cadastrar”. 
 [RF-X: adicione a descrição do requisito atendido]
 
-
-#### Artefatos da funcionalidade
-● paginaLivros.html
-
-● style-livros.css
-
 [Adicione os nomes dos arquivos relacionados ao desenvolvimento da funcionalidade]
 
 #### Instruções de acesso
@@ -43,6 +37,18 @@ O sistema é acessado através de um navegador de internet, utilizando a URL esp
 A tela principal do sistema oferece as opções de navegação "contato", "ajuda" e "sobre nós".
 Nessa mesma interface, encontra-se a opção para cadastro. Ao selecionar a opção "cadastrar", o usuário é direcionado para a página de registro, onde é possível escolher entre os perfis de médico ou paciente.
 Após a conclusão do cadastro, o usuário pode acessar sua conta. O sistema também disponibiliza a funcionalidade de recuperação de senha por meio da opção "esqueci a senha".
+
+
+
+### Título da funcionalidade
+Tela de Cadastro (RF-002) Responsável: Ozias
+
+Exemplo da tela de cadastro
+![LOGIN](../documentos/img/tela_de_cadastro.png)
+
+
+
+
 
 > **Links Úteis**:
 > - [Trabalhando com HTML5 Local Storage e JSON](https://www.devmedia.com.br/trabalhando-com-html5-local-storage-e-json/29045)
