@@ -23,12 +23,6 @@ O acesso a tela de cadastro poderá ser feito através da opção de menu “Cad
 
 [Adicione os nomes dos arquivos relacionados ao desenvolvimento da funcionalidade]
 
-
-#### Estrutura de Dados
-
-[Caso exista estrutura de dados, adicione aqui]
-
-
 #### Instruções de acesso
 
 1. APRESENTAÇÃO E NAVEGAÇÃO
