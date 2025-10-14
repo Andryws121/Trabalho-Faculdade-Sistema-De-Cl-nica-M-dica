@@ -1,16 +1,16 @@
-### Título da funcionalidade
+## Título da funcionalidade
 Tela de Login (RF-001)Responsável: Ozias
 
 Exemplo da tela de login
 ![LOGIN](../documentos/img/tela_de_login.png)
 
 
-#### Requisito atendido
+## Requisito atendido
 O acesso a tela de cadastro poderá ser feito através da opção de menu “Cadastrar”. 
 
-#### Instruções de acesso
+## Instruções de acesso
 
-#### APRESENTAÇÃO E NAVEGAÇÃO
+## APRESENTAÇÃO E NAVEGAÇÃO
 A plataforma Medzo é um sistema para a área da saúde, acessível via navegador.
 A tela de login, com design azul, pede e-mail e senha para acesso.
 A interface é intuitiva, oferecendo opções para entrar, cadastrar ou recuperar a senha.
@@ -31,28 +31,28 @@ Após a conclusão do cadastro, o usuário pode acessar sua conta. O sistema tam
 
 
 
-### **Título da funcionalidade**
+## **Título da funcionalidade**
 Tela de Cadastro (RF-002) Responsável: Ozias
 RF-002: O site deve permitir ao usuário cadastrar uma conta
 
-###**Exemplo da tela de cadastro**
+##**Exemplo da tela de cadastro**
 ![LOGIN](../documentos/img/tela_de_cadastro.png)
 
-#### Requisito atendido
+## Requisito atendido
 O acesso ao formulário de cadastro é realizado a partir da tela de login, por meio da opção "Cadastrar".
 Ao selecionar essa opção, o usuário é direcionado para uma página de escolha, onde deve selecionar o perfil correspondente à sua necessidade: médico ou paciente.
 A escolha do perfil redireciona o usuário para a página específica de registro, que pode ser o formulário de cadastro de médico ou o de cadastro de paciente.
 
-#### Instruções de acesso
+## Instruções de acesso
 
-### APRESENTAÇÃO E NAVEGAÇÃO
-### **Instruções para a Tela de Cadastro e Acesso**
+## **APRESENTAÇÃO E NAVEGAÇÃO**
+## **Instruções para a Tela de Cadastro e Acesso**
 A interface do sistema é composta por duas seções distintas, conforme a funcionalidade desejada pelo usuário:
-#### **Acesso à Conta Existente**
+## **Acesso à Conta Existente**
 
 Na seção da esquerda, é disponibilizada a área de login para usuários já cadastrados na plataforma **Medzo**. O texto "Bem-vindo de volta!" e a opção **"ENTRAR"** direcionam o usuário ao acesso de sua conta. Caso o usuário não se recorde de sua senha, a funcionalidade **"Esqueci minha senha"** permite a recuperação dos dados de acesso. O Botão "ENTRAR" retorna para tela de login. 
 
-#### **Criação de Nova Conta**
+## **Criação de Nova Conta**
 
 A seção da direita é destinada à criação de novas contas. Para dar continuidade ao processo, o usuário deve:
 1.  Selecionar o perfil desejado no menu suspenso, optando entre **"médico"** ou **"paciente"**.
@@ -73,7 +73,7 @@ Após a conclusão do cadastro, o usuário pode acessar sua conta. O sistema tam
 
 
 
-
+_______________________________________________________________________________________
 Programação de Funcionalidades
 Implementação da aplicação descrita por meio dos requisitos codificados.
 
