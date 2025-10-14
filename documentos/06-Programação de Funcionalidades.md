@@ -25,7 +25,6 @@ HTML
 CSS 
 JS 
 
-[Adicione as orientações de acesso à funcionalidade]
 
 O sistema é acessado através de um navegador de internet, utilizando a URL especificada para navegação.
 A tela principal do sistema oferece as opções de navegação "contato", "ajuda" e "sobre nós".
@@ -67,13 +66,19 @@ HTML
 CSS 
 JS 
 
-[Adicione as orientações de acesso à funcionalidade]
 
 O sistema é acessado através de um navegador de internet, utilizando a URL especificada para navegação.
 A tela principal do sistema oferece as opções de navegação "contato", "ajuda" e "sobre nós".
 Nessa mesma interface, encontra-se a opção para cadastro. Ao selecionar a opção "cadastrar", o usuário é direcionado para a página de registro, onde é possível escolher entre os perfis de médico ou paciente.
 Após a conclusão do cadastro, o usuário pode acessar sua conta. O sistema também disponibiliza a funcionalidade de recuperação de senha por meio da opção "esqueci a senha".
 
+### Tela de Cadastro de pacientes (RF-001)
+
+Responsável: Sérvulo
+
+O acesso a tela de cadastro poderá ser feito através da opção de menu “Cadastre-se”. As estruturas de dados foram baseadas em HTML, CSS e JS.
+
+Exemplo da tela de cadastro: 
 
 
 _______________________________________________________________________________________
