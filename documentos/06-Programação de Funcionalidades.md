@@ -80,7 +80,7 @@ O acesso a tela de cadastro poderá ser feito através da opção de menu “Cad
 
 Exemplo da tela de cadastro: 
 
-https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/main/documentos/img/cadastro_Paciente.png
+![Untitled Diagram-Page-1 drawio](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/main/documentos/img/cadastro_Paciente.png)
 _______________________________________________________________________________________
 Programação de Funcionalidades
 Implementação da aplicação descrita por meio dos requisitos codificados.
