@@ -1,0 +1,180 @@
+
+body{
+  /* ´fonts */
+  font-family:Roboto,sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  /* ´background */
+  background-image: url("assets/backgroud.jpg");
+  background-size: 50%,contain;
+  background-position: center; 
+  background-repeat: repeat;
+  background-color: #054b84;
+  background-blend-mode: multiply;
+  width: 100%;
+  height: 100%;
+  min-width: 910px;
+}
+
+header{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.headerbox{
+  width: 95%;
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 5%;
+  min-height: 50px;
+  max-height: 70px;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.button{
+  width: 100%;
+  height: 100%;
+  min-height: 50px;
+  max-height: 70px;
+  line-height: 2.8;
+  border-radius: 15px;
+  text-align: center;
+}
+/* ´botão mudando de cor */
+.button:hover {
+Background-color: #006DC7;
+color: white;
+box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+/* ´botão mudando de cor */
+
+main{
+  min-height: 1000px;
+  max-height: 70px;
+  min-width: 910px;
+  
+}
+.bluebox{
+  display: flex;
+  justify-content: space-evenly;
+  height: 200PX;
+  margin-top: 50px;
+}
+.bluebutton{
+  width: 20%;
+  text-align: center;
+  background-color: #006DC7;
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.numberconsult{
+  justify-content: end;
+  height: 70px;
+  margin-top: 20px;
+  font-size: 60px;
+}
+/* botões azuis */
+
+.whiteboards{
+  display: flex;
+  justify-content: space-evenly;
+  height: 300PX;
+  margin-top: 50px;
+  min-width: 910px;
+}
+/* proximas consultas */
+.whiteboard1{
+  width: 40%;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.tabela-consultas{
+  width: 95%;
+}
+
+.consultas {
+  border-collapse: collapse;
+  width: 95%;
+  font-size: 28px;
+  text-align: center;
+  padding: 10px;
+  height: 20px;
+}
+
+.tabela-consultas td {
+  border-bottom: 1px solid black;
+}
+
+.hora, .idade{
+  text-align: center;
+}
+.cargo, .urgencia, .idade{
+  font-weight: 500;
+  color: rgb(146, 146, 146);
+}
+
+/* ágendar nova consulta */
+.whiteboard2{
+  width: 40%; 
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.table-agendamento{
+  width: 95%;
+  height: 95%;;
+}
+
+.text-book{
+  height: 120px;
+}
+
+.buttonbook{
+  text-align: center;
+  background-color: #006DC7;
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.calendariozin{
+  max-height: 50px;
+  vertical-align: middle;
+}
+/* quadros de baixo */
+.Downboards{
+  display: flex;
+  justify-content: space-evenly;
+  height: 400PX;
+  margin-top: 50px;
+  min-width: 910px;
+}
+
+.Downboard1{
+  width: 40%;
+  text-align: start;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.logo{
+  width: 40%; 
+  padding: 10px;
+  text-align: center;
+  border-radius: 15px;
+}
