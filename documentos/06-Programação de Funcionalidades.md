@@ -81,6 +81,28 @@ O acesso a tela de cadastro poderá ser feito através da opção de menu “Cad
 Exemplo da tela de cadastro: 
 
 ![Untitled Diagram-Page-1 drawio](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/main/documentos/img/cadastro_Paciente.png)
+
+### tela de agendamento de consultas
+
+Resposavel: Lorena
+
+A Tela poderá ser acessada através das paginas principais profissional/paciente.
+
+![agendamento](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/main/codigo-fonte/tela-de-agendamento/tela%20de%20agendamento.png)
+
+
+### Funcionalidade atendida:
+RF - 03 Marcação de consulta 
+
+Usuario/ profissional poderá agendar consultas.
+
+ ### Tecnologia utilizada:
+ 
+1- HTML
+
+2- CSS
+
+3-
 _______________________________________________________________________________________
 Programação de Funcionalidades
 Implementação da aplicação descrita por meio dos requisitos codificados.
