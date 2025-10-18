@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
 
-/* --- ESTILOS GERAIS E MOBILE FIRST --- */
+
 html, body {
     height: 100%;
     margin: 0;
@@ -9,7 +9,7 @@ html, body {
 
 body {
     margin: 0;
-    font-family: 'Poetsen One', sans-serif; /* Usando a fonte importada como principal */
+    font-family: 'Poetsen One', sans-serif; 
     background-color: #f4f5f7;
     color: #333;
     display: flex;
@@ -17,7 +17,7 @@ body {
     min-height: 100vh;
 }
 
-/* --- CABEÇALHO COM TÍTULO CENTRALIZADO --- */
+
 .main-header {
     background: linear-gradient(90deg, #054B84, #054B84);
     color: white;
@@ -25,13 +25,13 @@ body {
     display: flex;
     justify-content: flex-end; /* Empurra o link 'SAIR' para a direita */
     align-items: center;
-    position: relative; /* Essencial para a centralização */
+    position: relative;
 }
 
 .logo {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* Técnica para centralização perfeita */
+    transform: translateX(-50%);
 }
 
 .logo h1 {
@@ -47,13 +47,13 @@ body {
     font-weight: 500;
 }
 
-/* --- CONTEÚDO PRINCIPAL (Mobile) --- */
+
 .content-container {
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 20px; /* Menos padding em telas pequenas */
+    padding: 20px; 
 }
 
 .recovery-form {
@@ -102,10 +102,10 @@ body {
     box-shadow: 0 0 5px rgba(32, 0, 122, 0.3);
 }
 
-/* --- BOTÕES (Mobile) --- */
+
 .button-group {
     display: flex;
-    flex-direction: column; /* Botões um sobre o outro em telas pequenas */
+    flex-direction: column; 
     gap: 10px;
 }
 
@@ -120,7 +120,7 @@ body {
     display: inline-block;
     text-decoration: none; /* Remove o sublinhado dos links com a classe .btn */
     text-align: center;
-    width: 100%; /* Botões ocupam largura total no mobile */
+    width: 100%; 
 }
 
 .btn-primary {
@@ -129,7 +129,7 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #043a69; /* Leve escurecida no hover */
+    background-color: #043a69; 
 }
 
 .btn-secondary {
@@ -156,15 +156,15 @@ body {
 
 @media (min-width: 768px) {
     .content-container {
-        padding: 40px 20px; /* Retorna o padding original */
+        padding: 40px 20px; 
     }
 
     .button-group {
-        flex-direction: row; /* Botões voltam a ficar lado a lado */
-        justify-content: center; /*essa propriedade deixa os botões no centro*/
+        flex-direction: row;
+        justify-content: center; 
     }
 
     .btn {
-        width: auto; /* Largura do botão se ajusta ao conteúdo */
+        width: auto; 
     }
 }
