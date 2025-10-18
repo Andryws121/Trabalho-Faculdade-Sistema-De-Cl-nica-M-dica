@@ -1,0 +1,262 @@
+/* --- 1. CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
+:root {
+    /* Paleta de Cores */
+    --cor-primaria: #007bff;
+    --cor-fundo: #f4f7f9;
+    --cor-borda: #dee2e6;
+    --cor-texto-principal: #343a40;
+    --cor-texto-secundario: #6c757d;
+    --cor-branco: #ffffff;
+
+    /* Cores de Status dos Agendamentos */
+    --status-agendado: #2A64A7; /* Azul Escuro */
+    --status-confirmado: #5CB85C; /* Verde */
+    --status-bloqueado: #D9534F; /* Vermelho */
+    --status-cancelado: #6c757d;  /* Cinza */
+
+    /* Fontes */
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
+    margin: 0;
+    padding: 20px;
+}
+
+/* --- 2. LAYOUT PRINCIPAL DA AGENDA --- */
+.agenda-container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "controles controles"
+        "agenda sidebar";
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto auto 1fr;
+    gap: 20px;
+    max-width: 1400px;
+    margin: auto;
+    background-color: var(--cor-branco);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+}
+
+/* --- 3. CABEÇALHO (HEADER) --- */
+.agenda-header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 15px;
+}
+
+.agenda-header h1 { margin: 0; font-size: 28px; font-weight: 600; }
+
+.btn-agendar-novo {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+}
+
+.btn-agendar-novo:hover { background-color: #0056b3; }
+
+/* Estilo do botão Sair */
+.exit-link {
+    background-color: var(--status-bloqueado); /* Cor vermelha já definida */
+    color: var(--cor-branco);
+    padding: 10px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none; /* Remove o sublinhado padrão de links */
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.exit-link:hover {
+    background-color: #c9302c; /* Um tom de vermelho mais escuro para o efeito hover */
+    cursor: pointer;
+}
+
+
+/* --- 4. CONTROLES DE NAVEGAÇÃO --- */
+.controles-navegacao {
+    grid-area: controles;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.controles-navegacao h2 { font-size: 20px; margin: 0; font-weight: 500; }
+
+.controles-navegacao button {
+    background-color: #f8f9fa;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.controles-navegacao button:hover { background-color: #e9ecef; }
+
+/* --- 5. GRID PRINCIPAL DA AGENDA --- */
+.agenda-grid {
+    grid-area: agenda;
+    display: grid;
+    grid-template-columns: 60px repeat(7, 1fr);
+    grid-auto-rows: 50px;
+    border-left: 1px solid var(--cor-borda);
+    border-top: 1px solid var(--cor-borda);
+    position: relative;
+}
+
+.grid-header, .grid-horario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cor-texto-secundario);
+    border-right: 1px solid var(--cor-borda);
+    border-bottom: 1px solid var(--cor-borda);
+    background-color: #fafafa;
+}
+
+.grid-cell {
+    border-right: 1px solid var(--cor-borda);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+/* --- 6. ESTILOS DOS CARDS DE AGENDAMENTO --- */
+.eventos-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+}
+
+.evento {
+    position: absolute;
+    padding: 8px;
+    margin-right: 2px;
+    border-radius: 4px;
+    color: var(--cor-branco);
+    font-size: 13px;
+    overflow: hidden;
+    pointer-events: all;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.evento:hover { filter: brightness(1.1); }
+.evento .evento-nome { font-weight: 600; display: block; }
+.evento .evento-detalhe { font-size: 12px; opacity: 0.9; }
+
+/* Cores de status genéricas */
+.status-agendado { background-color: var(--status-agendado); }
+.status-confirmado { background-color: var(--status-confirmado); }
+.status-bloqueado { background-color: var(--status-bloqueado); }
+.status-cancelado {
+    background-color: var(--status-cancelado);
+    text-decoration: line-through;
+}
+
+/* --- 7. PAINEL LATERAL (SIDEBAR) --- */
+.sidebar-consultas {
+    grid-area: sidebar;
+    padding-left: 20px;
+    border-left: 1px solid var(--cor-borda);
+}
+
+.sidebar-consultas h3 { margin-top: 0; font-size: 18px; }
+.sidebar-consultas ul { list-style: none; padding: 0; margin: 0; }
+.sidebar-consultas li {
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border-left: 4px solid;
+}
+
+.sidebar-consultas .status-agendado { border-left-color: var(--status-agendado); background-color: #f0f6ff; }
+.sidebar-consultas .status-confirmado { border-left-color: var(--status-confirmado); background-color: #f0fff0; }
+.sidebar-consultas .status-bloqueado { border-left-color: var(--status-bloqueado); background-color: #fff0f0; }
+.sidebar-consultas .status-cancelado { border-left-color: var(--status-cancelado); background-color: #f1f3f5; }
+
+/* --- 8. RESPONSIVIDADE --- */
+@media (max-width: 992px) {
+    .agenda-container {
+        grid-template-areas:
+            "header" "controles" "agenda" "sidebar";
+        grid-template-columns: 1fr;
+    }
+    .sidebar-consultas {
+        border-left: none;
+        border-top: 1px solid var(--cor-borda);
+        padding-left: 0;
+        padding-top: 20px;
+    }
+}
+
+/* --- 9. ESTILOS INDIVIDUAIS PARA CADA BLOCO --- */
+#evento-3 {
+    background: linear-gradient(45deg, #1e90ff, #00bfff);
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.7);
+}
+
+#evento-5 {
+    background-color: #ff8c00;
+    border-radius: 20px 0 20px 0;
+}
+/* --- 10. ESTILOS DO POP-UP DE DETALHES --- */
+
+.popup {
+    position: absolute; /* Essencial para flutuar sobre a página */
+    background-color: #ffffff;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    width: 250px;
+    z-index: 1000; /* Garante que ele fique na frente de tudo */
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+    /* Dica profissional: impede que o próprio pop-up interfira no mouse */
+    pointer-events: none; 
+}
+
+.popup.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    display: none; /* Garante que ele não ocupe espaço quando escondido */
+}
+
+.popup h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: var(--cor-texto-principal);
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 8px;
+}
+
+.popup p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--cor-texto-secundario);
+}
