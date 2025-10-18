@@ -1,294 +1,218 @@
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+/* Importa a fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: 'Poetsen One', sans-serif;
-  background-color: #e9e9ee;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1px;
-  box-sizing: border-box;
+    font-family: 'Poetsen One', sans-serif;
+    background-color: #e9e9ee;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 
 .login-container {
-  width: 100vw;
-  max-width: 1930px;
-  aspect-ratio: 1930 / 1000;
-  max-height: 910px;
-  background-color: #ffffff;
-  border-radius: 1px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    max-width: 2500px; 
+    height: 960px;      
+    background-color: #ffffff;
+    border-radius: 1px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex; 
+    flex-direction: column; 
 }
-
-
 .login-header {
-  background-color: #054B84;
-  color: #ffffff;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1;
-  position: relative;
+    background-color: #054B84;
+    color: #ffffff;
+    padding: 30px; 
+    text-align: center;
+    position: relative;
+    flex-shrink: 0; 
 }
-
-.login-header .logo {
-  margin-bottom: 15px;
-}
-
 .login-header .logo img {
-  max-width: 300px;
-  height: auto;
+    max-width: 300px; 
+    height: auto;
+    margin-bottom: 20px;
 }
 
 .login-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  text-align: center;
+    margin: 0;
+    font-size: 2.8rem; 
+}
+.header-nav {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 0.9rem;
+}
+
+.header-nav a {
+    color: #d1e0f0;
+    text-decoration: none;
+    margin: 0 4px;
+    transition: color 0.2s ease;
+}
+
+.header-nav a:hover {
+    color: #ffffff;
+    text-decoration: underline;
 }
 
 
 .login-body {
-  flex-grow: 1;
-  padding: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-y: auto;
-  min-height: 0;
+    flex-grow: 1; 
+    padding: 40px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
 }
 
 .login-body form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 480px; 
 }
 
-
 .input-group {
-  width: 100%;
-  margin-bottom: 25px;
+    margin-bottom: 25px; 
+    position: relative;
 }
 
 .input-group input {
-  width: 100%;
-  padding: 20px;
-  border: 1px solid #ddd;
-  background-color: #f7f7f7;
-  border-radius: 8px;
-  font-size: 1rem;
-  color: #333;
-  box-sizing: border-box;
-  font-family: 'Poetsen One', sans-serif;
+    width: 100%;
+    padding: 22px; 
+    padding-right: 50px; 
+    border: 1px solid #ddd;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    font-size: 1.1rem; 
+    color: #333;
+    box-sizing: border-box;
+    font-family: 'Poetsen One', sans-serif;
 }
 
 .input-group input:focus {
-  outline: none;
-  border-color: #3269a8;
-  box-shadow: 0 0 0 2px rgba(50, 105, 168, 0.2);
+    outline: none;
+    border-color: #054B84;
+    box-shadow: 0 0 0 3px rgba(5, 75, 132, 0.2);
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    font-size: 1.2rem; /* Ícone maior */
 }
 
 .forgot-password {
-  text-decoration: none;
-  color: #555;
-  font-size: 0.9rem;
-  margin-bottom: 30px;
-  align-self: center;
+    text-decoration: none;
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    
+    /* centralizar */
+    text-align: center;
+    
+    
+    
+    transition: color 0.2s ease;
 }
 
+.forgot-password:hover {
+    color: #054B84;
+}
+
+.forgot-password:hover {
+    color: #054B84;
+}
 .btn {
-  width: 100%;
-  padding: 20px;
-  border: none;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  color: #ffffff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  font-family: 'Poetsen One', sans-serif;
-  margin-bottom: 15px;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  box-sizing: border-box;
+    padding: 22px; 
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem; 
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-family: 'Poetsen One', sans-serif;
+    margin-bottom: 15px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .btn:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .btn-primary {
-  background-color: #054B84;
+    background-color: #054B84;
+}
 
+.btn-primary:hover {
+    background-color: #043b6a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary {
-  background-color: #6c757d;
+    background-color: #6c757d;
 }
 
-
-@media (max-width: 768px) {
-  body {
-    padding: 0;
-  }
-
-  .login-container {
-    aspect-ratio: auto;
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    max-height: none;
-    border-radius: 0;
-  }
-
-  .login-header h1 {
-    font-size: 2rem;
-  }
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-
-.header-nav {
-  position: absolute;
-  bottom: 20px;
-  right: 30px;
-  font-size: 1rem;
-}
-
-.header-nav a {
-  color: #d1e0f0;
-  text-decoration: none;
-  margin: 0 4px;
-  transition: color 0.2s ease;
-}
-
-.header-nav a:hover {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-:root {
-  --color-primary: #828385;
-  --color-secondary: #3269a8;
-  --color-accent: #2a5a91;
-  --color-background: #f7f8f9;
-  --color-text: #4b5563;
-  --color-text-light: #d1d5db;
-  --color-border: #d1d5db;
-}
-
-*/ body {
-  font-family: 'Inter', sans-serif;
-  color: var(--color-text);
-  background-color: var(--color-background);
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-
-
-.page-container {
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-
-}
-
-.left-panel {
-  background-color: var(--color-primary);
-  color: #fff;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
-}
-
-.left-panel .logo {
-  width: 250px;
-  margin-bottom: 1rem;
-}
-
-.left-panel .title {
-  font-family: 'Poetsen One', sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.left-panel .subtitle {
-  font-size: 1rem;
-  font-weight: 500;
-  max-width: 250px;
-}
-
-.right-panel {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-
+/* --- Rodapé --- */
 .footer {
-
-  height: 2.5rem;
-  background-color: var(--color-primary);
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    flex-shrink: 0; 
 }
 
 .footer-text {
-  color: #fff;
-  font-size: 0.75rem;
-  margin: 0;
+    margin: 0;
+    font-size: 0.8rem;
+    color: #777;
 }
-
-
 @media (max-width: 768px) {
-  .page-container {
-    flex-direction: column;
-  }
+    body {
+        padding: 0;
+    }
 
-  .left-panel,
-  .right-panel {
-    flex: none;
-    height: auto;
-    padding: 1.5rem;
-  }
+    .login-container {
+        width: 100%;
+        height: 100%; 
+        max-width: none;
+        max-height: none;
+        border-radius: 0;
+    }
 
-  .left-panel .logo {
-    width: 200px;
-  }
-
-  .left-panel .title,
-  .right-panel .title {
-    font-size: 2rem;
-  }
-
-  .footer {
-    height: 3.5rem;
-  }
+    .login-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .header-nav {
+        display: none;
+    }
 }

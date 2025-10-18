@@ -1,56 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-        const views = {
-        login: document.getElementById('loginView'),
-    };
-        const buttons = {
+    const loginForm = document.getElementById('loginForm');
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('loginPassword');
 
-        showLogin: document.getElementById('showLoginBtn'),
-        };
-        const forms = {
-        login: document.getElementById('loginForm'),
-    };
-    function setupNavigationEvents() {
+    // Lógica para o formulário de login
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value;
+        const password = passwordInput.value;
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const validUser = users.find(user => user.email === email && user.password === password);
 
-        if (buttons.showLogin) {
-            buttons.showLogin.addEventListener('click', () => {
+        if (email.value === USUARIO_CORRETO && password.value === SENHA_CORRETA) {
+    // Se estiver certo, mostra um alerta de sucesso.
+    alert('Login realizado com sucesso! Redirecionando...');
+} else {
+    // Se estiver errado, mostra uma mensagem de erro genérica.
+    showError(emailError, 'Email ou senha incorretos.');
+}
+    });
 
-                window.location.href = '/login/tela_de_login.html';
-            });
-        }
-    }
-    
-    function setupFormHandlers() {
-        if (forms.login) {
-            forms.login.addEventListener('submit', (e) => {
-                e.preventDefault();
-                console.log('Tentativa de login...');
+    // Lógica para o botão de mostrar senha
+    togglePassword.addEventListener('click', () => {
+        // Verifica o tipo do input de senha
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
 
-
-                alert('Login efetuado! (Redirecionamento não implementado)');
-            });
-        }
-    }
-     function init() {
-
-        setupFormHandlers();
-    }
-
-
-    init();
+        // Troca o ícone do olho
+        togglePassword.classList.toggle('fa-eye-slash');
+    });
 });
-
-    
-
-
-    
-
-    
-
-
-    
-
-
-    
-
-
-   
