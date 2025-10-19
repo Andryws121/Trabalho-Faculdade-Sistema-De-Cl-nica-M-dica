@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Agenda Dinâmica</title>
+    
+    <link rel="stylesheet" href="agenda.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="agenda-container">
+
+        <header class="agenda-header">
+            <h1>Minha Agenda</h1>
+            <button class="btn-agendar-novo">
+                Agendar Nova Consulta
+                <i class="fa-solid fa-calendar-plus"></i>
+            </button>
+            <head>
+                <nav>
+            <a href="../tela-de-login-ozias/tela_login.html" class="exit-link">SAIR</a>
+        </nav>
+
+            </head>
+        </header>
+        
+        <div class="controles-navegacao">
+            <button id="btn-anterior" title="Semana anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="btn-proximo" title="Próxima semana"><i class="fa-solid fa-chevron-right"></i></button>
+            <h2 id="data-atual">Hoje, 15 de Outubro de 2025</h2>
+            <button id="btn-hoje" class="btn-hoje">Hoje</button>
+        </div>
+
+        <main class="agenda-grid">
+           
+            <div class="grid-header"></div> 
+            <div class="grid-header">Seg</div><div class="grid-header">Ter</div><div class="grid-header">Qua</div>
+            <div class="grid-header">Qui</div><div class="grid-header">Sex</div><div class="grid-header">Sab</div>
+            <div class="grid-header">Dom</div>
+            
+            <div class="grid-horario">08:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-horario">08:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-horario">08:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-horario">13:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-horario">13:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-horario">14:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-horario">11:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-horario">18:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            <div class="grid-horario">08:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+            
+            
+            <!--aqui encontra todo os nomes dos médicos-->
+            <div class="eventos-container" id="eventos-container"></div>
+        </main>
+
+        <aside class="sidebar-consultas">
+            <h3>Consultas do Dia</h3>
+            <ul id="lista-consultas-dia"></ul>
+        </aside>
+
+    </div>
+
+    <script src="agenda.js" defer></script>
+    <script src="agenda.js" defer></script>
+
+    <div id="popup-detalhes" class="popup hidden">
+        <h3 id="popup-titulo"></h3>
+        <p id="popup-corpo"></p>
+    </div>
+
+</body>
+</html>
+
