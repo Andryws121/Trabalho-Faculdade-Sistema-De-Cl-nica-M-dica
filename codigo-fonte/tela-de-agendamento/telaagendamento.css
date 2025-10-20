@@ -1,6 +1,4 @@
-body {
-     
-     font-family: 'posetsen one'  system-ui;
+  font-family: '( <link rel="stylesheet" href="https://fonts.googleapis,com/css?family=poetsen+one">)' system-ui;
      background-color: #a7a3a3;
     display: flex;
     justify-content: center; 
@@ -8,7 +6,7 @@ body {
     min-height: 100svh;
     margin: 0px;
     padding: top 0;
-    overflow:hidden;
+    overflow:auto;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -18,7 +16,7 @@ body {
    .consu{ 
         box-shadow: 0 0px 8px  rgba(64, 27, 214, 0.15);
         width: 50%;
-        max-width:  900px;
+        max-width:900px;
         overflow:auto;
         padding: 20px;
         margin: 40px auto;
@@ -32,14 +30,14 @@ body {
         text-align:center;
          background:#076380;
          color:#f5f6f8;
-        font-size: 30 px;
+        font-size: 30px;
         padding: 18px 28px;
         border-radius: 5px;
         margin-bottom: 25px;
     }
    
     form{
-        padding: 16px 18px 20 px;
+        padding: 16px 18px 20px;
     }
    
     .linha {
@@ -47,8 +45,8 @@ body {
     align-items: center;
     justify-content: center;
     gap: 5px;
-    margin-bottom:  14px;
-    width: 80%;
+    margin-bottom:14px;
+    width:80%;
     max-width:600px;
     }
  
@@ -93,8 +91,70 @@ body {
     .btn-azul:hover {background: #065b9a;} 
 
     .btn-cinza {background: #777272; color: #f7f5f5;}
-    .btn-cinza :hover {background: #1f1b1b;}
+    .btn-cinza :hover {background: #740606;}
+    
+    .btn-verde {background-color:rgb(44, 182, 1); color: #fafcfa;}
+    .btn-verde:hover {background-color: #39fc09;}
 
+/* Cartão de agendamento */
+.ag-card {
+  border: 1px solid #1506e6;
+  border-radius: 12px;
+  background: #9cbbda;
+  padding: 12px 14px;
+  margin: 12px 0;
+  box-shadow: 0 2px 6px rgba(243, 242, 242, 0.06);
+  max-width: 520px;    
+}
+
+/* Cabeçalho */
+.ag-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.ag-header h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #0a0a0a;
+}
+.ag-created {
+  opacity: .6;
+  font-size: 12px;
+}
+
+/* Corpo */
+.ag-body {
+  line-height: 1.5;
+  color: #080808;
+}
+.ag-body .row {
+  margin: 2px 0;
+}
+.ag-body strong {
+  color: #1a09b3;
+}
+
+/* Rodapé */
+.ag-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end; 
+}
+.ag-remove {
+  background: #fc3030;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.ag-remove:hover { background: #e3e3e3; }
+
+
+#listaAgendamentos { width: 100%; display: flex; flex-direction: column; align-items: flex-start; }
 .form-content{
     display: flex;
     flex-direction: column;
@@ -104,4 +164,3 @@ body {
     margin:0px; 
     
 }
-
