@@ -88,7 +88,7 @@ Resposavel: Lorena
 
 A Tela poderá ser acessada através das paginas principais profissional/paciente.
 
-![agendamento](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/main/codigo-fonte/tela-de-agendamento/tela%20de%20agendamento.png)
+![agendamento](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/b58f662dccc71cef15dbf06c486a09f82c7d2466/codigo-fonte/tela-de-agendamento/teladeagendaamento.jpeg)
 
 
 ### Funcionalidade atendida:
@@ -102,7 +102,7 @@ Usuario/ profissional poderá agendar consultas.
 
 2- CSS
 
-3-
+3-JAVASCRIPT
 _______________________________________________________________________________________
 Programação de Funcionalidades
 Implementação da aplicação descrita por meio dos requisitos codificados.
