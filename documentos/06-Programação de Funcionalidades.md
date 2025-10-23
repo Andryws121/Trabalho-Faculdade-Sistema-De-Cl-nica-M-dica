@@ -1,19 +1,35 @@
-## Título da funcionalidade
+# Programação de Funcionalidades
 
 <span style="color:red">Pré-requisitos: <a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/main/documentos/02-Especifica%C3%A7%C3%A3o%20do%20Projeto.md"> Especificação do Projeto</a></span>, <a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/main/documentos/03-Metodologia.md"> Metodologia</a>, <a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/main/documentos/04-Projeto%20de%20Interface.md"> Projeto de Interface</a>. 
 
-Tela de Login (RF-001)Responsável: Ozias
+### Tela de Login (RF-02) 
+Responsável: Ozias
 
-Exemplo da tela de login
+Exemplo da tela de login:
+
 ![LOGIN](../documentos/img/tela_de_login.png)
 
 
-## Requisito atendido
-O acesso a tela de cadastro poderá ser feito através da opção de menu “Cadastrar”. 
+#### Requisito atendido
 
-## Instruções de acesso
+RF-02	A aplicação deve permitir que o paciente e profissional da saúde façam login.
 
-## APRESENTAÇÃO E NAVEGAÇÃO
+
+#### Artefatos da funcionalidade
+
+●Exemplo.html
+
+●Exemplo.css
+
+●Exemplo.js
+
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL:
+
+
+### APRESENTAÇÃO E NAVEGAÇÃO
 A plataforma Medzo é um sistema para a área da saúde, acessível via navegador.
 A tela de login, com design azul, pede e-mail e senha para acesso.
 A interface é intuitiva, oferecendo opções para entrar, cadastrar ou recuperar a senha.
