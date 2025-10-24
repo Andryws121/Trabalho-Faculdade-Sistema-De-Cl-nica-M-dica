@@ -30,29 +30,63 @@ Abra um navegador de Internet e informe a seguinte URL:
 
 
 
-### Tela da Biografia Médica (RF-001) 
+
+### Tela de Seleção de Cadastro (RF-002) 
 Responsável: Ozias
 
-Exemplo da tela de Biografia Médica:
+Exemplo da tela de login:
 
-<img width="2559" height="1315" alt="image" src="https://github.com/user-attachments/assets/acec5072-590d-4227-8345-8c6f9fc270c9" />
+<img width="2559" height="1317" alt="image" src="https://github.com/user-attachments/assets/b8d13db0-1b1f-414b-b800-b3de16592c1c" />
+
 
 #### Requisito atendido
 
-RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
+RF-00X	A aplicação deve...
 
 #### Artefatos da funcionalidade
 
-●biografia.html
+●Tela_de_cadastro.html
 
-●biografia.css
+●Tela_de_cadastro.css
 
-●biografia.js
-
+●Tela_de_cadastro.js
 
 #### Instruções de acesso
 
-Abra um navegador de Internet e informe a seguinte URL:
+Abra um navegador de Internet e informe a seguinte URL
+Passo 2.
+Passo 3. 
+
+
+
+
+
+### Tela de Cadastro Médico (RF-002) 
+Responsável: Ozias
+
+Exemplo da tela de Cadastro Médico:
+
+<img width="2560" height="1316" alt="image" src="https://github.com/user-attachments/assets/67e3f85a-fc1c-40e3-98a4-0c9ed8869de8" />
+
+
+
+#### Requisito atendido
+
+RF-00X	A aplicação deve...
+
+#### Artefatos da funcionalidade
+
+●cadastro_medico.html
+
+●cadastro_medico.css
+
+●script.js
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL
+Passo 2.
+Passo 3. 
 
 
 
@@ -76,61 +110,6 @@ RF-001	A aplicação deve permitir que o paciente e profissional da saúde faça
 ●style.css
 
 ●script.js
-
-
-#### Instruções de acesso
-
-Abra um navegador de Internet e informe a seguinte URL:
-
-
-
-
-### Tela de Recuperação de Senha (RF-001) 
-Responsável: Ozias
-
-Exemplo da tela de Recuperação de Senha:
-
-<img width="2560" height="1314" alt="image" src="https://github.com/user-attachments/assets/117c5f28-079e-4dea-91ed-e4da1496d5e9" />
-
-
-
-#### Requisito atendido
-
-RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
-
-#### Artefatos da funcionalidade
-
-●esquecisenha.html
-
-●esquecisenha.css
-
-●esquecisenha.js
-
-
-#### Instruções de acesso
-
-Abra um navegador de Internet e informe a seguinte URL:
-
-
-### Tela do Menu de Busca (RF-001) 
-Responsável: 
-
-Exemplo da tela do Menu de Busca:
-
-<img width="2545" height="1316" alt="image" src="https://github.com/user-attachments/assets/9101b4e6-33f4-4aa7-a59c-2961242034e8" />
-
-
-#### Requisito atendido
-
-RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
-
-#### Artefatos da funcionalidade
-
-●menubusca.html
-
-●script.css
-
-●style.js
 
 
 #### Instruções de acesso
@@ -168,6 +147,35 @@ Passo 3.
 
 
 
+### Tela do Menu de Busca (RF-001) 
+Responsável: 
+
+Exemplo da tela do Menu de Busca:
+
+<img width="2545" height="1316" alt="image" src="https://github.com/user-attachments/assets/9101b4e6-33f4-4aa7-a59c-2961242034e8" />
+
+
+#### Requisito atendido
+
+RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
+
+#### Artefatos da funcionalidade
+
+●menubusca.html
+
+●script.css
+
+●style.js
+
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL:
+
+
+
+
+
 ### tela de Agenda (RF-005)
 Resposavel: Ozias
 
@@ -193,6 +201,7 @@ RF-00X	A aplicação deve...
 Abra um navegador de Internet e informe a seguinte URL
 Passo 2.
 Passo 3.
+
 
 
 
@@ -227,61 +236,65 @@ Passo 3.
 
 
 
-### Tela de Seleção de Cadastro (RF-002) 
+
+### Tela da Biografia Médica (RF-001) 
 Responsável: Ozias
 
-Exemplo da tela de login:
+Exemplo da tela de Biografia Médica:
 
-<img width="2559" height="1317" alt="image" src="https://github.com/user-attachments/assets/b8d13db0-1b1f-414b-b800-b3de16592c1c" />
+<img width="2559" height="1315" alt="image" src="https://github.com/user-attachments/assets/acec5072-590d-4227-8345-8c6f9fc270c9" />
+
+#### Requisito atendido
+
+RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
+
+#### Artefatos da funcionalidade
+
+●biografia.html
+
+●biografia.css
+
+●biografia.js
+
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL:
+
+
+
+
+
+### Tela de Recuperação de Senha (RF-001) 
+Responsável: Ozias
+
+Exemplo da tela de Recuperação de Senha:
+
+<img width="2560" height="1314" alt="image" src="https://github.com/user-attachments/assets/117c5f28-079e-4dea-91ed-e4da1496d5e9" />
+
 
 
 #### Requisito atendido
 
-RF-00X	A aplicação deve...
+RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
 
 #### Artefatos da funcionalidade
 
-●Tela_de_cadastro.html
+●esquecisenha.html
 
-●Tela_de_cadastro.css
+●esquecisenha.css
 
-●Tela_de_cadastro.js
+●esquecisenha.js
+
 
 #### Instruções de acesso
 
-Abra um navegador de Internet e informe a seguinte URL
-Passo 2.
-Passo 3. 
+Abra um navegador de Internet e informe a seguinte URL:
 
 
 
 
-### Tela de Cadastro Médico (RF-002) 
-Responsável: Ozias
 
-Exemplo da tela de Cadastro Médico:
-
-<img width="2560" height="1316" alt="image" src="https://github.com/user-attachments/assets/67e3f85a-fc1c-40e3-98a4-0c9ed8869de8" />
-
-
-
-#### Requisito atendido
-
-RF-00X	A aplicação deve...
-
-#### Artefatos da funcionalidade
-
-●cadastro_medico.html
-
-●cadastro_medico.css
-
-●script.js
-
-#### Instruções de acesso
-
-Abra um navegador de Internet e informe a seguinte URL
-Passo 2.
-Passo 3. 
 
 
 
