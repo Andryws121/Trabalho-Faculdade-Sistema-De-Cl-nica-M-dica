@@ -168,3 +168,16 @@ body {
         width: auto; 
     }
 }
+/* --- ESTILOS DE VALIDAÇÃO --- */
+.error-text {
+    color: #D32F2F; 
+    font-size: 12px;
+    margin-top: 5px;
+    display: block; 
+    height: 15px; 
+}
+
+.form-group input.error {
+    border-color: #D32F2F; 
+    background-color: #FFCDD2;
+}

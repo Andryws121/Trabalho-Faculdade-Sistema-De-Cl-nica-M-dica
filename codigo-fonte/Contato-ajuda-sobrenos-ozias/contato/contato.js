@@ -50,12 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function isValidEmail(email) {
-        // 1. Garante que o e-mail é um texto e não está vazio
+        
         if (typeof email !== 'string' || email.length === 0) {
             return false;
         }
 
-        // 2. Verifica se contém o símbolo "@" e se não há espaços
+        // 2. Verifica se contém o símbolo @ e se não há espaços
         if (!email.includes('@') || email.includes(' ')) {
             return false;
         }

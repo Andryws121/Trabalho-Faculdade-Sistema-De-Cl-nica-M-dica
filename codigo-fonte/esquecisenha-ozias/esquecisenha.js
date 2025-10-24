@@ -1,44 +1,57 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
 
+    const form = document.querySelector('form');
+    const input = document.getElementById('user_identifier');
+    const errorMessage = document.getElementById('error-message');
+    const recoveryFormContainer = document.querySelector('.recovery-form');
 
-    const recoveryForm = document.querySelector('form');
-    const inputIdentifier = document.getElementById('user_identifier');
-    const btnVoltar = document.querySelector('.btn-secondary');
-    const container = document.querySelector('.recovery-form');
-
-
-    recoveryForm.addEventListener('submit', function(event) {
-        
-        event.preventDefault(); 
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const value = input.value.trim();
 
         
-        const identifierValue = inputIdentifier.value.trim(); 
-
-        if (identifierValue === '') {
-            
-            alert('Por favor, preencha o campo obrigatório.');
+        if (value === '') {
+            showError('O campo não pode estar vazio.');
             return; 
         }
 
-       
-        container.innerHTML = ''; 
+        if (value.length < 3) {
+            showError('Por favor, insira um valor válido (mínimo 3 caracteres).');
+            return;
+        }
+        clearError();
+        showSuccessMessage(value);
+    });
+    input.addEventListener('input', () => {
+        clearError();
+    });
 
-        
-        const successMessage = document.createElement('div');
-        successMessage.className = 'feedback-message success';
-        successMessage.innerHTML = `
-            <h2>Verifique seu e-mail</h2>
-            <p>Se um usuário com <strong>${identifierValue}</strong> for encontrado em nosso sistema, um link para redefinição de senha foi enviado para o e-mail associado.</p>
-            <a href="#" class="btn btn-primary" onclick="window.location.reload()">Tentar novamente</a>
+    /**
+    @param {string} message 
+     */
+    function showError(message) {
+        errorMessage.textContent = message;
+        input.classList.add('error');
+    }
+    function clearError() {
+        errorMessage.textContent = '';
+        input.classList.remove('error');
+    }
+
+    /**
+
+     * @param {string} identifier 
+     */
+    function showSuccessMessage(identifier) {
+
+        recoveryFormContainer.innerHTML = `
+            <div style="text-align: center;">
+                <h2>Verifique seu e-mail</h2>
+                <p style="font-size: 16px; line-height: 1.6; color: #333;">
+                    Se um usuário com <strong>${identifier}</strong> for encontrado em nosso sistema, um link para redefinição de senha foi enviado para o e-mail associado.
+                </p>
+                <a href="esquecisenha.html" class="btn btn-primary" style="margin-top: 20px;">Tentar novamente</a>
+            </div>
         `;
-        container.appendChild(successMessage);
-    });
-
-    // 3. FUNCIONALIDADE DO BOTÃO "VOLTAR"
-    btnVoltar.addEventListener('click', function() {
-    
-        history.back();
-
-    });
-
+    }
 });
