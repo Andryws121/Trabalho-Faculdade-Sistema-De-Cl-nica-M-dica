@@ -7,8 +7,7 @@ Responsável: Ozias
 
 Exemplo da tela de login:
 
-![LOGIN](../documentos/img/tela_de_login.png)
-
+<img width="2560" height="1316" alt="image" src="https://github.com/user-attachments/assets/32d73ff6-7dca-41ed-aae7-77a74ad42ca9" />
 
 #### Requisito atendido
 
@@ -16,11 +15,11 @@ RF-001	A aplicação deve permitir que o paciente e profissional da saúde faça
 
 #### Artefatos da funcionalidade
 
-●Exemplo.html
+●tela_login.html
 
-●Exemplo.css
+●style_login.css
 
-●Exemplo.js
+●script_login.js
 
 
 #### Instruções de acesso
@@ -29,12 +28,212 @@ Abra um navegador de Internet e informe a seguinte URL:
 
 
 
-### Tela de Cadastro (RF-002) 
+
+
+### Tela da Biografia Médica (RF-001) 
+Responsável: Ozias
+
+Exemplo da tela de Biografia Médica:
+
+<img width="2559" height="1315" alt="image" src="https://github.com/user-attachments/assets/acec5072-590d-4227-8345-8c6f9fc270c9" />
+
+#### Requisito atendido
+
+RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
+
+#### Artefatos da funcionalidade
+
+●biografia.html
+
+●biografia.css
+
+●biografia.js
+
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL:
+
+
+
+
+### Tela da Cadastro Paciente (RF-001) 
+Responsável: 
+
+Exemplo da tela de Cadastro Paciente:
+
+<img width="2542" height="1299" alt="image" src="https://github.com/user-attachments/assets/b472af19-0fbb-4da7-bc2c-dcfc58799116" />
+
+
+#### Requisito atendido
+
+RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
+
+#### Artefatos da funcionalidade
+
+●index.html
+
+●style.css
+
+●script.js
+
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL:
+
+
+
+
+### Tela de Recuperação de Senha (RF-001) 
+Responsável: Ozias
+
+Exemplo da tela de Recuperação de Senha:
+
+<img width="2560" height="1314" alt="image" src="https://github.com/user-attachments/assets/117c5f28-079e-4dea-91ed-e4da1496d5e9" />
+
+
+
+#### Requisito atendido
+
+RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
+
+#### Artefatos da funcionalidade
+
+●esquecisenha.html
+
+●esquecisenha.css
+
+●esquecisenha.js
+
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL:
+
+
+### Tela do Menu de Busca (RF-001) 
+Responsável: 
+
+Exemplo da tela do Menu de Busca:
+
+<img width="2545" height="1316" alt="image" src="https://github.com/user-attachments/assets/9101b4e6-33f4-4aa7-a59c-2961242034e8" />
+
+
+#### Requisito atendido
+
+RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
+
+#### Artefatos da funcionalidade
+
+●menubusca.html
+
+●script.css
+
+●style.js
+
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL:
+
+
+
+
+### tela do Menu Principal (RF-005)
+Resposavel: Gustavo
+
+Exemplo da tela do Menu Principal: 
+
+<img width="2554" height="1292" alt="image" src="https://github.com/user-attachments/assets/9bd7cad8-784e-4ae7-96c6-06f20df0a352" />
+
+#### Requisito atendido
+
+RF-00X	A aplicação deve...
+
+#### Artefatos da funcionalidade
+
+●Menu.html
+
+●Menu.css
+
+●Menu.js
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL
+Passo 2.
+Passo 3. 
+
+
+
+
+### tela de Agenda (RF-005)
+Resposavel: Ozias
+
+Exemplo da tela de Agenda: 
+
+<img width="2557" height="1316" alt="image" src="https://github.com/user-attachments/assets/9e71843b-65d0-4069-ad39-ae20b20b0b47" />
+
+
+#### Requisito atendido
+
+RF-00X	A aplicação deve...
+
+#### Artefatos da funcionalidade
+
+●agenda.html
+
+●agenda.css
+
+●agenda.js
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL
+Passo 2.
+Passo 3.
+
+
+
+
+### tela de Agendamento de Consulta (RF-005)
+Resposavel: Lorena
+
+Exemplo da tela de Agenda: 
+
+<img width="2560" height="1315" alt="image" src="https://github.com/user-attachments/assets/7790fbbb-b49e-4fba-bcfe-880cf5d77b2c" />
+
+
+#### Requisito atendido
+
+RF-00X	A aplicação deve...
+
+#### Artefatos da funcionalidade
+
+●telaagendamento.html
+
+●telaagendamento.css
+
+●telaagendamento.js
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL
+Passo 2.
+Passo 3.
+
+
+
+
+
+### Tela de Seleção de Cadastro (RF-002) 
 Responsável: Ozias
 
 Exemplo da tela de login:
 
-![LOGIN](../documentos/img/tela_de_cadastro.png)
+<img width="2559" height="1317" alt="image" src="https://github.com/user-attachments/assets/b8d13db0-1b1f-414b-b800-b3de16592c1c" />
+
 
 #### Requisito atendido
 
@@ -42,37 +241,11 @@ RF-00X	A aplicação deve...
 
 #### Artefatos da funcionalidade
 
-●Exemplo.html
+●Tela_de_cadastro.html
 
-●Exemplo.css
+●Tela_de_cadastro.css
 
-●Exemplo.js
-
-#### Instruções de acesso
-
-Abra um navegador de Internet e informe a seguinte URL
-Passo 2.
-Passo 3. 
-
-
-### Tela de Cadastro de pacientes (RF-003)
-Responsável: Sérvulo
-
-Exemplo da tela de cadastro de pacientes: 
-
-![Untitled Diagram-Page-1 drawio](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/main/documentos/img/cadastro_Paciente.png)
-
-#### Requisito atendido
-
-RF-00X	A aplicação deve...
-
-#### Artefatos da funcionalidade
-
-●Exemplo.html
-
-●Exemplo.css
-
-●Exemplo.js
+●Tela_de_cadastro.js
 
 #### Instruções de acesso
 
@@ -82,12 +255,14 @@ Passo 3.
 
 
 
-### tela de agendamento de consultas (RF-004)
-Resposavel: Lorena
 
-Exemplo da tela de agendamento de consultas: 
+### Tela de Cadastro Médico (RF-002) 
+Responsável: Ozias
 
-![agendamento](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/b58f662dccc71cef15dbf06c486a09f82c7d2466/codigo-fonte/tela-de-agendamento/teladeagendaamento.jpeg)
+Exemplo da tela de Cadastro Médico:
+
+<img width="2560" height="1316" alt="image" src="https://github.com/user-attachments/assets/67e3f85a-fc1c-40e3-98a4-0c9ed8869de8" />
+
 
 
 #### Requisito atendido
@@ -96,11 +271,11 @@ RF-00X	A aplicação deve...
 
 #### Artefatos da funcionalidade
 
-●Exemplo.html
+●cadastro_medico.html
 
-●Exemplo.css
+●cadastro_medico.css
 
-●Exemplo.js
+●script.js
 
 #### Instruções de acesso
 
@@ -108,29 +283,8 @@ Abra um navegador de Internet e informe a seguinte URL
 Passo 2.
 Passo 3. 
 
-_______________________________________________________________________________________
-Programação de Funcionalidades
-Implementação da aplicação descrita por meio dos requisitos codificados.
 
-[Utilize a estrutura abaixo para cada funcionalidade entregue na etapa]
 
-Título da funcionalidade
-[Adicionar imagem da funcionalidade/tela]
-
-Requisito atendido
-[RF-X: acréscimo à descrição do requisito atendido]
-
-Artefatos da funcionalidade
-[Adicione os nomes dos arquivos relacionados ao desenvolvimento da funcionalidade]
-
-Estrutura de Dados
-[Caso existe estrutura de dados, adicione aqui]
-
-Instruções de acesso
-[Adicione as orientações de acesso à funcionalidade]
-
-Responsável
-[Adição do nome do responsável pelo desenvolvimento da funcionalidade]
 
 Links Úteis :
 
