@@ -41,7 +41,7 @@ Exemplo da tela de login:
 
 #### Requisito atendido
 
-RF-00X	A aplicação deve...
+RF-01	A aplicação deve permitir cadastro de conta do paciente e profissional da saúde.
 
 #### Artefatos da funcionalidade
 
@@ -72,7 +72,7 @@ Exemplo da tela de Cadastro Médico:
 
 #### Requisito atendido
 
-RF-00X	A aplicação deve...
+RF-01	A aplicação deve permitir cadastro de conta do paciente e profissional da saúde.
 
 #### Artefatos da funcionalidade
 
@@ -101,7 +101,7 @@ Exemplo da tela de Cadastro Paciente:
 
 #### Requisito atendido
 
-RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
+RF-01	A aplicação deve permitir cadastro de conta do paciente e profissional da saúde.
 
 #### Artefatos da funcionalidade
 
@@ -128,7 +128,7 @@ Exemplo da tela do Menu Principal:
 
 #### Requisito atendido
 
-RF-00X	A aplicação deve...
+
 
 #### Artefatos da funcionalidade
 
@@ -157,7 +157,7 @@ Exemplo da tela do Menu de Busca:
 
 #### Requisito atendido
 
-RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
+RF-04	A aplicação deve permitir a funcionalidade de busca e filtro de pesquisa.
 
 #### Artefatos da funcionalidade
 
@@ -186,7 +186,7 @@ Exemplo da tela de Agenda:
 
 #### Requisito atendido
 
-RF-00X	A aplicação deve...
+RF-06	A aplicação deve permitir acesso a agenda.
 
 #### Artefatos da funcionalidade
 
@@ -216,7 +216,7 @@ Exemplo da tela de Agenda:
 
 #### Requisito atendido
 
-RF-00X	A aplicação deve...
+RF-03	A aplicação deve permitir marcação de consulta online.
 
 #### Artefatos da funcionalidade
 
@@ -246,7 +246,7 @@ Exemplo da tela de Biografia Médica:
 
 #### Requisito atendido
 
-RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
+RF-10	A aplicação deve permitir que o paciente tenha acesso a informações do profissional de saúde.
 
 #### Artefatos da funcionalidade
 
@@ -276,7 +276,7 @@ Exemplo da tela de Recuperação de Senha:
 
 #### Requisito atendido
 
-RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
+
 
 #### Artefatos da funcionalidade
 
