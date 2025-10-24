@@ -296,6 +296,36 @@ Abra um navegador de Internet e informe a seguinte URL:
 
 
 
+## Exemplo para próximas páginas 
+
+### Tela de XXXXXX (RF-001) 
+Responsável: XXXXX
+
+Exemplo da tela de XXXXXX:
+
+IMAGEM DA TELA
+
+
+#### Requisito atendido
+
+(se tiver)
+
+#### Artefatos da funcionalidade
+
+●xxxxxx.html
+
+●xxxx.css
+
+●xxxxx.js
+
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL:
+passo 2
+passo 3 
+passo 4
+
 
 
 
