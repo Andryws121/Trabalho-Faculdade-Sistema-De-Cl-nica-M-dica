@@ -62,7 +62,7 @@ Passo 3.
 
 
 ### Tela de Cadastro Médico (RF-002) 
-Responsável: Ozias
+Responsável: Andryws
 
 Exemplo da tela de Cadastro Médico:
 
@@ -92,7 +92,7 @@ Passo 3.
 
 
 ### Tela da Cadastro Paciente (RF-001) 
-Responsável: 
+Responsável: Sérvulo
 
 Exemplo da tela de Cadastro Paciente:
 
@@ -148,7 +148,7 @@ Passo 3.
 
 
 ### Tela do Menu de Busca (RF-001) 
-Responsável: 
+Responsável: Ozias
 
 Exemplo da tela do Menu de Busca:
 
