@@ -1,166 +1,181 @@
-  font-family: '( <link rel="stylesheet" href="https://fonts.googleapis,com/css?family=poetsen+one">)' system-ui;
-     background-color: #a7a3a3;
+body { 
+    font-family: 'Poetsen One', system-ui; 
+    background-color: #a7a3a3;
     display: flex;
     justify-content: center; 
-    align-items:flex-start;
+    align-items: flex-start;
     min-height: 100svh;
-    margin: 0px;
-    padding: top 0;
-    overflow:auto;
+    margin: 0;
+    padding-top: 0;
+    overflow: auto;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-  
-    }
+}
 
-   .consu{ 
-        box-shadow: 0 0px 8px  rgba(64, 27, 214, 0.15);
-        width: 50%;
-        max-width:900px;
-        overflow:auto;
-        padding: 20px;
-        margin: 40px auto;
-        border: 0.5px solid #19193b;
-        border-radius:1%;
-        background: url(img/imagemfundo.jpeg) ;
-    
-    }
+.consu { 
+    box-shadow: 0 0 8px rgba(64, 27, 214, 0.15);
+    width: 50%;
+    max-width: 900px;
+    overflow: auto;
+    padding: 20px;
+    margin: 40px auto;
+    border: 0.5px solid #19193b;
+    border-radius: 1%;
+    background: url(img/imagemfundo.jpeg);
+}
 
-    .consu h2{
-        text-align:center;
-         background:#076380;
-         color:#f5f6f8;
-        font-size: 30px;
-        padding: 18px 28px;
-        border-radius: 5px;
-        margin-bottom: 25px;
-    }
-   
-    form{
-        padding: 16px 18px 20px;
-    }
-   
-    .linha {
+.consu h2 {
+    text-align: center;
+    background: #076380;
+    color: #f5f6f8;
+    font-size: 30px;
+    padding: 18px 28px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+form {
+    padding: 16px 18px 20px;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    gap: 10px;
+    margin: 0; 
+}
+
+.linha {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
-    margin-bottom:14px;
-    width:80%;
-    max-width:600px;
-    }
- 
-    .linha label{
-        width: 100px;
-        text-align:left;
-        color: rgb(0, 0, 8);
-    }
-     .linha select,
-    .linha input,
-    .linha textarea
-    {
-        flex: 1;
-        padding: 3px;
-        border:  5 px solid #f0e0e0;
-        border-radius: 5px;
-        box-sizing: border-box;
-        width: 60%;
-        background: #ccc8c8;
-    }
+    margin-bottom: 14px;
+    width: 80%;
+    max-width: 600px;
+}
 
-    .linha textarea {height: 70px; resize:vertical;}
-    .botoes{
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        margin-top: 8px;
-    }
-    .botoes button{
-       flex: 1;
-       width:500px;
-        padding:8px 10px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        text-align: center;
-        font-weight: bold;
+.linha label {
+    width: 100px;
+    text-align: left;
+    color: rgb(0, 0, 8);
+}
 
-    }
-   
-    .btn-azul {background-color: #004c80; color: #fff;}
-    .btn-azul:hover {background: #065b9a;} 
+.linha select,
+.linha input,
+.linha textarea {
+    flex: 1;
+    padding: 3px;
+    border: 5px solid #f0e0e0; /* Corrigido: '5 px' para '5px' */
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 60%;
+    background: #ccc8c8;
+}
 
-    .btn-cinza {background: #777272; color: #f7f5f5;}
-    .btn-cinza :hover {background: #740606;}
-    
-    .btn-verde {background-color:rgb(44, 182, 1); color: #fafcfa;}
-    .btn-verde:hover {background-color: #39fc09;}
+.linha textarea {
+    height: 70px; 
+    resize: vertical;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+.botoes button {
+    flex: 1;
+    width: 500px;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn-azul { background-color: #004c80; color: #fff; }
+.btn-azul:hover { background: #065b9a; } 
+
+.btn-cinza { background: #777272; color: #f7f5f5; }
+.btn-cinza:hover { background: #740606; } /* Corrigido: Removido espaço antes do :hover */
+
+.btn-verde { background-color: rgb(44, 182, 1); color: #fafcfa; }
+.btn-verde:hover { background-color: #39fc09; }
 
 /* Cartão de agendamento */
+#listaAgendamentos { 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+
 .ag-card {
-  border: 1px solid #1506e6;
-  border-radius: 12px;
-  background: #9cbbda;
-  padding: 12px 14px;
-  margin: 12px 0;
-  box-shadow: 0 2px 6px rgba(243, 242, 242, 0.06);
-  max-width: 520px;    
+    border: 1px solid #1506e6;
+    border-radius: 12px;
+    background: #9cbbda;
+    padding: 12px 14px;
+    margin: 12px 0;
+    box-shadow: 0 2px 6px rgba(243, 242, 242, 0.06);
+    max-width: 520px; 	
 }
 
 /* Cabeçalho */
 .ag-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
 }
+
 .ag-header h4 {
-  margin: 0;
-  font-size: 16px;
-  color: #0a0a0a;
+    margin: 0;
+    font-size: 16px;
+    color: #0a0a0a;
 }
+
 .ag-created {
-  opacity: .6;
-  font-size: 12px;
+    opacity: .6;
+    font-size: 12px;
 }
 
 /* Corpo */
 .ag-body {
-  line-height: 1.5;
-  color: #080808;
+    line-height: 1.5;
+    color: #080808;
 }
+
 .ag-body .row {
-  margin: 2px 0;
+    margin: 2px 0;
 }
+
 .ag-body strong {
-  color: #1a09b3;
+    color: #1a09b3;
 }
 
 /* Rodapé */
 .ag-footer {
-  margin-top: 10px;
-  display: flex;
-  justify-content: flex-end; 
-}
-.ag-remove {
-  background: #fc3030;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 6px 10px;
-  cursor: pointer;
-  font-weight: 600;
-}
-.ag-remove:hover { background: #e3e3e3; }
-
-
-#listaAgendamentos { width: 100%; display: flex; flex-direction: column; align-items: flex-start; }
-.form-content{
+    margin-top: 10px;
     display: flex;
-    flex-direction: column;
-    align-items:center; 
-    justify-content: center;
-    gap: 10px;
-    margin:0px; 
-    
+    justify-content: flex-end; 
+}
+
+.ag-remove {
+    background: #fc3030;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.ag-remove:hover { 
+    background: #e3e3e3; 
 }

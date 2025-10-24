@@ -11,6 +11,7 @@
     --status-cancelado: #6c757d;
     --status-livre: #e9ecef;
     --fonte-principal: 'Poetsen One', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
 
 body {
@@ -69,13 +70,16 @@ body {
     align-items: center;
     gap: 8px;
     transition: background-color 0.3s;
+    
 }
 
 .btn-agendar-novo {
     background-color: var(--cor-primaria);
     color: var(--cor-branco);
+    
 }
 .btn-agendar-novo:hover { background-color: #0056b3; }
+
 
 .exit-link {
     background-color: var(--status-bloqueado);
