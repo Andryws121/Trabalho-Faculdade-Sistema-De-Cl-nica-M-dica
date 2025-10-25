@@ -24,7 +24,7 @@ RF-001	A aplicação deve permitir que o paciente e profissional da saúde faça
 
 #### Instruções de acesso
 
-Abra um navegador de Internet e informe a seguinte URL:
+Passo 1: Abra um navegador de Internet e informe a seguinte URL
 
 
 
@@ -53,9 +53,10 @@ RF-01	A aplicação deve permitir cadastro de conta do paciente e profissional d
 
 #### Instruções de acesso
 
-Abra um navegador de Internet e informe a seguinte URL
-Passo 2.
-Passo 3. 
+Passo 1: Abra um navegador de Internet e informe a seguinte URL
+
+Passo 2. Clique no botão "Cadastrar" da tela de login 
+
 
 
 
@@ -84,10 +85,11 @@ RF-01	A aplicação deve permitir cadastro de conta do paciente e profissional d
 
 #### Instruções de acesso
 
-Abra um navegador de Internet e informe a seguinte URL
-Passo 2.
-Passo 3. 
+Passo 1: Abra um navegador de Internet e informe a seguinte URL
 
+Passo 2: Clique no botão "Cadastrar" da tela de login.
+
+Passo 3: selecione a opção "médico" da tela de seleção de cadastro e clique em "cadastrar"
 
 
 
@@ -114,7 +116,11 @@ RF-01	A aplicação deve permitir cadastro de conta do paciente e profissional d
 
 #### Instruções de acesso
 
-Abra um navegador de Internet e informe a seguinte URL:
+Passo 1: Abra um navegador de Internet e informe a seguinte URL
+
+Passo 2: Clique no botão "Cadastrar" da tela de login.
+
+Passo 3: selecione a opção "paciente" da tela de seleção de cadastro e clique em "cadastrar"
 
 
 
@@ -140,9 +146,11 @@ Exemplo da tela do Menu Principal:
 
 #### Instruções de acesso
 
-Abra um navegador de Internet e informe a seguinte URL
-Passo 2.
-Passo 3. 
+Passo 1: Abra um navegador de Internet e informe a seguinte URL
+
+Passo 2: Coloque os seu email e senha nos campos da tela de login 
+
+Passo 3: Clique no botão "entrar" da tela de login.
 
 
 
