@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Medzo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style_login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <header class="login-header">
+            <div class="logo">
+                <img src="../tela-de-login-ozias/img/Logo_PNG.png" alt="Logo Medzo">
+            </div>
+            <h1>Seja Bem-vindo</h1>
+            <nav class="header-nav">
+                <a href="../Contato-ajuda-sobrenos-ozias/contato/contato.html">contato</a>  
+                <a href="../Contato-ajuda-sobrenos-ozias/ajuda/ajuda.html">ajuda</a>
+                <a href="../Contato-ajuda-sobrenos-ozias/sobrenos/sobrenos.html">sobrenos</a>
+            </nav>
+        </header>
+        <main class="login-body">
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="email" id="loginEmail" placeholder="E-MAIL" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="loginPassword" placeholder="SENHA" required>
+                    <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+                </div>
+                <a href="/codigo-fonte/esquecisenha-ozias/esquecisenha.html" class="forgot-password">Esqueci minha senha</a>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+                <a href="../tela-de-cadastro-ozias/tela_de_cadastro.html" class="btn btn-secondary">Cadastrar</a>
+            </form>
+        </main>
+        <footer class="footer">
+            <p class="footer-text">Copyright (c) 2025 Clínica Medzo | Todos os direitos reservados</p>
+        </footer>
+    </div>
+    <script src="script_login.js"></script>
+</body>
+</html>

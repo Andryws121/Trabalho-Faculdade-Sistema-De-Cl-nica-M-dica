@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medzo - Crie sua Conta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Poetsen+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="tela_de_cadastro.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel login-panel">
+            <div class="logo">
+                <img src="../tela-de-login-ozias/img/logo_sem_nome.png" alt="Logo da Medzo">
+            </div>
+            <h1 class="titulo-logo">Medzo</h1>
+            <h2>Bem-vindo de volta!</h2>
+            <p>Já possui uma conta? Volte para a tela de login.</p>
+            <button type="button" class="btn btn-outline" id="back-to-login-btn">Entrar</button>
+            <a href="/codigo-fonte/esquecisenha-ozias/esquecisenha.html" class="forgot-password">Esqueci minha senha</a>
+        </div>
+
+        <div class="panel registration-panel">
+            <h2>Crie sua conta</h2>
+            <div class="form-content">
+                <div class="custom-select-wrapper">
+                    <div class="custom-select">
+                        <div class="select-trigger">
+                            <span>Selecionar tipo de conta</span>
+                        </div>
+                        <div class="options">
+                            <div class="option" data-value="medico">Médico</div>
+                            <div class="option" data-value="paciente">Paciente</div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="user_type">
+                </div>
+
+                <button type="button" id="continue-btn" class="btn btn-secondary">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+    <script src="tela_de_cadastro.js"></script>
+</body>
+
+</html>
