@@ -1,17 +1,5 @@
 // BOTÕES DE CIMA
 
-document.getElementById("perfilButton").addEventListener("click", function() {
-  window.location.href = "perfil.html";
-});
-
-document.getElementById("consultasButton").addEventListener("click", function() {
-  window.location.href = "consultas.html";
-});
-
-document.getElementById("configButton").addEventListener("click", function() {
-  window.location.href = "configuracoes.html";
-});
-
 document.getElementById("menuBuscaButton").addEventListener("click", function() {
   window.location.href = "menuBusca.html";
 });
