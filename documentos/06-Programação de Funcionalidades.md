@@ -24,7 +24,7 @@ RF-001	A aplicação deve permitir que o paciente e profissional da saúde faça
 
 #### Instruções de acesso
 
-Passo 1: Abra um navegador de Internet e informe a seguinte URL
+Passo 1: Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 
 
 
@@ -53,7 +53,7 @@ RF-01	A aplicação deve permitir cadastro de conta do paciente e profissional d
 
 #### Instruções de acesso
 
-Passo 1: Abra um navegador de Internet e informe a seguinte URL
+Passo 1: Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 
 Passo 2. Clique no botão "Cadastrar" da tela de login 
 
@@ -85,7 +85,7 @@ RF-01	A aplicação deve permitir cadastro de conta do paciente e profissional d
 
 #### Instruções de acesso
 
-Passo 1: Abra um navegador de Internet e informe a seguinte URL
+Passo 1: Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 
 Passo 2: Clique no botão "Cadastrar" da tela de login.
 
@@ -116,7 +116,7 @@ RF-01	A aplicação deve permitir cadastro de conta do paciente e profissional d
 
 #### Instruções de acesso
 
-Passo 1: Abra um navegador de Internet e informe a seguinte URL
+Passo 1: Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 
 Passo 2: Clique no botão "Cadastrar" da tela de login.
 
@@ -146,7 +146,7 @@ Exemplo da tela do Menu Principal:
 
 #### Instruções de acesso
 
-Passo 1: Abra um navegador de Internet e informe a seguinte URL
+Passo 1: Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 
 Passo 2: Coloque os seu email e senha nos campos da tela de login 
 
@@ -178,7 +178,7 @@ RF-04	A aplicação deve permitir a funcionalidade de busca e filtro de pesquisa
 
 #### Instruções de acesso
 
-Abra um navegador de Internet e informe a seguinte URL:
+Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 
 
 
@@ -206,7 +206,7 @@ RF-06	A aplicação deve permitir acesso a agenda.
 
 #### Instruções de acesso
 
-Abra um navegador de Internet e informe a seguinte URL
+Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 Passo 2.
 Passo 3.
 
@@ -236,7 +236,7 @@ RF-03	A aplicação deve permitir marcação de consulta online.
 
 #### Instruções de acesso
 
-Abra um navegador de Internet e informe a seguinte URL
+Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 Passo 2.
 Passo 3.
 
@@ -267,7 +267,7 @@ RF-10	A aplicação deve permitir que o paciente tenha acesso a informações do
 
 #### Instruções de acesso
 
-Abra um navegador de Internet e informe a seguinte URL:
+Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 
 
 
@@ -297,7 +297,7 @@ Exemplo da tela de Recuperação de Senha:
 
 #### Instruções de acesso
 
-Abra um navegador de Internet e informe a seguinte URL:
+Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 
 
 
@@ -329,7 +329,7 @@ IMAGEM DA TELA
 
 #### Instruções de acesso
 
-Abra um navegador de Internet e informe a seguinte URL:
+Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 passo 2
 passo 3 
 passo 4
