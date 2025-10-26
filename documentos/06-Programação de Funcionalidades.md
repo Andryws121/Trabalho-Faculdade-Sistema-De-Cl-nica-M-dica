@@ -62,7 +62,7 @@ Passo 2. Clique no botão "Cadastrar" da tela de login
 
 
 
-### Tela de Cadastro Médico (RF-002) 
+### Tela de Cadastro Médico (RF-003) 
 Responsável: Andryws
 
 Exemplo da tela de Cadastro Médico:
@@ -93,7 +93,7 @@ Passo 3: selecione a opção "médico" da tela de seleção de cadastro e clique
 
 
 
-### Tela da Cadastro Paciente (RF-001) 
+### Tela da Cadastro Paciente (RF-004) 
 Responsável: Sérvulo
 
 Exemplo da tela de Cadastro Paciente:
@@ -155,7 +155,7 @@ Passo 3: Clique no botão "entrar" da tela de login.
 
 
 
-### Tela do Menu de Busca (RF-001) 
+### Tela do Menu de Busca (RF-006) 
 Responsável: Ozias
 
 Exemplo da tela do Menu de Busca:
@@ -184,7 +184,7 @@ Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-p
 
 
 
-### tela de Agenda (RF-005)
+### tela de Agenda (RF-007)
 Resposavel: Ozias
 
 Exemplo da tela de Agenda: 
@@ -214,7 +214,7 @@ Passo 3.
 
 
 
-### tela de Agendamento de Consulta (RF-005)
+### tela de Agendamento de Consulta (RF-008)
 Resposavel: Lorena
 
 Exemplo da tela de Agenda: 
@@ -245,7 +245,7 @@ Passo 3.
 
 
 
-### Tela da Biografia Médica (RF-001) 
+### Tela da Biografia Médica (RF-009) 
 Responsável: Ozias
 
 Exemplo da tela de Biografia Médica:
@@ -273,7 +273,7 @@ Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-p
 
 
 
-### Tela de Recuperação de Senha (RF-001) 
+### Tela de Recuperação de Senha (RF-010) 
 Responsável: Ozias
 
 Exemplo da tela de Recuperação de Senha:
@@ -306,7 +306,7 @@ Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-p
 
 ## Exemplo para próximas páginas 
 
-### Tela de XXXXXX (RF-001) 
+### Tela de XXXXXX (RF-XXX) 
 Responsável: XXXXX
 
 Exemplo da tela de XXXXXX:
