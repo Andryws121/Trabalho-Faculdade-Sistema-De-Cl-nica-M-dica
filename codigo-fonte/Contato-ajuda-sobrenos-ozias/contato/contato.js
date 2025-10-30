@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     const contactForm = document.getElementById('contactForm');
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
@@ -7,86 +6,77 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.getElementById('btn-enviar');
     const feedbackMessage = document.getElementById('form-feedback');
 
+    
     contactForm.addEventListener('submit', (event) => {
+       
         event.preventDefault();
 
-        feedbackMessage.textContent = '';
-        feedbackMessage.className = '';
-
-        const nameValue = nameInput.value.trim();
-        const emailValue = emailInput.value.trim();
-        const messageValue = messageInput.value.trim();
+        // Limpa erros anteriores antes de uma nova validação
+        clearErrors();
         let isValid = true;
 
-        if (nameValue === '') {
-            showFeedback('Por favor, preencha seu nome completo.', 'error');
-            isValid = false;
-        } else if (!isValidEmail(emailValue)) { // Esta linha chama a nova função abaixo
-            showFeedback('Por favor, insira um endereço de email válido.', 'error');
-            isValid = false;
-        } else if (messageValue === '') {
-            showFeedback('Por favor, escreva sua mensagem.', 'error');
+        // --- VALIDAÇÃO DE CADA CAMPO INDIVIDUALMENTE ---
+
+        // Valida o campo Nome
+        if (nameInput.value.trim() === '') {
+            showError(nameInput, 'O campo nome é obrigatório.');
             isValid = false;
         }
 
+        // Valida o campo Email
+        if (emailInput.value.trim() === '') {
+            showError(emailInput, 'O campo email é obrigatório.');
+            isValid = false;
+        } else if (!isValidEmail(emailInput.value.trim())) {
+            showError(emailInput, 'Por favor, insira um endereço de email válido.');
+            isValid = false;
+        }
+
+        // Valida o campo Mensagem
+        if (messageInput.value.trim() === '') {
+            showError(messageInput, 'O campo mensagem é obrigatório.');
+            isValid = false;
+        }
+
+        // Se algum campo for inválido, exibe a mensagem de erro geral e interrompe
         if (!isValid) {
+            feedbackMessage.textContent = 'Por favor, corrija os campos destacados.';
+            feedbackMessage.className = 'feedback-error';
             return;
         }
-
         submitButton.disabled = true;
         submitButton.textContent = 'Enviando...';
-
         setTimeout(() => {
-            showFeedback('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
-            contactForm.reset();
+            feedbackMessage.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
+            feedbackMessage.className = 'feedback-success';
+            
+            contactForm.reset(); 
             submitButton.disabled = false;
             submitButton.textContent = 'Enviar';
-        }, 2000);
+        }, 1500); 
     });
 
-    function showFeedback(message, type) {
-        feedbackMessage.textContent = message;
-        feedbackMessage.className = type;
+    /**
+
+     * @param {HTMLElement} input 
+     */
+    function showError(input, message) {
+        input.classList.add('input-error');
+    }
+    function clearErrors() {
+        const errorInputs = document.querySelectorAll('.input-error');
+        errorInputs.forEach(input => input.classList.remove('input-error'));
+        feedbackMessage.textContent = '';
+        feedbackMessage.className = '';
     }
 
+    /**
+     * Valida o formato de um email usando uma Expressão Regular (Regex).
+     * @param {string} email - O email a ser validado.
+     * @returns {boolean} - Retorna true se o email for válido, false caso contrário.
+     */
     function isValidEmail(email) {
-        // 1. Garante que o e-mail é um texto e não está vazio
-        if (typeof email !== 'string' || email.length === 0) {
-            return false;
-        }
-
-        // 2. Verifica se contém o símbolo "@" e se não há espaços
-        if (!email.includes('@') || email.includes(' ')) {
-            return false;
-        }
-
-        
-        const parts = email.split('@');
-
-        
-        if (parts.length !== 2) {
-            return false;
-        }
-
-        const localPart = parts[0];
-        const domainPart = parts[1];
-
-        
-        if (localPart.length === 0 || domainPart.length === 0) {
-            return false;
-        }
-
-        if (!domainPart.includes('.')) {
-            return false;
-        }
-        
-        if (domainPart.endsWith('.')) {
-            return false;
-        }
-
-        
-        return true;
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
     }
-    
-    
 });

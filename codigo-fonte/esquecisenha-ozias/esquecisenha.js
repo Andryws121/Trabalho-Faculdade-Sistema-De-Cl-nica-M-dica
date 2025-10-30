@@ -1,44 +1,27 @@
-document.addEventListener('DOMContentLoaded', function() {
-
-
-    const recoveryForm = document.querySelector('form');
+// Aguarda o carregamento completo do HTML antes de executar o script
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
     const inputIdentifier = document.getElementById('user_identifier');
-    const btnVoltar = document.querySelector('.btn-secondary');
-    const container = document.querySelector('.recovery-form');
+    const errorMessage = document.getElementById('error-message');
+
+    form.addEventListener('submit', function (event) {
+
+        event.preventDefault();
 
 
-    recoveryForm.addEventListener('submit', function(event) {
-        
-        event.preventDefault(); 
-
-        
-        const identifierValue = inputIdentifier.value.trim(); 
+        const identifierValue = inputIdentifier.value.trim();
 
         if (identifierValue === '') {
-            
-            alert('Por favor, preencha o campo obrigatório.');
-            return; 
+            errorMessage.textContent = 'Por favor, preencha este campo.';
+            inputIdentifier.classList.add('input-error');
         }
+        else {
 
-       
-        container.innerHTML = ''; 
+            errorMessage.textContent = '';
+            inputIdentifier.classList.remove('input-error');
 
-        
-        const successMessage = document.createElement('div');
-        successMessage.className = 'feedback-message success';
-        successMessage.innerHTML = `
-            <h2>Verifique seu e-mail</h2>
-            <p>Se um usuário com <strong>${identifierValue}</strong> for encontrado em nosso sistema, um link para redefinição de senha foi enviado para o e-mail associado.</p>
-            <a href="#" class="btn btn-primary" onclick="window.location.reload()">Tentar novamente</a>
-        `;
-        container.appendChild(successMessage);
+            alert(`Link de recuperação enviado com sucesso para o e-mail associado a: "${identifierValue}"`);
+            form.reset();
+        }
     });
-
-    // 3. FUNCIONALIDADE DO BOTÃO "VOLTAR"
-    btnVoltar.addEventListener('click', function() {
-    
-        history.back();
-
-    });
-
 });

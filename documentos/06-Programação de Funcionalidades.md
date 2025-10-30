@@ -1,131 +1,341 @@
-## Título da funcionalidade
+# Programação de Funcionalidades
 
 <span style="color:red">Pré-requisitos: <a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/main/documentos/02-Especifica%C3%A7%C3%A3o%20do%20Projeto.md"> Especificação do Projeto</a></span>, <a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/main/documentos/03-Metodologia.md"> Metodologia</a>, <a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/main/documentos/04-Projeto%20de%20Interface.md"> Projeto de Interface</a>. 
 
-Tela de Login (RF-001)Responsável: Ozias
+### Tela de Login (RF-001) 
+Responsável: Ozias
 
-Exemplo da tela de login
-![LOGIN](../documentos/img/tela_de_login.png)
+Exemplo da tela de login:
 
+<img width="2560" height="1316" alt="image" src="https://github.com/user-attachments/assets/32d73ff6-7dca-41ed-aae7-77a74ad42ca9" />
 
-## Requisito atendido
-O acesso a tela de cadastro poderá ser feito através da opção de menu “Cadastrar”. 
+#### Requisito atendido
 
-## Instruções de acesso
+RF-001	A aplicação deve permitir que o paciente e profissional da saúde façam login.
 
-## APRESENTAÇÃO E NAVEGAÇÃO
-A plataforma Medzo é um sistema para a área da saúde, acessível via navegador.
-A tela de login, com design azul, pede e-mail e senha para acesso.
-A interface é intuitiva, oferecendo opções para entrar, cadastrar ou recuperar a senha.
-A navegação secundária inclui links para "contato", "ajuda" e "sobre nós".
+#### Artefatos da funcionalidade
 
-3. TECNOLOGIAS UTILIZADAS
-As estruturas de dados foram desenvolvidas com base em linguagens de marcação e de programação, a saber:
-HTML 
-CSS 
-JS 
+●tela_login.html
+
+●style_login.css
+
+●script_login.js
 
 
-O sistema é acessado através de um navegador de internet, utilizando a URL especificada para navegação.
-A tela principal do sistema oferece as opções de navegação "contato", "ajuda" e "sobre nós".
-Nessa mesma interface, encontra-se a opção para cadastro. Ao selecionar a opção "cadastrar", o usuário é direcionado para a página de registro, onde é possível escolher entre os perfis de médico ou paciente.
-Após a conclusão do cadastro, o usuário pode acessar sua conta. O sistema também disponibiliza a funcionalidade de recuperação de senha por meio da opção "esqueci a senha".
+#### Instruções de acesso
+
+Passo 1: Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 
 
 
-## **Título da funcionalidade**
-Tela de Cadastro (RF-002) Responsável: Ozias
-RF-002: O site deve permitir ao usuário cadastrar uma conta
-
-##**Exemplo da tela de cadastro**
-![LOGIN](../documentos/img/tela_de_cadastro.png)
-
-## Requisito atendido
-O acesso ao formulário de cadastro é realizado a partir da tela de login, por meio da opção "Cadastrar".
-Ao selecionar essa opção, o usuário é direcionado para uma página de escolha, onde deve selecionar o perfil correspondente à sua necessidade: médico ou paciente.
-A escolha do perfil redireciona o usuário para a página específica de registro, que pode ser o formulário de cadastro de médico ou o de cadastro de paciente.
-
-## Instruções de acesso
-
-## **APRESENTAÇÃO E NAVEGAÇÃO**
-## **Instruções para a Tela de Cadastro e Acesso**
-A interface do sistema é composta por duas seções distintas, conforme a funcionalidade desejada pelo usuário:
-## **Acesso à Conta Existente**
-
-Na seção da esquerda, é disponibilizada a área de login para usuários já cadastrados na plataforma **Medzo**. O texto "Bem-vindo de volta!" e a opção **"ENTRAR"** direcionam o usuário ao acesso de sua conta. Caso o usuário não se recorde de sua senha, a funcionalidade **"Esqueci minha senha"** permite a recuperação dos dados de acesso. O Botão "ENTRAR" retorna para tela de login. 
-
-## **Criação de Nova Conta**
-
-A seção da direita é destinada à criação de novas contas. Para dar continuidade ao processo, o usuário deve:
-1.  Selecionar o perfil desejado no menu suspenso, optando entre **"médico"** ou **"paciente"**.
-2.  Clicar no botão **"CADASTRO"** para ser redirecionado à página específica de registro, onde deverá fornecer as informações necessárias para a criação da nova conta.
-
-3. TECNOLOGIAS UTILIZADAS
-As estruturas de dados foram desenvolvidas com base em linguagens de marcação e de programação, a saber:
-HTML 
-CSS 
-JS 
 
 
-O sistema é acessado através de um navegador de internet, utilizando a URL especificada para navegação.
-A tela principal do sistema oferece as opções de navegação "contato", "ajuda" e "sobre nós".
-Nessa mesma interface, encontra-se a opção para cadastro. Ao selecionar a opção "cadastrar", o usuário é direcionado para a página de registro, onde é possível escolher entre os perfis de médico ou paciente.
-Após a conclusão do cadastro, o usuário pode acessar sua conta. O sistema também disponibiliza a funcionalidade de recuperação de senha por meio da opção "esqueci a senha".
 
-### Tela de Cadastro de pacientes (RF-001)
+### Tela de Seleção de Cadastro (RF-002) 
+Responsável: Ozias
 
+Exemplo da tela de login:
+
+<img width="2559" height="1317" alt="image" src="https://github.com/user-attachments/assets/b8d13db0-1b1f-414b-b800-b3de16592c1c" />
+
+
+#### Requisito atendido
+
+RF-01	A aplicação deve permitir cadastro de conta do paciente e profissional da saúde.
+
+#### Artefatos da funcionalidade
+
+●Tela_de_cadastro.html
+
+●Tela_de_cadastro.css
+
+●Tela_de_cadastro.js
+
+#### Instruções de acesso
+
+Passo 1: Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+
+Passo 2. Clique no botão "Cadastrar" da tela de login 
+
+
+
+
+
+
+### Tela de Cadastro Médico (RF-003) 
+Responsável: Andryws
+
+Exemplo da tela de Cadastro Médico:
+
+<img width="2560" height="1316" alt="image" src="https://github.com/user-attachments/assets/67e3f85a-fc1c-40e3-98a4-0c9ed8869de8" />
+
+
+
+#### Requisito atendido
+
+RF-01	A aplicação deve permitir cadastro de conta do paciente e profissional da saúde.
+
+#### Artefatos da funcionalidade
+
+●cadastro_medico.html
+
+●cadastro_medico.css
+
+●script.js
+
+#### Instruções de acesso
+
+Passo 1: Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+
+Passo 2: Clique no botão "Cadastrar" da tela de login.
+
+Passo 3: selecione a opção "médico" da tela de seleção de cadastro e clique em "cadastrar"
+
+
+
+### Tela da Cadastro Paciente (RF-004) 
 Responsável: Sérvulo
 
-O acesso a tela de cadastro poderá ser feito através da opção de menu “Cadastre-se”. As estruturas de dados foram baseadas em HTML, CSS e JS.
+Exemplo da tela de Cadastro Paciente:
 
-Exemplo da tela de cadastro: 
+<img width="2542" height="1299" alt="image" src="https://github.com/user-attachments/assets/b472af19-0fbb-4da7-bc2c-dcfc58799116" />
 
-![Untitled Diagram-Page-1 drawio](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/main/documentos/img/cadastro_Paciente.png)
 
-### tela de agendamento de consultas
+#### Requisito atendido
 
+RF-01	A aplicação deve permitir cadastro de conta do paciente e profissional da saúde.
+
+#### Artefatos da funcionalidade
+
+●index.html
+
+●style.css
+
+●script.js
+
+
+#### Instruções de acesso
+
+Passo 1: Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+
+Passo 2: Clique no botão "Cadastrar" da tela de login.
+
+Passo 3: selecione a opção "paciente" da tela de seleção de cadastro e clique em "cadastrar"
+
+
+
+
+### tela do Menu Principal (RF-005)
+Resposavel: Gustavo
+
+Exemplo da tela do Menu Principal: 
+
+<img width="2554" height="1292" alt="image" src="https://github.com/user-attachments/assets/9bd7cad8-784e-4ae7-96c6-06f20df0a352" />
+
+#### Requisito atendido
+
+
+
+#### Artefatos da funcionalidade
+
+●Menu.html
+
+●Menu.css
+
+●Menu.js
+
+#### Instruções de acesso
+
+Passo 1: Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+
+Passo 2: Coloque os seu email e senha nos campos da tela de login 
+
+Passo 3: Clique no botão "entrar" da tela de login.
+
+
+
+
+### Tela do Menu de Busca (RF-006) 
+Responsável: Ozias
+
+Exemplo da tela do Menu de Busca:
+
+<img width="2545" height="1316" alt="image" src="https://github.com/user-attachments/assets/9101b4e6-33f4-4aa7-a59c-2961242034e8" />
+
+
+#### Requisito atendido
+
+RF-04	A aplicação deve permitir a funcionalidade de busca e filtro de pesquisa.
+
+#### Artefatos da funcionalidade
+
+●menubusca.html
+
+●script.css
+
+●style.js
+
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+
+
+
+
+
+### tela de Agenda (RF-007)
+Resposavel: Ozias
+
+Exemplo da tela de Agenda: 
+
+<img width="2557" height="1316" alt="image" src="https://github.com/user-attachments/assets/9e71843b-65d0-4069-ad39-ae20b20b0b47" />
+
+
+#### Requisito atendido
+
+RF-06	A aplicação deve permitir acesso a agenda.
+
+#### Artefatos da funcionalidade
+
+●agenda.html
+
+●agenda.css
+
+●agenda.js
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+Passo 2.
+Passo 3.
+
+
+
+
+
+### tela de Agendamento de Consulta (RF-008)
 Resposavel: Lorena
 
-A Tela poderá ser acessada através das paginas principais profissional/paciente.
+Exemplo da tela de Agenda: 
 
-![agendamento](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/blob/main/codigo-fonte/tela-de-agendamento/tela%20de%20agendamento.png)
+<img width="2560" height="1315" alt="image" src="https://github.com/user-attachments/assets/7790fbbb-b49e-4fba-bcfe-880cf5d77b2c" />
 
 
-### Funcionalidade atendida:
-RF - 03 Marcação de consulta 
+#### Requisito atendido
 
-Usuario/ profissional poderá agendar consultas.
+RF-03	A aplicação deve permitir marcação de consulta online.
 
- ### Tecnologia utilizada:
- 
-1- HTML
+#### Artefatos da funcionalidade
 
-2- CSS
+●telaagendamento.html
 
-3-
-_______________________________________________________________________________________
-Programação de Funcionalidades
-Implementação da aplicação descrita por meio dos requisitos codificados.
+●telaagendamento.css
 
-[Utilize a estrutura abaixo para cada funcionalidade entregue na etapa]
+●telaagendamento.js
 
-Título da funcionalidade
-[Adicionar imagem da funcionalidade/tela]
+#### Instruções de acesso
 
-Requisito atendido
-[RF-X: acréscimo à descrição do requisito atendido]
+Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+Passo 2.
+Passo 3.
 
-Artefatos da funcionalidade
-[Adicione os nomes dos arquivos relacionados ao desenvolvimento da funcionalidade]
 
-Estrutura de Dados
-[Caso existe estrutura de dados, adicione aqui]
 
-Instruções de acesso
-[Adicione as orientações de acesso à funcionalidade]
 
-Responsável
-[Adição do nome do responsável pelo desenvolvimento da funcionalidade]
+
+
+### Tela da Biografia Médica (RF-009) 
+Responsável: Ozias
+
+Exemplo da tela de Biografia Médica:
+
+<img width="2559" height="1315" alt="image" src="https://github.com/user-attachments/assets/acec5072-590d-4227-8345-8c6f9fc270c9" />
+
+#### Requisito atendido
+
+RF-10	A aplicação deve permitir que o paciente tenha acesso a informações do profissional de saúde.
+
+#### Artefatos da funcionalidade
+
+●biografia.html
+
+●biografia.css
+
+●biografia.js
+
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+
+
+
+
+
+### Tela de Recuperação de Senha (RF-010) 
+Responsável: Ozias
+
+Exemplo da tela de Recuperação de Senha:
+
+<img width="2560" height="1314" alt="image" src="https://github.com/user-attachments/assets/117c5f28-079e-4dea-91ed-e4da1496d5e9" />
+
+
+
+#### Requisito atendido
+
+
+
+#### Artefatos da funcionalidade
+
+●esquecisenha.html
+
+●esquecisenha.css
+
+●esquecisenha.js
+
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+
+
+
+
+
+
+## Exemplo para próximas páginas 
+
+### Tela de XXXXXX (RF-XXX) 
+Responsável: XXXXX
+
+Exemplo da tela de XXXXXX:
+
+IMAGEM DA TELA
+
+
+#### Requisito atendido
+
+(se tiver)
+
+#### Artefatos da funcionalidade
+
+●xxxxxx.html
+
+●xxxx.css
+
+●xxxxx.js
+
+
+#### Instruções de acesso
+
+Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+passo 2
+passo 3 
+passo 4
+
+
+
 
 Links Úteis :
 

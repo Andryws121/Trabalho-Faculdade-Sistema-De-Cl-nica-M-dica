@@ -1,32 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    //Captura os elementos do HTML que vamos usar
     const loginForm = document.getElementById('loginForm');
-    const togglePassword = document.getElementById('togglePassword');
+    const emailInput = document.getElementById('loginEmail');
     const passwordInput = document.getElementById('loginPassword');
+    const togglePassword = document.getElementById('togglePassword');
 
-    // Lógica para o formulário de login
-    loginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = document.getElementById('loginEmail').value;
-        const password = passwordInput.value;
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-        const validUser = users.find(user => user.email === email && user.password === password);
-
-        if (email.value === USUARIO_CORRETO && password.value === SENHA_CORRETA) {
-    // Se estiver certo, mostra um alerta de sucesso.
-    alert('Login realizado com sucesso! Redirecionando...');
-} else {
-    // Se estiver errado, mostra uma mensagem de erro genérica.
-    showError(emailError, 'Email ou senha incorretos.');
-}
+    //Lógica para mostrar/esconder a senha ---
+    togglePassword.addEventListener('click', () => {
+        const isPassword = passwordInput.getAttribute('type') === 'password';
+        passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+        togglePassword.classList.toggle('fa-eye-slash');
     });
 
-    // Lógica para o botão de mostrar senha
-    togglePassword.addEventListener('click', () => {
-        // Verifica o tipo do input de senha
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
+    //Lógica para validar o formulário ao enviar ---
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
 
-        // Troca o ícone do olho
-        togglePassword.classList.toggle('fa-eye-slash');
+        // Pega os valores digitados
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        
+        // Aqui definimos o usuário e senha que o sistema irá aceitar como corretos.
+        const usuarioCorreto = 'medzo@exemplo.com';
+        const senhaCorreta = 'senha123';
+        // -----------------------------------------
+
+        // Validação básica de campos vazios
+        if (email === '' || password === '') {
+            alert('Por favor, preencha todos os campos.');
+            return; // Interrompe a execução se os campos estiverem vazios
+        }
+
+        //LÓGICA DE VERIFICAÇÃO ---
+        // Compara o que foi digitado com os dados "corretos"
+        if (email === usuarioCorreto && password === senhaCorreta) {
+            // Se ambos forem corretos...
+            alert('Login realizado com sucesso! Bem-vindo ao Medzo.');
+            
+            // Próximo passo: Redirecionar para a página principal
+            // Exemplo: window.location.href = 'pagina_principal.html';
+
+        } else {
+            // Se o e-mail ou a senha (ou ambos) estiverem errados...
+            alert('E-mail ou senha incorretos. Por favor, tente novamente.');
+        }
     });
 });

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
-    
-    
+
+
 </head>
+
 <body>
 
     <header class="main-header">
@@ -18,35 +20,39 @@
             <h1>Medzo</h1>
         </div>
         <nav>
-            <a href="../tela-de-login-ozias/tela_login.html" class="exit-link">SAIR</a>
+            <!-- <a href="../tela-de-login-ozias/tela_login.html" class="exit-link">SAIR</a>-->
         </nav>
     </header>
 
     <main class="content-container">
         <div class="recovery-form">
             <p class="info-text">
-                Para redefinir sua senha, informe seu e-mail, nome de usuário ou telefone cadastrado. Enviaremos um link de recuperação para o e-mail associado à sua conta.
+                Para redefinir sua senha, informe seu e-mail, nome de usuário ou telefone cadastrado. Enviaremos um link
+                de recuperação para o e-mail associado à sua conta.
             </p>
-            
+
             <form action="#">
                 <div class="form-group">
                     <label for="user_identifier">Informe seu e-mail, usuário ou telefone:*</label>
                     <input type="text" id="user_identifier" name="user_identifier" required>
+                    <span id="error-message" class="error-text"></span>
                 </div>
 
                 <div class="button-group">
-                    <a href="../tela-de-login-ozias/tela_login.html" class="btn btn-secondary">VOLTAR</a>
-                    
-                    <!--- usando outro caminho a cima pra direcionar para outro link-->
+                    <a href="/codigo-fonte/tela-de-login-ozias/tela_login.html" class="btn btn-secondary">VOLTAR</a>
                     
                     <button type="submit" class="btn btn-primary">Enviar</button>
-                    
-                    
-                </div>
+                    </div>
             </form>
-            </div>
+        </div>
         </div>
         <script src="esquecisenha.js"></script>
     </main>
 </body>
+
 </html>
+
+
+                
+
+

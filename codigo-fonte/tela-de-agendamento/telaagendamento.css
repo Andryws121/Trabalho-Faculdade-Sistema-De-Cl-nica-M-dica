@@ -1,0 +1,185 @@
+body { 
+    font-family: 'Poetsen One', system-ui; 
+    background-color: #a7a3a3;
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start;
+    min-height: 100svh;
+    margin: 0;
+    padding-top: 0;
+    overflow: auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.consu { 
+    box-shadow: 0 0 8px rgba(64, 27, 214, 0.15);
+    width: 90%; 
+    max-width: 900px;
+    height: 720;
+    overflow: auto;
+    padding: 20px;
+    margin: 40px auto;
+    border: 0.5px solid #19193b;
+    border-radius: 8px; 
+}
+
+.consu {
+    background-color: #ffffff; 
+}
+
+.consu h2 {
+    text-align: center;
+    background: #076380;
+    color: #f5f6f8;
+    font-size: 30px;
+    padding: 18px 28px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+form {
+    padding: 16px 18px 20px;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    gap: 10px;
+    margin: 0; 
+}
+
+.linha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+    margin-bottom: 14px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.linha label {
+    width: 100px;
+    text-align: left;
+    color: rgb(0, 0, 8);
+    flex-shrink: 0; 
+}
+
+.linha select,
+.linha input,
+.linha textarea {
+    flex-grow: 1; 
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    box-sizing: border-box;
+    background: #f0f0f0; 
+}
+
+.linha textarea {
+    height: 70px; 
+    resize: vertical;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 10px;
+    margin-top: 15px;
+}
+.botoes button,
+.botoes a {
+    width: 100%;
+    max-width: 500px; 
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none; 
+    box-sizing: border-box; 
+}
+
+.btn-azul { background-color: #004c80; color: #fff; }
+.btn-azul:hover { background-color: #065b9a; } 
+
+.btn-cinza { background-color: #777272; color: #f7f5f5; }
+.btn-cinza:hover { background-color: #5a5a5a; }
+
+.btn-verde { background-color: rgb(44, 182, 1); color: #fafcfa; }
+.btn-verde:hover { background-color: #2fb803; }
+
+#listaAgendamentos { 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.ag-card {
+    border: 1px solid #1506e6;
+    border-radius: 12px;
+    background: #e9eff5; 
+    padding: 12px 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 520px;   
+}
+
+.ag-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.ag-header h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #1d1d1d;
+}
+
+.ag-created {
+    opacity: .6;
+    font-size: 12px;
+}
+
+.ag-body {
+    line-height: 1.5;
+    color: #333;
+}
+
+.ag-body .row {
+    margin: 2px 0;
+}
+
+.ag-body strong {
+    color: #1a09b3;
+}
+
+.ag-footer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.ag-remove {
+    background: #fc3030;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.ag-remove:hover { 
+    background: #d62828; 
+}
