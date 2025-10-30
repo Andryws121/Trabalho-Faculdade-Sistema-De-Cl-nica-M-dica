@@ -20,10 +20,9 @@ body {
 .container {
     display: flex;
     max-width: 2400px;
-    height: 933px;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.9); 
-    border-radius: px;
+    border-radius: 10px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex; 
@@ -106,6 +105,7 @@ body {
     line-height: 1.8;
     color: #34495e;
     text-align: justify;
+    margin-bottom: 20px;
 }
 
 .bio-box p a {
@@ -120,7 +120,7 @@ body {
 }
 
 .back-button {
-    position: absolute;
+    position: relative;
     bottom: 40px;       
     right: 40px;       
     background-color: #258aef;
