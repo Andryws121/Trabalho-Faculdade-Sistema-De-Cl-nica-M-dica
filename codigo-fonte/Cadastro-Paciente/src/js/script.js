@@ -32,6 +32,15 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+
+        //alteração gustavo
+        
+        if (pacientes.find(p => p.email === email)) {
+    alert("Esse email já está cadastrado!");
+    return;
+        pacientes.push({ firstname, email, password });
+  localStorage.setItem("pacientes", JSON.stringify(pacientes));
+        //alteração gustavo 
         
         alert("Cadastro realizado com sucesso!");
         form.reset();
