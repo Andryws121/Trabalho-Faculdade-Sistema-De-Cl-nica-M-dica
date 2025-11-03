@@ -31,9 +31,7 @@
         <div class="controles-navegacao">
             <button id="btn-anterior" title="Semana anterior"><i class="fa-solid fa-chevron-left"></i></button>
             <button id="btn-proximo" title="Próxima semana"><i class="fa-solid fa-chevron-right"></i></button>
-            
-            <button id="date-picker-button" class="date-picker-button">Hoje, 24 de Outubro de 2025</button>
-            
+            <button id="date-picker-button" class="date-picker-button">Hoje, 31 de Outubro de 2025</button>
             <button id="btn-hoje" class="btn-hoje">Hoje</button>
         </div>
 
@@ -43,6 +41,7 @@
             <div class="grid-header">Qui</div><div class="grid-header">Sex</div><div class="grid-header">Sab</div>
             <div class="grid-header">Dom</div>
             
+            <!-- Linhas de Horário -->
             <div class="grid-horario">08:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
             <div class="grid-horario">09:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
             <div class="grid-horario">10:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
@@ -54,15 +53,8 @@
             <div class="grid-horario">16:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
             <div class="grid-horario">17:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
             <div class="grid-horario">18:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            <div class="grid-horario">19:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            <div class="grid-horario">20:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
             
             <div class="eventos-container" id="eventos-container"></div>
-            
-            <footer class="agenda-footer">
-                <h2>Observações do Dia</h2>
-                <textarea id="observacoes-dia" placeholder="Escreva aqui anotações importantes sobre o dia..."></textarea>
-            </footer>
         </main>
 
         <aside class="sidebar-consultas">
@@ -70,7 +62,18 @@
             <ul id="lista-consultas-dia"></ul>
         </aside>
 
-    </div><div id="popup-detalhes" class="popup hidden">
+        <footer class="agenda-footer">
+            <p class="footer-note">
+                <strong>Nota:</strong> Ao renomear um horário com duplo clique:<br>
+                - Se você escrever "Horário Bloqueado", o bloco ficará <strong class="cor-vermelho">vermelho</strong>.<br>
+                - Se escrever "Horário Livre", ele ficará <strong class="cor-cinza-claro">cinza claro</strong>.<br>
+                - Se escrever "Horário Cancelado", ele ficará <strong class="cor-cinza-escuro">cinza escuro</strong> e <span class="texto-riscado">riscado</span>.
+            </p>
+        </footer>
+
+    </div><!-- Fim do .agenda-container -->
+
+    <div id="popup-detalhes" class="popup hidden">
         <h3 id="popup-titulo"></h3>
         <p id="popup-corpo"></p>
     </div>
@@ -84,11 +87,21 @@
         <div class="calendar-weekdays">
             <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sab</div>
         </div>
-        <div id="calendar-days" class="calendar-days">
-            </div>
+        <div id="calendar-days" class="calendar-days"></div>
     </div>
+
+    <div id="context-menu" class="context-menu hidden">
+        
+        <ul>
+            <li id="ctx-menu-adicionar-nota"><i class="fa-solid fa-note-sticky"></i> Adicionar Nota</li>
+            <li id="ctx-menu-bloquear"><i class="fa-solid fa-ban"></i> Bloquear Horário</li>
+            <li id="ctx-menu-cancelar"><i class="fa-solid fa-times"></i> Cancelar Agendamento</li>
+        </ul>
+    </div>
+    
 
     <script src="agenda.js" defer></script>
     
 </body>
+
 </html>

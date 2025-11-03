@@ -91,8 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (formValido) {
                 alert('Cadastro de médico realizado com sucesso! Redirecionando para o login...');
                 
-                // Lembre-se de ter o arquivo 'login.html' nesta mesma pasta
-                window.location.href = 'login.html';
+               
+                window.location.href = '/codigo-fonte/tela-de-login-ozias/tela_login.html';
 
             } else {
                 alert('Por favor, preencha todos os campos obrigatórios (*).');

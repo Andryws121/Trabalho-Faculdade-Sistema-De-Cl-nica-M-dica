@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -12,16 +11,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <div class="login-container">
+    
+    <div class="login-container" id="login-container">
+        
         <header class="login-header">
             <div class="logo">
                 <img src="../tela-de-login-ozias/img/Logo_PNG.png" alt="Logo Medzo">
             </div>
             <h1>Seja Bem-vindo</h1>
             <nav class="header-nav">
-                <a href="../Contato-ajuda-sobrenos-ozias/contato/contato.html">contato</a>  
-                <a href="../Contato-ajuda-sobrenos-ozias/ajuda/ajuda.html">ajuda</a>
-                <a href="../Contato-ajuda-sobrenos-ozias/sobrenos/sobrenos.html">sobrenos</a>
+                <a href="../Contato-sobrenos-ozias/contato/contato.html">contato</a> 
+                <a href="../Contato-sobrenos-ozias/sobrenos/sobrenos.html">sobrenos</a>
             </nav>
         </header>
         <main class="login-body">
@@ -33,7 +33,7 @@
                     <input type="password" id="loginPassword" placeholder="SENHA" required>
                     <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
                 </div>
-                <a href="/codigo-fonte/esquecisenha-ozias/esquecisenha.html" class="forgot-password">Esqueci minha senha</a>
+                <a href="/codigo-fonte/esqueci-senha-ozias/esquecisenha.html" class="forgot-password">Esqueci minha senha</a>
                 <button type="submit" class="btn btn-primary">Entrar</button>
                 <a href="../tela-de-cadastro-ozias/tela_de_cadastro.html" class="btn btn-secondary">Cadastrar</a>
             </form>
@@ -42,6 +42,8 @@
             <p class="footer-text">Copyright (c) 2025 Clínica Medzo | Todos os direitos reservados</p>
         </footer>
     </div>
+    
+    <script src="setup.js"></script>
     <script src="script_login.js"></script>
 </body>
 </html>

@@ -1,49 +1,71 @@
+function initializeUsers() {
+    if (localStorage.getItem('medzoUsers')) {
+        console.log('Usuários de teste já existem no localStorage.');
+        return; 
+    }
+    const initialUsers = [
+        { nome: 'Alice Silva', email: 'alice@email.com', senha: '123' },
+        { nome: 'Beto Costa', email: 'beto@email.com', senha: 'abc' },
+        { nome: 'Medzo (Teste)', email: 'medzo@exemplo.com', senha: 'senha123' }
+    ];
+    localStorage.setItem('medzoUsers', JSON.stringify(initialUsers));
+    console.log('Usuários de teste foram adicionados ao localStorage.');
+}
+initializeUsers();
+
+
 document.addEventListener('DOMContentLoaded', () => {
-
-    //Captura os elementos do HTML que vamos usar
+    
+    // IDs login
     const loginForm = document.getElementById('loginForm');
-    const emailInput = document.getElementById('loginEmail');
-    const passwordInput = document.getElementById('loginPassword');
+    const emailInput = document.getElementById('loginEmail'); 
+    const passwordInput = document.getElementById('loginPassword'); 
     const togglePassword = document.getElementById('togglePassword');
+    const container = document.getElementById('login-container'); // Para a animação
 
-    //Lógica para mostrar/esconder a senha ---
-    togglePassword.addEventListener('click', () => {
-        const isPassword = passwordInput.getAttribute('type') === 'password';
-        passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
-        togglePassword.classList.toggle('fa-eye-slash');
-    });
+    // Lógica para mostrar/esconder a senha
+    if (togglePassword) {
+        togglePassword.addEventListener('click', () => {
+            const isPassword = passwordInput.getAttribute('type') === 'password';
+            passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+    }
 
-    //Lógica para validar o formulário ao enviar ---
+    // Lógica para validar o formulário ao enviar
     loginForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        // Pega os valores digitados
         const email = emailInput.value.trim();
         const password = passwordInput.value.trim();
 
-        
-        // Aqui definimos o usuário e senha que o sistema irá aceitar como corretos.
-        const usuarioCorreto = 'medzo@exemplo.com';
-        const senhaCorreta = 'senha123';
-        // -----------------------------------------
-
-        // Validação básica de campos vazios
         if (email === '' || password === '') {
             alert('Por favor, preencha todos os campos.');
-            return; // Interrompe a execução se os campos estiverem vazios
+            return;
         }
 
-        //LÓGICA DE VERIFICAÇÃO ---
-        // Compara o que foi digitado com os dados "corretos"
-        if (email === usuarioCorreto && password === senhaCorreta) {
-            // Se ambos forem corretos...
-            alert('Login realizado com sucesso! Bem-vindo ao Medzo.');
+        const users = JSON.parse(localStorage.getItem('medzoUsers') || '[]');
+        const foundUser = users.find(user => user.email === email && user.senha === password);
+
+        if (foundUser) {
+
+            // Salva a sessão para o Menu.html
+            localStorage.setItem('sessionToken', JSON.stringify({ email: foundUser.email, nome: foundUser.nome }));
+
+            // Aciona a animação de sucesso (pulo dos bonecos)
+            if (container) {
+                container.classList.add('login-success');
+            }
+
+            // Redireciona para a página principal APÓS a animação
+            setTimeout(() => {
+                
+                // ===== NOME DO ARQUIVO CORRIGIDO =====
+                window.location.href = '/codigo-fonte/tela do menu principal/Menu.html'; 
             
-            // Próximo passo: Redirecionar para a página principal
-            // Exemplo: window.location.href = 'pagina_principal.html';
+            }, 750); // 0.75 segundos
 
         } else {
-            // Se o e-mail ou a senha (ou ambos) estiverem errados...
             alert('E-mail ou senha incorretos. Por favor, tente novamente.');
         }
     });

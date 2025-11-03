@@ -15,6 +15,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    
+background-image: url(/codigo-fonte/esqueci-senha-ozias/img/BG.jpeg);
 }
 
 
@@ -25,10 +27,11 @@ body {
     display: flex;
     align-items: center;
     position: relative;
+    justify-content: center; 
+    align-items: center;
 }
 
 .logo {
-    position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -50,8 +53,8 @@ body {
 .content-container {
     flex-grow: 1;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: center; 
+    align-items: center; 
     padding: 20px; 
 }
 
