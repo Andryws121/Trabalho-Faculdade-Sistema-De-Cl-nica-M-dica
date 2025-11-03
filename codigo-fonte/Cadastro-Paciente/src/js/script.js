@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
         
         const pacientes = JSON.parse(localStorage.getItem("pacientes")) || [];
         if (pacientes.find(p => p.email === email)) {
-    alert("Esse email já está cadastrado!");
-    return;
+            alert("Esse email já está cadastrado!");
+            return;
         pacientes.push({ email, password });
-  localStorage.setItem("pacientes", JSON.stringify(pacientes));
+        localStorage.setItem("pacientes", JSON.stringify(pacientes));
             
         //alteração gustavo 
         
