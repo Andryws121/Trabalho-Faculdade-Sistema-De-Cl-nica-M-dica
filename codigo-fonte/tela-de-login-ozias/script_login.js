@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const passwordInput = document.getElementById('loginPassword');
     const togglePassword = document.getElementById('togglePassword');
 
+
+    //alteração gustavo
+
+    const pacientes = JSON.parse(localStorage.getItem("pacientes")) || [];
+    const profissionais = JSON.parse(localStorage.getItem("profissionais")) || [];
+    
+    //alteração gustavo
+
     //Lógica para mostrar/esconder a senha ---
     togglePassword.addEventListener('click', () => {
         const isPassword = passwordInput.getAttribute('type') === 'password';
@@ -41,6 +49,22 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Próximo passo: Redirecionar para a página principal
             // Exemplo: window.location.href = 'pagina_principal.html';
+
+        //alteração gustavo 
+
+        const prof = profissionais.find(p => p.email === email && p.password === password);
+        if (prof) {
+          window.location.href = "../menuPrincipal/menuPrincipal.html";
+          return;
+        }
+
+        const pac = pacientes.find(p => p.email === email && p.password === password);
+        if (pac) {
+          window.location.href = "../menuPaciente/menuPaciente.html";
+          return;
+        }
+        
+        //alteração gustavo
 
         } else {
             // Se o e-mail ou a senha (ou ambos) estiverem errados...
