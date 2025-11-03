@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (pacientes.find(p => p.email === email)) {
     alert("Esse email já está cadastrado!");
     return;
-        pacientes.push({ firstname, email, password });
+        pacientes.push({ email, password });
   localStorage.setItem("pacientes", JSON.stringify(pacientes));
             
         //alteração gustavo 
