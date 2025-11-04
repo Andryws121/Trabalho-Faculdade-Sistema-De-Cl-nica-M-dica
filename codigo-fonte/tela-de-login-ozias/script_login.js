@@ -55,10 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
 
                 if (foundUser.role === 'paciente') {
-                    window.location.href = 'https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/Tela%20do%20menu%20paciente/MenuPaciente.html';
+                    window.location.href = '/codigo-fonte/Tela do menu paciente/MenuPaciente.html';
 
                 } else if (foundUser.role === 'profissional') {
-                    window.location.href = 'https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/Tela%20do%20menu%20profissional/MenuProfissional.html';
+                    window.location.href = '/codigo-fonte/tela do menu profissional/MenuProfissional.html';
 
                 } else {
                     alert('Tipo de usuário com erro! Contacte o suporte.');
