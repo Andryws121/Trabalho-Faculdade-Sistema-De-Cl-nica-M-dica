@@ -1,4 +1,3 @@
-/* Importa a fonte do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
 
 
@@ -24,7 +23,7 @@ body {
 .login-container {
     width: 100%;
     max-width: 2400px; 
-    height: 910px;      
+    height: 910px;       
     background-color: #ffffff;
     border-radius: 1px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -117,20 +116,20 @@ body {
     transform: translateY(-50%);
     cursor: pointer;
     color: #888;
-    font-size: 1.2rem; /* Ícone maior */
+    font-size: 1.2rem; 
+}
+
+.forgot-links-container {
+    display: flex;
+    justify-content: center;  
+    gap: 25px;                
+    margin-bottom: 30px; 
 }
 
 .forgot-password {
     text-decoration: none;
     color: #555;
     font-size: 1rem;
-    margin-bottom: 30px;
-    
-    /* centralizar */
-    text-align: center;
-    
-    
-    
     transition: color 0.2s ease;
 }
 
@@ -138,9 +137,6 @@ body {
     color: #054B84;
 }
 
-.forgot-password:hover {
-    color: #054B84;
-}
 .btn {
     padding: 22px; 
     border: none;
