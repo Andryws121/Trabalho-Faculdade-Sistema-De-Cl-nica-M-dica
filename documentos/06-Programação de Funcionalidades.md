@@ -7,7 +7,8 @@ Responsável: Ozias
 
 Exemplo da tela de login:
 
-<img width="2560" height="1316" alt="image" src="https://github.com/user-attachments/assets/32d73ff6-7dca-41ed-aae7-77a74ad42ca9" />
+<img width="2560" height="1315" alt="image" src="https://github.com/user-attachments/assets/a652fee7-5d5f-4bb0-8ad6-b010177eee67" />
+
 
 #### Requisito atendido
 
