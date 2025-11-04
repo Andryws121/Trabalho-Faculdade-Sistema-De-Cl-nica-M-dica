@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f0f0;
+    background-image: url('/codigo-fonte/Contato-ajuda-sobrenos-ozias/ajuda/BG.jpeg');
+    background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+
+.container {
+    display: flex;
+    max-width: 2400px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex; 
+    flex-direction: column; 
+    
+}
+
+
+.sidebar {
+    background-color: #054B84;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 0 0 100px; 
+    
+}
+
+.user-icon {
+    font-size: 24px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%; 
+    border: 5px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+    object-fit: cover;
+    margin-bottom: 20px; 
+}
+
+.tag {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 25px; 
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.subtitle {/* Subtítulo na barra meio */ 
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: normal;
+}
+
+
+.main-content { /* Conteúdo principal da biografia */
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1; 
+}
+
+.main-content h1 {/* Título da biografia */
+    font-family: 'Poetsen One', sans-serif;
+    font-size: 42px;
+    color: #054B84;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.bio-box {
+    background-color: #ffffff;
+    padding: 50px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: inset 0 10px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.bio-box p {
+    font-size: 24px;
+    line-height: 1.8;
+    color: #34495e;
+    text-align: justify;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.bio-box p a {
+    color: #0056b3;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.bio-box p a:hover {
+    color: #003d82;
+}
+
+.back-button {
+    position: relative;
+    bottom: 40px;       
+    right: 40px;       
+    background-color: #258aef;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; 
+}
+
+.back-button:hover {
+    background-color: #34495e;
+    transform: translateY(-2px);
+    
+}

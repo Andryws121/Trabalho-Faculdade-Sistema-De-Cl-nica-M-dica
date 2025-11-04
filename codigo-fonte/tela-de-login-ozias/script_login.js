@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 
                 // ===== NOME DO ARQUIVO CORRIGIDO =====
-                window.location.href = '/codigo-fonte/tela do menu principal/Menu.html'; 
+                window.location.href = '/codigo-fonte/tela do menu profissional/MenuProfissional.html'; 
             
             }, 750); // 0.75 segundos
 
