@@ -221,7 +221,7 @@ Resposavel: Lorena
 
 Exemplo da tela de Agenda: 
 
-<img width="2560" height="1315" alt="image" src="https://github.com/user-attachments/assets/7790fbbb-b49e-4fba-bcfe-880cf5d77b2c" />
+![tela de agendamento](../codigo-fonte/tela-de-agendamento/tela-de-agendamento.jpeg)
 
 
 #### Requisito atendido
@@ -237,12 +237,17 @@ RF-03	A aplicação deve permitir marcação de consulta online.
 ●telaagendamento.js
 
 #### Instruções de acesso
-
+Passo1
 Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+
 Passo 2.
+efetue isira seu login e senha, pagina sera redirecionada ao menu principal.
+
 Passo 3.
+Localize e clique no botão agendar consulta.
 
-
+Passo 4
+preencha os dados solicitados
 
 
 
