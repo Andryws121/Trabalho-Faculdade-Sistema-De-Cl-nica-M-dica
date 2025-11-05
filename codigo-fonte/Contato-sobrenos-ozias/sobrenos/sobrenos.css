@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     background-color: #f0f4f7;
     font-family: 'Poetsen One', sans-serif;
@@ -12,15 +17,12 @@ body {
 .help-container {
     width: 100%;
     max-width: 1910px;
-    height: 940px; 
+    height: 910px; 
     border-radius: 1px; 
     display: flex;
     flex-direction: column;
     color: white; 
-
-   
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('BG.jpeg');
-    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -54,7 +56,7 @@ main p {
     line-height: 1.6;
     margin: 0;
     font-size: 1.9rem;  
-    color: #1A1A80;     
+    color: #FFFFFF;     
 }
 
 /* --- Botão "Voltar" --- */

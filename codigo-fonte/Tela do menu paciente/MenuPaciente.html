@@ -6,8 +6,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tela do menu Principal</title>
-  <link rel="stylesheet" href="Menu.css">
+  <title>Tela do menu Paciente</title>
+  <link rel="stylesheet" href="MenuPaciente.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
 </head>
@@ -21,7 +21,6 @@
         onclick="window.location.href='/codigo-fonte/menuBusca/menuBusca.html'">
         Busca
       </button>
-
       <button class="button" id="agendar-button"
         onclick="window.location.href='/codigo-fonte/tela_de_agenda-ozias/agenda.html'">
         Agenda
@@ -40,13 +39,10 @@
   <main>
     <div class="bluebox">
       <div class="bluebutton"><br>CONSULTAS DE HOJE
-        <div class="numberconsult">X</div>
-      </div>
-      <div class="bluebutton"><br>PRÓXIMAS CONSULTAS
-        <div class="numberconsult">X</div>
+        <div class="numberconsult">1</div>
       </div>
       <div class="bluebutton"><br>CONSULTAS TOTAIS
-        <div class="numberconsult">X</div>
+        <div class="numberconsult">13</div>
       </div>
     </div>
 
@@ -65,25 +61,28 @@
 
           <tr>
             <td class="nome">
-              <strong>Dra.Cecilia Helena<br>
-                <span class="cargo">Fonoaudiologa</span>
+              <strong>Dra. Cecilia Helena<br>
+              <span class="cargo">Fonoaudiologa</span>
             </td>
+            <td class="data">20/11</td>
             <td class="hora">09:00</td>
           </tr>
 
           <tr>
             <td class="nome">
-              <strong>Dr.Antonio Carlos</strong><br>
-              <span class="cargo">Cardiologista</span>
+              <strong>Dr. Antonio Carlos</strong><br>
+              <span class="cargo">Fonoaudiologa</span>
             </td>
+            <td class="data">21/11</td>
             <td class="hora">09:00</td>
           </tr>
 
           <tr>
             <td class="nome">
-              <strong>Dra.Mariana Cipriano</strong><br>
-              <span class="cargo">Dermatologista</span>
+              <strong>Dra. Mariana Cipriano</strong><br>
+              <span class="cargo">Fonoaudiologa</span>
             </td>
+            <td class="data">22/11</td>
             <td class="hora">09:00</td>
           </tr>
 
@@ -126,39 +125,39 @@
         <table class="tabela-consultas">
 
           <tr>
-            <th colspan="3" class="consultas">Pacientes Recentes</th>
+            <th colspan="3" class="consultas">Consultas Recentes</th>
           </tr>
 
           <tr>
             <td class="nome">
-              <strong>Carlos Junio<br>
-                <span class="urgencia">ALTA</span>
+              <strong>Dr. Carlos Faria<br>
+                <span class="cargo">Nutricionista</span>
             </td>
-            <td class="idade">35 Anos</td>
+            <td class="data">23/10</td>
           </tr>
 
           <tr>
             <td class="nome">
-              <strong>Frederico Costa<br>
-                <span class="urgencia">ALTA</span>
+              <strong>Dr. Francisco Costa<br>
+                <span class="cargo">Cardiologista</span>
             </td>
-            <td class="idade">45 Anos</td>
+            <td class="data">12/08</td>
           </tr>
 
           <tr>
             <td class="nome">
-              <strong>Helena Vieira<br>
-                <span class="urgencia">MÉDIA</span>
+              <strong>Dra. Fernanda Brito<br>
+                <span class="cargo">Dermatologista</span>
             </td>
-            <td class="idade">20 Anos</td>
+            <td class="data">20/07</td>
           </tr>
 
           <tr>
             <td class="nome">
-              <strong>Mariana Vieira<br>
-                <span class="urgencia">BAIXA</span>
+              <strong>Dra. Maria Clara<br>
+                <span class="cargo">Psicóloga</span>
             </td>
-            <td class="idade">80 Anos</td>
+            <td class="data">13/05</td>
           </tr>
 
         </table>
@@ -169,7 +168,7 @@
 
   <!-- quadros de baixo -->
 
-  <script src="Menu.js"></script>
+  <script src="MenuPaciente.js"></script>
 </body>
 
 </html>

@@ -2,14 +2,14 @@
   const form = document.querySelector("form");
   if (!form) return;
 
-  // Campos do formulário
+  // Campos do formulário (CORRIGIDO)
   const el = {
     paciente: document.querySelector("#paciente"),
-    profissional: document.querySelector("#Profissional"),
-    especialidade: document.querySelector("#Especialidade"),
+    profissional: document.querySelector("#profissional"),
+    especialidade: document.querySelector("#especialidade"),
     data: document.querySelector("#data"),
-    hora: document.querySelector('input[id="Horario da consulta"]'),
-    observacoes: document.querySelector("#Observações"),
+    hora: document.querySelector("#horario"),
+    observacoes: document.querySelector("#observacoes"),
   };
 
   // Área onde os agendamentos aparecerão
@@ -29,7 +29,7 @@
     const obrig = [el.paciente, el.profissional, el.especialidade, el.data, el.hora];
     const inval = obrig.find((i) => !i || !String(i.value).trim());
     if (inval) {
-      inval.focus();
+      if (inval) inval.focus(); // Adicionado foco no campo inválido
       alert("Preencha todos os campos obrigatórios.");
       return;
     }
@@ -139,11 +139,7 @@
     const map = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
     return String(s).replace(/[&<>"']/g, (ch) => map[ch]);
   }
-  // Botão verde: voltar ao menu principal
-const btnVoltar = document.getElementById("btnVoltar");
-if (btnVoltar) {
-  btnVoltar.addEventListener("click", () => {
-    window.location.href = "menuprincipal.html"; 
-  });
-}
+
+  // Bloco do botão "Voltar" foi REMOVIDO, pois o link <a> no HTML já faz o trabalho.
+
 })();

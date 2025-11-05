@@ -119,10 +119,10 @@ main{
   border-bottom: 1px solid black;
 }
 
-.hora, .idade{
-  text-align: center;
+.hora, .idade, .data{
+  text-align: center; 
 }
-.cargo, .urgencia, .idade{
+.cargo{
   font-weight: 500;
   color: rgb(146, 146, 146);
 }

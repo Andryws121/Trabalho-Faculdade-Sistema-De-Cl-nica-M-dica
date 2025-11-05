@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Agenda Dinâmica</title>
-    
+
     <link rel="stylesheet" href="agenda.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
     <div class="agenda-container">
@@ -18,51 +20,132 @@
         <header class="agenda-header">
             <h1>Minha Agenda</h1>
             <div>
+                <!-- ORDEM DOS BOTÕES ALTERADA -->
                 <a href="../tela-de-agendamento/telaagendamento.html" style="text-decoration: none;">
                     <button class="btn-agendar-novo">
                         Agendar Nova Consulta
                         <i class="fa-solid fa-calendar-plus"></i>
                     </button>
                 </a>
-                <a href="../tela-de-login-ozias/tela_login.html" class="exit-link">SAIR</a>
-            </div>
+
+                <!-- Exemplo: redirecionando para "config.html" -->
+                <a href="../configuração-de-agenda-ozias/configuração_de_agenda.html" style="text-decoration: none;">
+                    <button class="btn-configuracao-agenda">
+                        Configuração de agenda
+                        <i class="fa-solid fa-gear"></i>
+                    </button>
+                </a>
+
+<a href="../Tela do menu paciente/MenuPaciente.html" class="exit-link">SAIR</a>            </div>
         </header>
-        
+
         <div class="controles-navegacao">
             <button id="btn-anterior" title="Semana anterior"><i class="fa-solid fa-chevron-left"></i></button>
             <button id="btn-proximo" title="Próxima semana"><i class="fa-solid fa-chevron-right"></i></button>
-            
-            <button id="date-picker-button" class="date-picker-button">Hoje, 24 de Outubro de 2025</button>
-            
+            <button id="date-picker-button" class="date-picker-button">Hoje, 31 de Outubro de 2025</button>
             <button id="btn-hoje" class="btn-hoje">Hoje</button>
         </div>
 
         <main class="agenda-grid">
-            <div class="grid-header"></div> 
-            <div class="grid-header">Seg</div><div class="grid-header">Ter</div><div class="grid-header">Qua</div>
-            <div class="grid-header">Qui</div><div class="grid-header">Sex</div><div class="grid-header">Sab</div>
+            <div class="grid-header"></div>
+            <div class="grid-header">Seg</div>
+            <div class="grid-header">Ter</div>
+            <div class="grid-header">Qua</div>
+            <div class="grid-header">Qui</div>
+            <div class="grid-header">Sex</div>
+            <div class="grid-header">Sab</div>
             <div class="grid-header">Dom</div>
-            
-            <div class="grid-horario">08:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            <div class="grid-horario">09:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            <div class="grid-horario">10:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            <div class="grid-horario">11:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            <div class="grid-horario">12:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            <div class="grid-horario">13:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            <div class="grid-horario">14:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            <div class="grid-horario">15:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            <div class="grid-horario">16:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            <div class="grid-horario">17:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            <div class="grid-horario">18:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            <div class="grid-horario">19:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            <div class="grid-horario">20:00</div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
-            
+
+            <div class="grid-horario">08:00</div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-horario">09:00</div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-horario">10:00</div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-horario">11:00</div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-horario">12:00</div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-horario">13:00</div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-horario">14:00</div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-horario">15:00</div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-horario">16:00</div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-horario">17:00</div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-horario">18:00</div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+
             <div class="eventos-container" id="eventos-container"></div>
-            
-            <footer class="agenda-footer">
-                <h2>Observações do Dia</h2>
-                <textarea id="observacoes-dia" placeholder="Escreva aqui anotações importantes sobre o dia..."></textarea>
-            </footer>
         </main>
 
         <aside class="sidebar-consultas">
@@ -70,7 +153,20 @@
             <ul id="lista-consultas-dia"></ul>
         </aside>
 
-    </div><div id="popup-detalhes" class="popup hidden">
+        <footer class="agenda-footer">
+            <p class="footer-note">
+                <strong>Nota:</strong> Ao renomear um horário com duplo clique:<br>
+                - Se você escrever "Horário Bloqueado", o bloco ficará <strong
+                    class="cor-vermelho">vermelho</strong>.<br>
+                - Se escrever "Horário Livre", ele ficará <strong class="cor-cinza-claro">cinza claro</strong>.<br>
+                - Se escrever "Horário Cancelado", ele ficará <strong class="cor-cinza-escuro">cinza escuro</strong> e
+                <span class="texto-riscado">riscado</span>.
+            </p>
+        </footer>
+
+    </div>
+
+    <div id="popup-detalhes" class="popup hidden">
         <h3 id="popup-titulo"></h3>
         <p id="popup-corpo"></p>
     </div>
@@ -82,13 +178,27 @@
             <button id="calendar-next-month" class="calendar-nav-btn"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
         <div class="calendar-weekdays">
-            <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sab</div>
+            <div>Dom</div>
+            <div>Seg</div>
+            <div>Ter</div>
+            <div>Qua</div>
+            <div>Qui</div>
+            <div>Sex</div>
+            <div>Sab</div>
         </div>
-        <div id="calendar-days" class="calendar-days">
-            </div>
+        <div id="calendar-days" class="calendar-days"></div>
+    </div>
+
+    <div id="context-menu" class="context-menu hidden">
+        <ul>
+            <li id="ctx-menu-adicionar-nota"><i class="fa-solid fa-note-sticky"></i> Adicionar Nota</li>
+            <li id="ctx-menu-bloquear"><i class="fa-solid fa-ban"></i> Bloquear Horário</li>
+            <li id="ctx-menu-cancelar"><i class="fa-solid fa-times"></i> Cancelar Agendamento</li>
+        </ul>
     </div>
 
     <script src="agenda.js" defer></script>
-    
+
 </body>
+
 </html>
