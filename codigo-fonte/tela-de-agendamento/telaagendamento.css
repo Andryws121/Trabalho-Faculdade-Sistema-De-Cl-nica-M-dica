@@ -1,6 +1,6 @@
 body{
      font-family:'poetsen one';
-     background-image:url(img/imagemfundo.jpeg);
+     background-image:url("codigo-fonte/tela-de-agendamento/imagemfundo.jpeg");
     display: flex;
     justify-content: center; 
     align-items:flex-start;
