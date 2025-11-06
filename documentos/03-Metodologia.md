@@ -27,7 +27,8 @@ Para organização e distribuição das tarefas do projeto, a equipe está utili
 - Done: nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Não há mais edições ou revisões necessárias, ele está agendado e pronto para a ação.
 
 - O quadro kanban do grupo no GitHub está disponível no link https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/2344 e é apresentado, no estado atual, na figura abaixo:
-<img width="1432" height="1076" alt="image" src="https://github.com/user-attachments/assets/55bf8716-ac16-4f06-9e24-aac15dd0a7c0" />
+<img width="1435" height="700" alt="image" src="https://github.com/user-attachments/assets/9265d6e4-8127-4277-8b80-53939ba4a4c4" />
+
 
 
 
@@ -72,8 +73,8 @@ Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a 
 
 | AMBIENTE                            | PLATAFORMA                         | LINK DE ACESSO                         |
 |-------------------------------------|------------------------------------|----------------------------------------|
-| Repositório de código fonte         | GitHub                             | http://....                            |
-| Documentos do projeto               | GitHub                             | http://....                            |
+| Repositório de código fonte         | GitHub                             | [http://....  ](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/tree/main/codigo-fonte)                          |
+| Documentos do projeto               | GitHub                             | [http://....](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/tree/main/documentos)                            |
 | Projeto de Interface                | Figma                              | http://....                            |
 | Gerenciamento do Projeto            | GitHub Projects                    | http://....                            |
 | Hospedagem                          | GitHub Pages                       | http://....                            |
