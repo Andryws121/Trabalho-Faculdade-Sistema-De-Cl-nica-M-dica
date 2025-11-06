@@ -1,0 +1,362 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --primary-color: #0d47a1; /* Azul principal */
+    --secondary-color: #f0f4f8; /* Fundo cinza claro (usado em caixas) */
+    --text-color: #333;
+    --border-color: #ccc;
+    --disabled-color: #e0e0e0;
+    --white: #ffffff;
+    --font-family: 'Arial', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    /* Fundo mais claro, como na imagem */
+    background-color: #fafafa;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    min-height: 100vh;
+    background-image: url(BG.jpeg);
+}
+
+/* --- MARCA D'ÁGUA de fundo (como na imagem) --- */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* Usando um SVG genérico do símbolo da medicina */
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/5a/Rod_of_Asclepius_SVG.svg');
+    background-repeat: repeat;
+    background-size: 300px;
+    background-position: center;
+    opacity: 0.03; /* Muito sutil */
+    z-index: -1;
+    
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+/* --- Container Principal --- */
+.config-container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    z-index: 1; /* Fica na frente da marca d'água */
+}
+
+h1 {
+    color: var(--primary-color);
+    /* Título principal é centralizado na imagem */
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* --- Layout Principal (Grid) --- */
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* --- Seção do Perfil (Esquerda) --- */
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem; /* Ajuste no espaçamento */
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-title h2 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.specialty {
+    font-size: 1rem;
+    color: #555;
+    /* Cor de fundo cinza clara da imagem */
+    background-color: var(--disabled-color);
+    border: 1px solid #ccc;
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+}
+
+/* Botão "Agendar Consulta" agora é azul */
+.schedule-btn {
+    align-self: flex-start;
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Perfil agora é uma coluna única */
+.profile-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* --- Grupos de Input Genéricos --- */
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+/* --- AJUSTE: Labels na horizontal (CRM, Telefone, Email) --- */
+.profile-inputs .input-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-inputs .input-group label {
+    margin-bottom: 0;
+    /* Alinha os labels com largura fixa */
+    width: 65px; 
+    flex-shrink: 0;
+    text-align: left;
+}
+
+.input-group input[type="text"],
+.input-group input[type="tel"],
+.input-group input[type="email"],
+.input-group input[type="time"],
+.input-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-family);
+}
+
+/* Centraliza texto dos inputs de hora */
+.input-group input[type="time"] {
+    text-align: center;
+}
+
+.input-group textarea {
+    resize: vertical;
+}
+
+/* --- Seção de Agendamento (Direita) --- */
+.schedule-section h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.schedule-section h3 i {
+    font-size: 1.2rem;
+}
+
+.availability-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.week-days {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    /* Fundo branco com borda, como na imagem */
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.day-check {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.day-check label {
+    font-weight: 500;
+}
+
+.day-check.disabled label {
+    color: #999;
+}
+
+.day-check input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.time-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.time-period {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Botão "+ Adicionar Período" agora é azul */
+.btn-add-period {
+    align-self: flex-start;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    border: none; /* Remove a borda tracejada */
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+.btn-add-period:hover {
+    opacity: 0.9;
+}
+
+
+/* --- Seção de Duração --- */
+.duration-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.duration-list {
+    list-style: none;
+    flex-grow: 1;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.duration-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.duration-list li:last-child {
+    border-bottom: none;
+}
+
+.duration-list li.default {
+    background-color: #e3f2fd;
+}
+
+/* Botão "+" agora é um círculo cinza sólido */
+.btn-icon {
+    background-color: var(--disabled-color);
+    border: 1px solid #bbb;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Botão "Bloquear Datas" agora é azul */
+.block-dates-btn {
+    flex-shrink: 0;
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* --- Botões de Ação (Footer) --- */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--secondary-color);
+    padding-top: 1.5rem;
+}
+
+/* --- Estilos de Botão Genéricos --- */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    background-color: #e0e0e0;
+    color: var(--text-color);
+}
+
+/* Botão "Cancelar" agora é cinza claro */
+.btn-cancel {
+    background-color: var(--disabled-color);
+    color: var(--text-color);
+    border: 1px solid #bbb;
+}
+
+.btn-cancel:hover {
+    background-color: #d5d5d5;
+}
