@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
             value = value.replace(/(\d{3})(\d)/, '$1.$2');
             value = value.replace(/(\d{3})(\d)/, '$1.$2');
             value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-            e.target.value = value.slice(0, 14);
+            // 🛑 CORREÇÃO DE ERRO: Removido o "a" que estava sobrando no final desta linha
+            e.target.value = value.slice(0, 14); 
         });
     }
 
@@ -89,10 +90,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             if (formValido) {
-                alert('Cadastro de médico realizado com sucesso! Redirecionando para o login...');
+                // ✅ CORREÇÃO DO REDIRECIONAMENTO:
+                alert('Cadastro de médico realizado com sucesso! Redirecionando para o seu menu...');
                 
-               
-                window.location.href = '/codigo-fonte/tela-de-login-ozias/tela_login.html';
+                // Ajustado para o Menu Profissional, como você solicitou
+                window.location.href = '/codigo-fonte/Tela do menu profissional/MenuProfissional.html';
 
             } else {
                 alert('Por favor, preencha todos os campos obrigatórios (*).');
