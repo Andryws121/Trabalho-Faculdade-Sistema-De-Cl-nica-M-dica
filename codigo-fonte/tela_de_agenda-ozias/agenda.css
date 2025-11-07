@@ -1,6 +1,7 @@
 /* =================================================================
    ARQUIVO: style.css
    DESCRIÇÃO: Folha de estilos principal para a Agenda Dinâmica.
+   (VERSÃO 100% LIMPA E COM LINHAS)
    ================================================================= */
 
 /* --- 1. CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
@@ -80,7 +81,6 @@ body {
     transition: background-color 0.3s;
 }
 
-/* MUDANÇA: .btn-configuracao-agenda foi agrupado com .btn-agendar-novo */
 .btn-agendar-novo, .btn-configuracao-agenda { 
     background-color: var(--cor-primaria); 
     color: var(--cor-branco); 
@@ -117,12 +117,63 @@ body {
     position: relative;
     overflow-y: auto;
 }
-.grid-header, .grid-horario { display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: var(--cor-texto-secundario); border-right: 1px solid var(--cor-borda); border-bottom: 1px solid var(--cor-borda); background-color: #fafafa; }
-.grid-cell { border-right: 1px solid var(--cor-borda); border-bottom: 1px solid var(--cor-borda); }
+
+/* ESTILO CORRIGIDO para o visual da imagem */
+.grid-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cor-texto-secundario);
+    
+    /* MUDANÇA: LINHA DE VOLTA */
+    border-right: 1px solid var(--cor-borda);
+    
+    border-bottom: 1px solid var(--cor-borda);
+    background-color: transparent; /* Fundo cinza removido */
+}
+
+/* ESTILO CORRIGIDO para o visual da imagem */
+.grid-cell {
+    /* MUDANÇA: LINHA DE VOLTA */
+    border-right: 1px solid var(--cor-borda);
+    
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+/* ESTILO CORRIGIDO: Alinha horas no topo e à direita */
+.grid-horario {
+    display: flex;
+    align-items: flex-start;  /* Alinha no topo */
+    justify-content: flex-end; /* Alinha à direita */
+    padding: 10px 15px 0 0; /* 10px do topo, 15px da direita */
+    font-size: 14px;
+    font-weight: 500;
+    color: #333; /* Cor um pouco mais escura */
+    
+    /* Linha vertical DE VOLTA, como na sua foto */
+    border-right: 1px solid var(--cor-borda); 
+    border-bottom: 1px solid var(--cor-borda);
+    background-color: #fafafa;
+}
 
 /* --- 6. ESTILOS DOS CARDS DE AGENDAMENTO --- */
 .eventos-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
-.evento { position: absolute; padding: 8px; margin-right: 2px; border-radius: 4px; color: var(--cor-branco); font-size: 13px; overflow: hidden; pointer-events: all; cursor: pointer; transition: all 0.2s; box-sizing: border-box; }
+.evento {
+    position: absolute;
+    padding: 8px;
+    /* margin-right: 2px; */ /* Removido pois o JS cuida da largura */
+    /* margin-top: 2px; FOI REMOVIDO PARA TIRAR O ESPAÇO */
+    border-radius: 4px;
+    color: var(--cor-branco);
+    font-size: 13px;
+    overflow: hidden;
+    pointer-events: all;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
 .evento:hover { filter: brightness(1.1); }
 .evento .evento-nome, .evento .evento-detalhe { display: block; }
 .evento .evento-nome { font-weight: 600; }
@@ -204,3 +255,23 @@ body {
     .sidebar-consultas { border-left: none; border-top: 1px solid var(--cor-borda); padding-left: 0; padding-top: 20px; }
 }
 
+/* =================================================================
+   ESTILOS PARA A FUNCIONALIDADE DE CLIQUE (JAVASCRIPT)
+   ================================================================= */
+
+/* --- 11. ESTILO DOS CABEÇALHOS DE DIA CLICÁVEIS --- */
+.grid-header.day-header {
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    user-select: none; /* Impede a seleção de texto ao clicar */
+}
+
+.grid-header.day-header:hover {
+    background-color: #e9ecef; /* Um cinza claro no hover */
+}
+
+.grid-header.day-header.active {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    font-weight: 700;
+}

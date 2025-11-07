@@ -20,7 +20,6 @@
         <header class="agenda-header">
             <h1>Minha Agenda</h1>
             <div>
-                <!-- ORDEM DOS BOTÕES ALTERADA -->
                 <a href="../tela-de-agendamento/telaagendamento.html" style="text-decoration: none;">
                     <button class="btn-agendar-novo">
                         Agendar Nova Consulta
@@ -28,7 +27,6 @@
                     </button>
                 </a>
 
-                <!-- Exemplo: redirecionando para "config.html" -->
                 <a href="../configuração-de-agenda-ozias/configuração_de_agenda.html" style="text-decoration: none;">
                     <button class="btn-configuracao-agenda">
                         Configuração de agenda
@@ -36,7 +34,8 @@
                     </button>
                 </a>
 
-<a href="../Tela do menu paciente/MenuPaciente.html" class="exit-link">SAIR</a>            </div>
+                <a href="../Tela do menu paciente/MenuPaciente.html" class="exit-link">SAIR</a>
+            </div>
         </header>
 
         <div class="controles-navegacao">
@@ -48,13 +47,13 @@
 
         <main class="agenda-grid">
             <div class="grid-header"></div>
-            <div class="grid-header">Seg</div>
-            <div class="grid-header">Ter</div>
-            <div class="grid-header">Qua</div>
-            <div class="grid-header">Qui</div>
-            <div class="grid-header">Sex</div>
-            <div class="grid-header">Sab</div>
-            <div class="grid-header">Dom</div>
+            <div class="grid-header day-header" data-dia="0">Seg</div>
+            <div class="grid-header day-header" data-dia="1">Ter</div>
+            <div class="grid-header day-header" data-dia="2">Qua</div>
+            <div class="grid-header day-header" data-dia="3">Qui</div>
+            <div class="grid-header day-header" data-dia="4">Sex</div>
+            <div class="grid-header day-header" data-dia="5">Sab</div>
+            <div class="grid-header day-header" data-dia="6">Dom</div>
 
             <div class="grid-horario">08:00</div>
             <div class="grid-cell"></div>
@@ -149,7 +148,7 @@
         </main>
 
         <aside class="sidebar-consultas">
-            <h3>Consultas do Dia</h3>
+            <h3 id="sidebar-title">Consultas do Dia</h3>
             <ul id="lista-consultas-dia"></ul>
         </aside>
 

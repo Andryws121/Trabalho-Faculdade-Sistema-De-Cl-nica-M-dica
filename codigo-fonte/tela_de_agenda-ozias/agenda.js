@@ -1,14 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  
+    // --- PARTE 1: DADOS ---
     let agendamentos = [
-        { id: 7, paciente: "Horário Bloqueado", detalhe: "08:00 - 09:00", inicio: "8.0", fim: "9.0", status: "bloqueado", diaDaSemana: 0.41, duracaoDias: 1.09},
-        { id: 1, paciente: "Pedro Costa", detalhe: "Cardio - 09:00 - 10:00", inicio: "9.0", fim: "10.0", status: "agendado", diaDaSemana: 0.41, duracaoDias: 1.09},
-        { id: 2, paciente: "Maria Oliveira", detalhe: "Dermatologista - 11:00", inicio: "11.0", fim: "12.0", status: "agendado", diaDaSemana: 0.41, duracaoDias: 1.09},
-        { id: 3, paciente: "Dr. Carlos Lima", detalhe: "Consulta - 10:00 - 11:00", inicio: "10.0", fim: "11.0", status: "confirmado", diaDaSemana: 0.41, duracaoDias: 1.09},
-        { id: 4, paciente: "Fernanda Rocha", detalhe: "Bloqueado - 13:00 - 14:00", inicio: "13.0", fim: "14.0", status: "bloqueado", diaDaSemana: 3.66, duracaoDias: 1.09 },
-        { id: 6, paciente: "HORÁRIO CANCELADO", detalhe: "14:00 - 15:00", inicio: "15.0", fim: "16.0", status: "cancelado", diaDaSemana: 3.66, duracaoDias:1.09},
-        { id: 5, paciente: "Ricardo Martins", detalhe: "Cardio - 11:30 - 12:30", inicio: "12.0", fim: "13.0", status: "agendado", diaDaSemana: 4.73, duracaoDias: 1.09 }
+        // Segunda (dia 0)
+        { id: 7, paciente: "Horário Bloqueado", detalhe: "08:00 - 09:00", inicio: "8.0", fim: "9.0", status: "bloqueado", diaDaSemana: 0, duracaoDias: 1 },
+        { id: 1, paciente: "Pedro Costa", detalhe: "Cardio - 09:00 - 10:00", inicio: "9.0", fim: "10.0", status: "agendado", diaDaSemana: 0, duracaoDias: 1 },
+        { id: 2, paciente: "Maria Oliveira", detalhe: "Dermatologista - 11:00", inicio: "11.0", fim: "12.0", status: "agendado", diaDaSemana: 0, duracaoDias: 1 },
+        { id: 3, paciente: "Dr. Carlos Lima", detalhe: "Consulta - 10:00 - 11:00", inicio: "10.0", fim: "11.0", status: "confirmado", diaDaSemana: 0, duracaoDias: 1 },
+        
+        // Quarta (dia 2)
+        { id: 8, paciente: "Paciente Teste (Qua)", detalhe: "Check-up - 10:00 - 11:00", inicio: "10.0", fim: "11.0", status: "agendado", diaDaSemana: 2, duracaoDias: 1 },
+
+        // Quinta (dia 3)
+        { id: 4, paciente: "Fernanda Rocha", detalhe: "Bloqueado - 13:00 - 14:00", inicio: "13.0", fim: "14.0", status: "bloqueado", diaDaSemana: 3, duracaoDias: 1 },
+        { id: 6, paciente: "HORÁRIO CANCELADO", detalhe: "14:00 - 15:00", inicio: "15.0", fim: "16.0", status: "cancelado", diaDaSemana: 3, duracaoDias: 1 },
+        
+        // Sexta (dia 4)
+        { id: 5, paciente: "Ricardo Martins", detalhe: "Cardio - 11:30 - 12:30", inicio: "12.0", fim: "13.0", status: "agendado", diaDaSemana: 4, duracaoDias: 1 }
     ];
 
     // --- PARTE 2: SELEÇÃO DOS ELEMENTOS HTML ---
@@ -29,41 +37,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnMenuBloquear = document.getElementById('ctx-menu-bloquear');
     const btnMenuCancelar = document.getElementById('ctx-menu-cancelar');
 
- 
+    const headersDias = document.querySelectorAll('.grid-header.day-header');
+    const sidebarTitle = document.getElementById('sidebar-title');
+    const diasNomes = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
+    
+    let diaSelecionadoIndex = 0; // Começa na Segunda (índice 0)
+
     let selectedDate = new Date();
     let contextEventId = null;
     let rightClickPosition = { dia: null, hora: null };
 
-    
-    function renderizarAgenda() {
-        eventosContainer.innerHTML = '';
+
+    // --- FUNÇÃO ATUALIZAR SIDEBAR ---
+    function atualizarSidebar() {
         listaConsultasDia.innerHTML = '';
-        agendamentos.forEach(agendamento => {
-            const eventoDiv = document.createElement('div');
-            eventoDiv.id = `evento-${agendamento.id}`;
-            eventoDiv.className = `evento status-${agendamento.status}`;
-            eventoDiv.innerHTML = `<div class="evento-nome">${agendamento.paciente}</div><div class="evento-detalhe">${agendamento.detalhe || ''}</div>`;
-            
-            const horaInicio = parseFloat(String(agendamento.inicio));
-            const horaFim = parseFloat(String(agendamento.fim));
-            const alturaDaLinhaDeHora = 50;
-            const horaInicialDaGrade = 8;
-            const offsetHeader = 50;
-            const top = ((horaInicio - horaInicialDaGrade) * alturaDaLinhaDeHora) + offsetHeader;
-            const duracao = horaFim - horaInicio;
-            const height = duracao * alturaDaLinhaDeHora;
-            const left = `calc(100% / 8 * ${agendamento.diaDaSemana})`;
-            const duracaoDias = agendamento.duracaoDias || 1;
-            const width = `calc(100% / 8 * ${duracaoDias})`;
+        sidebarTitle.textContent = `Consultas de ${diasNomes[diaSelecionadoIndex]}`;
 
-            if (height > 0) {
-                eventoDiv.style.top = `${top}px`;
-                eventoDiv.style.left = left;
-                eventoDiv.style.height = `${height}px`;
-                eventoDiv.style.width = width;
-                eventosContainer.appendChild(eventoDiv);
-            }
+        const agendamentosDoDia = agendamentos.filter(ag =>
+            ag.diaDaSemana === diaSelecionadoIndex
+        );
 
+        agendamentosDoDia.sort((a, b) => parseFloat(a.inicio) - parseFloat(b.inicio));
+
+        if (agendamentosDoDia.length === 0) {
+            listaConsultasDia.innerHTML = '<li style="border: none; background: #fafafa;">Nenhuma consulta para este dia.</li>';
+            return;
+        }
+
+        agendamentosDoDia.forEach(agendamento => {
             if (agendamento.status !== 'livre') {
                 const listItem = document.createElement('li');
                 listItem.className = `status-${agendamento.status}`;
@@ -73,7 +74,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ---LÓGICA DO CALENDÁRIO ---
+    // --- FUNÇÃO RENDERIZAR AGENDA ---
+    function renderizarAgenda() {
+        eventosContainer.innerHTML = '';
+
+        const agendamentosParaMostrar = agendamentos.filter(ag => 
+            ag.diaDaSemana === diaSelecionadoIndex 
+        );
+
+        agendamentosParaMostrar.forEach(agendamento => {
+            const eventoDiv = document.createElement('div');
+            eventoDiv.id = `evento-${agendamento.id}`;
+            eventoDiv.className = `evento status-${agendamento.status}`;
+            eventoDiv.innerHTML = `<div class="evento-nome">${agendamento.paciente}</div><div class="evento-detalhe">${agendamento.detalhe || ''}</div>`;
+
+            // Lógica de 'top' (posição vertical)
+            const horaInicio = parseFloat(String(agendamento.inicio));
+            const horaFim = parseFloat(String(agendamento.fim));
+            const alturaDaLinhaDeHora = 50;
+            const horaInicialDaGrade = 8;
+            const offsetHeader = 50;
+            const top = ((horaInicio - horaInicialDaGrade) * alturaDaLinhaDeHora) + offsetHeader;
+            
+            // --- CORREÇÃO APLICADA AQUI ---
+            // A altura agora preenche o bloco todo (o "- 2" foi removido)
+            const duracao = horaFim - horaInicio;
+            const height = (duracao * alturaDaLinhaDeHora); 
+
+            // Lógica de 'left' e 'width' (corrigida)
+            const diaIndex = agendamento.diaDaSemana; 
+            const left = `calc(60px + ((100% - 60px) / 7) * ${diaIndex})`;
+            const width = `calc(((100% - 60px) / 7) - 4px)`; // 4px de margem horizontal
+
+            if (height > 0) {
+                eventoDiv.style.top = `${top}px`;
+                eventoDiv.style.left = left;
+                eventoDiv.style.height = `${height}px`;
+                eventoDiv.style.width = width;
+                eventosContainer.appendChild(eventoDiv);
+            }
+        });
+        
+        atualizarSidebar();
+    }
+
+    // --- LÓGICA DO CALENDÁRIO ---
     function renderCalendar() {
         const month = selectedDate.getMonth();
         const year = selectedDate.getFullYear();
@@ -96,6 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateDatePickerButton() {
         datePickerButton.textContent = selectedDate.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
     }
+
+    // --- EVENT LISTENERS ---
+
     eventosContainer.addEventListener('dblclick', (event) => {
         const blocoClicado = event.target.closest('.evento');
         if (!blocoClicado || blocoClicado.classList.contains('editing')) return;
@@ -128,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (textoNormalizado.includes('livre')) { dadosAgendamento.status = 'livre'; }
             else if (textoNormalizado.includes('cancelado')) { dadosAgendamento.status = 'cancelado'; }
             else if (dadosAgendamento.status !== 'nota') { dadosAgendamento.status = 'agendado'; }
+            
             renderizarAgenda();
         };
         inputNome.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === 'Escape') inputDetalhe.focus(); });
@@ -136,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         inputDetalhe.addEventListener('blur', salvarEdicao, { once: true });
     });
 
+    // --- LÓGICA DE CLIQUE DIREITO ---
     agendaGrid.addEventListener('contextmenu', (event) => {
         event.preventDefault();
         const blocoClicado = event.target.closest('.evento');
@@ -149,18 +199,21 @@ document.addEventListener('DOMContentLoaded', () => {
             btnMenuAdicionarNota.style.display = 'flex';
             btnMenuBloquear.style.display = 'none';
             btnMenuCancelar.style.display = 'none';
+            
             const gridRect = agendaGrid.getBoundingClientRect();
             const x = event.clientX - gridRect.left;
             const y = event.clientY - gridRect.top;
             const alturaDaLinhaDeHora = 50;
             const offsetHeader = 50;
-            const colunaHorarioWidth = 60;
+            const colunaHorarioWidth = 60; 
             const horaInicialDaGrade = 8;
-            const larguraColunaDia = (gridRect.width - colunaHorarioWidth) / 7;
+            
+            const larguraColunaDia = (gridRect.width - colunaHorarioWidth) / 7; 
             const hora = Math.floor((y - offsetHeader) / alturaDaLinhaDeHora) + horaInicialDaGrade;
-            const dia = Math.floor((x - colunaHorarioWidth) / larguraColunaDia) + 1;
-            if (hora >= 8 && hora <= 18 && dia >= 1 && dia <= 7) {
-                rightClickPosition = { dia, hora };
+            const diaIndexClicado = Math.floor((x - colunaHorarioWidth) / larguraColunaDia); 
+
+            if (hora >= 8 && hora <= 18 && diaIndexClicado >= 0 && diaIndexClicado <= 6) {
+                rightClickPosition = { dia: diaIndexClicado, hora: hora };
             } else {
                 rightClickPosition = { dia: null, hora: null };
                 return;
@@ -171,15 +224,18 @@ document.addEventListener('DOMContentLoaded', () => {
         contextMenu.classList.remove('hidden');
     });
 
+    // --- BOTÃO ADICIONAR NOTA ---
     btnMenuAdicionarNota.addEventListener('click', () => {
-        if (rightClickPosition.dia && rightClickPosition.hora) {
+        if (rightClickPosition.dia !== null && rightClickPosition.hora !== null) {
             const comentario = prompt("Digite sua nota para este horário:");
             if (comentario && comentario.trim() !== "") {
                 const newId = Math.max(0, ...agendamentos.map(ag => ag.id)) + 1;
                 const novaNota = {
                     id: newId, paciente: comentario, detalhe: "Nota",
                     inicio: `${rightClickPosition.hora}.0`, fim: `${rightClickPosition.hora + 1}.0`,
-                    status: 'nota', diaDaSemana: rightClickPosition.dia, duracaoDias: 1
+                    status: 'nota', 
+                    diaDaSemana: rightClickPosition.dia, 
+                    duracaoDias: 1 
                 };
                 agendamentos.push(novaNota);
                 renderizarAgenda();
@@ -187,6 +243,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         contextMenu.classList.add('hidden');
     });
+    
+    // --- BOTÕES BLOQUEAR/CANCELAR ---
     btnMenuBloquear.addEventListener('click', () => {
         if (contextEventId) {
             const agendamento = agendamentos.find(ag => ag.id === contextEventId);
@@ -212,6 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- OUTROS LISTENERS ---
     eventosContainer.addEventListener('mouseover', (event) => {
         const blocoHover = event.target.closest('.evento');
         if (!blocoHover || blocoHover.classList.contains('editing')) return;
@@ -240,12 +299,32 @@ document.addEventListener('DOMContentLoaded', () => {
     prevMonthBtn.addEventListener('click', () => { selectedDate.setMonth(selectedDate.getMonth() - 1); renderCalendar(); });
     nextMonthBtn.addEventListener('click', () => { selectedDate.setMonth(selectedDate.getMonth() + 1); renderCalendar(); });
     calendarDays.addEventListener('click', (event) => { const dayClicked = event.target.closest('.calendar-day'); if (dayClicked && dayClicked.dataset.day) { selectedDate.setDate(parseInt(dayClicked.dataset.day)); updateDatePickerButton(); calendarPopup.classList.add('hidden'); console.log("Nova data selecionada:", selectedDate); } });
-    
     window.addEventListener('click', () => {
         contextMenu.classList.add('hidden');
         calendarPopup.classList.add('hidden');
     });
+
     
-    renderizarAgenda();
+    // --- LISTENER DOS HEADERS ---
+    headersDias.forEach(header => {
+        header.addEventListener('click', () => {
+            const diaIndexClicado = parseInt(header.dataset.dia, 10);
+            diaSelecionadoIndex = diaIndexClicado;
+
+            headersDias.forEach(h => h.classList.remove('active'));
+            header.classList.add('active');
+
+            renderizarAgenda();
+        });
+    });
+
+
+    // --- INICIALIZAÇÃO ---
+    const primeiroHeader = document.querySelector('.grid-header.day-header[data-dia="0"]');
+    if (primeiroHeader) {
+        primeiroHeader.classList.add('active');
+    }
+    
+    renderizarAgenda(); // Renderiza grid e sidebar para o dia 0
     updateDatePickerButton();
 });
