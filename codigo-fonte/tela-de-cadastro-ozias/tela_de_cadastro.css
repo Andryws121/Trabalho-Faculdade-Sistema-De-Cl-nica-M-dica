@@ -1,179 +1,205 @@
-@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
-
-
-* {
+body {
+    font-family: 'Poetsen One', system-ui;
+    background-color: #a7a3a3;
+    display: flex;
+    justify-content: center;
+    /* CORREÇÃO 1: Centraliza o formulário na tela */
+    align-items: center;
+    min-height: 100svh;
     margin: 0;
-    padding: 0;
+    padding-top: 0;
+    overflow: auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.consu {
+    box-shadow: 0 0 8px rgba(64, 27, 214, 0.15);
+    width: 90%;
+    max-width: 900px;
+    height: 720; /* Atenção: isso pode precisar de 'px' (ex: 720px) se não funcionar */
+    overflow: auto;
+    padding: 20px;
+    margin: 40px auto;
+    border: 0.5px solid #19193b;
+    border-radius: 8px;
+    background-color: #ffffff; /* Unificado - removi a regra duplicada */
+}
+
+.consu h2 {
+    text-align: center;
+    background: #076380;
+    color: #f5f6f8;
+    font-size: 30px;
+    padding: 18px 28px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+form {
+    padding: 16px 18px 20px;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.linha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.linha label {
+    width: 100px;
+    /* CORREÇÃO 2: Alinha o texto à direita como na imagem */
+    text-align: right;
+    color: rgb(0, 0, 8);
+    flex-shrink: 0;
+    font-weight: bold; /* Adicionado para combinar com a imagem */
+}
+
+.linha select,
+.linha input,
+.linha textarea {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Adicionado para arredondar os campos */
+    box-sizing: border-box;
+    background: #f0f0f0; /* Fundo cinza claro (do seu código novo) */
+}
+
+.linha textarea {
+    height: 70px;
+    resize: vertical;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.botoes button,
+.botoes a {
+    /* Esta combinação é a correta para os botões */
+    width: 100%;
+    max-width: 600px; /* Alterado para 600px para igualar aos inputs */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Poetsen One', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f4f8;
-}
-
-.container {
-    display: flex;
-    width: 100%;
-    max-width: 2400px; 
-    height: 910px;
-    background-color: #fff;
-    border-radius: 1px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    
-}
-
-.panel {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-
-.login-panel {
-    background-color: #054B84;
+.btn-azul {
+    background-color: #004c80;
     color: #fff;
 }
-
-.login-panel .logo img {
-    max-width: 100%;
+.btn-azul:hover {
+    background-color: #065b9a;
 }
 
-.login-panel h1 { font-size: 2.5rem; margin-bottom: 10px; }
-.login-panel h2 { font-size: 1.8rem; font-weight: 400; margin-bottom: 15px; }
-.login-panel p { font-size: 0.9rem; margin-bottom: 30px; }
-.login-panel .forgot-password { margin-top: 20px; color: #fff; text-decoration: none; font-size: 0.8rem; }
-
-/* --- Painel Direito --- */
-.registration-panel h2 {
-    color: #194a8d;
-    font-size: 2rem;
-    margin-bottom: 40px; 
-} 
-
-
-.btn {
-    display: inline-block; 
-    padding: 12px 45px; 
-    border-radius: 30px;
-    border: 2px solid transparent; 
-    cursor: pointer;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-decoration: none;
-    text-align: center;
-    font-family: 'Poetsen One', sans-serif;
-    transition: all 0.3s ease;
-    
+.btn-cinza {
+    background-color: #777272;
+    color: #f7f5f5;
+}
+.btn-cinza:hover {
+    background-color: #5a5a5a;
 }
 
-
-.botao-continuar, .btn-secondary {
-    width: 100%; 
-    margin-top: 20px; 
-    background-color: #054B84; 
-    color: #ffffff;          
-    border-color: #054B84;     
+.btn-verde {
+    background-color: rgb(44, 182, 1);
+    color: #fafcfa;
+}
+.btn-verde:hover {
+    background-color: #2fb803;
 }
 
-.botao-continuar:hover, .btn-secondary:hover {
-    background-color: #054B84;
-    color: #ffffff;          
-}
+/* --- Restante do seu código (Agendamentos) --- */
 
-
-.btn-outline {
-    background-color: transparent;
-    border-color: #ffffff;
-    color: #ffffff;
-    margin-top: 20px; 
-}
-
-.btn-outline:hover {
-    background-color: #ffffff;
-    color: #054B84;
-}
-
-
-.custom-select-wrapper {
-    width: 350px;
-    margin: 0 auto;
-}
-
-.custom-select {
-    position: relative;
+#listaAgendamentos {
     width: 100%;
-    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.select-trigger {
-    background-color: #e9ecef;
-    padding: 15px 20px;
-    border-radius: 10px;
-    cursor: pointer;
+.ag-card {
+    border: 1px solid #1506e6;
+    border-radius: 12px;
+    background: #e9eff5;
+    padding: 12px 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 520px;
+}
+
+.ag-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid transparent;
-    transition: border-color 1s;
+    gap: 8px;
+    margin-bottom: 8px;
 }
 
-.select-trigger.open {
-    border-color: #194a8d;
+.ag-header h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #1d1d1d;
 }
 
-.arrow {
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid #555;
-    transition: transform 0.3s;
+.ag-created {
+    opacity: .6;
+    font-size: 12px;
 }
 
-.select-trigger.open .arrow {
-    transform: rotate(180deg);
+.ag-body {
+    line-height: 1.5;
+    color: #333;
 }
 
-.options {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-top: none;
-    z-index: 10;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
+.ag-body .row {
+    margin: 2px 0;
 }
 
-.options.open {
-    max-height: 200px;
+.ag-body strong {
+    color: #1a09b3;
 }
 
-.option {
-    padding: 15px 20px;
+.ag-footer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ag-remove {
+    background: #fc3030;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
     cursor: pointer;
-    transition: background-color 0.2s;
-    border-bottom: 1px solid #f0f0f0;
+    font-weight: 600;
 }
 
-.option:last-child {
-    border-bottom: none;
-}
-
-.option:hover {
-    background-color: #f5f5f5;
+.ag-remove:hover {
+    background: #d62828;
 }

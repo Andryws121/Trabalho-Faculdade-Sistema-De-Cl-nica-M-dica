@@ -1,173 +1,142 @@
-body{
-     font-family:'poetsen one';
-     background-image:url("codigo-fonte/tela-de-agendamento/imagemfundo.jpeg");
+body {
+    font-family: 'Poetsen One', system-ui;
+    background-color: #a7a3a3; /* Fundo cinza da referência */
     display: flex;
-    justify-content: center; 
-    align-items:flex-start;
+    justify-content: center;
+    /* CORREÇÃO 1: Centraliza o formulário no meio da tela */
+    align-items: center;
     min-height: 100svh;
-    margin: 0px;
+    margin: 0;
     padding-top: 0;
-    overflow:auto;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  
-    }
+    overflow: auto;
+}
 
-   .consu{ 
-    font-family: "poetsen one";
-        font-weight: 400;
-        box-shadow: 0 0 8px  rgba(64, 27, 214, 0.15);
-        width: min(90%,900px);
-        max-width:900px;
-        overflow:auto;
-        padding: 20px;
-        margin: 40px auto;
-        border: 1px solid #19193b;
-        border-radius:1%;
-        background-color:white;
-    
-    }
+.consu {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 900px;
+    overflow: auto;
+    padding: 20px;
+    margin: 40px auto;
+    border: 0.5px solid #19193b;
+    border-radius: 15px; /* Deixei mais arredondado, como na foto */
+    background-color: #ffffff;
+}
 
-    .consu h2{
-        text-align:center;
-         background:#076380;
-         color:#f5f6f8;
-        font-size: 30px;
-        padding: 18px 28px;
-        border-radius: 5px;
-        margin-bottom: 25px;
-        font-family: "poetsen one"
-    }
-   
-    form{
-        padding: 16px 18px 20px;
-    }
-   
-    .linha {
-      font-family:"poetsen one";
+.consu h2 {
+    text-align: center;
+    background: #076380;
+    color: #f5f6f8;
+    font-size: 30px;
+    padding: 18px 28px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-family: 'Poetsen One'; /* Garante a fonte do título */
+}
+
+form {
+    padding: 16px 18px 20px;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.linha {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    margin-bottom:14px;
-    width:80%;
-    max-width:600px;
-    }
- 
-    .linha label{
-        width: 100px;
-        text-align:left;
-        color: rgb(0, 0, 8);
-    }
-     .linha select,
-    .linha input,
-    .linha textarea
-    {
-        flex: 1;
-        padding: 3px;
-        border-radius: 5px;
-        box-sizing: border-box;
-        width: 60%;
-        background: #ccc8c8;
-        font-family: "poetsen one";
-    }
-
-    .linha textarea {height: 70px; resize:vertical;}
-    .botoes{
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        margin-top: 8px;
-        font-family:"poetsen one";
-    }
-    .botoes button{
-       flex: 1;
-       width:500px;
-        padding:8px 10px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        text-align: center;
-        font-weight: bold;
-        font-family: "roboto";
-
-    }
-   
-    .btn-azul {background-color: #004c80; color: #f9faf9;}
-    .btn-azul:hover {background: #065b9a;} 
-
-    .btn-cinza {background: #777272; color: #f7f5f5;}
-    .btn-cinza :hover {background: #740606;}
-    
-    .btn-verde {background-color:rgb(44, 182, 1); color: #fafcfa;}
-    .btn-verde:hover {background-color: #39fc09;}
-
-/* Cartão de agendamento */
-.ag-card {
-  border: 1px solid #1506e6;
-  border-radius: 12px;
-  background: #9cbbda;
-  padding: 12px 14px;
-  margin: 12px 0;
-  box-shadow: 0 2px 6px rgba(243, 242, 242, 0.06);
-  max-width: 520px;    
+    gap: 10px;
+    margin-bottom: 14px;
+    width: 100%;
+    max-width: 600px;
 }
 
-/* Cabeçalho */
-.ag-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-.ag-header h4 {
-  margin: 0;
-  font-size: 16px;
-  color: #0a0a0a;
-}
-.ag-created {
-  opacity: .6;
-  font-size: 12px;
+.linha label {
+    width: 120px; /* Aumentei um pouco para caber "Horário da consulta" */
+    /* CORREÇÃO 2: Alinha o texto à direita como na imagem */
+    text-align: right;
+    color: rgb(0, 0, 8);
+    flex-shrink: 0;
+    font-weight: bold; /* Deixa o label em negrito */
 }
 
-/* Corpo */
-.ag-body {
-  line-height: 1.5;
-  color: #080808;
-}
-.ag-body .row {
-  margin: 2px 0;
-}
-.ag-body strong {
-  color: #1a09b3;
+.linha select,
+.linha input,
+.linha textarea {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+    box-sizing: border-box;
+    background: #f0f0f0; 
+    font-family: 'Roboto', sans-serif; /* Fonte mais legível para inputs */
 }
 
-/* Rodapé */
-.ag-footer {
-  margin-top: 10px;
-  display: flex;
-  justify-content: flex-end; 
+.linha textarea {
+    height: 70px;
+    resize: vertical;
 }
-.ag-remove {
-  background: #fc3030;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 6px 10px;
-  cursor: pointer;
-  font-weight: 600;
-}
-.ag-remove:hover { background: #e3e3e3; }
 
-
-#listaAgendamentos { width: 100%; display: flex; flex-direction: column; align-items: flex-start; }
-.form-content{
+.botoes {
     display: flex;
     flex-direction: column;
-    align-items:center; 
-    justify-content: center;
+    align-items: center;
     gap: 10px;
-    margin:0px; 
-    
+    margin-top: 15px;
+    /* Centraliza os botões junto com os inputs */
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Compensa o espaço do label */
+    padding-left: 130px; /* (120px do label + 10px do gap) */
+    box-sizing: border-box;
+}
+
+/* CORREÇÃO 3: Adiciona as regras de estilo para os botões 
+  (Isso estava faltando no seu CSS) 
+*/
+.botoes button,
+.botoes a {
+    width: 100%; /* Faz os botões ocuparem o espaço alinhado */
+    padding: 12px 15px; /* Botões mais altos */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    box-sizing: border-box; 
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-azul {
+    background-color: #004c80;
+    color: #fff;
+}
+.btn-azul:hover {
+    background-color: #065b9a;
+}
+
+.btn-cinza {
+    background-color: #6c757d; /* Cinza mais padrão */
+    color: #f7f5f5;
+}
+.btn-cinza:hover {
+    background-color: #5a5a5a;
+}
+
+.btn-verde {
+    background-color: rgb(44, 182, 1);
+    color: #fafcfa;
+}
+.btn-verde:hover {
+    background-color: #2fb803;
 }
