@@ -213,7 +213,11 @@ RF-04	A aplicação deve permitir a funcionalidade de busca e filtro de pesquisa
 
 Passo 1: Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 
-Passo 2: 
+Passo 2: Coloque os seu email e senha de paciente nos campos da tela de login
+
+Passo 3: Clique no botão "entrar" da tela de login.
+
+Passo 4: Selecione o botão "busca" na tela de Menu de paciente 
 
 
 
@@ -241,9 +245,11 @@ RF-06	A aplicação deve permitir acesso a agenda.
 
 Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 
-Passo 2.
+Passo 2: Coloque os seu email e senha de profissional nos campos da tela de login
 
-Passo 3.
+Passo 3: Clique no botão "entrar" da tela de login.
+
+Passo 4: Selecione o botão "agenda" na tela de Menu de profissional
 
 
 
@@ -270,50 +276,22 @@ RF-03	A aplicação deve permitir marcação de consulta online.
 ●telaagendamento.js
 
 #### Instruções de acesso
-Passo1
-Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+Passo1: Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
 
-Passo 2.
-efetue isira seu login e senha, pagina sera redirecionada ao menu principal.
+Passo 2: Coloque os seu email e senha de paciente nos campos da tela de login
 
-Passo 3.
-Localize e clique no botão agendar consulta.
+Passo 3: Clique no botão "entrar" da tela de login.
 
-Passo 4
-preencha os dados solicitados
+Passo 4: Localize e clique o botão "Agendar consulta" na tela de menu de paciente 
 
-
-
-
-### Tela da Biografia Médica (RF-009) 
-Responsável: Ozias
-
-Exemplo da tela de Biografia Médica:
-
-<img width="2559" height="1315" alt="image" src="https://github.com/user-attachments/assets/acec5072-590d-4227-8345-8c6f9fc270c9" />
-
-#### Requisito atendido
-
-RF-10	A aplicação deve permitir que o paciente tenha acesso a informações do profissional de saúde.
-
-#### Artefatos da funcionalidade
-
-●biografia.html
-
-●biografia.css
-
-●biografia.js
-
-
-#### Instruções de acesso
-
-Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+Passo 5: preencha os dados solicitados
 
 
 
 
 
-### Tela de Recuperação de Senha (RF-010) 
+
+### Tela de Recuperação de Senha (RF-009) 
 Responsável: Ozias
 
 Exemplo da tela de Recuperação de Senha:
@@ -337,11 +315,41 @@ Exemplo da tela de Recuperação de Senha:
 
 #### Instruções de acesso
 
-Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+Passo 1: Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+
+Passo 2: Clique no botão "Esqueci a senha" na tela de login
 
 
 
 
+### Tela de Recuperação de Usuario (RF-010) 
+Responsável: Ozias
+
+Exemplo da tela de Recuperação de Usuario:
+
+<img width="2560" height="1319" alt="image" src="https://github.com/user-attachments/assets/a988b4cf-1099-43a7-b000-09c1205c1950" />
+
+
+
+
+#### Requisito atendido
+
+
+
+#### Artefatos da funcionalidade
+
+●esqueciusuario.html
+
+●esqueciusuario.css
+
+●esqueciusuario.js
+
+
+#### Instruções de acesso
+
+Passo 1: Abra um navegador de Internet e informe a seguinte URL: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+
+Passo 2: Clique no botão "Esqueci o usuario" na tela de login
 
 
 ## Exemplo para próximas páginas 
