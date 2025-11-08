@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuração de Agenda</title>
+    <link rel="stylesheet" href="css/ConfiguracaoAgenda.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="config-container">
+        <h1>Configuração de agenda</h1>
+        
+        <form id="config-form">
+            
+            <div class="main-layout">
+                
+                <section class="profile-section">
+                    <div class="profile-header">
+                        <img src="img/Maria_oliveira.png.png" alt="Foto da Dra. Maria Oliveira" class="profile-pic">
+                        
+                       <a href="agenda.html" class="btn btn-primary schedule-btn">Agendar Consulta</a>
+
+                    <div class="week-days">
+                        <div class="day-check active"> <label for="segunda">segunda feira</label>
+                            <input type="checkbox" id="segunda" name="day" value="seg" checked>
+                        </div>
+                        <div class="day-check active">
+                            <label for="terca">Terça - Feira</label>
+                            <input type="checkbox" id="terca" name="day" value="ter" checked>
+                        </div>
+                        <div class="day-check active">
+                            <label for="quarta">Quarta - Feira</label>
+                            <input type="checkbox" id="quarta" name="day" value="qua" checked>
+                        </div>
+                        <div class="day-check active">
+                            <label for="quinta">Quinta - Feira</label>
+                            <input type="checkbox" id="quinta" name="day" value="qui" checked>
+                        </div>
+                        <div class="day-check active">
+                            <label for="sexta">Sexta - Feira</label>
+                            <input type="checkbox" id="sexta" name="day" value="sex" checked>
+                        </div>
+                        <div class="day-check">
+                            <label for="sabado">Sábado</label>
+                            <input type="checkbox" id="sabado" name="day" value="sab">
+                        </div>
+                        <div class="day-check disabled">
+                            <label for="domingo">Domingo</label>
+                            <input type="checkbox" id="domingo" name="day" value="dom" disabled>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="schedule-section">
+                    
+                    <div class="profile-info-block">
+                        <div class="info-row static">
+                            <h2>Dra. Maria Oliveira</h2>
+                            <span class="specialty">Demartologista</span>
+                        </div>
+                        <div class="info-row">
+                            <label for="crm">CRM</label>
+                            <input type="text" id="crm" name="crm" placeholder="Telefone"> </div>
+                        <div class="info-row">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="Telefone">
+                        </div>
+                        <div class="info-row">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" value="dr.Mar@doc.br">
+                        </div>
+                        <div class="info-row bio">
+                            <label for="biografia">Biografia Profissional</label>
+                            <textarea id="biografia" name="biografia" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="availability-block">
+                        <h3>
+                            <i class="fa-regular fa-calendar-days"></i>
+                            Disponibilidade de horários e de atendimento
+                            <i class="fa-regular fa-clock"></i>
+                        </h3>
+                        <div class="time-slots-wrapper"> <div class="time-period">
+                                <div class="input-group">
+                                    <label for="start-time">Horário de Início</label>
+                                    <input type="time" id="start-time" name="start_time" value="00:00">
+                                </div>
+                                <div class="input-group">
+                                    <label for="end-time">Horário de Fim</label>
+                                    <input type="time" id="end-time" name="end_time" value="00:00">
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-add-period">+ Adicionar Período</button>
+                        </div>
+                    </div>
+
+                    <div class="duration-block">
+                        <h3>
+                            Duração da Consulta Padrão
+                            <i class="fa-regular fa-calendar-plus"></i>
+                        </h3>
+                        <div class="duration-wrapper"> <ul class="duration-list">
+                                <li><span>15 minutos</span> <button type="button" class="btn-icon">+</button></li>
+                                <li><span>15 minutos</span> <button type="button" class="btn-icon">+</button></li>
+                                <li class="default"><span>15 (Padrão)</span> <button type="button" class="btn-icon">+</button></li>
+                            </ul>
+                            <button type="button" class="btn btn-primary block-dates-btn">Bloquear Datas Específicas</button>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                <button type="button" class="btn btn-cancel">Cancelar</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="js/ConfiguracaoAgenda.js"></script>
+</body>
+</html>
