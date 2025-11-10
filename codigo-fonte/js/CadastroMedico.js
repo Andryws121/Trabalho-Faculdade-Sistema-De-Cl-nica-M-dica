@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Cadastro de médico realizado com sucesso! Redirecionando para o seu menu...');
                 
                 // Ajustado para o Menu Profissional, como você solicitou
-                window.location.href = '/codigo-fonte/Tela do menu profissional/MenuProfissional.html';
+                window.location.href = 'TelaLogin.html';
 
             } else {
                 alert('Por favor, preencha todos os campos obrigatórios (*).');

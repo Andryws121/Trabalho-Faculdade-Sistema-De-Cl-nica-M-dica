@@ -3,8 +3,7 @@ body {
     background-color: #a7a3a3; /* Fundo cinza da referência */
     display: flex;
     justify-content: center;
-    /* CORREÇÃO 1: Centraliza o formulário no meio da tela */
-    align-items: center;
+    align-items: center; /* CORREÇÃO 1: Centraliza o formulário no meio da tela */
     min-height: 100svh;
     margin: 0;
     padding-top: 0;

@@ -35,7 +35,7 @@ body {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    background-image: url(img/BG.jpeg);
+    background-image: url(/codigo-fonte/img/BG.jpeg);
 }
 
 /* --- 2. LAYOUT PRINCIPAL DA AGENDA --- */

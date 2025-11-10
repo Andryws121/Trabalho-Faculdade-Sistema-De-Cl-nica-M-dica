@@ -13,11 +13,9 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #f0f4f8; /* Fundo cinza claro */
+    
 }
 
-/* Esta classe .container é a mais importante.
-  Se ela não for aplicada, nada do layout funciona.
-*/
 .container {
     display: flex;
     width: 100%; /* Ocupa 100% da largura */
@@ -25,30 +23,28 @@ body {
     background-color: #fff;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    
 }
-
 .panel {
-    flex: 1; /* Faz os painéis dividirem o espaço igualmente */
+    flex: 0.4;
     padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    
+    
 }
-
-/* --- Painel Esquerdo --- */
 .login-panel {
     background-color: #054B84;
     color: #fff;
 }
 
 .login-panel .logo img {
-    max-width: 100px; /* Ajuste o tamanho da logo */
+    max-width: 350px; /* Ajuste o tamanho da logo */
     margin-bottom: 10px;
 }
-
-/* Adicionei o estilo para a classe .titulo-logo do seu HTML */
 .login-panel .titulo-logo,
 .login-panel h1 { 
     font-size: 2.5rem; 
@@ -83,8 +79,6 @@ body {
     width: 350px; /* Largura fixa para os botões */
     max-width: 100%;
 }
-
-/* Seu HTML usa .btn-secondary, então vamos estilizá-lo */
 .btn-secondary {
     margin-top: 20px; 
     background-color: #054B84; 
@@ -109,8 +103,6 @@ body {
     background-color: #ffffff;
     color: #054B84;
 }
-
-/* --- Seletor de Conta --- */
 .custom-select-wrapper {
     width: 350px;
     margin: 0 auto;
@@ -137,8 +129,6 @@ body {
 .select-trigger.open {
     border-color: #194a8d;
 }
-
-/* A classe .arrow que corrigimos no HTML */
 .arrow {
     width: 0;
     height: 0;

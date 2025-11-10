@@ -55,10 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
 
                 if (foundUser.role === 'paciente') {
-                    window.location.href = '/codigo-fonte/Tela do menu paciente/MenuPaciente.html';
+                    window.location.href = 'MenuPaciente.html';
 
                 } else if (foundUser.role === 'profissional') {
-                    window.location.href = '/codigo-fonte/tela do menu profissional/MenuProfissional.html';
+                    window.location.href = 'MenuProfissional.html';
 
                 } else {
                     alert('Tipo de usuário com erro! Contacte o suporte.');

@@ -4,8 +4,7 @@ body{
   font-family:Roboto,sans-serif;
   font-weight: 500;
   font-size: 25px;
-  /* ´background */
-  background-image: url("img/backgroud.jpg");
+  background-image: url(/codigo-fonte/img/BG.jpeg);
   background-size: 50%,contain;
   background-position: center; 
   background-repeat: repeat;

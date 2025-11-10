@@ -10,6 +10,7 @@ body {
     padding: 2rem;
     min-height: 100vh;
     margin: 0;
+    background-image: url(/codigo-fonte/img/BG.jpeg);
 }
 
 .search-container {

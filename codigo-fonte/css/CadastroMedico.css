@@ -1,6 +1,12 @@
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poetsen One', sans-serif;
+}
 :root {
-    --left-panel-bg: #0d47a1;
+    --left-panel-bg: #0d47a1; 
     --right-panel-bg: #ffffff;
     --primary-button-color: #3f51b5;
     --text-color-light: #ffffff;
@@ -18,6 +24,7 @@
 
 body {
     font-family: 'Poetsen One', sans-serif;
+    
 }
 
 .container {
@@ -25,8 +32,6 @@ body {
     width: 100vw;
     min-height: 100vh;
 }
-
-
 .info-panel {
     background-color: var(--left-panel-bg);
     color: var(--text-color-light);

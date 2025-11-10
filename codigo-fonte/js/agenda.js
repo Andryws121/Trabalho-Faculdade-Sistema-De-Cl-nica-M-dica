@@ -1,25 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // --- PARTE 1: DADOS ---
     let agendamentos = [
-        // Segunda (dia 0)
         { id: 7, paciente: "Horário Bloqueado", detalhe: "08:00 - 09:00", inicio: "8.0", fim: "9.0", status: "bloqueado", diaDaSemana: 0, duracaoDias: 1 },
         { id: 1, paciente: "Pedro Costa", detalhe: "Cardio - 09:00 - 10:00", inicio: "9.0", fim: "10.0", status: "agendado", diaDaSemana: 0, duracaoDias: 1 },
         { id: 2, paciente: "Maria Oliveira", detalhe: "Dermatologista - 11:00", inicio: "11.0", fim: "12.0", status: "agendado", diaDaSemana: 0, duracaoDias: 1 },
         { id: 3, paciente: "Dr. Carlos Lima", detalhe: "Consulta - 10:00 - 11:00", inicio: "10.0", fim: "11.0", status: "confirmado", diaDaSemana: 0, duracaoDias: 1 },
-        
-        // Quarta (dia 2)
         { id: 8, paciente: "Paciente Teste (Qua)", detalhe: "Check-up - 10:00 - 11:00", inicio: "10.0", fim: "11.0", status: "agendado", diaDaSemana: 2, duracaoDias: 1 },
-
-        // Quinta (dia 3)
         { id: 4, paciente: "Fernanda Rocha", detalhe: "Bloqueado - 13:00 - 14:00", inicio: "13.0", fim: "14.0", status: "bloqueado", diaDaSemana: 3, duracaoDias: 1 },
         { id: 6, paciente: "HORÁRIO CANCELADO", detalhe: "14:00 - 15:00", inicio: "15.0", fim: "16.0", status: "cancelado", diaDaSemana: 3, duracaoDias: 1 },
-        
-        // Sexta (dia 4)
         { id: 5, paciente: "Ricardo Martins", detalhe: "Cardio - 11:30 - 12:30", inicio: "12.0", fim: "13.0", status: "agendado", diaDaSemana: 4, duracaoDias: 1 }
     ];
 
-    // --- PARTE 2: SELEÇÃO DOS ELEMENTOS HTML ---
     const agendaGrid = document.querySelector('.agenda-grid');
     const eventosContainer = document.getElementById('eventos-container');
     const listaConsultasDia = document.getElementById('lista-consultas-dia');
@@ -41,14 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebarTitle = document.getElementById('sidebar-title');
     const diasNomes = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
     
-    let diaSelecionadoIndex = 0; // Começa na Segunda (índice 0)
+    let diaSelecionadoIndex = 0; 
 
     let selectedDate = new Date();
     let contextEventId = null;
     let rightClickPosition = { dia: null, hora: null };
 
-
-    // --- FUNÇÃO ATUALIZAR SIDEBAR ---
     function atualizarSidebar() {
         listaConsultasDia.innerHTML = '';
         sidebarTitle.textContent = `Consultas de ${diasNomes[diaSelecionadoIndex]}`;
@@ -73,8 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // --- FUNÇÃO RENDERIZAR AGENDA ---
     function renderizarAgenda() {
         eventosContainer.innerHTML = '';
 
@@ -88,20 +74,14 @@ document.addEventListener('DOMContentLoaded', () => {
             eventoDiv.className = `evento status-${agendamento.status}`;
             eventoDiv.innerHTML = `<div class="evento-nome">${agendamento.paciente}</div><div class="evento-detalhe">${agendamento.detalhe || ''}</div>`;
 
-            // Lógica de 'top' (posição vertical)
             const horaInicio = parseFloat(String(agendamento.inicio));
             const horaFim = parseFloat(String(agendamento.fim));
             const alturaDaLinhaDeHora = 50;
             const horaInicialDaGrade = 8;
             const offsetHeader = 50;
             const top = ((horaInicio - horaInicialDaGrade) * alturaDaLinhaDeHora) + offsetHeader;
-            
-            // --- CORREÇÃO APLICADA AQUI ---
-            // A altura agora preenche o bloco todo (o "- 2" foi removido)
             const duracao = horaFim - horaInicio;
             const height = (duracao * alturaDaLinhaDeHora); 
-
-            // Lógica de 'left' e 'width' (corrigida)
             const diaIndex = agendamento.diaDaSemana; 
             const left = `calc(60px + ((100% - 60px) / 7) * ${diaIndex})`;
             const width = `calc(((100% - 60px) / 7) - 4px)`; // 4px de margem horizontal

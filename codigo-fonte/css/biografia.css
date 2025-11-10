@@ -7,7 +7,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f8f0f0;
-    background-image: url('img/BG.jpeg');
+    background-image: url('/codigo-fonte/img/BG.jpeg');
     background-repeat: repeat;
     display: flex;
     justify-content: center;
