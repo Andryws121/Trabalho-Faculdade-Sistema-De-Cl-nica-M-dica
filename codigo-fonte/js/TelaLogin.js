@@ -1,7 +1,7 @@
 function initializeUsers() {
     const initialUsers = [
-        { nome: 'Alice Silva', email: 'alice@email.com', senha: '123', role: 'paciente' },
-        { nome: 'Beto Costa', email: 'beto@email.com', senha: 'abc', role: 'paciente' },
+        { nome: 'Alice Silva', email: 'alice@email.com', senha: '123senha', role: 'paciente' },
+        { nome: 'Beto Costa', email: 'beto@email.com', senha: 'abc1234', role: 'paciente' },
         { nome: 'Medzo (Teste)', email: 'medzo@exemplo.com', senha: 'senha123', role: 'profissional' }
     ];
 

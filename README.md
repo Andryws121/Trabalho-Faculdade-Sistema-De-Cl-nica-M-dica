@@ -21,7 +21,6 @@ O site em HTML/CSS/JS é um projeto estático. É necessário implantá-lo em um
 
 * Andryws Pedro da Silva
 * Gustavo Vieira Leite
-* Lorena Nascimento Carneiro
 * Ozias de Souza Costa
 * Sérvulo Pereira de Oliveira
 ## Orientador
