@@ -103,6 +103,8 @@ main{
 
 .tabela-consultas{
   width: 95%;
+  border-collapse: separate;
+  border-spacing: 0 10px; 
 }
 
 .consultas {
@@ -116,12 +118,17 @@ main{
 
 .tabela-consultas td {
   border-bottom: 1px solid black;
+  padding: 12px 8px;
 }
 
-.hora, .idade{
+.tabela-consultas td:nth-child(2) {
+    text-align: center;
+}
+
+.hora, .idade, .data{
   text-align: center;
 }
-.urgencia, .idade{
+.idade{
   font-weight: 500;
   color: rgb(146, 146, 146);
 }

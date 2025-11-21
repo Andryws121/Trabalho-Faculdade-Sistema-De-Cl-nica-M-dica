@@ -35,10 +35,10 @@
   <main>
     <div class="bluebox">
       <div class="bluebutton"><br>CONSULTAS DE HOJE
-        <div class="numberconsult">1</div>
+        <div class="numberconsult"id="consultasHoje">0</div>
       </div>
       <div class="bluebutton"><br>CONSULTAS TOTAIS
-        <div class="numberconsult">13</div>
+        <div class="numberconsult"id="consultasTotais">0</div>
       </div>
     </div>
 
@@ -51,36 +51,11 @@
 
         <table class="tabela-consultas">
 
-          <tr>
-            <th colspan="3" class="consultas">Próximas Consultas</th>
-          </tr>
+            <tr>
+              <th colspan="3" class="consultas">Próximas Consultas</th>
+            </tr>
 
-          <tr>
-            <td class="nome">
-              <strong>Dra. Cecilia Helena<br>
-              <span class="cargo">Fonoaudiologa</span>
-            </td>
-            <td class="data">20/11</td>
-            <td class="hora">09:00</td>
-          </tr>
-
-          <tr>
-            <td class="nome">
-              <strong>Dr. Antonio Carlos</strong><br>
-              <span class="cargo">Fonoaudiologa</span>
-            </td>
-            <td class="data">21/11</td>
-            <td class="hora">09:00</td>
-          </tr>
-
-          <tr>
-            <td class="nome">
-              <strong>Dra. Mariana Cipriano</strong><br>
-              <span class="cargo">Fonoaudiologa</span>
-            </td>
-            <td class="data">22/11</td>
-            <td class="hora">09:00</td>
-          </tr>
+          <tbody id="tabelaProximas"></tbody>
 
         </table>
       </div>
@@ -124,37 +99,7 @@
             <th colspan="3" class="consultas">Consultas Recentes</th>
           </tr>
 
-          <tr>
-            <td class="nome">
-              <strong>Dr. Carlos Faria<br>
-                <span class="cargo">Nutricionista</span>
-            </td>
-            <td class="data">23/10</td>
-          </tr>
-
-          <tr>
-            <td class="nome">
-              <strong>Dr. Francisco Costa<br>
-                <span class="cargo">Cardiologista</span>
-            </td>
-            <td class="data">12/08</td>
-          </tr>
-
-          <tr>
-            <td class="nome">
-              <strong>Dra. Fernanda Brito<br>
-                <span class="cargo">Dermatologista</span>
-            </td>
-            <td class="data">20/07</td>
-          </tr>
-
-          <tr>
-            <td class="nome">
-              <strong>Dra. Maria Clara<br>
-                <span class="cargo">Psicóloga</span>
-            </td>
-            <td class="data">13/05</td>
-          </tr>
+          <tbody id="tabelaRecentes"></tbody>
 
         </table>
       </div>

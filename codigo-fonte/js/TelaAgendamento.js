@@ -171,3 +171,25 @@
     }
   
   })(); // <--- O fechamento correto é SÓ AQUI no final de tudo
+
+  document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const consulta = {
+        paciente: document.getElementById("paciente").value,
+        profissional: document.getElementById("profissional").value,
+        especialidade: document.getElementById("especialidade").value,
+        data: document.getElementById("data").value,
+        horario: document.getElementById("horario").value,
+        observacoes: document.getElementById("observacoes").value
+    };
+
+    // Pega lista já existente
+    const consultas = JSON.parse(localStorage.getItem("consultas")) || [];
+
+    // Adiciona nova consulta
+    consultas.push(consulta);
+
+    // Salva novamente
+    localStorage.setItem("consultas", JSON.stringify(consultas));
+    });

@@ -36,12 +36,13 @@
   <main>
     <div class="bluebox">
       <div class="bluebutton"><br>CONSULTAS DE HOJE
-        <div class="numberconsult">2</div>
+        <div class="numberconsult"id="consultasHoje">0</div>
       </div>
       <div class="bluebutton"><br>CONSULTAS TOTAIS
-        <div class="numberconsult">13</div>
+        <div class="numberconsult"id="consultasTotais">0</div>
       </div>
     </div>
+
 
     <!-- Botões azuis -->
 
@@ -52,33 +53,11 @@
 
         <table class="tabela-consultas">
 
-          <tr>
-            <th colspan="3" class="consultas">Próximas Consultas</th>
-          </tr>
+          <thead><tr><th colspan="2">Consultas Recentes</th></tr></thead>
+         
+          <tbody id="tabelaHojeProfissional"></tbody>
 
-          <tr>
-            <td class="nome">
-              <strong>Cecilia Helena<br>
-                <span class="urgencia">ALTA</span>
-            </td>
-            <td class="hora">09:00</td>
-          </tr>
 
-          <tr>
-            <td class="nome">
-              <strong>Antonio Carlos</strong><br>
-              <span class="urgencia">BAIXA</span>
-            </td>
-            <td class="hora">09:00</td>
-          </tr>
-
-          <tr>
-            <td class="nome">
-              <strong>Mariana Cipriano</strong><br>
-              <span class="urgencia">MÉDIA</span>
-            </td>
-            <td class="hora">09:00</td>
-          </tr>
 
         </table>
       </div>
@@ -118,43 +97,12 @@
 
         <table class="tabela-consultas">
 
-          <tr>
-            <th colspan="3" class="consultas">Consultas Recentes</th>
-          </tr>
-
-          <tr>
-            <td class="nome">
-              <strong>Carlos Junio<br>
-                <span class="urgencia">ALTA</span>
-            </td>
-            <td class="idade">35 Anos</td>
-          </tr>
-
-          <tr>
-            <td class="nome">
-              <strong>Frederico Costa<br>
-                <span class="urgencia">ALTA</span>
-            </td>
-            <td class="idade">45 Anos</td>
-          </tr>
-
-          <tr>
-            <td class="nome">
-              <strong>Helena Vieira<br>
-                <span class="urgencia">MÉDIA</span>
-            </td>
-            <td class="idade">20 Anos</td>
-          </tr>
-
-          <tr>
-            <td class="nome">
-              <strong>Mariana Vieira<br>
-                <span class="urgencia">BAIXA</span>
-            </td>
-            <td class="idade">80 Anos</td>
-          </tr>
+            <thead><tr><th colspan="2">Próximas Consultas</th></tr></thead>
+          
+            <tbody id="tabelaProximasProfissional"></tbody>
 
         </table>
+
       </div>
       <div class="logo"><img src="img/logo.png" alt="logo"></div>
     </div>
