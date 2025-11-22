@@ -1,14 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let agendamentos = [
-        { id: 7, paciente: "Horário Bloqueado", detalhe: "08:00 - 09:00", inicio: "8.0", fim: "9.0", status: "bloqueado", diaDaSemana: 0, duracaoDias: 1 },
-        { id: 1, paciente: "Pedro Costa", detalhe: "Cardio - 09:00 - 10:00", inicio: "9.0", fim: "10.0", status: "agendado", diaDaSemana: 0, duracaoDias: 1 },
-        { id: 2, paciente: "Maria Oliveira", detalhe: "Dermatologista - 11:00", inicio: "11.0", fim: "12.0", status: "agendado", diaDaSemana: 0, duracaoDias: 1 },
-        { id: 3, paciente: "Dr. Carlos Lima", detalhe: "Consulta - 10:00 - 11:00", inicio: "10.0", fim: "11.0", status: "confirmado", diaDaSemana: 0, duracaoDias: 1 },
-        { id: 8, paciente: "Paciente Teste (Qua)", detalhe: "Check-up - 10:00 - 11:00", inicio: "10.0", fim: "11.0", status: "agendado", diaDaSemana: 2, duracaoDias: 1 },
-        { id: 4, paciente: "Fernanda Rocha", detalhe: "Bloqueado - 13:00 - 14:00", inicio: "13.0", fim: "14.0", status: "bloqueado", diaDaSemana: 3, duracaoDias: 1 },
-        { id: 6, paciente: "HORÁRIO CANCELADO", detalhe: "14:00 - 15:00", inicio: "15.0", fim: "16.0", status: "cancelado", diaDaSemana: 3, duracaoDias: 1 },
-        { id: 5, paciente: "Ricardo Martins", detalhe: "Cardio - 11:30 - 12:30", inicio: "12.0", fim: "13.0", status: "agendado", diaDaSemana: 4, duracaoDias: 1 }
-    ];
+let agendamentos = [];
+
+// CARREGAR CONSULTAS DO LOCAL STORAGE
+const consultasSalvas = JSON.parse(localStorage.getItem("consultas")) || [];
+
+consultasSalvas.forEach((c, index) => {
+
+    const dataObj = new Date(c.data);
+
+    // Dia da semana (0=Dom → mas sua agenda começa em Seg=0)
+    let diaSemana = dataObj.getDay(); // 0=Dom,1=Seg,...
+    diaSemana = diaSemana === 0 ? 6 : diaSemana - 1;
+
+    // Convertendo horário "10:00" para "10.0"
+    const horaInicio = parseInt(c.horario.split(":")[0]);
+    const horaFim = horaInicio + 1;
+
+    agendamentos.push({
+        id: index + 1,
+        paciente: c.paciente,
+        detalhe: `${c.horario}`,
+        inicio: `${horaInicio}.0`,
+        fim: `${horaFim}.0`,
+        status: "agendado",
+        diaDaSemana: diaSemana,
+        duracaoDias: 1
+    });
+});
 
     const agendaGrid = document.querySelector('.agenda-grid');
     const eventosContainer = document.getElementById('eventos-container');
@@ -72,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const eventoDiv = document.createElement('div');
             eventoDiv.id = `evento-${agendamento.id}`;
             eventoDiv.className = `evento status-${agendamento.status}`;
-            eventoDiv.innerHTML = `<div class="evento-nome">${agendamento.paciente}</div><div class="evento-detalhe">${agendamento.detalhe || ''}</div>`;
+            eventoDiv.innerHTML = `<div class="evento-nome">${agendamento.paciente} (${agendamento.detalhe})</div>`;
 
             const horaInicio = parseFloat(String(agendamento.inicio));
             const horaFim = parseFloat(String(agendamento.fim));

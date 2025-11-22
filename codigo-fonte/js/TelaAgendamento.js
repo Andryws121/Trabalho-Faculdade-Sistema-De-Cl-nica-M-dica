@@ -1,3 +1,90 @@
+const especialidadesComuns = [
+  "Cardiologia",
+  "Clínico Geral",
+  "Pediatria",
+  "Ginecologia",
+  "Obstetrícia",
+  "Ortopedia",
+  "Dermatologia",
+  "Psiquiatria",
+  "Neurologia",
+  "Oftalmologia",
+  "Otorrinolaringologia",
+  "Endocrinologia",
+  "Gastroenterologia",
+  "Reumatologia",
+  "Urologia",
+  "Nefrologia",
+  "Hematologia",
+  "Oncologia",
+  "Infectologia",
+  "Pneumologia",
+  "Nutrição Clínica",
+  "Anestesiologia",
+  "Fisioterapia",
+  "Gerontologia",
+  "Alergologia",
+  "Imunologia",
+  "Cirurgia Geral",
+  "Cirurgia Plástica",
+  "Cirurgia Cardiovascular",
+  "Cirurgia Vascular"
+];
+
+(function configurarEspecialidades() {
+    const input = document.querySelector("#especialidade");
+    const lista = document.querySelector("#lista-especialidades");
+
+    if (!input || !lista) return;
+
+    // Função para atualizar as sugestões
+    function atualizarLista(filtro = "") {
+        lista.innerHTML = ""; // limpar
+
+        especialidadesComuns
+            .filter(esp =>
+                esp.toLowerCase().includes(filtro.toLowerCase())
+            )
+            .forEach(esp => {
+                const option = document.createElement("option");
+                option.value = esp;
+                lista.appendChild(option);
+            });
+    }
+
+    // Atualiza tudo ao clicar e ao digitar
+    input.addEventListener("input", () => atualizarLista(input.value));
+
+    // Carrega todas no início
+    atualizarLista();
+})();
+
+(function gerarHorarios() {
+    const select = document.querySelector("#horario");
+    if (!select) return;
+
+    const horaInicio = 8;  // 08:00
+    const horaFim = 18;    // 18:00
+
+    for (let h = horaInicio; h <= horaFim; h++) {
+        for (let m = 0; m < 60; m += 15) {
+
+            // 18:00 é o último horário permitido
+            if (h === horaFim && m > 0) break;
+
+            const hh = String(h).padStart(2, "0");
+            const mm = String(m).padStart(2, "0");
+
+            const op = document.createElement("option");
+            op.value = `${hh}:${mm}`;
+            op.textContent = `${hh}:${mm}`;
+
+            select.appendChild(op);
+        }
+    }
+})();
+
+
 (function () {
     // ---------------------------
     // 1. Configuração do Formulário
@@ -44,6 +131,14 @@
         alert("Preencha todos os campos obrigatórios.");
         return;
       }
+
+      // Validar se especialidade está na lista
+    if (!especialidadesComuns.includes(el.especialidade.value.trim())) {
+       alert("Selecione uma especialidade válida da lista.");
+       el.especialidade.value = "";
+       el.especialidade.focus();
+      return;
+   }
   
       // Validação de data/hora
       const quandoStr = `${el.data.value}T${el.hora.value}`;
@@ -193,3 +288,4 @@
     // Salva novamente
     localStorage.setItem("consultas", JSON.stringify(consultas));
     });
+

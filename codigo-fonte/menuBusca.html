@@ -12,17 +12,19 @@
         <h1>Menu de Busca</h1>
 
         <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Buscar por nome do paciente ou profissional...">
+            <input type="text" id="searchInput" placeholder="Buscar por nome do profissional...">
             <button id="searchButton">BUSCAR</button>
         </div>
 
         <section class="filters-section">
             <h2>Filtros Detalhados</h2>
             <div class="filters-grid">
-                <div class="filter-box">
-                    <label>Especialidade</label>
-                    <span>Cardiologista</span>
+                 <div class="filter-box">
+                     <label>Especialidade</label>
+                     <button id="btnEspecialidade" class="dropdown-btn">Selecionar</button>
+                     <ul id="listaEspecialidades" class="dropdown-list hidden"></ul>
                 </div>
+
                 <div class="filter-box">
                     <label>Data da Consulta</label>
                     <div class="date-filter-value">
