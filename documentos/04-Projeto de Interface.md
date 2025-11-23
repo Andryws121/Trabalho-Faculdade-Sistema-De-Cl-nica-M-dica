@@ -5,9 +5,8 @@
 
 A interface do Medzo foi criada para ser intuitiva e eficiente na marcação de consultas online. Cada tela será desenvolvida para garantir usabilidade, clareza e acessibilidade, atendendo às necessidades dos usuários de forma organizada e prática.
 
-O fluxograma apresentado na figura 4 mostra o fluxo de interação do usuário pelas telas do sistema. Cada uma das telas deste fluxo é detalhada na seção de Protótipo de média fidelidade que se segue. Para visualizar o protótipo interativo,  acesse o <a href="https://miro.com/welcomeonboard/cW5sejZaQ1hZR3RsanBXajI0Z3RqQlltN0pJc2lqWXFSUjRZWSs1MVIvUjFON3RQVlhESHNwZEo5a1pyamc1c1lteFJhN0lsc3d0QWMzcjl3cy8wTTlEZjhPK3cvekk4SCtQKzJxdGNCZkxJdzhXNUxteEVrc3U3RHY0SWp2SGZ3VHhHVHd5UWtSM1BidUtUYmxycDRnPT0hdjE=?share_link_id=207637701563">fluxograma no miro</a>.
+O fluxograma apresentado na figura 4 mostra o fluxo de interação do usuário pelas telas do sistema. Cada uma das telas deste fluxo é detalhada na seção de Protótipo de média fidelidade que se segue. Para visualizar o protótipo interativo,  acesse o <a <img width="2183" height="1165" alt="image" <img width="2183" height="1165" alt="image" src="https://github.com/user-attachments/assets/0eb5fee3-96eb-4c33-a6e4-5bf17e787df2" />
 
-<img width="1652" height="939" alt="image" src="https://github.com/user-attachments/assets/27378bd7-64da-4168-a690-132f3576bcf3" />
 
 
 
