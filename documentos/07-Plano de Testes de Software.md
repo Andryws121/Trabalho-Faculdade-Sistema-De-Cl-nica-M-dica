@@ -52,7 +52,7 @@ Os testes funcionais a serem realizados na aplicação são descritos a seguir.
   <td>
    <ul>
     <li>RF-01	A aplicação deve permitir cadastro de conta do paciente e profissional da saúde.</li>
-    <li>RF-11	A aplicação deve permitir cadastro de perfil de usuário.</li>
+    <li>RF-10	A aplicação deve permitir cadastro de perfil de usuário.</li>
    </ul>
   </td>
   <td>Verificar se os links da página Home estão encaminhando para as respectivas páginas corretamente</td>
@@ -83,7 +83,7 @@ Os testes funcionais a serem realizados na aplicação são descritos a seguir.
   <td>
    <ul>
     <li>RF-01	A aplicação deve permitir cadastro de conta do paciente e profissional da saúde.</li>
-    <li>RF-11	A aplicação deve permitir cadastro de perfil de usuário.</li>
+    <li>RF-10	A aplicação deve permitir cadastro de perfil de usuário.</li>
    </ul>
   </td>
   <td>Verificar se os links da página Home estão encaminhando para as respectivas páginas corretamente</td>
