@@ -81,8 +81,7 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |RF-07| A aplicação deve permitir acesso ao histórico de consultas.    | MÉDIA |
 |RF-08| A aplicação deve permitir cancelar consulta.   | ALTA |
 |RF-09| A aplicação deve permitir notificações de consulta.  | MÉDIA |
-|RF-10| A aplicação deve permitir que o paciente tenha acesso a informações do profissional de saúde.  | ALTA |
-|RF-11| A aplicação deve permitir cadastro de perfil de usuário.  | MÉDIA |
+|RF-10| A aplicação deve permitir cadastro de perfil de usuário.  | MÉDIA |
 
 **Prioridade: Alta / Média / Baixa. 
 
