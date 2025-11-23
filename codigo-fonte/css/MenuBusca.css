@@ -59,7 +59,7 @@ h2 {
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
-.search-bar button {
+.searchButton {
     padding: 0.75rem 1.5rem;
     background-color: #0d47a1; 
     color: white;
@@ -220,4 +220,20 @@ h2 {
     padding: 2px 6px;
     border-radius: 4px;
     font-weight: bold;
+}
+
+.btn-voltar {
+    background-color: #d93025; /* vermelho */
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-voltar:hover {
+    background-color: #b7281e;
 }

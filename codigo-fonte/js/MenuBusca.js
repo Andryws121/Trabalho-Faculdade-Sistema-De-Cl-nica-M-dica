@@ -115,7 +115,6 @@ function performSearch() {
 }
 
     searchButton.addEventListener('click', performSearch);
-    searchInput.addEventListener('keyup', performSearch);
 
     renderResults(allResults);
 });
@@ -166,13 +165,12 @@ function carregarEspecialidades() {
         const li = document.createElement("li");
         li.textContent = esp;
 
-        li.addEventListener("click", (e) => {
-            e.stopPropagation();
-            btnEspecialidade.textContent = esp;
-            selectedEspecialidade = esp;  // atualiza variável global
-            listaEspecialidades.classList.add("hidden");
-            performSearch();              // atualiza lista
-        });
+li.addEventListener("click", (e) => {
+    e.stopPropagation();
+    btnEspecialidade.textContent = esp;
+    selectedEspecialidade = esp;
+    listaEspecialidades.classList.add("hidden");
+});
 
         listaEspecialidades.appendChild(li);
     });

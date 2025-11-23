@@ -61,6 +61,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         pacientes.push(novoPaciente);
         localStorage.setItem("pacientes", JSON.stringify(pacientes));
+        const users = JSON.parse(localStorage.getItem("medzoUsers")) || [];
+
+        users.push({
+            nome: firstname + " " + lastname,
+            email: email,
+            senha: password,
+            role: "paciente"
+        });
+
+        localStorage.setItem("medzoUsers", JSON.stringify(users));
 
         // --- Sucesso Final e Redirecionamento ---
         

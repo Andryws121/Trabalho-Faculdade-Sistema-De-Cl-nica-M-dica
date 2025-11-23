@@ -1,291 +1,251 @@
+// ---------------------------------------------------------
+// 1) LISTA DE ESPECIALIDADES
+// ---------------------------------------------------------
 const especialidadesComuns = [
-  "Cardiologia",
-  "Clínico Geral",
-  "Pediatria",
-  "Ginecologia",
-  "Obstetrícia",
-  "Ortopedia",
-  "Dermatologia",
-  "Psiquiatria",
-  "Neurologia",
-  "Oftalmologia",
-  "Otorrinolaringologia",
-  "Endocrinologia",
-  "Gastroenterologia",
-  "Reumatologia",
-  "Urologia",
-  "Nefrologia",
-  "Hematologia",
-  "Oncologia",
-  "Infectologia",
-  "Pneumologia",
-  "Nutrição Clínica",
-  "Anestesiologia",
-  "Fisioterapia",
-  "Gerontologia",
-  "Alergologia",
-  "Imunologia",
-  "Cirurgia Geral",
-  "Cirurgia Plástica",
-  "Cirurgia Cardiovascular",
-  "Cirurgia Vascular"
+  "Cardiologia", "Clínico Geral", "Pediatria", "Ginecologia", "Obstetrícia",
+  "Ortopedia", "Dermatologia", "Psiquiatria", "Neurologia", "Oftalmologia",
+  "Otorrinolaringologia", "Endocrinologia", "Gastroenterologia", "Reumatologia",
+  "Urologia", "Nefrologia", "Hematologia", "Oncologia", "Infectologia",
+  "Pneumologia", "Nutrição Clínica", "Anestesiologia", "Fisioterapia",
+  "Gerontologia", "Alergologia", "Imunologia", "Cirurgia Geral",
+  "Cirurgia Plástica", "Cirurgia Cardiovascular", "Cirurgia Vascular"
 ];
 
 (function configurarEspecialidades() {
-    const input = document.querySelector("#especialidade");
-    const lista = document.querySelector("#lista-especialidades");
+  const input = document.querySelector("#especialidade");
+  const lista = document.querySelector("#lista-especialidades");
+  if (!input || !lista) return;
 
-    if (!input || !lista) return;
-
-    // Função para atualizar as sugestões
-    function atualizarLista(filtro = "") {
-        lista.innerHTML = ""; // limpar
-
-        especialidadesComuns
-            .filter(esp =>
-                esp.toLowerCase().includes(filtro.toLowerCase())
-            )
-            .forEach(esp => {
-                const option = document.createElement("option");
-                option.value = esp;
-                lista.appendChild(option);
-            });
-    }
-
-    // Atualiza tudo ao clicar e ao digitar
-    input.addEventListener("input", () => atualizarLista(input.value));
-
-    // Carrega todas no início
-    atualizarLista();
-})();
-
-(function gerarHorarios() {
-    const select = document.querySelector("#horario");
-    if (!select) return;
-
-    const horaInicio = 8;  // 08:00
-    const horaFim = 18;    // 18:00
-
-    for (let h = horaInicio; h <= horaFim; h++) {
-        for (let m = 0; m < 60; m += 15) {
-
-            // 18:00 é o último horário permitido
-            if (h === horaFim && m > 0) break;
-
-            const hh = String(h).padStart(2, "0");
-            const mm = String(m).padStart(2, "0");
-
-            const op = document.createElement("option");
-            op.value = `${hh}:${mm}`;
-            op.textContent = `${hh}:${mm}`;
-
-            select.appendChild(op);
-        }
-    }
-})();
-
-
-(function () {
-    // ---------------------------
-    // 1. Configuração do Formulário
-    // ---------------------------
-    const form = document.querySelector("form");
-    
-    // Se não achar o formulário, para o script para não dar erro
-    if (!form) return;
-  
-    // Seleção dos campos
-    const el = {
-      paciente: document.querySelector("#paciente"),
-      profissional: document.querySelector("#profissional"),
-      especialidade: document.querySelector("#especialidade"),
-      data: document.querySelector("#data"),
-      hora: document.querySelector("#horario"),
-      observacoes: document.querySelector("#observacoes"),
-    };
-  
-    // Área onde os agendamentos aparecerão (escondida/opcional já que vamos redirecionar)
-    const lista = document.createElement("div");
-    lista.id = "listaAgendamentos";
-    lista.style.marginTop = "16px";
-    form.insertAdjacentElement("afterend", lista);
-  
-    const STORAGE_KEY = "agendamentos";
-    let agendamentos = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-    
-    // Renderiza a lista inicial (caso tenha algo salvo)
-    render();
-  
-    // ---------------------------
-    // 2. Envio do Formulário (Salvar + Redirecionar)
-    // ---------------------------
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-  
-      const obrig = [el.paciente, el.profissional, el.especialidade, el.data, el.hora];
-      
-      // Validação de campos vazios
-      const inval = obrig.find((i) => !i || !String(i.value).trim());
-      if (inval) {
-        inval.focus(); 
-        alert("Preencha todos os campos obrigatórios.");
-        return;
-      }
-
-      // Validar se especialidade está na lista
-    if (!especialidadesComuns.includes(el.especialidade.value.trim())) {
-       alert("Selecione uma especialidade válida da lista.");
-       el.especialidade.value = "";
-       el.especialidade.focus();
-      return;
-   }
-  
-      // Validação de data/hora
-      const quandoStr = `${el.data.value}T${el.hora.value}`;
-      const quando = new Date(quandoStr);
-      
-      if (isNaN(quando.getTime())) {
-        alert("Data/hora inválidas.");
-        return;
-      }
-      if (quando < new Date()) {
-        alert("Escolha uma data e horário no futuro.");
-        el.data.focus();
-        return;
-      }
-  
-      // Cria o objeto do agendamento
-      const ag = {
-        paciente: el.paciente.value.trim(),
-        profissional: el.profissional.value.trim(),
-        especialidade: el.especialidade.value.trim(),
-        data: el.data.value,
-        hora: el.hora.value,
-        observacoes: (el.observacoes?.value || "").trim(),
-        criadoEm: new Date().toISOString(),
-      };
-  
-      // Salva no LocalStorage
-      agendamentos.push(ag);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(agendamentos));
-  
-      // --- SUCESSO E REDIRECIONAMENTO ---
-      alert("Agendamento confirmado! Redirecionando para a configuração...");
-      
-      // Leva para a próxima tela
-      window.location.href = 'ConfiguracaoAgenda.html'; 
-    });
-  
-    // ---------------------------
-    // 3. Lógica do Botão Voltar (Dinâmico)
-    // ---------------------------
-    const botaoVoltar = document.querySelector('.btn-verde'); // Pega o botão pelo estilo
-    
-    // Recupera o usuário que está logado
-    const usuarioLogado = JSON.parse(localStorage.getItem('sessionToken') || '{}');
-  
-    if (botaoVoltar) {
-        // Se o usuário for médico/profissional, muda o link para o menu dele
-        if (usuarioLogado.role === 'profissional') {
-            botaoVoltar.setAttribute('href', 'MenuProfissional.html');
-        } else {
-            // Se for qualquer outra coisa (paciente), mantém o padrão
-            botaoVoltar.setAttribute('href', 'MenuPaciente.html');
-        }
-    }
-  
-    // ---------------------------
-    // 4. Funções de Renderização e Auxiliares
-    // ---------------------------
-    function render() {
-      if (!agendamentos.length) {
-        lista.innerHTML = "<p>Nenhum agendamento ainda.</p>";
-        return;
-      }
-  
-      lista.innerHTML = agendamentos
-        .map((a, i) => {
-          const quando = formataDataHora(a.data, a.hora);
-          const criado = new Date(a.criadoEm).toLocaleString("pt-BR");
-  
-          return `
-            <div class="ag-card">
-              <div class="ag-header">
-                <h4>Agendamento #${i + 1}</h4>
-                <span class="ag-created">criado em ${criado}</span>
-              </div>
-  
-              <div class="ag-body">
-                <div class="row"><strong>Paciente:</strong> ${esc(a.paciente)}</div>
-                <div class="row"><strong>Profissional:</strong> ${esc(a.profissional)}</div>
-                <div class="row"><strong>Especialidade:</strong> ${esc(a.especialidade)}</div>
-                <div class="row"><strong>Quando:</strong> ${quando}</div>
-                ${
-                  a.observacoes
-                    ? `<div class="row"><strong>Observações:</strong> ${esc(a.observacoes)}</div>`
-                    : ""
-                }
-              </div>
-  
-              <div class="ag-footer">
-                <button class="ag-remove" data-idx="${i}">Excluir</button>
-              </div>
-            </div>
-          `;
-        })
-        .join("");
-  
-      // Botão de remover
-      lista.querySelectorAll(".ag-remove").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const idx = Number(btn.dataset.idx);
-          agendamentos.splice(idx, 1);
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(agendamentos));
-          render();
-        });
+  function atualizarLista(filtro = "") {
+    lista.innerHTML = "";
+    especialidadesComuns
+      .filter(esp => esp.toLowerCase().includes(filtro.toLowerCase()))
+      .forEach(esp => {
+        const option = document.createElement("option");
+        option.value = esp;
+        lista.appendChild(option);
       });
-    }
-  
-    function formataDataHora(dateISO, hhmm) {
-      try {
-        const [y, m, d] = dateISO.split("-").map(Number);
-        const [h, mm] = hhmm.split(":").map(Number);
-        const dt = new Date(y, m - 1, d, h, mm);
-        return `${dt.toLocaleDateString("pt-BR")} às ${dt.toLocaleTimeString("pt-BR", {
-          hour: "2-digit",
-          minute: "2-digit",
-        })}`;
-      } catch {
-        return `${dateISO} ${hhmm}`;
-      }
-    }
-  
-    function esc(s) {
-      const map = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
-      return String(s).replace(/[&<>"']/g, (ch) => map[ch]);
-    }
-  
-  })(); // <--- O fechamento correto é SÓ AQUI no final de tudo
+  }
 
-  document.querySelector("form").addEventListener("submit", function (e) {
+  input.addEventListener("input", () => atualizarLista(input.value));
+  input.addEventListener("focus", () => atualizarLista(input.value));
+  atualizarLista();
+})();
+
+// ---------------------------------------------------------
+// 2) GERAR HORÁRIOS
+// ---------------------------------------------------------
+(function gerarHorarios() {
+  const select = document.querySelector("#horario");
+  if (!select) return;
+
+  for (let h = 8; h <= 18; h++) {
+    for (let m = 0; m < 60; m += 15) {
+      if (h === 18 && m > 0) break;
+
+      const option = document.createElement("option");
+      option.value = `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
+      option.textContent = option.value;
+      select.appendChild(option);
+    }
+  }
+})();
+
+// ---------------------------------------------------------
+// 3) LISTA DE PROFISSIONAIS
+// ---------------------------------------------------------
+const allResults = [
+    { nome: "Dr. Carlos Moura", especialidade: "Cardiologia" },
+    { nome: "Dra. Ana Bezerra", especialidade: "Dermatologia" },
+    { nome: "Dr. Ricardo Martins", especialidade: "Ortopedia" },
+    { nome: "Dra. Juliana Teixeira", especialidade: "Pediatria" },
+    { nome: "Dr. Felipe Carvalho", especialidade: "Clínico Geral" },
+    { nome: "Dr. Marcos Andrade", especialidade: "Neurologia" },
+    { nome: "Dra. Beatriz Nogueira", especialidade: "Ginecologia" },
+    { nome: "Dr. Thiago Lopes", especialidade: "Endocrinologia" },
+    { nome: "Dra. Camila Ramos", especialidade: "Oftalmologia" },
+    { nome: "Dr. Eduardo Farias", especialidade: "Urologia" },
+    { nome: "Dra. Renata Monteiro", especialidade: "Reumatologia" },
+    { nome: "Dr. Lucas Azevedo", especialidade: "Psiquiatria" },
+    { nome: "Dra. Mariana Pires", especialidade: "Otorrinolaringologia" },
+    { nome: "Dr. Samuel Oliveira", especialidade: "Gastroenterologia" },
+    { nome: "Dra. Patrícia Almeida", especialidade: "Anestesiologia" },
+    { nome: "Dr. João Henrique", especialidade: "Cirurgia Geral" },
+    { nome: "Dra. Lorena Duarte", especialidade: "Pneumologia" },
+    { nome: "Dr. Fernando Vasconcelos", especialidade: "Oncologia" },
+    { nome: "Dra. Aline Castro", especialidade: "Hematologia" },
+    { nome: "Dr. Pedro Lima", especialidade: "Nutrição Clínica" },
+    { nome: "Dra. Juliana Santos", especialidade: "Fisioterapia" },
+    { nome: "Dr. Rafael Gomes", especialidade: "Cirurgia Plástica" },
+    { nome: "Dra. Bianca Costa", especialidade: "Cirurgia Cardiovascular" },
+    { nome: "Dr. André Pinto", especialidade: "Cirurgia Vascular" },
+    { nome: "Dra. Fernanda Ribeiro", especialidade: "Imunologia" },
+    { nome: "Dr. Leonardo Martins", especialidade: "Gerontologia" },
+    { nome: "Dra. Camila Azevedo", especialidade: "Alergologia" },
+    { nome: "Dr. Vinícius Oliveira", especialidade: "Psiquiatria" },
+    { nome: "Dra. Tatiane Souza", especialidade: "Pediatria" },
+    { nome: "Dr. Gustavo Ferreira", especialidade: "Clínico Geral" },
+    { nome: "Dra. Larissa Rocha", especialidade: "Cardiologia" },
+    { nome: "Dr. Daniel Ribeiro", especialidade: "Ortopedia" },
+    { nome: "Dra. Paula Mendes", especialidade: "Dermatologia" },
+    { nome: "Dr. Rodrigo Lima", especialidade: "Endocrinologia" },
+    { nome: "Dra. Vanessa Costa", especialidade: "Neurologia" },
+    { nome: "Dr. Marcelo Alves", especialidade: "Urologia" },
+    { nome: "Dra. Daniela Silva", especialidade: "Ginecologia" },
+    { nome: "Dr. Fabio Souza", especialidade: "Oftalmologia" },
+    { nome: "Dra. Adriana Martins", especialidade: "Reumatologia" },
+    { nome: "Dr. Henrique Fernandes", especialidade: "Gastroenterologia" },
+    { nome: "Dra. Renata Lima", especialidade: "Anestesiologia" },
+    { nome: "Dr. Tiago Rocha", especialidade: "Cirurgia Geral" },
+    { nome: "Dra. Sabrina Azevedo", especialidade: "Pneumologia" },
+    { nome: "Dr. Bruno Costa", especialidade: "Oncologia" },
+    { nome: "Dra. Mariana Silva", especialidade: "Hematologia" },
+    { nome: "Dr. Felipe Andrade", especialidade: "Nutrição Clínica" },
+    { nome: "Dra. Amanda Ramos", especialidade: "Fisioterapia" },
+    { nome: "Dr. Leandro Ferreira", especialidade: "Cirurgia Plástica" },
+    { nome: "Dra. Priscila Rocha", especialidade: "Cirurgia Cardiovascular" },
+    { nome: "Dr. Eduardo Alves", especialidade: "Cirurgia Vascular" },
+    { nome: "Dra. Camila Pereira", especialidade: "Imunologia" },
+    { nome: "Dr. Rafael Martins", especialidade: "Gerontologia" },
+    { nome: "Dra. Letícia Souza", especialidade: "Alergologia" }
+];
+
+// ---------------------------------------------------------
+// 4) CONFIGURAR DATLIST DE PROFISSIONAIS + AUTOPREENCHER
+// ---------------------------------------------------------
+const inputProf = document.querySelector("#profissional");
+const listaProfs = document.querySelector("#lista-profissionais");
+const inputEsp = document.querySelector("#especialidade");
+
+(function carregarProfissionais() {
+  if (!listaProfs) return;
+
+  listaProfs.innerHTML = "";
+
+  allResults.forEach(prof => {
+    const option = document.createElement("option");
+    option.value = `${prof.nome} — ${prof.especialidade}`; // VISUAL
+    option.dataset.nome = prof.nome;
+    option.dataset.especialidade = prof.especialidade;
+    listaProfs.appendChild(option);
+  });
+})();
+
+// ⚡ **AUTOMATICAMENTE ABRE A LISTA AO CLICAR NO CAMPO**
+if (inputProf) {
+  inputProf.addEventListener("focus", () => {
+    inputProf.dispatchEvent(new Event("input"));
+  });
+
+  inputProf.addEventListener("input", () => {
+    const itens = [...listaProfs.options];
+    const op = itens.find(o => o.value === inputProf.value);
+
+    if (op) {
+      inputProf.value = op.dataset.nome;
+      inputEsp.value = op.dataset.especialidade;
+      inputEsp.setAttribute("readonly", true);
+    } else {
+      inputEsp.value = "";
+      inputEsp.removeAttribute("readonly");
+    }
+  });
+}
+
+// ---------------------------------------------------------
+// 5) FORMULÁRIO + SALVAR AGENDAMENTO NO LOCALSTORAGE
+// ---------------------------------------------------------
+(function () {
+  const form = document.querySelector("form");
+  if (!form) return;
+
+  const el = {
+    paciente: document.querySelector("#paciente"),
+    profissional: document.querySelector("#profissional"),
+    especialidade: document.querySelector("#especialidade"),
+    data: document.querySelector("#data"),
+    hora: document.querySelector("#horario"),
+    observacoes: document.querySelector("#observacoes"),
+  };
+
+  const lista = document.createElement("div");
+  lista.id = "listaAgendamentos";
+  form.insertAdjacentElement("afterend", lista);
+
+  const STORAGE_KEY = "agendamentos";
+  let agendamentos = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const consulta = {
-        paciente: document.getElementById("paciente").value,
-        profissional: document.getElementById("profissional").value,
-        especialidade: document.getElementById("especialidade").value,
-        data: document.getElementById("data").value,
-        horario: document.getElementById("horario").value,
-        observacoes: document.getElementById("observacoes").value
+    const obrig = [el.paciente, el.profissional, el.especialidade, el.data, el.hora];
+    const inval = obrig.find(i => !i.value.trim());
+    if (inval) {
+      alert("Preencha todos os campos obrigatórios.");
+      inval.focus();
+      return;
+    }
+
+    // Validar especialidade
+    if (!especialidadesComuns.includes(el.especialidade.value.trim())) {
+      alert("Selecione uma especialidade válida da lista.");
+      return;
+    }
+
+    const quando = new Date(`${el.data.value}T${el.hora.value}`);
+    if (quando < new Date()) {
+      alert("Escolha uma data e horário no futuro.");
+      return;
+    }
+
+    const ag = {
+      paciente: el.paciente.value.trim(),
+      profissional: el.profissional.value.trim(),
+      especialidade: el.especialidade.value.trim(),
+      data: el.data.value,
+      hora: el.hora.value,
+      observacoes: el.observacoes.value.trim(),
+      criadoEm: new Date().toISOString(),
     };
 
-    // Pega lista já existente
-    const consultas = JSON.parse(localStorage.getItem("consultas")) || [];
+    agendamentos.push(ag);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(agendamentos));
 
-    // Adiciona nova consulta
-    consultas.push(consulta);
+    alert("Agendamento confirmado!");
+    voltarParaMenu();
+  });
+})();
 
-    // Salva novamente
-    localStorage.setItem("consultas", JSON.stringify(consultas));
-    });
+// ---------------------------------------------------------
+// 6) BOTÃO VOLTAR DINÂMICO
+// ---------------------------------------------------------
+const botaoVoltar = document.querySelector(".btn-verde");
+const usuarioLogado = JSON.parse(localStorage.getItem("sessionToken") || "{}");
 
+if (botaoVoltar) {
+  if (usuarioLogado.role === "profissional") {
+    botaoVoltar.href = "MenuProfissional.html";
+  } else {
+    botaoVoltar.href = "MenuPaciente.html";
+  }
+}
+
+// BOTÃO CANCELAR → VOLTAR SEM VALIDAR
+const btnCancelar = document.querySelector(".btn-cinza");
+
+if (btnCancelar) {
+  btnCancelar.addEventListener("click", () => {
+    window.history.back();
+});
+}
+
+
+function voltarParaMenu() {
+  const usuarioLogado = JSON.parse(localStorage.getItem("sessionToken") || "{}");
+
+  if (usuarioLogado.role === "profissional") {
+    window.location.href = "MenuProfissional.html";
+  } else {
+    window.location.href = "MenuPaciente.html";
+  }
+}

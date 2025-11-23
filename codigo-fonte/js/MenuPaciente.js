@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function carregarConsultas() {
-    const consultas = JSON.parse(localStorage.getItem("consultas")) || [];
+    const consultas = JSON.parse(localStorage.getItem("agendamentos")) || [];
 
     const hoje = new Date().toISOString().slice(0, 10);
 
@@ -42,7 +42,7 @@ consultas.forEach(c => {
 futuras.sort((a, b) => {
     const diffDatas = new Date(a.data) - new Date(b.data);
     if (diffDatas !== 0) return diffDatas;
-    return a.horario.localeCompare(b.horario);
+    return a.hora.localeCompare(b.hora);
 });
 
 // 🔽 (Opcional) Ordenar recentes por data mais recente primeiro
@@ -70,7 +70,7 @@ function preencherTabela(idTabela, lista) {
                     <span class="cargo">${c.especialidade}</span>
                 </td>
                 <td class="data">${formatarData(c.data)}</td>
-                <td class="hora">${c.horario}</td>
+                <td class="hora">${c.hora}</td>
             </tr>
         `;
     });

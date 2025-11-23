@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let agendamentos = [];
 
 // CARREGAR CONSULTAS DO LOCAL STORAGE
-const consultasSalvas = JSON.parse(localStorage.getItem("consultas")) || [];
+const consultasSalvas = JSON.parse(localStorage.getItem("agendamentos")) || [];
 
 consultasSalvas.forEach((c, index) => {
 
@@ -13,13 +13,13 @@ consultasSalvas.forEach((c, index) => {
     diaSemana = diaSemana === 0 ? 6 : diaSemana - 1;
 
     // Convertendo horário "10:00" para "10.0"
-    const horaInicio = parseInt(c.horario.split(":")[0]);
+    const horaInicio = parseInt(c.hora.split(":")[0]);
     const horaFim = horaInicio + 1;
 
     agendamentos.push({
         id: index + 1,
         paciente: c.paciente,
-        detalhe: `${c.horario}`,
+        detalhe: `${c.hora}`,
         inicio: `${horaInicio}.0`,
         fim: `${horaFim}.0`,
         status: "agendado",
@@ -82,9 +82,7 @@ consultasSalvas.forEach((c, index) => {
     function renderizarAgenda() {
         eventosContainer.innerHTML = '';
 
-        const agendamentosParaMostrar = agendamentos.filter(ag => 
-            ag.diaDaSemana === diaSelecionadoIndex 
-        );
+const agendamentosParaMostrar = agendamentos;
 
         agendamentosParaMostrar.forEach(agendamento => {
             const eventoDiv = document.createElement('div');

@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
       window.location.href = 'agenda.html';
     });
   }
+
   const sairButton = document.getElementById('sairButton');
   if (sairButton) {
     sairButton.addEventListener('click', function() {
@@ -17,23 +18,26 @@ document.addEventListener('DOMContentLoaded', function() {
   const agendarButton = document.getElementById('agendarButton');
   if (agendarButton) {
     agendarButton.addEventListener('click', function() {
-      // Este caminho é relativo, conforme estava no seu HTML(conferir o caminho da pasta sempre observando o ../ ou .// ou /)
       window.location.href = 'TelaAgendamento.html';
     });
   }
 
+  carregarConsultasMenuProfissional();
 });
 
-document.addEventListener("DOMContentLoaded", carregarConsultasMenuProfissional);
 
 function carregarConsultasMenuProfissional() {
-    const consultas = JSON.parse(localStorage.getItem("consultas")) || [];
+    const consultas = JSON.parse(localStorage.getItem("agendamentos")) || [];
     const hoje = new Date().toISOString().split("T")[0];
 
     const consultasHoje = [];
     const proximas = [];
 
     consultas.forEach(c => {
+        console.log("Consulta carregada:", c); // DEBUG
+
+        if (!c.data || !c.hora || !c.paciente) return; // ignora registros incompletos
+
         if (c.data === hoje) {
             consultasHoje.push(c);
         } else if (c.data > hoje) {
@@ -41,13 +45,9 @@ function carregarConsultasMenuProfissional() {
         }
     });
 
-    // Ordenar HOJE por horário
-    consultasHoje.sort((a, b) => a.horario.localeCompare(b.horario));
-
-    // Ordenar PRÓXIMAS por data
+    consultasHoje.sort((a, b) => a.hora.localeCompare(b.hora));
     proximas.sort((a, b) => new Date(a.data) - new Date(b.data));
 
-    // Limitar quantidade
     const hojeLimitadas = consultasHoje.slice(0, 3);
     const proximasLimitadas = proximas.slice(0, 4);
 
@@ -58,6 +58,7 @@ function carregarConsultasMenuProfissional() {
     preencherTabelaProximas("tabelaProximasProfissional", proximasLimitadas);
 }
 
+
 function preencherTabelaHoje(idTabela, lista) {
     const tabela = document.getElementById(idTabela);
     tabela.innerHTML = "";
@@ -65,14 +66,13 @@ function preencherTabelaHoje(idTabela, lista) {
     lista.forEach(c => {
         tabela.innerHTML += `
             <tr>
-                <td>
-                    <strong>${c.paciente}</strong><br>
-                </td>
-                <td>${c.horario}</td>
+                <td><strong>${c.paciente}</strong></td>
+                <td>${c.hora}</td>
             </tr>
         `;
     });
 }
+
 
 function preencherTabelaProximas(idTabela, lista) {
     const tabela = document.getElementById(idTabela);
@@ -87,6 +87,7 @@ function preencherTabelaProximas(idTabela, lista) {
         `;
     });
 }
+
 
 function formatarData(data) {
     const [ano, mes, dia] = data.split("-");

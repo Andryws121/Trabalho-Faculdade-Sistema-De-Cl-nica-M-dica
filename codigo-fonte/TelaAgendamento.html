@@ -27,13 +27,13 @@
                 
                 <div class="linha">
                     <label for="profissional">Profissional:</label>
-                    <input type="text" id="profissional" placeholder="Nome do profissional">
+                    <input list="lista-profissionais" id="profissional" placeholder="Escolha o profissional">
+                    <datalist id="lista-profissionais"></datalist>
                 </div>
                 
                 <div class="linha">
                     <label for="especialidade">Especialidade:</label>
-                    <input type="text" id="especialidade" placeholder="Digite a especialidade" list="lista-especialidades">
-                    <datalist id="lista-especialidades"></datalist>
+                    <input id="especialidade" placeholder="Especialidade" readonly>
                 </div>
 
                 <div class="linha">
@@ -53,9 +53,9 @@
             </div>
 
             <div class="botoes">
-                <button type="submit" class="btn-azul">Confirmar agendamento</button>
+                <button type="submit" class="btn-azul" onclick="history.back()">Confirmar agendamento</button>
                 
-                <button type="button" class="btn-cinza">Cancelar</button>
+                <button type="button" class="btn-cinza" onclick="history.back()">Cancelar</button>
 
 
                  <!-- precisamos fazer um sistema para se o usuarioé médico ao clicar pra voltar, ele volta pro menu médico e se ele é paciente volta pro menu paciente -->
