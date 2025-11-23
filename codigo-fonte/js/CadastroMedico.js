@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 4. Salvar de volta no LocalStorage
                 localStorage.setItem('medzoUsers', JSON.stringify(usuariosCadastrados));
 
-                alert('Cadastro de médico realizado com sucesso! Redirecionando para o login...');
+                alert('Cadastro realizado com sucesso! Redirecionando para o login...');
                 
                 // Redireciona para a tela de login
                 window.location.href = 'TelaLogin.html';

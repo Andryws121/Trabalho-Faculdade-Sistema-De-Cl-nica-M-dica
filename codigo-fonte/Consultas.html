@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultas</title>
+  <link rel="stylesheet" href="css/Consultas.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+<header>
+  <div class="headerbox">
+    <button class="button" id="voltarButton" onclick="window.history.back();">
+      Voltar
+    </button>
+    <button class="button" id="sairButton" onclick="window.location.href='TelaLogin.html'">
+      Sair
+    </button>
+  </div>
+</header>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <div class="whiteboards" style="display: flex; flex-direction: column; align-items: center; gap: 40px; margin-top: 50px;">
+
+      <!-- Quadro superior: Próximas Consultas -->
+<div class="whiteboard1" style="width: 80%; min-height: 500px;">
+    <table class="tabela-consultas">
+        <thead>
+            <tr>
+                <th colspan="3" style="text-align: center; font-size: 28px; padding: 15px;">
+                    Próximas Consultas
+                </th>
+            </tr>
+            <tr>
+                <th>Paciente</th>
+                <th>Data / Hora</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="proximasConsultas"></tbody>
+    </table>
+</div>
+
+      <!-- Quadro inferior: Consultas Passadas -->
+      <div class="whiteboard1" style="width: 80%; min-height: 500px;">
+        <table class="tabela-consultas">
+          <thead>
+            <tr>
+              <th colspan="2">Consultas Passadas</th>
+            </tr>
+          </thead>
+          <tbody id="consultasPassadas"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+<script src="js/Consultas.js"></script>
+</body>
+
+</html>

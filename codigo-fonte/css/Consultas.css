@@ -1,0 +1,260 @@
+
+body{
+  /* ´fonts */
+  font-family:Roboto,sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  background-image: url(/codigo-fonte/img/BG.jpeg);
+  background-size: 50%,contain;
+  background-position: center; 
+  background-repeat: repeat;
+  background-color: #054b84;
+  background-blend-mode: multiply;
+  width: 100%;
+  height: 100%;
+  min-width: 910px;
+}
+
+header{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.headerbox{
+  width: 95%;
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 5%;
+  min-height: 50px;
+  max-height: 70px;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.button{
+  width: 100%;
+  height: 100%;
+  min-height: 50px;
+  max-height: 70px;
+  line-height: 2.6;
+  border-radius: 15px;
+  text-align: center;
+  font-family:Roboto,sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  border: none;
+  background-color: white;
+}
+/* ´botão mudando de cor */
+.button:hover {
+Background-color: #006DC7;
+color: white;
+box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+/* ´botão mudando de cor */
+
+main{
+  min-height: 1000px;
+  max-height: 70px;
+  min-width: 910px;
+  
+}
+.bluebox{
+  display: flex;
+  justify-content: space-evenly;
+  height: 200PX;
+  margin-top: 50px;
+}
+.bluebutton{
+  width: 20%;
+  text-align: center;
+  background-color: #006DC7;
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.numberconsult{
+  justify-content: end;
+  height: 70px;
+  margin-top: 20px;
+  font-size: 60px;
+}
+/* botões azuis */
+
+.whiteboards{
+  display: flex;
+  justify-content: space-evenly;
+  height: 300PX;
+  margin-top: 50px;
+  min-width: 910px;
+}
+/* proximas consultas */
+.whiteboard1{
+  width: 40%;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.tabela-consultas{
+  width: 95%;
+  border-collapse: separate;
+  border-spacing: 0 10px; 
+}
+
+.consultas {
+  border-collapse: collapse;
+  width: 95%;
+  font-size: 28px;
+  text-align: center;
+  padding: 10px;
+  height: 20px;
+}
+
+.tabela-consultas td {
+  border-bottom: 1px solid black;
+  padding: 12px 8px;
+}
+
+.tabela-consultas td:nth-child(2) {
+    text-align: center;
+}
+
+.hora, .idade, .data{
+  text-align: center;
+}
+.idade{
+  font-weight: 500;
+  color: rgb(146, 146, 146);
+}
+
+/* ágendar nova consulta */
+.whiteboard2{
+  width: 40%; 
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.table-agendamento{
+  width: 95%;
+  height: 95%;;
+}
+
+.text-book{
+  height: 120px;
+}
+
+.buttonbook{
+  text-align: center;
+  background-color: #006DC7;
+  color: white;
+  border-radius: 15px;
+  
+}
+
+.agendar-button{
+  text-align: center;
+  background-color: #006DC7;
+  color: white;
+  border-radius: 15px;
+  font-family:Roboto,sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  width: 100%; 
+  height: 100%;
+  border: none;
+}
+
+.agendar-button:hover {
+Background-color: #006DC7;
+color: rgb(255, 255, 255);
+box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.calendariozin{
+  max-height: 50px;
+  vertical-align: middle;
+}
+/* quadros de baixo */
+.Downboards{
+  display: flex;
+  justify-content: space-evenly;
+  height: 400PX;
+  margin-top: 50px;
+  min-width: 910px;
+}
+
+.Downboard1{
+  width: 40%;
+  text-align: start;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.logo{
+  width: 40%; 
+  padding: 10px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.remarcar-btn {
+  width: 35px;
+  height: 35px;
+  margin-left: 5px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745; /* verde */
+  color: white;
+  cursor: pointer;
+}
+
+.remarcar-btn:hover {
+  background-color: #218838; /* verde escuro ao passar o mouse */
+}
+
+.remover-btn {
+  width: 35px;
+  height: 35px;
+  margin-left: 5px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background-color: #dc3545; /* vermelho */
+  color: white;
+  cursor: pointer;
+}
+
+.remover-btn:hover {
+  background-color: #c82333; /* vermelho escuro ao passar o mouse */
+}
+
+/* Centraliza toda a tabela de consultas */
+.tabela-consultas {
+    margin: 0 auto; /* centraliza horizontalmente */
+}
+
+/* Centraliza conteúdo das células */
+.tabela-consultas td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 8px;
+}
+
+/* Botões centralizados dentro da célula */
+.tabela-consultas td:last-child {
+    text-align: center;
+}
+

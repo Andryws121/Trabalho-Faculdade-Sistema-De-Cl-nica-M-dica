@@ -249,3 +249,70 @@ function voltarParaMenu() {
     window.location.href = "MenuPaciente.html";
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const consultaEdicao = localStorage.getItem('consultaEdicao');
+
+    const pacienteInput = document.getElementById('paciente');        // campo paciente
+    const profissionalSelect = document.getElementById('profissional'); // select profissional
+    const especialidadeSelect = document.getElementById('especialidade'); // select especialidade
+    const dataInput = document.getElementById('data');                // input data
+    const horaInput = document.getElementById('hora');                // input hora
+
+    if (consultaEdicao !== null) {
+        let consultas = JSON.parse(localStorage.getItem('agendamentos')) || [];
+        let consulta = consultas[consultaEdicao];
+
+        pacienteInput.value = consulta.paciente;
+        profissionalSelect.value = consulta.profissional;
+        especialidadeSelect.value = consulta.especialidade;
+
+        const dataObj = new Date(consulta.data);
+        dataInput.value = dataObj.toISOString().split('T')[0];           // YYYY-MM-DD
+        horaInput.value = dataObj.toTimeString().split(':').slice(0,2).join(':'); // HH:MM
+    }
+});
+
+// Função para salvar/atualizar a consulta
+function salvarConsulta() {
+    // Pega todas as consultas
+    let consultas = JSON.parse(localStorage.getItem('agendamentos')) || [];
+
+    // Pega os valores do formulário
+    const paciente = document.getElementById('paciente').value;
+    const profissional = document.getElementById('profissional').value;
+    const especialidade = document.getElementById('especialidade').value;
+    const data = document.getElementById('data').value;
+    const hora = document.getElementById('hora').value;
+
+    // Combina data e hora em formato ISO
+    const dataHora = `${data}T${hora}`;
+
+    // Pega o índice da consulta a ser editada
+    const consultaEdicao = localStorage.getItem('consultaEdicao');
+
+    if (consultaEdicao !== null && consultas[consultaEdicao]) {
+        // Substitui a consulta antiga pelos novos dados
+        consultas[consultaEdicao] = {
+            paciente: paciente,
+            profissional: profissional,
+            especialidade: especialidade,
+            data: dataHora
+        };
+        localStorage.removeItem('consultaEdicao'); // limpa edição
+    } else {
+        // Adiciona nova consulta
+        consultas.push({
+            paciente: paciente,
+            profissional: profissional,
+            especialidade: especialidade,
+            data: dataHora
+        });
+    }
+
+    // Salva o array atualizado no localStorage
+    localStorage.setItem('agendamentos', JSON.stringify(consultas));
+
+    alert('Consulta salva com sucesso!');
+    window.location.href = 'Consultas.html'; // volta para a página de consultas
+}
