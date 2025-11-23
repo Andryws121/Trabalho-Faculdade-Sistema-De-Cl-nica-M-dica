@@ -352,6 +352,40 @@ Passo 1: Abra um navegador de Internet e informe a seguinte URL: https://icei-pu
 Passo 2: Clique no botão "Esqueci o usuario" na tela de login
 
 
+### Tela de Consultas (RF-011) 
+Responsável: Gustavo
+
+Exemplo da tela de Consultas:
+
+<img width="2556" height="1298" alt="image" src="https://github.com/user-attachments/assets/0cfefd91-f73e-4bd3-b6fa-ccab09134b7e" />
+
+
+
+#### Requisito atendido
+
+RF-07	A aplicação deve permitir acesso ao histórico de consultas.
+RF-08	A aplicação deve permitir cancelar consulta.
+RF-09	A aplicação deve permitir notificações de consulta.
+
+#### Artefatos da funcionalidade
+
+●Consultas.html
+
+●Consultas.css
+
+●Consultas.js
+
+
+#### Instruções de acesso
+
+Passo 1: Abra um navegador de Internet e informe a seguinte URL https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2025-2-e1-proj-web-t9-g5-turma-9/codigo-fonte/tela-de-login-ozias/tela_login.html
+
+Passo 2: Coloque os seu email e senha nos campos da tela de login 
+
+Passo 3: Clique no botão "entrar" da tela de login.
+
+Passo 4: Clique em "Consultas" no menu.
+
 ## Exemplo para próximas páginas 
 
 ### Tela de XXXXXX (RF-XXX) 
