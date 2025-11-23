@@ -2,7 +2,9 @@ function initializeUsers() {
     const initialUsers = [
         { nome: 'Alice Silva', email: 'alice@email.com', senha: '123senha', role: 'paciente' },
         { nome: 'Beto Costa', email: 'beto@email.com', senha: 'abc1234', role: 'paciente' },
-        { nome: 'Medzo (Teste)', email: 'medzo@exemplo.com', senha: 'senha123', role: 'profissional' }
+        { nome: 'Medzo (Teste)', email: 'medzo@exemplo.com', senha: 'senha123', role: 'profissional' },
+        { nome: 'Profissional', email: 'profissional@exemplo.com', senha: 'senha123', role: 'profissional' },
+        { nome: 'Paciente', email: 'paciente@exemplo.com', senha: 'senha123', role: 'paciente' }
     ];
 
     localStorage.setItem('medzoUsers', JSON.stringify(initialUsers));
