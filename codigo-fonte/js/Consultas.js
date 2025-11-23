@@ -3,14 +3,26 @@ function carregarConsultas() {
 
     const proximasTabela = document.getElementById('proximasConsultas');
     const passadasTabela = document.getElementById('consultasPassadas');
+    const avisoHoje = document.getElementById('avisoHoje'); // elemento onde exibiremos a mensagem
 
     proximasTabela.innerHTML = '';
     passadasTabela.innerHTML = '';
+    avisoHoje.innerHTML = '';
 
     const agora = new Date();
+    let consultasHoje = 0;
 
     consultas.forEach((consulta, index) => {
         const dataConsulta = new Date(consulta.data);
+
+        // Contar consultas para hoje
+        if (
+            dataConsulta.getDate() === agora.getDate() &&
+            dataConsulta.getMonth() === agora.getMonth() &&
+            dataConsulta.getFullYear() === agora.getFullYear()
+        ) {
+            consultasHoje++;
+        }
 
         // Formata data e hora: DD/MM/YYYY e HH:MM
         const dataFormatada = dataConsulta.toLocaleDateString('pt-BR');
@@ -32,18 +44,9 @@ function carregarConsultas() {
             passadasTabela.appendChild(linha);
         }
     });
-}
 
-function removerConsulta(index) {
-    let consultas = JSON.parse(localStorage.getItem('agendamentos')) || [];
-    consultas.splice(index, 1);
-    localStorage.setItem('agendamentos', JSON.stringify(consultas));
-    carregarConsultas();
+    // Exibir mensagem de consultas hoje
+    if (consultasHoje > 0) {
+        avisoHoje.textContent = `Você tem ${consultasHoje} consulta(s) hoje.`;
+    }
 }
-
-function remarcarConsulta(index) {
-    localStorage.setItem('consultaEdicao', index);
-    window.location.href = 'TelaAgendamento.html';
-}
-
-document.addEventListener('DOMContentLoaded', carregarConsultas);
