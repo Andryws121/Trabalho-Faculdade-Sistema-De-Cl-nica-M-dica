@@ -135,7 +135,7 @@ Os testes funcionais a serem realizados na aplicação são descritos a seguir.
    </ol>
    </td>
   <td>Todos os links da página Menu Profissional devem encaminhar os usuários para as páginas descritas.</td>
-  <td>Gustavo</td>
+  <td>Andryws</td>
  </tr>
 </table>
 
@@ -170,7 +170,7 @@ Os testes funcionais a serem realizados na aplicação são descritos a seguir.
    </ol>
    </td>
   <td>Todos os links da página Menu Paciente devem encaminhar os usuários para as páginas descritas.</td>
-  <td>Gustavo</td>
+  <td>Andryws</td>
  </tr>
 </table>
 
@@ -205,7 +205,7 @@ Os testes funcionais a serem realizados na aplicação são descritos a seguir.
    </ol>
    </td>
   <td>Deve ocorrer uma validação das informações fornecidas pelo usuário, e ao clicar em "Confirmar agendamento", deve aparecer a mensagem "Agendamento Confirmado!".</td>
-  <td>Gustavo</td>
+  <td>Ozias</td>
  </tr>
 </table>
 
@@ -245,7 +245,7 @@ Os testes funcionais a serem realizados na aplicação são descritos a seguir.
    </ol>
    </td>
   <td> Ao clicar em "X", deve aparecer a mensagem "Agendamento Cancelado!".</td>
-  <td>Gustavo</td>
+  <td>Ozias</td>
  </tr>
 </table>
 
@@ -281,7 +281,7 @@ RF-07	A aplicação deve permitir acesso ao histórico de consultas.
    </ol>
    </td>
   <td>Todas as tabelas de ambos menus devem estar interativas</td>
-  <td>Gustavo</td>
+  <td>Sérvulo</td>
  </tr>
 </table>
 
@@ -315,7 +315,7 @@ RF-07	A aplicação deve permitir acesso ao histórico de consultas.
    </ol>
    </td>
   <td>Todos os funcionamentos da pagina de agenda devem estar interativos.</td>
-  <td>Gustavo</td>
+  <td>Sérvulo</td>
  </tr>
 </table>
 
@@ -351,7 +351,7 @@ RF-07	A aplicação deve permitir acesso ao histórico de consultas.
    </ol>
    </td>
   <td>Todos os funcionamentos da pagina de menu de busca devem estar interativos</td>
-  <td>Gustavo</td>
+  <td>Sérvulo</td>
  </tr>
 </table>
  
