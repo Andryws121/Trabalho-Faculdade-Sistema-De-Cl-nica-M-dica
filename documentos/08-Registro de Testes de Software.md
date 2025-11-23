@@ -40,7 +40,7 @@ https://github.com/user-attachments/assets/5723af37-78dd-48da-81cd-1dcd1b808839
 https://github.com/user-attachments/assets/c54b65cf-62e4-4ed9-91cf-1a004cdbd9c2
 
 
-  Responsável: Gustavo.
+  Responsável: Andryws.
   </li>
   <hr>
 
@@ -50,7 +50,7 @@ https://github.com/user-attachments/assets/c54b65cf-62e4-4ed9-91cf-1a004cdbd9c2
 https://github.com/user-attachments/assets/94242a8e-905d-4053-a786-7a90acdd2af9
 
 
-  Responsável: Gustavo.
+  Responsável: Andryws.
   </li>
   <hr>
 
@@ -60,7 +60,7 @@ https://github.com/user-attachments/assets/94242a8e-905d-4053-a786-7a90acdd2af9
 https://github.com/user-attachments/assets/a6ee324a-7de6-4995-a39c-f733ce55878f
 
 
-  Responsável: Gustavo.
+  Responsável: Ozias.
   </li>
   <hr>
 
@@ -70,7 +70,7 @@ https://github.com/user-attachments/assets/a6ee324a-7de6-4995-a39c-f733ce55878f
 https://github.com/user-attachments/assets/54f5796e-c923-4610-9da7-af17866300f4
 
 
-  Responsável: Gustavo.
+  Responsável: Ozias.
   </li>
   <hr>
 
@@ -80,7 +80,7 @@ https://github.com/user-attachments/assets/54f5796e-c923-4610-9da7-af17866300f4
 https://github.com/user-attachments/assets/8a12c899-1936-4690-b464-31580a71c6e6
 
 
-  Responsável: Gustavo.
+  Responsável: Sérvulo.
   </li>
   <hr>
 
@@ -90,7 +90,7 @@ https://github.com/user-attachments/assets/8a12c899-1936-4690-b464-31580a71c6e6
 https://github.com/user-attachments/assets/532c0a42-d9fd-4a36-802a-a9a8f85deef1
 
 
-  Responsável: Gustavo.
+  Responsável: Sérvulo.
   </li>
   <hr>
 
@@ -100,7 +100,7 @@ https://github.com/user-attachments/assets/532c0a42-d9fd-4a36-802a-a9a8f85deef1
 https://github.com/user-attachments/assets/4b0d9cc1-f769-4793-8863-ae67cfa0732d
 
 
-  Responsável: Gustavo.
+  Responsável: Sérvulo.
   </li>
   <hr>
 
