@@ -4,63 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/TelaAgendamento.css">
-    <title>Tela de Agendamento</title> 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet">
+    <title>Agendar Consulta</title>
     
+    <link rel="stylesheet" href="css/TelaAgendamento.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="fundo"></div>
 
-    <div class="consu">
-        <h2>Agendar Consulta</h2>
+    <div class="form-container">
+        <h1 class="titulo-pagina">Agendar Consulta</h1>
         
         <form>
-            <div class="form-content">
-                <div class="linha">
-                    <label for="paciente">Paciente:</label>
-                    <input type="text" id="paciente" placeholder="Nome do paciente">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="paciente">Nome do Paciente</label>
+                    <input type="text" id="paciente" placeholder="Digite o nome completo">
                 </div>
-                
-                <div class="linha">
-                    <label for="profissional">Profissional:</label>
-                    <input list="lista-profissionais" id="profissional" placeholder="Escolha o profissional">
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="profissional">Profissional</label>
+                    <input list="lista-profissionais" id="profissional" placeholder="Busque o médico...">
                     <datalist id="lista-profissionais"></datalist>
                 </div>
                 
-                <div class="linha">
-                    <label for="especialidade">Especialidade:</label>
-                    <input id="especialidade" placeholder="Especialidade" readonly>
-                </div>
-
-                <div class="linha">
-                    <label for="data">Data da consulta:</label>
-                    <input type="date" id="data">
-                </div>
-                
-                <div class="linha">
-                    <label for="horario">Horário da consulta:</label>
-                    <select id="horario"></select>
-                </div>
-                
-                <div class="linha">
-                     <label for="observacoes">Observações:</label>
-                    <input type="text" id="observacoes" placeholder="Digite aqui">
+                <div class="form-group">
+                    <label for="especialidade">Especialidade</label>
+                    <input id="especialidade" placeholder="Ex: Cardiologia" readonly>
                 </div>
             </div>
 
-            <div class="botoes">
-                <button type="submit" class="btn-azul" onclick="history.back()">Confirmar agendamento</button>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="data">Data</label>
+                    <input type="date" id="data">
+                </div>
                 
-                <button type="button" class="btn-cinza" onclick="history.back()">Cancelar</button>
+                <div class="form-group">
+                    <label for="horario">Horário</label>
+                    <select id="horario">
+                        <option value="" disabled selected>Selecionar...</option>
+                        <option value="08:00">08:00</option>
+                        <option value="09:00">09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                     <label for="observacoes">Observações Médicas</label>
+                    <textarea id="observacoes" placeholder="Adicione detalhes importantes sobre o paciente..."></textarea>
+                </div>
+            </div>
 
+            <div class="form-actions">
+                <button type="reset" class="btn-cancelar">Cancelar</button>
+                
+                <button type="submit" class="btn-salvar">Confirmar Agendamento</button>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="MenuPaciente.html" style="color: #adb5bd; text-decoration: none; font-size: 0.9rem; font-family: 'Roboto', sans-serif;">
+                    Voltar ao Menu Principal
+                </a>
+            </div>
 
-                 <!-- precisamos fazer um sistema para se o usuarioé médico ao clicar pra voltar, ele volta pro menu médico e se ele é paciente volta pro menu paciente -->
-<a href="MenuPaciente.html" class="btn-verde">Retornar ao Menu Principal</a>            </div>
         </form>
+    </div>
+
     <script src="js/TelaAgendamento.js"></script>
+
 </body>
 </html>
