@@ -1,143 +1,226 @@
-*{
+/* =================================================================
+   ARQUIVO: biografia.css
+   DESCRIÇÃO: Estilos da página de Perfil/Biografia
+   (VERSÃO: SOFT DARK MODE - VISUAL MAIS LEVE E ELEGANTE)
+   ================================================================= */
+
+/* --- 0. IMPORTAÇÃO DE FONTES PROFISSIONAIS --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap');
+
+/* --- 1. CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
+:root {
+    /* --- Paleta SOFT DARK (Padronizada com a Agenda) --- */
+    
+    /* Cores Principais */
+    --cor-primaria: #5c636a;       /* Cinza Azulado Leve */
+    --cor-fundo: #252627;          /* Cinza Chumbo (Fundo da Página) */
+    --cor-container: #333538;      /* Cinza Médio (Cartão Principal) */
+    --cor-box: #2c2e31;            /* Fundo sutil para caixas de texto internas */
+    
+    /* Elementos de Interface */
+    --cor-borda: #495057;          /* Bordas suaves */
+    --cor-texto-principal: #f8f9fa;/* Branco Gelo (Alto Contraste) */
+    --cor-texto-secundario: #ced4da; /* Cinza Claro */
+    
+    /* Cores de Ação */
+    --cor-botao: #3e6085;          /* Azul Petróleo Vibrante */
+    --cor-botao-hover: #324c69;    
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    /* Fonte Geral: Roboto */
     font-family: 'Roboto', sans-serif;
-    background-color: #f8f0f0;
-    background-image: url('/codigo-fonte/img/BG.jpeg');
+    font-size: 16px;
+    
+    background-color: var(--cor-fundo);
+    /* Background com overlay para suavizar */
+    background-image: url('../img/BG.jpeg');
     background-repeat: repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+    
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    padding: 40px 20px; /* Mais espaço nas bordas */
+    color: var(--cor-texto-principal);
 }
-
 
 .container {
     display: flex;
-    max-width: 2400px;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.9); 
-    border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: flex; 
     flex-direction: column; 
+    width: 100%;
+    max-width: 1000px; /* Reduzi de 2400px para manter o texto legível (leitura confortável) */
     
+    background-color: var(--cor-container); 
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); /* Sombra difusa moderna */
+    overflow: hidden;
+    border: 1px solid var(--cor-borda);
 }
 
-
+/* --- ÁREA SUPERIOR (PERFIL) --- */
+/* (Antiga Sidebar, ajustada para parecer um cabeçalho de perfil) */
 .sidebar {
-    background-color: #054B84;
-    padding: 10px 10px;
+    background-color: rgba(0, 0, 0, 0.2); /* Escurece levemente o fundo do container */
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    flex: 0 0 100px; 
-    
-}
-
-.user-icon {
-    font-size: 24px;
-    color: #555;
-    margin-bottom: 15px;
+    border-bottom: 1px solid var(--cor-borda);
 }
 
 .profile-pic {
-    width: 200px;
-    height: 200px;
-    border-radius: 100%; 
-    border: 5px solid #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; 
+    border: 5px solid var(--cor-container); /* Borda da cor do container para "recortar" */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
     object-fit: cover;
-    margin-bottom: 20px; 
+    margin-bottom: 25px; 
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
 }
 
 .tag {
-    background-color: #007bff;
-    color: white;
-    padding: 8px 25px; 
+    background-color: var(--cor-botao);
+    color: #ffffff;
+    padding: 8px 30px; 
     border-radius: 50px;
-    font-weight: bold;
     font-size: 14px;
     margin-bottom: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.subtitle {/* Subtítulo na barra meio */ 
+.subtitle { 
     font-size: 16px;
-    color: #ffffff;
-    font-weight: normal;
+    color: var(--cor-texto-secundario);
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
 }
 
-
-.main-content { /* Conteúdo principal da biografia */
-    padding: 1px;
+/* --- CONTEÚDO PRINCIPAL --- */
+.main-content { 
+    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-grow: 1; 
 }
 
-.main-content h1 {/* Título da biografia */
-    font-family: 'Poetsen One', sans-serif;
-    font-size: 42px;
-    color: #054B84;
+.main-content h1 { 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 38px;
+    color: var(--cor-texto-principal);
     margin-bottom: 30px;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
 }
 
 .bio-box {
-    background-color: #ffffff;
-    padding: 50px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    box-shadow: inset 0 10px 10px rgba(0, 0, 0, 0.05);
+    background-color: var(--cor-box); /* Leve contraste com o fundo do container */
+    padding: 40px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    width: 100%;
     margin-bottom: 30px;
 }
 
 .bio-box p {
-    font-size: 24px;
+    font-family: 'Roboto', sans-serif; 
+    font-size: 18px; 
     line-height: 1.8;
-    color: #34495e;
+    color: var(--cor-texto-secundario); /* Texto levemente cinza para não cansar a vista */
     text-align: justify;
-    margin-bottom: 20px;
-    font-weight: 600;
+    margin-bottom: 0;
+    font-weight: 400;
 }
 
 .bio-box p a {
-    color: #0056b3;
-    text-decoration: underline;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    color: #8cb4ff; /* Azul claro suave */
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
 }
 
 .bio-box p a:hover {
-    color: #003d82;
+    color: #fff;
+    border-bottom-color: #fff;
 }
 
+/* --- BOTÃO DE VOLTAR --- */
 .back-button {
-    position: relative;
-    bottom: 40px;       
-    right: 40px;       
-    background-color: #258aef;
-    color: white;
-    border: none;
-    padding: 10px 25px;
+    align-self: flex-end; /* Alinha à direita dentro do flex container */
+    background-color: transparent;
+    color: var(--cor-texto-principal);
+    border: 1px solid var(--cor-borda);
+    padding: 12px 35px;
     border-radius: 8px;
     font-size: 14px;
-    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
     text-decoration: none; 
+    margin-top: 10px;
+    
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .back-button:hover {
-    background-color: #34495e;
+    background-color: var(--cor-primaria);
+    color: #fff;
+    border-color: var(--cor-primaria);
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        margin: 10px;
+    }
     
+    .main-content {
+        padding: 20px;
+    }
+    
+    .bio-box {
+        padding: 20px;
+    }
+    
+    .main-content h1 {
+        font-size: 28px;
+    }
+    
+    .bio-box p {
+        font-size: 16px;
+    }
+    
+    .back-button {
+        width: 100%;
+        text-align: center;
+    }
 }

@@ -1,203 +1,360 @@
+/* =================================================================
+   ARQUIVO: home.css (Dashboard/Tela Inicial)
+   DESCRIÇÃO: Estilos da Home
+   (VERSÃO: SOFT DARK MODE - HARMONIZADO)
+   ================================================================= */
 
-body{
-  /* ´fonts */
-  font-family:Roboto,sans-serif;
-  font-weight: 500;
-  font-size: 25px;
-  background-image: url(/codigo-fonte/img/BG.jpeg);
-  background-size: 50%,contain;
-  background-position: center; 
-  background-repeat: repeat;
-  background-color: #054b84;
-  background-blend-mode: multiply;
-  width: 100%;
-  height: 100%;
-  min-width: 910px;
+/* Importando Montserrat e Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap');
+
+/* Reset básico para evitar quebras */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header{
-  display: flex;
-  justify-content: space-evenly;
+:root {
+    /* --- Paleta SOFT DARK (Padronizada com o restante do sistema) --- */
+    
+    /* Cores de Fundo */
+    --cor-fundo: #252627;          /* Cinza Chumbo (Fundo da página) */
+    --cor-container: #333538;      /* Cinza Médio (Cartões) */
+    
+    /* Cores Principais */
+    --cor-primaria: #5c636a;       /* Cinza Azulado */
+    --cor-primaria-hover: #495057;
+    
+    /* Texto */
+    --cor-texto-principal: #f8f9fa; /* Branco Gelo */
+    --cor-texto-secundario: #ced4da; /* Cinza Claro */
+    
+    /* Detalhes */
+    --cor-borda: #495057;          /* Bordas Suaves */
+    --sombra: rgba(0, 0, 0, 0.4);  /* Sombra difusa */
+    
+    /* Status */
+    --cor-sucesso: #28a745;
+    --cor-erro: #dc3545;
 }
 
-.headerbox{
-  width: 95%;
-  background-color: white;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 5%;
-  min-height: 50px;
-  max-height: 70px;
-  border-radius: 15px;
-  margin: 10px;
+body {
+    /* Fonte Geral */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    
+    background-color: var(--cor-fundo);
+    background-image: url('../img/BG.jpeg'); /* Ajuste o caminho conforme sua pasta */
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: overlay; 
+    
+    width: 100%;
+    min-height: 100vh;
+    color: var(--cor-texto-principal);
 }
 
-.button{
-  width: 100%;
-  height: 100%;
-  min-height: 50px;
-  max-height: 70px;
-  line-height: 2.6;
-  border-radius: 15px;
-  text-align: center;
-  font-family:Roboto,sans-serif;
-  font-weight: 500;
-  font-size: 25px;
-  border: none;
-  background-color: white;
+/* --- HEADER --- */
+header {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
 }
-/* ´botão mudando de cor */
+
+.headerbox {
+    width: 95%;
+    background-color: var(--cor-container);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 70px;
+    border-radius: 15px;
+    border: 1px solid var(--cor-borda);
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.button {
+    flex: 1;
+    min-height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    
+    border: none;
+    background-color: transparent;
+    color: var(--cor-texto-principal);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
 .button:hover {
-Background-color: #006DC7;
-color: white;
-box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
-}
-/* ´botão mudando de cor */
-
-main{
-  min-height: 1000px;
-  max-height: 70px;
-  min-width: 910px;
-  
-}
-.bluebox{
-  display: flex;
-  justify-content: space-evenly;
-  height: 200PX;
-  margin-top: 50px;
-}
-.bluebutton{
-  width: 20%;
-  text-align: center;
-  background-color: #006DC7;
-  color: white;
-  border-radius: 15px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    background-color: var(--cor-primaria);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.numberconsult{
-  justify-content: end;
-  height: 70px;
-  margin-top: 20px;
-  font-size: 60px;
-}
-/* botões azuis */
-
-.whiteboards{
-  display: flex;
-  justify-content: space-evenly;
-  height: 300PX;
-  margin-top: 50px;
-  min-width: 910px;
-}
-/* proximas consultas */
-.whiteboard1{
-  width: 40%;
-  align-items: center;
-  padding: 10px;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+main {
+    padding-bottom: 50px;
 }
 
-.tabela-consultas{
-  width: 95%;
+/* --- BLOCOS SUPERIORES (KPIs) --- */
+.bluebox {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-top: 50px;
+    padding: 0 20px;
 }
 
-.consultas {
-  border-collapse: collapse;
-  width: 95%;
-  font-size: 28px;
-  text-align: center;
-  padding: 10px;
-  height: 20px;
+.bluebutton {
+    width: 22%;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--cor-container); 
+    color: var(--cor-texto-principal);
+    border: 1px solid var(--cor-primaria);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--sombra);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 180px;
+    transition: transform 0.3s;
+    
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.bluebutton:hover {
+    transform: translateY(-5px);
+    border-color: var(--cor-texto-principal);
+}
+
+.numberconsult {
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--cor-texto-principal);
+}
+
+/* --- QUADROS DO MEIO --- */
+.whiteboards {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-top: 50px;
+    padding: 0 20px;
+    min-height: 300px; /* Garante altura mínima */
+}
+
+/* Container Genérico para os Cards */
+.whiteboard1, .whiteboard2 {
+    width: 45%;
+    padding: 20px;
+    background-color: var(--cor-container); 
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--sombra);
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-principal);
+    
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* Tabelas */
+.tabela-consultas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
 }
 
 .tabela-consultas td {
-  border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--cor-borda); 
+    padding: 15px 10px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--cor-texto-secundario);
 }
 
-.hora, .idade, .data{
-  text-align: center; 
-}
-.cargo{
-  font-weight: 500;
-  color: rgb(146, 146, 146);
+.tabela-consultas td:first-child {
+    color: var(--cor-texto-principal);
+    font-weight: 500;
 }
 
-/* ágendar nova consulta */
-.whiteboard2{
-  width: 40%; 
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+/* Agendamento */
+.table-agendamento {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.table-agendamento{
-  width: 95%;
-  height: 95%;;
+.text-book {
+    padding: 30px;
+    color: var(--cor-texto-secundario);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-.text-book{
-  height: 120px;
+.buttonbook {
+    height: 60px;
+    width: 100%;
 }
 
-.buttonbook{
-  text-align: center;
-  background-color: #006DC7;
-  color: white;
-  border-radius: 15px;
-  
-}
-
-.agendar-button{
-  text-align: center;
-  background-color: #006DC7;
-  color: white;
-  border-radius: 15px;
-  font-family:Roboto,sans-serif;
-  font-weight: 500;
-  font-size: 25px;
-  width: 100%; 
-  height: 100%;
-  border: none;
+.agendar-button {
+    text-align: center;
+    background-color: var(--cor-primaria);
+    color: white;
+    border-radius: 10px;
+    
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    
+    width: 100%; 
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .agendar-button:hover {
-Background-color: #006DC7;
-color: rgb(255, 255, 255);
-box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    background-color: var(--cor-primaria-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.calendariozin{
-  max-height: 50px;
-  vertical-align: middle;
-}
-/* quadros de baixo */
-.Downboards{
-  display: flex;
-  justify-content: space-evenly;
-  height: 400PX;
-  margin-top: 50px;
-  min-width: 910px;
+.calendariozin {
+    max-height: 24px;
+    filter: invert(1);
 }
 
-.Downboard1{
-  width: 40%;
-  text-align: start;
-  padding: 10px;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+/* --- QUADROS DE BAIXO --- */
+.Downboards {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-top: 50px;
+    padding: 0 20px;
+    padding-bottom: 50px;
 }
 
-.logo{
-  width: 40%; 
-  padding: 10px;
-  text-align: center;
-  border-radius: 15px;
+.Downboard1 {
+    width: 45%;
+    padding: 25px;
+    background-color: var(--cor-container); 
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--sombra);
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-principal);
+    
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.logo {
+    width: 40%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+}
+
+/* Botões de Ação na Tabela */
+.remarcar-btn, .remover-btn {
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remarcar-btn { background-color: var(--cor-sucesso); margin-right: 5px; }
+.remover-btn { background-color: var(--cor-erro); }
+
+.remarcar-btn:hover, .remover-btn:hover {
+    transform: scale(1.1);
+}
+
+/* --- RESPONSIVIDADE (Fundamental para celular) --- */
+@media (max-width: 910px) {
+    body {
+        min-width: 100%; /* Remove a trava que quebrava no celular */
+    }
+
+    .headerbox {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    /* Transforma as linhas em colunas */
+    .bluebox, .whiteboards, .Downboards {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        margin-top: 30px;
+    }
+
+    .bluebutton, .whiteboard1, .whiteboard2, .Downboard1 {
+        width: 100%;
+        margin-bottom: 20px;
+        min-height: auto;
+    }
+    
+    .bluebutton {
+        flex-direction: row; /* Número ao lado do texto no celular */
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 30px;
+    }
+    
+    .numberconsult {
+        margin-top: 0;
+        font-size: 36px;
+    }
+    
+    .logo {
+        display: none;
+    }
 }

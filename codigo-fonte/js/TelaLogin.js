@@ -8,6 +8,7 @@ function initializeUsers() {
     ];
 
     localStorage.setItem('medzoUsers', JSON.stringify(initialUsers));
+    
     console.log('Usuários de teste foram ATUALIZADOS no localStorage.');
 }
 initializeUsers();

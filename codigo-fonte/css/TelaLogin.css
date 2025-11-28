@@ -1,5 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+/* =================================================================
+   ARQUIVO: login_principal.css (Tela de Acesso)
+   DESCRIÇÃO: Estilos da tela de login centralizada
+   (VERSÃO: SOFT DARK MODE - FINAL)
+   ================================================================= */
 
+/* Importando Montserrat e Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap');
+
+:root {
+    /* --- Paleta SOFT DARK (Padronizada) --- */
+    
+    /* Fundos */
+    --cor-fundo: #252627;          /* Fundo da página (Cinza Chumbo) */
+    --cor-container: #333538;      /* Fundo do card (Cinza Médio) */
+    
+    /* Inputs e Detalhes */
+    --cor-input-bg: #252627;       /* Fundo dos inputs (Baixo relevo) */
+    --cor-borda: #495057;          /* Bordas Suaves */
+    
+    /* Cores Principais */
+    --cor-primaria: #5c636a;       /* Cinza Azulado */
+    --cor-primaria-hover: #495057;
+    
+    /* Texto */
+    --cor-texto-principal: #f8f9fa; /* Branco Gelo */
+    --cor-texto-secundario: #ced4da; /* Cinza Claro */
+}
 
 html, body {
     height: 100%;
@@ -8,67 +34,91 @@ html, body {
 }
 
 body {
-    font-family: 'Poetsen One', sans-serif;
-    background-color: #e9e9ee;
-    color: #333;
+    /* Fonte Geral: Roboto */
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
-    background-image: url(/codigo-fonte/img/BG.jpeg);
+    
+    background-image: url('../img/BG.jpeg'); /* Ajuste o caminho se necessário */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
 }
-
 
 .login-container {
     width: 100%;
-    max-width: 2400px; 
-    height: 910px;       
-    background-color: #ffffff;
-    border-radius: 1px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 550px; /* Ajustado para um card de login elegante e compacto */
+    background-color: var(--cor-container); 
+    border-radius: 15px; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); /* Sombra difusa moderna */
     overflow: hidden;
     display: flex; 
     flex-direction: column; 
+    border: 1px solid var(--cor-borda);
+    /* Removemos a altura fixa para o card crescer conforme o conteúdo */
+    min-height: auto; 
 }
+
+/* --- Cabeçalho do Card --- */
 .login-header {
-    background-color: #054B84;
+    background-color: #2b2d30; /* Um tom levemente mais escuro para o topo */
     color: #ffffff;
-    padding: 30px; 
+    padding: 40px 30px; 
     text-align: center;
     position: relative;
     flex-shrink: 0; 
+    border-bottom: 1px solid var(--cor-borda);
 }
+
 .login-header .logo img {
-    max-width: 300px; 
+    max-width: 250px; 
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
 }
 
 .login-header h1 {
     margin: 0;
-    font-size: 2.8rem; 
+    font-size: 2.2rem; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Fonte Logo/Título: Montserrat Bold */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
+
+/* Links de navegação no header */
 .header-nav {
     position: absolute;
-    bottom: 15px;
+    top: 15px;
     right: 20px;
     font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .header-nav a {
-    color: #d1e0f0;
+    color: var(--cor-texto-secundario);
     text-decoration: none;
     margin: 0 4px;
     transition: color 0.2s ease;
+    font-weight: 600;
 }
 
 .header-nav a:hover {
     color: #ffffff;
-    text-decoration: underline;
 }
 
-
+/* --- Corpo do Login --- */
 .login-body {
     flex-grow: 1; 
     padding: 40px;
@@ -82,9 +132,9 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 480px; 
 }
 
+/* --- Inputs --- */
 .input-group {
     margin-bottom: 25px; 
     position: relative;
@@ -92,66 +142,85 @@ body {
 
 .input-group input {
     width: 100%;
-    padding: 22px; 
+    padding: 18px; 
     padding-right: 50px; 
-    border: 1px solid #ddd;
-    background-color: #f7f7f7;
+    border: 1px solid var(--cor-borda);
+    background-color: var(--cor-input-bg); /* Fundo escuro (Baixo Relevo) */
     border-radius: 8px;
-    font-size: 1.1rem; 
-    color: #333;
+    font-size: 1rem; 
+    color: #ffffff; 
     box-sizing: border-box;
-    font-family: 'Poetsen One', sans-serif;
+    
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s;
 }
 
 .input-group input:focus {
     outline: none;
-    border-color: #054B84;
-    box-shadow: 0 0 0 3px rgba(5, 75, 132, 0.2);
+    border-color: #8da4be; /* Brilho azulado */
+    background-color: #2f3133;
+    box-shadow: 0 0 0 3px rgba(141, 164, 190, 0.15);
 }
 
+/* Ícone de ver senha */
 .toggle-password {
     position: absolute;
     top: 50%;
     right: 18px;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #888;
+    color: var(--cor-texto-secundario);
     font-size: 1.2rem; 
+    transition: color 0.3s;
 }
 
+.toggle-password:hover {
+    color: #fff;
+}
+
+/* --- Links de Esqueci Senha --- */
 .forgot-links-container {
     display: flex;
-    justify-content: center;  
-    gap: 25px;                
+    justify-content: space-between; /* Espalha os links */
+    gap: 15px;                
     margin-bottom: 30px; 
+    width: 100%;
 }
 
 .forgot-password {
     text-decoration: none;
-    color: #555;
-    font-size: 1rem;
+    color: var(--cor-texto-secundario);
+    font-size: 0.9rem;
     transition: color 0.2s ease;
+    font-family: 'Roboto', sans-serif;
 }
 
 .forgot-password:hover {
-    color: #054B84;
+    color: var(--cor-texto-principal);
+    text-decoration: underline;
 }
 
+/* --- Botões --- */
 .btn {
-    padding: 22px; 
+    padding: 16px; 
     border: none;
-    border-radius: 50px;
-    font-size: 1.2rem; 
+    border-radius: 8px; /* Bordas arredondadas padrão */
+    font-size: 1.1rem; 
     color: #ffffff;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    font-family: 'Poetsen One', sans-serif;
+    
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    
     margin-bottom: 15px;
     text-decoration: none;
     display: block;
     text-align: center;
     box-sizing: border-box;
+    width: 100%;
 }
 
 .btn:last-child {
@@ -159,57 +228,62 @@ body {
 }
 
 .btn-primary {
-    background-color: #054B84;
+    background-color: var(--cor-primaria);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 .btn-primary:hover {
-    background-color: #043b6a;
+    background-color: var(--cor-primaria-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .btn-secondary {
-    background-color: #6c757d;
+    background-color: transparent;
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-principal);
 }
 
 .btn-secondary:hover {
-    background-color: #5a6268;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--cor-texto-principal);
 }
 
 /* --- Rodapé --- */
 .footer {
-    background-color: #f1f1f1;
+    background-color: var(--cor-container);
     text-align: center;
-    padding: 15px;
-    border-top: 1px solid #ddd;
+    padding: 20px;
+    border-top: 1px solid var(--cor-borda);
     flex-shrink: 0; 
 }
 
 .footer-text {
     margin: 0;
-    font-size: 0.8rem;
-    color: #777;
+    font-size: 0.85rem;
+    color: var(--cor-texto-secundario);
+    font-family: 'Roboto', sans-serif;
 }
+
+/* --- Responsividade --- */
 @media (max-width: 768px) {
     body {
-        padding: 0;
+        padding: 15px;
+        align-items: flex-start; /* Permite scroll se for muito alto no celular */
     }
 
     .login-container {
-        width: 100%;
-        height: 100%; 
-        max-width: none;
-        max-height: none;
-        border-radius: 0;
+        max-width: 100%;
+        height: auto; 
     }
 
     .login-header h1 {
         font-size: 1.8rem;
     }
     
-    .header-nav {
-        display: none;
+    .forgot-links-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 }

@@ -1,41 +1,57 @@
 /* =================================================================
-   ARQUIVO: style.css
-   DESCRIÇÃO: Folha de estilos principal para a Agenda Dinâmica.
-   (VERSÃO 100% LIMPA E COM LINHAS)
+   ARQUIVO: style.css (Agenda Dinâmica)
+   DESCRIÇÃO: Folha de estilos principal para a Agenda.
+   (VERSÃO: SOFT DARK MODE - VISUAL MAIS LEVE)
    ================================================================= */
+
+/* --- 0. IMPORTAÇÃO DE FONTES PROFISSIONAIS --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap');
 
 /* --- 1. CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
 :root {
-    /* Paleta de Cores */
-    --cor-primaria: #007bff;
-    --cor-fundo: #f4f7f9;
-    --cor-borda: #dee2e6;
-    --cor-texto-principal: #343a40;
-    --cor-texto-secundario: #6c757d;
-    --cor-branco: #ffffff;
+    /* --- Paleta SOFT DARK (Menos Escura) --- */
+    
+    /* Cor de destaque */
+    --cor-primaria: #5c636a; /* Um cinza azulado levemente mais claro */
+    
+    /* Fundos (O segredo do Soft Dark está aqui) */
+    --cor-fundo: #252627;    /* Cinza Chumbo Fosco (substitui o preto #121212) */
+    --cor-branco: #333538;   /* Cinza Médio para os containers (Agenda/Cards) */
+    
+    /* Elementos de Interface */
+    --cor-borda: #495057;    /* Bordas mais visíveis e suaves */
+    --cor-texto-principal: #f8f9fa; /* Branco quase puro para leitura fácil */
+    --cor-texto-secundario: #ced4da; /* Cinza claro para textos secundários */
 
-    /* Cores de Status dos Agendamentos */
-    --status-agendado: #2A64A7;
-    --status-bloqueado: #D9534F;
-    --status-cancelado: #6c757d;
-    --status-livre: #e9ecef;
-    --status-nota: #fffbe6;
-    --fonte-principal: 'Poetsen One', Tahoma, Geneva, Verdana, sans-serif;
+    /* --- Cores de Status --- */
+    --status-agendado: #3e6085;  /* Azul petróleo levemente mais vivo */
+    --status-bloqueado: #c94f42; /* Vermelho terracota suave */
+    --status-cancelado: #6c757d; /* Cinza médio */
+    --status-livre: #3b3d42;     /* Fundo da célula vazia (combina com o container) */
+    --status-nota: #5c5c42;      /* Oliva suave */
 }
 
 body {
-    font-family: var(--fonte-principal);
+    /* Fonte Padrão: Roboto */
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px; 
+    
     background-color: var(--cor-fundo);
     color: var(--cor-texto-principal);
     margin: 0;
     padding: 20px;
-    /* Centraliza o container na tela */
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    background-image: url(/codigo-fonte/img/BG.jpeg);
+    
+    /* Background com mistura suave */
+    background-image: url('../img/BG.jpeg'); /* Ajuste o caminho se necessário */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay; /* Mistura a imagem com o cinza chumbo */
 }
 
 /* --- 2. LAYOUT PRINCIPAL DA AGENDA --- */
@@ -47,12 +63,13 @@ body {
     gap: 20px;
     max-width: 1600px;
     min-height: 850px;
-    margin: 0; /* Centralização é controlada pelo body */
-    background-color: var(--cor-branco);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    padding: 20px;
+    margin: 0; 
+    background-color: var(--cor-branco); /* Fundo do container agora é cinza médio */
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); /* Sombra mais difusa */
+    padding: 25px;
     width: 100%;
+    border: 1px solid var(--cor-borda);
 }
 
 /* --- 3. CABEÇALHO --- */
@@ -64,34 +81,46 @@ body {
     border-bottom: 1px solid var(--cor-borda);
     padding-bottom: 15px;
 }
-.agenda-header h1 { margin: 0; font-size: 28px; }
 
-/* Estilos comuns para os botões do cabeçalho */
+.agenda-header h1 { 
+    margin: 0; 
+    font-size: 28px; 
+    color: var(--cor-texto-principal);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+/* Botões do Topo */
 .btn-agendar-novo, .exit-link, .btn-configuracao-agenda {
     border: none;
-    border-radius: 6px;
-    padding: 10px 18px;
-    font-size: 16px;
-    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
     cursor: pointer;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .btn-agendar-novo, .btn-configuracao-agenda { 
     background-color: var(--cor-primaria); 
-    color: var(--cor-branco); 
-    box-shadow: none; 
-}
-.btn-agendar-novo:hover, .btn-configuracao-agenda:hover { 
-    background-color: #0056b3; 
+    color: #ffffff; 
 }
 
-.exit-link { background-color: var(--status-bloqueado); color: var(--cor-branco); }
-.exit-link:hover { background-color: #c9302c; }
+.btn-agendar-novo:hover, .btn-configuracao-agenda:hover { 
+    background-color: #7d858d; /* Hover mais claro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.exit-link { background-color: var(--status-bloqueado); color: #ffffff; }
+.exit-link:hover { background-color: #e05a4d; transform: translateY(-2px); }
 
 
 /* --- 4. CONTROLES DE NAVEGAÇÃO --- */
@@ -102,9 +131,28 @@ body {
     gap: 15px;
     padding: 10px 0;
 }
-.controles-navegacao button { background-color: #f8f9fa; border: 1px solid var(--cor-borda); border-radius: 4px; padding: 8px 12px; cursor: pointer; transition: background-color 0.2s; }
-.controles-navegacao button:hover { background-color: #e9ecef; }
-.date-picker-button { font-size: 20px; font-weight: 500; }
+
+.controles-navegacao button { 
+    background-color: var(--cor-fundo); /* Botão usa a cor do fundo da página */
+    color: var(--cor-texto-principal);
+    border: 1px solid var(--cor-borda); 
+    border-radius: 6px; 
+    padding: 8px 15px; 
+    cursor: pointer; 
+    transition: background-color 0.2s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.controles-navegacao button:hover { 
+    background-color: var(--cor-borda); 
+}
+
+.date-picker-button { 
+    font-size: 18px; 
+    font-weight: 600; 
+    font-family: 'Montserrat', sans-serif;
+}
 
 /* --- 5. GRID PRINCIPAL DA AGENDA --- */
 .agenda-grid {
@@ -116,162 +164,238 @@ body {
     border-top: 1px solid var(--cor-borda);
     position: relative;
     overflow-y: auto;
+    background-color: var(--cor-branco);
 }
 
-/* ESTILO CORRIGIDO para o visual da imagem */
 .grid-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--cor-texto-secundario);
-    
-    /* MUDANÇA: LINHA DE VOLTA */
+    font-size: 13px;
+    color: var(--cor-texto-principal); /* Texto mais claro */
     border-right: 1px solid var(--cor-borda);
-    
     border-bottom: 1px solid var(--cor-borda);
-    background-color: transparent; /* Fundo cinza removido */
+    background-color: rgba(255, 255, 255, 0.05); /* Levemente iluminado */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
-/* ESTILO CORRIGIDO para o visual da imagem */
 .grid-cell {
-    /* MUDANÇA: LINHA DE VOLTA */
     border-right: 1px solid var(--cor-borda);
-    
     border-bottom: 1px solid var(--cor-borda);
+    background-color: var(--status-livre); /* Fundo das células */
 }
 
-/* ESTILO CORRIGIDO: Alinha horas no topo e à direita */
 .grid-horario {
     display: flex;
-    align-items: flex-start;  /* Alinha no topo */
-    justify-content: flex-end; /* Alinha à direita */
-    padding: 10px 15px 0 0; /* 10px do topo, 15px da direita */
-    font-size: 14px;
-    font-weight: 500;
-    color: #333; /* Cor um pouco mais escura */
-    
-    /* Linha vertical DE VOLTA, como na sua foto */
+    align-items: flex-start;  
+    justify-content: flex-end; 
+    padding: 10px 15px 0 0; 
+    font-size: 12px;
+    color: var(--cor-texto-secundario);
     border-right: 1px solid var(--cor-borda); 
     border-bottom: 1px solid var(--cor-borda);
-    background-color: #fafafa;
+    background-color: var(--cor-fundo); /* Coluna de horas usa o cinza do fundo */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 
 /* --- 6. ESTILOS DOS CARDS DE AGENDAMENTO --- */
 .eventos-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+
 .evento {
     position: absolute;
-    padding: 8px;
-    /* margin-right: 2px; */ /* Removido pois o JS cuida da largura */
-    /* margin-top: 2px; FOI REMOVIDO PARA TIRAR O ESPAÇO */
-    border-radius: 4px;
-    color: var(--cor-branco);
+    padding: 6px 10px;
+    border-radius: 6px;
+    color: #ffffff;
     font-size: 13px;
     overflow: hidden;
     pointer-events: all;
     cursor: pointer;
     transition: all 0.2s;
     box-sizing: border-box;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    border-left: 4px solid rgba(0,0,0,0.2);
 }
-.evento:hover { filter: brightness(1.1); }
-.evento .evento-nome, .evento .evento-detalhe { display: block; }
-.evento .evento-nome { font-weight: 600; }
-.evento .evento-detalhe { font-size: 12px; opacity: 0.9; }
+
+.evento:hover { 
+    filter: brightness(1.15); /* Brilho mais intenso no hover */
+    z-index: 5;
+    transform: scale(1.02);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.4);
+}
+
+.evento .evento-nome, .evento .evento-detalhe { display: block; font-family: 'Roboto', sans-serif; }
+.evento .evento-nome { font-weight: 700; font-size: 13px; margin-bottom: 2px; }
+.evento .evento-detalhe { font-size: 11px; opacity: 0.95; }
 
 .status-agendado { background-color: var(--status-agendado); }
 .status-bloqueado { background-color: var(--status-bloqueado); }
-.status-cancelado { background-color: var(--status-cancelado); text-decoration: line-through; }
+.status-cancelado { background-color: var(--status-cancelado); text-decoration: line-through; opacity: 0.8; }
+
+/* Status Livre e Notas */
 .status-livre {
     background-color: var(--status-livre);
     color: var(--cor-texto-secundario);
-    border: 2px dashed var(--cor-borda);
+    border: 1px dashed var(--cor-borda);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
+
 .status-nota { 
     background-color: var(--status-nota); 
-    color: #5c5338; 
-    border: 1px solid #f9eebc; 
+    color: #e0dcb8; 
+    border: 1px solid #757053; 
+    border-left: 4px solid #f1c40f; 
 }
 
 /* --- 7. PAINEL LATERAL (SIDEBAR) --- */
-.sidebar-consultas { grid-area: sidebar; padding-left: 20px; border-left: 1px solid var(--cor-borda); display: flex; flex-direction: column; overflow: hidden; }
-.sidebar-consultas h3 { margin-top: 0; font-size: 18px; flex-shrink: 0; }
+.sidebar-consultas { 
+    grid-area: sidebar; 
+    padding-left: 20px; 
+    border-left: 1px solid var(--cor-borda); 
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden; 
+}
+
+.sidebar-consultas h3 { 
+    margin-top: 0; 
+    font-size: 16px; 
+    color: var(--cor-texto-principal);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--cor-borda);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
 .sidebar-consultas ul { list-style: none; padding: 0; margin: 0; flex-grow: 1; overflow-y: auto; }
-.sidebar-consultas li { padding: 12px; border-radius: 6px; margin-bottom: 10px; font-size: 14px; border-left: 4px solid; }
-.sidebar-consultas .status-agendado { border-left-color: var(--status-agendado); background-color: #f0f6ff; }
-.sidebar-consultas .status-bloqueado { border-left-color: var(--status-bloqueado); background-color: #fff0f0; }
-.sidebar-consultas .status-cancelado { border-left-color: var(--status-cancelado); background-color: #f1f3f5; }
-.sidebar-consultas .status-livre { border-left-color: var(--status-livre); background-color: #f8f9fa; }
-.sidebar-consultas .status-nota { border-left-color: #f9eebc; background-color: #fffdf5; }
+
+.sidebar-consultas li { 
+    padding: 15px; 
+    border-radius: 8px; 
+    margin-bottom: 12px; 
+    font-size: 13px; 
+    border-left: 4px solid; 
+    color: var(--cor-texto-principal);
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--cor-fundo); /* Fundo dos itens da lista */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Cores da lista lateral */
+.sidebar-consultas .status-agendado { border-left-color: var(--status-agendado); }
+.sidebar-consultas .status-bloqueado { border-left-color: var(--status-bloqueado); }
+.sidebar-consultas .status-cancelado { border-left-color: var(--status-cancelado); }
+.sidebar-consultas .status-livre { border-left-color: #666; }
+.sidebar-consultas .status-nota { border-left-color: #c9b964; }
 
 /* --- 8. RODAPÉ DE OBSERVAÇÕES --- */
 .agenda-footer { grid-area: footer; padding-top: 15px; border-top: 1px solid var(--cor-borda); margin-top: 10px; }
-.footer-note { margin: 0; font-size: 14px; color: var(--cor-texto-secundario); line-height: 1.6; font-style: italic; text-align: left; }
-.footer-note .cor-vermelho { color: var(--status-bloqueado); }
-.footer-note .cor-cinza-claro { color: #a0a0a0; }
-.footer-note .cor-cinza-escuro { color: var(--status-cancelado); }
-.footer-note .texto-riscado { text-decoration: line-through; }
+.footer-note { margin: 0; font-size: 13px; color: var(--cor-texto-secundario); line-height: 1.6; font-style: italic; text-align: left; }
+.footer-note .cor-vermelho { color: #ff8585; } /* Vermelho mais claro para fundo escuro */
+.footer-note .cor-cinza-claro { color: #999; }
 
 /* --- 9. ESTILOS DE POP-UPS E MENUS --- */
-.popup { position: absolute; background-color: #ffffff; border: 1px solid var(--cor-borda); border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); padding: 15px; width: 250px; z-index: 1001; transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; pointer-events: none; }
-.popup.hidden { opacity: 0; transform: scale(0.95); display: none; }
-.popup h3 { margin: 0 0 10px 0; font-size: 16px; color: var(--cor-texto-principal); border-bottom: 1px solid var(--cor-borda); padding-bottom: 8px; }
-.popup p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--cor-texto-secundario); }
+.popup, .calendar-popup, .context-menu { 
+    background-color: var(--cor-branco); /* Usa o cinza médio */
+    border: 1px solid var(--cor-borda); 
+    border-radius: 10px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+    color: var(--cor-texto-principal);
+    font-family: 'Roboto', sans-serif;
+}
 
-.calendar-popup { position: absolute; background-color: #fff; border: 1px solid var(--cor-borda); border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); width: 300px; padding: 15px; z-index: 1001; transition: opacity 0.2s, transform 0.2s; }
+.popup { 
+    position: absolute; 
+    padding: 20px; 
+    width: 280px; 
+    z-index: 1001; 
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; 
+    pointer-events: none; 
+}
+.popup.hidden { opacity: 0; transform: scale(0.95); display: none; }
+.popup h3 { 
+    margin: 0 0 15px 0; 
+    font-size: 16px; 
+    color: var(--cor-texto-principal); 
+    border-bottom: 1px solid var(--cor-borda); 
+    padding-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+.popup p { margin: 5px 0; font-size: 14px; color: var(--cor-texto-secundario); }
+
+/* Calendário Popup */
+.calendar-popup { 
+    position: absolute; 
+    width: 320px; 
+    padding: 20px; 
+    z-index: 1001; 
+    transition: opacity 0.2s, transform 0.2s; 
+}
 .calendar-popup.hidden { opacity: 0; transform: scale(0.95); pointer-events: none; display: none; }
-.calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-size: 18px; font-weight: 600; }
-.calendar-nav-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
-.calendar-nav-btn:hover { background-color: #f0f0f0; }
-.calendar-weekdays, .calendar-days { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; }
-.calendar-weekdays { font-weight: 600; color: var(--cor-texto-secundario); font-size: 13px; margin-bottom: 5px; }
-.calendar-days div { padding: 8px 0; cursor: pointer; border-radius: 50%; transition: background-color 0.2s; }
-.calendar-days div:not(.calendar-day-empty):hover { background-color: #e9ecef; }
-.calendar-day-empty { cursor: default; }
-.calendar-day.today { font-weight: 700; border: 2px solid var(--cor-primaria); }
+.calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-size: 16px; font-weight: 600; font-family: 'Montserrat', sans-serif; }
+.calendar-nav-btn { 
+    background: var(--cor-fundo); 
+    border: 1px solid var(--cor-borda);
+    cursor: pointer; 
+    padding: 5px; 
+    border-radius: 50%; 
+    width: 32px; 
+    height: 32px; 
+    display: flex; align-items: center; justify-content: center; 
+    color: var(--cor-texto-principal); 
+}
+.calendar-nav-btn:hover { background-color: var(--cor-borda); }
+
+.calendar-weekdays { font-weight: 600; color: var(--cor-texto-secundario); font-size: 13px; margin-bottom: 10px; font-family: 'Montserrat', sans-serif; }
+.calendar-days div:not(.calendar-day-empty):hover { background-color: var(--cor-borda); }
+.calendar-day.today { font-weight: 700; border: 2px solid var(--cor-primaria); color: #fff; }
 .calendar-day.selected { background-color: var(--cor-primaria); color: #fff; }
 
-.evento.editing { box-shadow: 0 0 0 3px var(--cor-primaria); z-index: 10; }
-.edit-input { width: 100%; padding: 6px; margin-bottom: 5px; border: 1px solid var(--cor-borda); border-radius: 4px; background-color: #fff; color: var(--cor-texto-principal); font-family: var(--fonte-principal); font-size: 13px; box-sizing: border-box; }
+/* Inputs de Edição */
+.edit-input { 
+    width: 100%; 
+    padding: 8px; 
+    margin-bottom: 8px; 
+    border: 1px solid var(--cor-borda); 
+    border-radius: 6px; 
+    background-color: var(--cor-fundo); 
+    color: #fff; 
+    font-family: 'Roboto', sans-serif; 
+    font-size: 14px; 
+}
 .edit-input:focus { outline: none; border-color: var(--cor-primaria); }
 
-.context-menu { position: absolute; z-index: 2000; background-color: #ffffff; border: 1px solid var(--cor-borda); border-radius: 8px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); min-width: 220px; padding: 5px 0; transition: opacity 0.1s, transform 0.1s; }
+/* Menu de Contexto */
+.context-menu { 
+    position: absolute; 
+    z-index: 2000; 
+    min-width: 220px; 
+    padding: 8px 0; 
+}
 .context-menu.hidden { opacity: 0; transform: scale(0.98); pointer-events: none; display: none; }
 .context-menu ul { list-style: none; padding: 0; margin: 0; }
-.context-menu li { padding: 10px 20px; font-size: 15px; cursor: pointer; display: flex; align-items: center; transition: background-color 0.2s; }
-.context-menu li:hover { background-color: #f0f0f0; }
-.context-menu li i { margin-right: 15px; width: 20px; text-align: center; }
-#ctx-menu-bloquear, #ctx-menu-cancelar { color: var(--status-bloqueado); }
-#ctx-menu-adicionar-nota { color: #c49d06; }
+.context-menu li { padding: 12px 20px; font-size: 14px; cursor: pointer; display: flex; align-items: center; transition: background-color 0.2s; }
+.context-menu li:hover { background-color: var(--cor-fundo); }
+#ctx-menu-bloquear, #ctx-menu-cancelar { color: #ff8585; }
+#ctx-menu-adicionar-nota { color: #f1c40f; }
 
 /* --- 10. RESPONSIVIDADE --- */
 @media (max-width: 992px) {
     .agenda-container { grid-template-areas: "header" "controles" "agenda" "sidebar"; grid-template-columns: 1fr; height: auto; min-height: calc(100vh - 40px); }
-    .sidebar-consultas { border-left: none; border-top: 1px solid var(--cor-borda); padding-left: 0; padding-top: 20px; }
+    .sidebar-consultas { border-left: none; border-top: 1px solid var(--cor-borda); padding-left: 0; padding-top: 20px; margin-top: 20px; }
 }
 
-/* =================================================================
-   ESTILOS PARA A FUNCIONALIDADE DE CLIQUE (JAVASCRIPT)
-   ================================================================= */
-
-/* --- 11. ESTILO DOS CABEÇALHOS DE DIA CLICÁVEIS --- */
-.grid-header.day-header {
-    cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
-    user-select: none; /* Impede a seleção de texto ao clicar */
-}
-
-.grid-header.day-header:hover {
-    background-color: #e9ecef; /* Um cinza claro no hover */
-}
-
-.grid-header.day-header.active {
-    background-color: var(--cor-primaria);
-    color: var(--cor-branco);
-    font-weight: 700;
-}
+/* --- 11. INTERATIVIDADE DO JAVASCRIPT --- */
+.grid-header.day-header { cursor: pointer; transition: background-color 0.2s, color 0.2s; user-select: none; }
+.grid-header.day-header:hover { background-color: var(--cor-borda); color: #fff; }
+.grid-header.day-header.active { background-color: var(--cor-primaria); color: #fff; font-weight: 700; }

@@ -1,51 +1,102 @@
-*{
+/* =================================================================
+   ARQUIVO: contato.css (Fale Conosco)
+   DESCRIÇÃO: Estilos da página de Contato/Ajuda
+   (VERSÃO: SOFT DARK MODE - FINAL)
+   ================================================================= */
+
+/* --- Importando Fontes --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap');
+
+:root {
+    /* --- Paleta SOFT DARK (Padronizada) --- */
+    
+    /* Fundos */
+    --cor-fundo: #252627;          /* Fundo da página (Cinza Chumbo) */
+    --cor-container: #333538;      /* Fundo do formulário (Cinza Médio) */
+    --cor-sidebar: #2b2d30;        /* Fundo da barra lateral (Cinza Escuro) */
+    
+    /* Inputs */
+    --cor-input-bg: #252627;       /* Fundo dos inputs (Baixo relevo) */
+    --cor-borda: #495057;          /* Bordas Suaves */
+    
+    /* Cores Principais */
+    --cor-primaria: #5c636a;       /* Cinza Azulado */
+    --cor-primaria-hover: #495057;
+    
+    /* Texto */
+    --cor-texto-principal: #f8f9fa; /* Branco Gelo */
+    --cor-texto-secundario: #ced4da; /* Cinza Claro */
+    
+    /* Feedback */
+    --cor-sucesso: #28a745;
+    --cor-erro: #e74c3c;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
-    font-family: 'poetsenone', sans-serif;
-    background-color: #f0f4f7;
-    color: #333;
+    /* Fonte Geral: Roboto */
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../ajuda/BG.jpeg);
+    
+    background-image: url('../ajuda/BG.jpeg'); /* Ajuste o caminho se necessário */
     height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
 }
 
 .contact-container {
-    width: 100%;
-    max-width: 1920px;
-    height: 95vh;
-    max-height: 1000px;
-    background-color: #ffffff;
-    border-radius: 10px; 
-    box-shadow: 0 10px 30px rgba(0, 77, 153, 0.1);
+    width: 90%;
+    max-width: 1400px; /* Ajustado para não ficar largo demais em telas ultrawide */
+    height: 85vh;      /* Altura controlada */
+    background-color: var(--cor-container); 
+    border-radius: 15px; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); 
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    border: 1px solid var(--cor-borda);
 }
 
+/* --- CABEÇALHO --- */
 .contact-header {
-    background-color: #004d99;
-    color: white;
+    background-color: var(--cor-sidebar); /* Integra com a sidebar */
+    color: var(--cor-texto-principal);
     padding: 1.5rem 2rem;
     text-align: center;
     flex-shrink: 0;
+    border-bottom: 1px solid var(--cor-borda);
+    position: relative;
+    z-index: 2;
 }
 
 .contact-header h1 {
     margin: 0;
     font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .contact-header p {
     margin: 0.5rem 0 0;
-    opacity: 0.9;
+    color: var(--cor-texto-secundario);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
 }
 
 .contact-body {
@@ -57,163 +108,222 @@ body {
 
 .info-section,
 .form-section {
-    flex: 1;
-    padding: 1.5rem;
-    overflow-y: auto;
+    padding: 2.5rem;
     overflow-y: auto;
 }
 
+/* --- SEÇÃO DE INFORMAÇÕES (SIDEBAR) --- */
 .info-section {
-    min-width: 500px;
-    background-color: #f8fafc;
-    border-right: 1px solid #e6e6e6;
+    flex: 0 0 35%; /* Ocupa 35% da largura */
+    min-width: 300px;
+    background-color: var(--cor-sidebar); 
+    border-right: 1px solid var(--cor-borda);
+    display: flex;
+    flex-direction: column;
 }
 
 .form-section {
-    flex-basis: 60%;
-    min-width: 500px;
+    flex: 1; /* Ocupa o restante */
+    background-color: var(--cor-container);
 }
 
 .info-section h2,
 .form-section h2 {
-    color: #004d99;
+    color: var(--cor-texto-principal);
     margin-top: 0;
     margin-bottom: 2rem;
-    border-bottom: 2px solid #004d99;
-    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 10px;
+    
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
 }
 
+/* Ícones e Texto da Info */
 .info-item {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .info-item i {
-    font-size: 1.2rem;
-    color: #004d99;
+    font-size: 1.4rem;
+    color: var(--cor-texto-principal); 
     margin-right: 1.5rem;
-    margin-top: 5px;
-    width: 20px;
+    margin-top: 2px;
+    width: 25px;
     text-align: center;
 }
 
 .info-item div strong {
     display: block;
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+    color: var(--cor-texto-principal);
+    margin-bottom: 0.4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 .info-item div p {
     margin: 0;
-    color: #555;
-    line-height: 1.5;
+    color: var(--cor-texto-secundario);
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
+/* --- FORMULÁRIO --- */
 .form-group {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
 }
 
 .form-group label {
     display: block;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    color: #444;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: var(--cor-texto-secundario);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
     width: 100%;
-    max-width: 500px;
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-family: 'poetsenone', sans-serif;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    
+    font-family: 'Roboto', sans-serif;
     font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    
+    background-color: var(--cor-input-bg); 
+    color: var(--cor-texto-principal);     
+    transition: all 0.3s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-color: #004d99;
-    box-shadow: 0 0 5px rgba(0, 77, 153, 0.2);
+    border-color: #8da4be; /* Brilho azulado */
+    background-color: #2f3133;
+    box-shadow: 0 0 0 3px rgba(141, 164, 190, 0.15);
 }
 
 textarea {
     resize: vertical;
+    min-height: 120px;
 }
 
+/* --- BOTÕES --- */
 .form-actions {
     display: flex;
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 30px;
     justify-content: flex-start;
 }
 
 .submit-btn {
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
     text-align: center;
-    background-color: #004d99;
+    background-color: var(--cor-primaria);
     color: white;
     border: none;
-    border-radius: 7px;
-    font-size: 1.1rem;
-    font-weight: 700;
+    border-radius: 8px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
     text-decoration: none;
+    
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 .submit-btn:hover {
-    background-color: #003a75;
+    background-color: var(--cor-primaria-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
 .btn-voltar {
-    background-color: #6c757d;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-secundario);
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
 }
 
 .btn-voltar:hover {
-    background-color: #5a6268;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--cor-texto-principal);
+    border-color: var(--cor-texto-principal);
 }
 
-@media (max-width: 900px) {
-    body {
-        padding: 0;
-        align-items: flex-start;
-    }
-    .contact-container {
-        border-radius: 0;
-        height: auto;
-        min-height: 100vh;
-    }
-    .contact-body {
-        flex-direction: column;
-    }
-    .info-section,
-    .form-section {
-        border-right: none;
-        overflow-y: visible;
-    }
-}
+/* --- FEEDBACK E ERROS --- */
 .input-error {
-    border-color: #e74c3c; 
-    box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+    border-color: var(--cor-erro) !important; 
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2) !important;
 }
+
 #form-feedback {
     margin-top: 15px;
     font-weight: 500;
     text-align: center;
     min-height: 1.2em; 
 }
-.feedback-success {
-    color: #155724;
-    font-weight: bold;
-}
-.feedback-error {
-    color: #721c24;
-    font-weight: bold;
+
+.feedback-success { color: var(--cor-sucesso); font-weight: bold; }
+.feedback-error { color: #ff6b6b; font-weight: bold; }
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 900px) {
+    body {
+        padding: 20px;
+        align-items: flex-start;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .contact-container {
+        border-radius: 15px;
+        height: auto;
+        min-height: auto;
+        width: 100%;
+    }
+    
+    .contact-body {
+        flex-direction: column;
+    }
+    
+    .info-section,
+    .form-section {
+        border-right: none;
+        overflow-y: visible;
+        width: 100%;
+        min-width: 100%;
+        padding: 2rem;
+    }
+    
+    .info-section {
+        border-bottom: 1px solid var(--cor-borda);
+        flex: auto;
+    }
+    
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+    
+    .submit-btn, .btn-voltar {
+        width: 100%;
+    }
 }

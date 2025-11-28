@@ -1,260 +1,274 @@
+/* =================================================================
+   ARQUIVO: home.css (Dashboard/Tela Inicial)
+   DESCRIÇÃO: Estilos da Home
+   (VERSÃO: SOFT DARK MODE - HARMONIZADO)
+   ================================================================= */
 
-body{
-  /* ´fonts */
-  font-family:Roboto,sans-serif;
-  font-weight: 500;
-  font-size: 25px;
-  background-image: url(/codigo-fonte/img/BG.jpeg);
-  background-size: 50%,contain;
-  background-position: center; 
-  background-repeat: repeat;
-  background-color: #054b84;
-  background-blend-mode: multiply;
-  width: 100%;
-  height: 100%;
-  min-width: 910px;
-}
+/* Importando Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap');
 
-header{
-  display: flex;
-  justify-content: space-evenly;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-.headerbox{
-  width: 95%;
-  background-color: white;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 5%;
-  min-height: 50px;
-  max-height: 70px;
-  border-radius: 15px;
-  margin: 10px;
-}
-
-.button{
-  width: 100%;
-  height: 100%;
-  min-height: 50px;
-  max-height: 70px;
-  line-height: 2.6;
-  border-radius: 15px;
-  text-align: center;
-  font-family:Roboto,sans-serif;
-  font-weight: 500;
-  font-size: 25px;
-  border: none;
-  background-color: white;
-}
-/* ´botão mudando de cor */
-.button:hover {
-Background-color: #006DC7;
-color: white;
-box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
-}
-/* ´botão mudando de cor */
-
-main{
-  min-height: 1000px;
-  max-height: 70px;
-  min-width: 910px;
-  
-}
-.bluebox{
-  display: flex;
-  justify-content: space-evenly;
-  height: 200PX;
-  margin-top: 50px;
-}
-.bluebutton{
-  width: 20%;
-  text-align: center;
-  background-color: #006DC7;
-  color: white;
-  border-radius: 15px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+:root {
+    /* --- Paleta SOFT DARK (Padronizada) --- */
+    
+    /* Cores de Fundo */
+    --cor-fundo: #252627;          /* Cinza Chumbo (Fundo da página) */
+    --cor-container: #333538;      /* Cinza Médio (Cartões e Paineis) */
+    
+    /* Cores Principais */
+    --cor-primaria: #5c636a;       /* Cinza Azulado */
+    --cor-primaria-hover: #495057;
+    
+    /* Texto */
+    --cor-texto-principal: #f8f9fa; /* Branco Gelo */
+    --cor-texto-secundario: #ced4da; /* Cinza Claro */
+    
+    /* Detalhes */
+    --cor-borda: #495057;          /* Bordas Suaves */
+    --sombra: rgba(0, 0, 0, 0.4);  /* Sombra mais difusa */
+    
+    /* Status */
+    --cor-sucesso: #28a745;
+    --cor-erro: #dc3545;
 }
 
-.numberconsult{
-  justify-content: end;
-  height: 70px;
-  margin-top: 20px;
-  font-size: 60px;
-}
-/* botões azuis */
-
-.whiteboards{
-  display: flex;
-  justify-content: space-evenly;
-  height: 300PX;
-  margin-top: 50px;
-  min-width: 910px;
-}
-/* proximas consultas */
-.whiteboard1{
-  width: 40%;
-  align-items: center;
-  padding: 10px;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    
+    background-color: var(--cor-fundo);
+    background-image: url('../img/BG.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fundo fixo ao rolar */
+    background-blend-mode: overlay;
+    
+    color: var(--cor-texto-principal);
+    min-height: 100vh;
 }
 
-.tabela-consultas{
-  width: 95%;
-  border-collapse: separate;
-  border-spacing: 0 10px; 
+/* --- HEADER --- */
+header { display: flex; justify-content: center; padding: 15px 0; }
+
+.headerbox {
+    width: 95%; 
+    background-color: var(--cor-container);
+    display: flex; 
+    justify-content: space-evenly; 
+    align-items: center;
+    min-height: 70px; 
+    border-radius: 15px; 
+    border: 1px solid var(--cor-borda);
+    padding: 10px; 
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.consultas {
-  border-collapse: collapse;
-  width: 95%;
-  font-size: 28px;
-  text-align: center;
-  padding: 10px;
-  height: 20px;
+.button {
+    flex: 1; 
+    min-height: 50px; 
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 600; 
+    font-size: 15px;
+    border: none; 
+    background: transparent; 
+    color: var(--cor-texto-principal);
+    cursor: pointer; 
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.button:hover { 
+    background-color: var(--cor-primaria); 
+    color: white; 
+    transform: translateY(-3px); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* --- BLOCOS SUPERIORES (KPIs) --- */
+.bluebox { 
+    display: flex; 
+    justify-content: space-evenly; 
+    gap: 25px; 
+    margin-top: 50px; 
+    padding: 0 25px; 
+}
+
+.bluebutton {
+    width: 22%; 
+    min-height: 160px; 
+    padding: 25px;
+    background-color: var(--cor-container); 
+    border: 1px solid var(--cor-primaria); /* Borda destaca levemente */
+    border-radius: 15px; 
+    box-shadow: 0 10px 30px var(--sombra);
+    
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 600;
+    transition: transform 0.3s;
+}
+
+.bluebutton:hover {
+    transform: translateY(-5px);
+    border-color: var(--cor-texto-principal);
+}
+
+.numberconsult { 
+    align-self: flex-end; 
+    font-size: 48px; 
+    font-weight: 700; 
+    color: var(--cor-texto-principal);
+}
+
+/* --- QUADROS DO MEIO --- */
+.whiteboards { 
+    display: flex; 
+    justify-content: space-evenly; 
+    gap: 25px; 
+    margin-top: 50px; 
+    padding: 0 25px; 
+}
+
+.whiteboard1, .whiteboard2 {
+    width: 45%; 
+    background-color: var(--cor-container); 
+    border-radius: 15px;
+    border: 1px solid var(--cor-borda); 
+    padding: 25px; 
+    box-shadow: 0 10px 30px var(--sombra);
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 700;
+}
+
+/* --- TABELAS --- */
+.tabela-consultas { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px; 
 }
 
 .tabela-consultas td {
-  border-bottom: 1px solid black;
-  padding: 12px 8px;
-}
-
-.tabela-consultas td:nth-child(2) {
+    border-bottom: 1px solid var(--cor-borda); 
+    padding: 15px 10px; 
     text-align: center;
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 400; 
+    font-size: 15px;
+    color: var(--cor-texto-secundario);
 }
 
-.hora, .idade, .data{
-  text-align: center;
-}
-.idade{
-  font-weight: 500;
-  color: rgb(146, 146, 146);
+.tabela-consultas td:first-child {
+    color: var(--cor-texto-principal);
+    font-weight: 500;
 }
 
-/* ágendar nova consulta */
-.whiteboard2{
-  width: 40%; 
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+/* Agendamento */
+.text-book { 
+    padding: 30px; 
+    text-align: center; 
+    font-family: 'Roboto', sans-serif; 
+    color: var(--cor-texto-secundario); 
+    font-weight: 400; 
+    font-size: 1.1rem;
 }
 
-.table-agendamento{
-  width: 95%;
-  height: 95%;;
+.agendar-button {
+    width: 100%; 
+    height: 55px; 
+    background-color: var(--cor-primaria);
+    color: white; 
+    border-radius: 10px; 
+    border: none; 
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer; 
+    transition: all 0.3s; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px;
 }
 
-.text-book{
-  height: 120px;
+.agendar-button:hover { 
+    background-color: var(--cor-primaria-hover); 
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.buttonbook{
-  text-align: center;
-  background-color: #006DC7;
-  color: white;
-  border-radius: 15px;
-  
+/* --- QUADROS DE BAIXO --- */
+.Downboards { 
+    display: flex; 
+    justify-content: space-evenly; 
+    gap: 25px; 
+    margin-top: 50px; 
+    padding: 0 25px; 
+    padding-bottom: 60px; 
 }
 
-.agendar-button{
-  text-align: center;
-  background-color: #006DC7;
-  color: white;
-  border-radius: 15px;
-  font-family:Roboto,sans-serif;
-  font-weight: 500;
-  font-size: 25px;
-  width: 100%; 
-  height: 100%;
-  border: none;
+.Downboard1 { 
+    width: 45%; 
+    background-color: var(--cor-container); 
+    border-radius: 15px; 
+    padding: 25px; 
+    border: 1px solid var(--cor-borda); 
+    box-shadow: 0 10px 30px var(--sombra);
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 700;
 }
 
-.agendar-button:hover {
-Background-color: #006DC7;
-color: rgb(255, 255, 255);
-box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+/* Botões de Ação Pequenos */
+.remarcar-btn, .remover-btn { 
+    width: 38px; 
+    height: 38px; 
+    border-radius: 8px; 
+    border: none; 
+    color: white; 
+    cursor: pointer; 
+    margin: 0 3px; 
+    transition: transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.calendariozin{
-  max-height: 50px;
-  vertical-align: middle;
-}
-/* quadros de baixo */
-.Downboards{
-  display: flex;
-  justify-content: space-evenly;
-  height: 400PX;
-  margin-top: 50px;
-  min-width: 910px;
+.remarcar-btn { background-color: var(--cor-sucesso); }
+.remover-btn { background-color: var(--cor-erro); }
+
+.remarcar-btn:hover, .remover-btn:hover {
+    transform: scale(1.1);
 }
 
-.Downboard1{
-  width: 40%;
-  text-align: start;
-  padding: 10px;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+/* --- RESPONSIVO --- */
+@media (max-width: 910px) {
+    .headerbox, .bluebox, .whiteboards, .Downboards { 
+        flex-direction: column; 
+        height: auto; 
+    }
+    
+    .button, .bluebutton, .whiteboard1, .whiteboard2, .Downboard1 { 
+        width: 100%; 
+        margin-bottom: 20px; 
+    }
+    
+    .bluebutton {
+        min-height: auto;
+        padding: 20px;
+        flex-direction: row; /* Em mobile, número fica ao lado do texto */
+        align-items: center;
+    }
+    
+    .numberconsult {
+        align-self: center;
+        font-size: 36px;
+    }
 }
-
-.logo{
-  width: 40%; 
-  padding: 10px;
-  text-align: center;
-  border-radius: 15px;
-}
-
-.remarcar-btn {
-  width: 35px;
-  height: 35px;
-  margin-left: 5px;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  background-color: #28a745; /* verde */
-  color: white;
-  cursor: pointer;
-}
-
-.remarcar-btn:hover {
-  background-color: #218838; /* verde escuro ao passar o mouse */
-}
-
-.remover-btn {
-  width: 35px;
-  height: 35px;
-  margin-left: 5px;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  background-color: #dc3545; /* vermelho */
-  color: white;
-  cursor: pointer;
-}
-
-.remover-btn:hover {
-  background-color: #c82333; /* vermelho escuro ao passar o mouse */
-}
-
-/* Centraliza toda a tabela de consultas */
-.tabela-consultas {
-    margin: 0 auto; /* centraliza horizontalmente */
-}
-
-/* Centraliza conteúdo das células */
-.tabela-consultas td {
-    text-align: center;
-    vertical-align: middle;
-    padding: 12px 8px;
-}
-
-/* Botões centralizados dentro da célula */
-.tabela-consultas td:last-child {
-    text-align: center;
-}
-

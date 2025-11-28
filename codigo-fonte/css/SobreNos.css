@@ -1,78 +1,180 @@
-*{
+/* =================================================================
+   ARQUIVO: ajuda.css (Página de Ajuda)
+   DESCRIÇÃO: Estilos da tela de ajuda/informações
+   (VERSÃO: SOFT DARK MODE - FINAL)
+   ================================================================= */
+
+/* Importando Montserrat e Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap');
+
+:root {
+    /* --- Paleta SOFT DARK (Padronizada) --- */
+    
+    /* Fundos */
+    --cor-fundo: #252627;          /* Fundo da página (Cinza Chumbo) */
+    --cor-container: #333538;      /* Fundo do card central (Cinza Médio) */
+    --cor-header: #2b2d30;         /* Fundo do cabeçalho do card */
+    
+    /* Cores Principais */
+    --cor-primaria: #5c636a;       /* Cinza Azulado */
+    --cor-primaria-hover: #495057;
+    
+    /* Texto */
+    --cor-texto-principal: #f8f9fa; /* Branco Gelo */
+    --cor-texto-secundario: #ced4da; /* Cinza Claro */
+    
+    /* Detalhes */
+    --cor-borda: #495057;
+    --sombra: rgba(0, 0, 0, 0.4);
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
-    background-color: #f0f4f7;
-    font-family: 'Poetsen One', sans-serif;
+    /* Fonte Geral: Roboto */
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
+    
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
     padding: 1rem;
-    box-sizing: border-box;
-}
-.help-container {
-    width: 100%;
-    max-width: 1910px;
-    height: 910px; 
-    border-radius: 1px; 
-    display: flex;
-    flex-direction: column;
-    color: white; 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/codigo-fonte/img/BG.jpeg');
-    background-size: cover;
+    
+    /* Padronização do Background */
+    background-image: url('../img/BG.jpeg'); /* Ajuste o caminho se necessário */
+    background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: overlay; 
+}
+
+.help-container {
+    width: 100%;
+    max-width: 1200px; /* Largura máxima confortável para leitura */
+    min-height: 600px; /* Altura mínima flexível */
+    border-radius: 15px; 
+    display: flex;
+    flex-direction: column;
+    
+    /* Fundo sólido escuro */
+    background-color: var(--cor-container); 
+    border: 1px solid var(--cor-borda);
+    box-shadow: 0 15px 40px var(--sombra);
+    overflow: hidden; 
 }
 
 .help-header {
-    background-color: #004d99;
-    color: white;
-    padding: 2.5rem 2rem;
+    background-color: var(--cor-header); 
+    color: var(--cor-texto-principal);
+    padding: 3rem 2rem;
     text-align: center;
     flex-shrink: 0;
+    border-bottom: 1px solid var(--cor-borda);
 }
 
+.help-header h1 {
+    font-size: 2.5rem; 
+    /* Fonte do Título: Montserrat Bold */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
 main {
-    padding: 2.5rem;
+    padding: 3rem;
     flex-grow: 1; 
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
 }
 
 main section {
     display: flex;
     flex-direction: column;
-    justify-content: space-around; 
-    height: 100%;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    max-width: 900px; /* Limita a largura do texto */
+    gap: 2rem;
 }
 
 main p {
     text-align: center; 
-    line-height: 1.6;
+    line-height: 1.8; /* Espaçamento entre linhas melhorado */
     margin: 0;
-    font-size: 1.9rem;  
-    color: #FFFFFF;     
+    
+    /* Ajuste de Texto */
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem; /* Tamanho ideal para leitura em telas grandes */
+    font-weight: 400;
+    
+    color: var(--cor-texto-secundario); /* Cinza claro é mais confortável */
 }
 
 /* --- Botão "Voltar" --- */
 .cta-button {
     display: inline-block;
-    background-color: #004d99;
+    background-color: var(--cor-primaria); 
     color: white;
-    padding: 0.8rem 2rem;
+    padding: 1rem 3rem; 
     text-decoration: none;
-    border-radius: 6px; 
+    border-radius: 8px; 
+    
+    /* Fonte do Botão: Montserrat */
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    transition: background-color 0.3s;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    transition: all 0.3s ease;
     align-self: center; 
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 .cta-button:hover {
-    background-color: #003a75;
+    background-color: var(--cor-primaria-hover);
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .help-header {
+        padding: 2rem 1rem;
+    }
+
+    .help-header h1 {
+        font-size: 1.8rem;
+    }
+
+    main {
+        padding: 1.5rem;
+    }
+
+    main p {
+        font-size: 1rem;
+        text-align: justify; /* Em celular, justificado ou esquerda as vezes é melhor */
+    }
+    
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
 }

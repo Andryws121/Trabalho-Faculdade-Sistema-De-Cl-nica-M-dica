@@ -1,5 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+/* =================================================================
+   ARQUIVO: recuperacao.css (Recuperar Senha)
+   DESCRIÇÃO: Estilos da página de recuperação de acesso
+   (VERSÃO: SOFT DARK MODE - FINAL)
+   ================================================================= */
 
+/* Importando Montserrat e Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap');
+
+:root {
+    /* --- Paleta SOFT DARK (Padronizada) --- */
+    
+    /* Fundos */
+    --cor-fundo: #252627;          /* Fundo da página */
+    --cor-container: #333538;      /* Fundo do card central */
+    --cor-header: #2b2d30;         /* Fundo do cabeçalho */
+    
+    /* Cores Principais */
+    --cor-primaria: #5c636a;       /* Cinza Azulado */
+    --cor-primaria-hover: #495057;
+    
+    /* Texto */
+    --cor-texto-principal: #f8f9fa;
+    --cor-texto-secundario: #ced4da;
+    
+    /* Inputs */
+    --cor-input-bg: #252627;       /* Fundo escuro para inputs */
+    --cor-borda: #495057;
+    
+    /* Feedback */
+    --cor-erro: #ff6b6b;
+    --cor-erro-bg: rgba(255, 107, 107, 0.1);
+}
 
 html, body {
     height: 100%;
@@ -8,47 +39,73 @@ html, body {
 }
 
 body {
-    margin: 0;
-    font-family: 'Poetsen One', sans-serif; 
-    background-color: #f4f5f7;
-    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url(/codigo-fonte/img/BG.jpeg);
+    
+    background-image: url('../img/BG.jpeg'); /* Ajuste o caminho se necessário */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
 }
 
-
+/* --- CABEÇALHO --- */
 .main-header {
-    background: linear-gradient(90deg, #054B84, #054B84);
+    background-color: var(--cor-header); 
     color: white;
-    padding: 50px 40px;
+    padding: 30px 40px; /* Reduzi levemente o padding para ficar mais elegante */
     display: flex;
     align-items: center;
     position: relative;
     justify-content: center; 
-    align-items: center;
+    border-bottom: 1px solid var(--cor-borda);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 10;
 }
 
 .logo {
-    left: 50%;
-    transform: translateX(-50%);
+    /* Centralização absoluta se necessário, ou flexbox */
+    text-align: center;
 }
 
 .logo h1 {
     margin: 0;
-    font-size: 50px;
-    font-weight: bold;
+    font-size: 36px; /* Tamanho mais equilibrado */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-transform: uppercase;
 }
 
 .main-header .exit-link {
-    color: white;
+    position: absolute;
+    right: 40px;
+    color: var(--cor-texto-secundario);
     text-decoration: none;
-    font-size: 50px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    border: 1px solid var(--cor-borda);
+    padding: 8px 15px;
+    border-radius: 6px;
 }
 
+.main-header .exit-link:hover {
+    color: #ffffff;
+    border-color: #ffffff;
+    background-color: rgba(255,255,255,0.05);
+}
 
+/* --- CONTEÚDO --- */
 .content-container {
     flex-grow: 1;
     display: flex;
@@ -58,127 +115,159 @@ body {
 }
 
 .recovery-form {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background-color: var(--cor-container); 
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); /* Sombra difusa moderna */
     width: 100%;
-    max-width: 700px;
+    max-width: 600px;
+    border: 1px solid var(--cor-borda);
 }
 
 .info-text {
-    font-size: 15px;
-    line-height: 1.52;
-    color: #555;
-    margin-bottom: 25px;
-    border-left: 3px solid #054B84;
-    padding-left: 15px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 30px;
+    border-left: 4px solid var(--cor-primaria);
+    padding-left: 20px;
+    background-color: rgba(0,0,0,0.1); /* Leve fundo para destacar o aviso */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 0 5px 5px 0;
 }
 
-/* --- Formulário --- */
+/* --- FORMULÁRIO --- */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .form-group label {
     display: block;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #333;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: var(--cor-texto-principal);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-.form-group input[type="text"] {
+.form-group input[type="text"], 
+.form-group input[type="email"] {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    padding: 12px 15px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    font-size: 1rem;
     box-sizing: border-box;
+    
+    /* Estilo Soft Dark (Baixo relevo) */
+    background-color: var(--cor-input-bg);
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s;
 }
 
-.form-group input[type="text"]:focus {
+.form-group input:focus {
     outline: none;
-    border-color: #054B84;
-    box-shadow: 0 0 5px rgba(32, 0, 122, 0.3);
+    border-color: #8da4be; /* Azul claro suave */
+    background-color: #2f3133;
+    box-shadow: 0 0 0 3px rgba(141, 164, 190, 0.15);
 }
 
-
+/* --- BOTÕES --- */
 .button-group {
     display: flex;
     flex-direction: column; 
-    gap: 10px;
+    gap: 15px;
+    margin-top: 10px;
 }
 
 .btn {
-    padding: 12px 20px;
+    padding: 14px 25px;
     border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
+    border-radius: 8px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.3s ease;
     display: inline-block;
-    text-decoration: none; /* Remove o sublinhado dos links com a classe .btn */
+    text-decoration: none; 
     text-align: center;
     width: 100%; 
+    
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn-primary {
-    background-color: #054B84;
+    background-color: var(--cor-primaria);
     color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 .btn-primary:hover {
-    background-color: #043a69; 
+    background-color: var(--cor-primaria-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
 .btn-secondary {
-    background-color: #003e4d;
-    color: white;
+    background-color: transparent;
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-secundario);
 }
 
 .btn-secondary:hover {
-    background-color: #054B84;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--cor-texto-principal);
+    color: var(--cor-texto-principal);
 }
 
-/* --- Rodapé --- */
+/* --- RODAPÉ --- */
 .main-footer {
-    border-top: 1px solid #e0e0e0;
-    padding: 15px 40px;
+    border-top: 1px solid var(--cor-borda);
+    padding: 20px 40px;
     display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: #888;
-    background-color: white;
+    justify-content: center; /* Centralizado fica mais elegante */
+    font-size: 13px;
+    color: var(--cor-texto-secundario);
+    background-color: var(--cor-header); 
 }
 
+/* --- ESTILOS DE VALIDAÇÃO --- */
+.error-text {
+    color: var(--cor-erro); 
+    font-size: 13px;
+    margin-top: 8px;
+    display: block; 
+    font-weight: 500;
+}
 
+.form-group input.error {
+    border-color: var(--cor-erro); 
+    background-color: var(--cor-erro-bg); 
+    color: #ffcccc;
+}
 
+/* --- RESPONSIVIDADE --- */
 @media (min-width: 768px) {
     .content-container {
-        padding: 40px 20px; 
+        padding: 40px; 
     }
 
     .button-group {
         flex-direction: row;
-        justify-content: center; 
+        justify-content: flex-end; 
     }
 
     .btn {
         width: auto; 
+        min-width: 150px;
     }
-}
-/* --- ESTILOS DE VALIDAÇÃO --- */
-.error-text {
-    color: #D32F2F; 
-    font-size: 12px;
-    margin-top: 5px;
-    display: block; 
-    height: 15px; 
-}
-
-.form-group input.error {
-    border-color: #D32F2F; 
-    background-color: #FFCDD2;
+    
+    .main-footer {
+        justify-content: space-between;
+    }
 }

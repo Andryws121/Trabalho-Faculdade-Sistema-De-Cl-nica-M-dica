@@ -1,19 +1,31 @@
+/* =================================================================
+   ARQUIVO: cadastro.css (Formulários)
+   DESCRIÇÃO: Estilos da página de Cadastro/Login
+   (VERSÃO: SOFT DARK MODE - VISUAL MAIS LEVE E PROFISSIONAL)
+   ================================================================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poetsen One', sans-serif;
-}
+/* Importando Montserrat e Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap');
+
 :root {
-    --left-panel-bg: #0d47a1; 
-    --right-panel-bg: #ffffff;
-    --primary-button-color: #3f51b5;
-    --text-color-light: #ffffff;
-    --text-color-dark: #333333;
-    --label-color: #5f6368;
-    --input-bg-color: #f1f3f4;
-    --border-color: #dadce0;
+    /* --- Paleta SOFT DARK (Padronizada) --- */
+    
+    /* Painéis */
+    --left-panel-bg: #2b2d30;      /* Painel Esquerdo (Cinza um pouco mais escuro) */
+    --right-panel-bg: #333538;     /* Painel Direito (Cinza Médio / Área de trabalho) */
+    
+    /* Botões */
+    --primary-button-color: #5c636a; /* Cinza Azulado Leve */
+    --primary-hover-color: #495057;
+    
+    /* Texto */
+    --text-color-light: #f8f9fa;   /* Branco Gelo */
+    --text-color-dark: #e9ecef;    /* Quase Branco */
+    --label-color: #ced4da;        /* Cinza Claro para labels */
+    
+    /* Inputs */
+    --input-bg-color: #252627;     /* Fundo dos Inputs (Contraste com o painel) */
+    --border-color: #495057;       /* Bordas Suaves */
 }
 
 * {
@@ -23,17 +35,30 @@
 }
 
 body {
-    font-family: 'Poetsen One', sans-serif;
+    /* Fonte Padrão: Roboto */
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
     
+    background-color: var(--left-panel-bg); 
+    /* Imagem de fundo sutil */
+    background-image: url('../img/BG.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    
+    height: 100vh;
+    overflow: hidden; /* Evita rolagem dupla na página inteira */
 }
 
 .container {
     display: flex;
     width: 100vw;
-    min-height: 100vh;
+    height: 100vh;
 }
+
+/* --- PAINEL ESQUERDO (INFO/LOGO) --- */
 .info-panel {
-    background-color: var(--left-panel-bg);
+    background-color: rgba(43, 45, 48, 0.95); /* Leve transparência sobre a imagem */
     color: var(--text-color-light);
     padding: 3rem 2.5rem;
     width: 35%;
@@ -42,6 +67,9 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    border-right: 1px solid var(--border-color);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.2); /* Sombra para separar os painéis */
+    z-index: 2; /* Fica acima do painel direito visualmente */
 }
 
 .info-panel .logo {
@@ -51,37 +79,43 @@ body {
     margin-bottom: 2rem;
 }
 
-
-
 .info-panel .logo span {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--text-color-light);
 }
 
 .info-panel h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 1rem;
     line-height: 1.3;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 .info-panel p {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    color: var(--label-color);
     line-height: 1.6;
-    max-width: 300px;
+    max-width: 350px;
 }
 
-
+/* --- PAINEL DIREITO (FORMULÁRIO) --- */
 .form-panel {
     background-color: var(--right-panel-bg);
     color: var(--text-color-dark);
     padding: 2.5rem 4rem;
     width: 65%;
-    overflow-y: auto;
+    overflow-y: auto; /* Rolagem apenas no formulário se for longo */
+    position: relative;
 }
 
 .required-notice {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     color: var(--label-color);
+    margin-bottom: 20px;
+    display: block;
 }
 
 .form-grid {
@@ -95,13 +129,6 @@ body {
     flex-direction: column;
 }
 
-
-.form-group .required-notice {
-    text-align: left;
-    margin-bottom: 0.5rem;
-}
-
-
 .form-group.span-2 {
     grid-column: span 2;
 }
@@ -111,40 +138,45 @@ body {
 }
 
 .form-group label {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
     font-size: 0.9rem;
     color: var(--label-color);
     text-align: left;
+    font-weight: 500;
 }
 
+/* --- INPUTS E SELECTS --- */
 input, select {
     background-color: var(--input-bg-color);
     border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 0.8rem 1rem;
-    color: var(--text-color-dark);
+    border-radius: 8px; /* Bordas um pouco mais arredondadas */
+    padding: 0.9rem 1rem;
+    color: #ffffff;
     font-size: 1rem;
     width: 100%;
-    font-family: 'Poetsen One', sans-serif;
+    
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s;
 }
 
 input::placeholder {
-    color: #9aa0a6;
+    color: #6c757d;
 }
 
 input:focus, select:focus {
     outline: none;
-    border-color: var(--primary-button-color);
-    box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+    border-color: #8da4be; /* Azul claro suave no foco */
+    background-color: #2f3133; /* Clareia levemente no foco */
+    box-shadow: 0 0 0 3px rgba(141, 164, 190, 0.2);
 }
 
 select {
     appearance: none;
-    /* Ícone de seta em SVG adicionado diretamente aqui */
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23333333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ced4da' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
     background-position: right 1rem center;
     background-repeat: no-repeat;
     background-size: 1em;
+    cursor: pointer;
 }
 
 .phone-group .phone-inputs {
@@ -153,11 +185,12 @@ select {
 }
 
 .phone-group #ddd {
-    flex: 0 0 60px;
+    flex: 0 0 90px; 
 }
 
+/* --- BOTÕES E AÇÕES --- */
 .form-actions {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--border-color);
     display: flex;
@@ -166,45 +199,62 @@ select {
 }
 
 .btn {
-    padding: 0.8rem 1.8rem;
+    padding: 1rem 2rem;
     border: none;
-    border-radius: 6px;
-    font-size: 0.9rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    font-family: 'Poetsen One', sans-serif;
+    
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .btn-primary {
     background-color: var(--primary-button-color);
-    color: var(--text-color-light);
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 .btn-primary:hover {
-    background-color: #303f9f;
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--primary-button-color);
-    border: 1px solid var(--primary-button-color);
+    color: var(--label-color);
+    border: 1px solid var(--border-color);
 }
 
 .btn-secondary:hover {
-    background-color: rgba(63, 81, 181, 0.05);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--text-color-light);
+    color: var(--text-color-light);
 }
 
 
+/* --- RESPONSIVIDADE --- */
 @media (max-width: 992px) {
+    body {
+        height: auto;
+        overflow-y: auto;
+    }
     .container {
         flex-direction: column;
+        height: auto;
     }
     .info-panel, .form-panel {
         width: 100%;
         min-height: auto;
     }
     .info-panel {
-        padding: 2rem 1.5rem;
+        padding: 3rem 1.5rem;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
     }
     .form-panel {
         padding: 2.5rem;
