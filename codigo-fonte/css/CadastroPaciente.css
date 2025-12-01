@@ -1,94 +1,88 @@
 /* =================================================================
-   ARQUIVO: login.css (Tela de Login/Cadastro com Imagem Lateral)
-   DESCRIÇÃO: Estilos da tela de login versão 2
-   (VERSÃO: SOFT DARK MODE - HARMONIZADO)
+   ARQUIVO: CadastroPaciente.css
+   DESCRIÇÃO: Estilos da tela de cadastro
+   (VERSÃO: DARK MODE + FONTES PROFISSIONAIS)
    ================================================================= */
 
-/* Importando Montserrat e Roboto */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap');
 
 :root {
-    /* --- Paleta SOFT DARK (Padronizada) --- */
-    
-    /* Fundos */
-    --cor-fundo: #252627;          /* Fundo da página (Cinza Chumbo) */
-    --cor-painel-img: #2b2d30;     /* Fundo da área da imagem (Cinza Escuro) */
-    --cor-painel-form: #333538;    /* Fundo do formulário (Cinza Médio) */
-    
-    /* Textos */
-    --cor-texto-principal: #f8f9fa; /* Branco Gelo */
-    --cor-texto-secundario: #ced4da; /* Cinza Claro */
-    
-    /* Elementos */
-    --cor-input-bg: #252627;       /* Fundo dos inputs (Contraste) */
-    --cor-borda: #495057;          /* Bordas Suaves */
-    
-    /* Botões */
-    --cor-botao: #5c636a;          /* Botão Principal (Cinza Azulado) */
-    --cor-botao-hover: #495057;
+    --cor-fundo: #121212;
+    --cor-painel-img: #161616;
+    --cor-painel-form: #1e1e1e;
+    --cor-texto-principal: #e9ecef;
+    --cor-texto-secundario: #adb5bd;
+    --cor-input-bg: #2c2c2c;
+    --cor-borda: #343a40;
+    --cor-botao: #495057;
+    --cor-botao-hover: #6c757d;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    /* Fonte Padrão: Roboto */
     font-family: 'Roboto', sans-serif;
-    
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    background-color: var(--cor-fundo); 
-    /* Imagem de fundo sutil para harmonizar com as outras páginas */
+    background-color: var(--cor-fundo);
     background-image: url('../img/BG.jpeg');
     background-size: cover;
-    background-position: center;
     background-blend-mode: overlay;
+    padding: 20px;
 }
 
 .container {
-    width: 80%;
-    height: 80vh; 
+    width: 100%;
+    max-width: 1100px;
     display: flex;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); /* Sombra mais difusa e moderna */
-    border-radius: 15px; /* Bordas um pouco mais arredondadas */
-    overflow: hidden;    
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    overflow: hidden;
     border: 1px solid var(--cor-borda);
+    background-color: var(--cor-painel-form);
 }
 
 /* --- LADO ESQUERDO (IMAGEM) --- */
 .form-image {
-    width: 50%;
+    width: 40%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: var(--cor-painel-img);
-    padding: 1rem;
+    background-color: var(--cor-painel-img);
+    padding: 2rem;
+    text-align: center;
     border-right: 1px solid var(--cor-borda);
 }
 
 .form-image img {
-    width: 31rem;
-    max-width: 100%; 
-    /* Opcional: Filtro suave na imagem ilustrativa para não brigar com o tema */
-    filter: brightness(0.9) contrast(1.1);
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 20px;
+}
+
+.welcome-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--cor-texto-principal);
+    margin-bottom: 10px;
+}
+
+.welcome-text p {
+    color: var(--cor-texto-secundario);
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
 /* --- LADO DIREITO (FORMULÁRIO) --- */
 .form {
-    width: 50%;
+    width: 60%;
+    padding: 3rem;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
-    background: var(--cor-painel-form);
-    padding: 3rem;
 }
 
 .form-header {
@@ -97,148 +91,125 @@ body {
 }
 
 .form-header h1 {
-    color: var(--cor-texto-principal);
-    
-    /* Fonte do Título: Montserrat Bold */
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 2rem; 
-    letter-spacing: 0.5px;
-    position: relative; /* Necessário para o ::after funcionar bem */
-}
-
-.form-header h1::after {
-    content: "";
-    display: block;
-    width: 5rem;
-    height: 0.3rem;
-    background: var(--cor-botao); 
-    margin: 10px auto 0 auto; /* Centralizado */
-    border-radius: 10px;
+    color: var(--cor-texto-principal);
+    text-transform: uppercase;
 }
 
 .input-group {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 1rem 0; 
-    width: 100%;
+    gap: 15px;
 }
 
 .input-box {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.1rem;
-    width: 100%; 
+    width: 48%; /* Dois inputs por linha */
 }
 
-/* --- ESTILO DOS INPUTS --- */
+/* Inputs que ocupam linha inteira */
+.input-box:nth-child(3), /* Email */
+.input-box:nth-child(4) { /* CPF (Opcional, pode ser meio a meio) */
+    width: 100%;
+}
+
+.input-box label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .input-box input {
-    margin: 0.6rem 0;
-    padding: 0.9rem 1.2rem;
-    border: 1px solid var(--cor-borda); 
-    border-radius: 8px; 
-    background-color: var(--cor-input-bg); 
-    color: #ffffff; 
-    box-shadow: none; 
-    
-    font-family: 'Roboto', sans-serif;
+    padding: 12px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    background-color: var(--cor-input-bg);
+    color: #fff;
     font-size: 1rem;
-    transition: all 0.3s;
+    font-family: 'Roboto', sans-serif;
 }
 
 .input-box input:focus {
     outline: none;
-    border-color: #8da4be; /* Brilho azulado suave no foco */
-    background-color: #2f3133;
+    border-color: #8da4be;
     box-shadow: 0 0 0 3px rgba(141, 164, 190, 0.2);
 }
 
-.input-box input::placeholder {
-    color: #6c757d;
+/* --- GÊNERO --- */
+.gender-inputs {
+    margin-top: 20px;
 }
 
-.input-box label,
-.gender-title h6 { 
+.gender-title h6 {
     font-size: 0.9rem;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    color: var(--cor-texto-secundario); 
+    color: var(--cor-texto-secundario);
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 10px;
 }
 
-/* Títulos de Gênero (se houver radio buttons) */
 .gender-group {
     display: flex;
-    justify-content: space-between;
-    margin-top: 0.622rem;
-    padding: 0 0.5rem;
+    gap: 20px;
+}
+
+.gender-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gender-input label {
+    font-size: 0.9rem;
     color: var(--cor-texto-principal);
-    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
 }
 
-/* --- BOTÃO CONTINUAR --- */
-.continue-button {
-    width: 100%;
-}
-
+/* --- BOTÃO --- */
 .continue-button button {
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 30px;
+    padding: 15px;
     border: none;
     background-color: var(--cor-botao);
-    padding: 1rem; 
-    border-radius: 8px; 
+    border-radius: 8px;
     cursor: pointer;
     
     font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    
     color: #fff;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    font-size: 1rem;
+    transition: all 0.3s;
 }
 
 .continue-button button:hover {
     background-color: var(--cor-botao-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
-.continue-button button a {
-    text-decoration: none;
-    color: #fff;
-}
-
-/* --- RESPONSIVIDADE --- */
-@media screen and (max-width: 1330px) {
-    .form-image {
-        display: none; /* Esconde a imagem em telas médias */
-    }
+/* Responsividade */
+@media (max-width: 900px) {
     .container {
-        width: 50%;
-    }   
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+    .form-image {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--cor-borda);
+        padding: 30px;
+    }
     .form {
         width: 100%;
+        padding: 30px;
     }
-}
-
-@media screen and (max-width: 1064px) {
-    .container {
-        width: 90%;
-        height: auto; /* Altura automática para caber no celular */
-        margin: 20px 0;
-    }
-    .form {
-        padding: 2rem;
-    }
-    .input-group {
-        flex-direction: column;
-        overflow-y: visible; 
-        flex-wrap: nowrap;
-        max-height: none;
-        padding-right: 0;
+    .input-box {
+        width: 100%; /* Em mobile, tudo ocupa a linha toda */
     }
 }
