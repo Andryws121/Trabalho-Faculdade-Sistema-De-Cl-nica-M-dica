@@ -1,52 +1,96 @@
-function carregarConsultas() {
-    let consultas = JSON.parse(localStorage.getItem('agendamentos')) || [];
+/* =================================================================
+   ARQUIVO: Consultas.js
+   DESCRIÇÃO: Lista consultas e gerencia ações (Remarcar/Cancelar)
+   ================================================================= */
 
-    const proximasTabela = document.getElementById('proximasConsultas');
-    const passadasTabela = document.getElementById('consultasPassadas');
-    const avisoHoje = document.getElementById('avisoHoje'); // elemento onde exibiremos a mensagem
+document.addEventListener('DOMContentLoaded', () => {
+    carregarTodasConsultas();
+});
 
-    proximasTabela.innerHTML = '';
-    passadasTabela.innerHTML = '';
-    avisoHoje.innerHTML = '';
+function carregarTodasConsultas() {
+    const consultas = JSON.parse(localStorage.getItem('bd_consultas')) || [];
+    const hoje = new Date().toISOString().slice(0, 10);
 
-    const agora = new Date();
-    let consultasHoje = 0;
+    // Filtros
+    const listaProximas = consultas.filter(c => c.data >= hoje && c.status !== 'cancelada' && c.status !== 'passada');
+    const listaPassadas = consultas.filter(c => c.data < hoje || c.status === 'passada' || c.status === 'concluida');
 
-    consultas.forEach((consulta, index) => {
-        const dataConsulta = new Date(consulta.data);
+    // Ordenação
+    listaProximas.sort((a, b) => new Date(a.data) - new Date(b.data));
+    listaPassadas.sort((a, b) => new Date(b.data) - new Date(a.data));
 
-        // Contar consultas para hoje
-        if (
-            dataConsulta.getDate() === agora.getDate() &&
-            dataConsulta.getMonth() === agora.getMonth() &&
-            dataConsulta.getFullYear() === agora.getFullYear()
-        ) {
-            consultasHoje++;
-        }
+    // Renderizar
+    preencherTabela('proximasConsultas', listaProximas, true); 
+    preencherTabela('consultasPassadas', listaPassadas, false);
+}
 
-        // Formata data e hora: DD/MM/YYYY e HH:MM
-        const dataFormatada = dataConsulta.toLocaleDateString('pt-BR');
-        const horarioFormatado = dataConsulta.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+function preencherTabela(idTbody, lista, comAcoes) {
+    const tbody = document.getElementById(idTbody);
+    if (!tbody) return;
 
-        const linha = document.createElement('tr');
-        linha.innerHTML = `
-            <td>${consulta.paciente}</td>
-            <td style="text-align: center;">${dataFormatada} &nbsp;&nbsp;&nbsp;${horarioFormatado}</td>
-            <td style="text-align: center;">
-                <button class="remarcar-btn" onclick="remarcarConsulta(${index})">R</button>
-                <button class="remover-btn" onclick="removerConsulta(${index})">X</button>
-            </td>
-        `;
+    tbody.innerHTML = '';
 
-        if (dataConsulta >= agora) {
-            proximasTabela.appendChild(linha);
+    if (lista.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="3" class="aviso-vazio" style="text-align:center; padding:20px; color:#adb5bd;">Nenhuma consulta encontrada.</td></tr>`;
+        return;
+    }
+
+    lista.forEach(c => {
+        const dataFormatada = c.data ? c.data.split('-').reverse().slice(0, 2).join('/') : '--/--';
+        
+        let colunaAcoes = '';
+        
+        if (comAcoes) {
+            // AQUI ESTÁ A MÁGICA: O botão R chama remarcarConsulta()
+            colunaAcoes = `
+                <div class="acoes-container" style="display:flex; justify-content:center; gap:10px;">
+                    <button class="btn-acao btn-remarcar" title="Remarcar" onclick="remarcarConsulta(${c.id})" style="background-color:#28a745; border:none; color:white; border-radius:5px; width:30px; height:30px; cursor:pointer; font-weight:bold;">R</button>
+                    <button class="btn-acao btn-cancelar" title="Cancelar" onclick="cancelarConsulta(${c.id})" style="background-color:#dc3545; border:none; color:white; border-radius:5px; width:30px; height:30px; cursor:pointer; font-weight:bold;">X</button>
+                </div>
+            `;
         } else {
-            passadasTabela.appendChild(linha);
+            colunaAcoes = `<span class="status-concluida" style="color:#28a745; font-weight:bold;">Concluída</span>`;
         }
-    });
 
-    // Exibir mensagem de consultas hoje
-    if (consultasHoje > 0) {
-        avisoHoje.textContent = `Você tem ${consultasHoje} consulta(s) hoje.`;
+        const html = `
+            <tr>
+                <td class="col-paciente" style="text-align: left; padding: 15px;">
+                    <strong style="color: #e9ecef;">${c.medico}</strong><br>
+                    <span style="color: #adb5bd; font-size: 0.9rem;">${c.especialidade}</span>
+                </td>
+                <td class="col-data" style="text-align: center; color: #e9ecef;">
+                    ${dataFormatada}<br>
+                    <small style="color: #adb5bd;">${c.hora}</small>
+                </td>
+                <td class="col-acoes" style="text-align: center;">
+                    ${colunaAcoes}
+                </td>
+            </tr>
+        `;
+        tbody.innerHTML += html;
+    });
+}
+
+// --- FUNÇÃO QUE FALTAVA: REMARCAR ---
+function remarcarConsulta(id) {
+    // 1. Salva o ID da consulta que queremos editar
+    localStorage.setItem('id_consulta_editar', id);
+    
+    // 2. Manda o usuário para a tela de agendamento
+    window.location.href = 'TelaAgendamento.html';
+}
+
+// --- FUNÇÃO CANCELAR ---
+function cancelarConsulta(id) {
+    if (confirm("Tem certeza que deseja cancelar esta consulta?")) {
+        const consultas = JSON.parse(localStorage.getItem('bd_consultas')) || [];
+        const index = consultas.findIndex(c => c.id === id);
+        
+        if (index !== -1) {
+            consultas[index].status = 'cancelada';
+            localStorage.setItem('bd_consultas', JSON.stringify(consultas));
+            alert("Consulta cancelada com sucesso.");
+            carregarTodasConsultas();
+        }
     }
 }

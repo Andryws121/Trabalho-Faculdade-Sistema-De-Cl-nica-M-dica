@@ -1,274 +1,209 @@
 /* =================================================================
-   ARQUIVO: home.css (Dashboard/Tela Inicial)
-   DESCRIÇÃO: Estilos da Home
-   (VERSÃO: SOFT DARK MODE - HARMONIZADO)
+   ARQUIVO: Consultas.css
+   (VERSÃO: DARK MODE + JS LIMPO)
    ================================================================= */
 
-/* Importando Fontes */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap');
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
 :root {
-    /* --- Paleta SOFT DARK (Padronizada) --- */
+    --cor-fundo: #121212;
+    --cor-container: #1e1e1e;
+    --cor-primaria: #495057;
+    --cor-texto-principal: #e9ecef;
+    --cor-texto-secundario: #adb5bd;
+    --cor-borda: #343a40;
+    --sombra: rgba(0, 0, 0, 0.5);
     
-    /* Cores de Fundo */
-    --cor-fundo: #252627;          /* Cinza Chumbo (Fundo da página) */
-    --cor-container: #333538;      /* Cinza Médio (Cartões e Paineis) */
-    
-    /* Cores Principais */
-    --cor-primaria: #5c636a;       /* Cinza Azulado */
-    --cor-primaria-hover: #495057;
-    
-    /* Texto */
-    --cor-texto-principal: #f8f9fa; /* Branco Gelo */
-    --cor-texto-secundario: #ced4da; /* Cinza Claro */
-    
-    /* Detalhes */
-    --cor-borda: #495057;          /* Bordas Suaves */
-    --sombra: rgba(0, 0, 0, 0.4);  /* Sombra mais difusa */
-    
-    /* Status */
-    --cor-sucesso: #28a745;
-    --cor-erro: #dc3545;
+    /* Cores dos Botões de Ação */
+    --cor-verde: #28a745;
+    --cor-vermelho: #dc3545;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    
     background-color: var(--cor-fundo);
-    background-image: url('../img/BG.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Fundo fixo ao rolar */
-    background-blend-mode: overlay;
-    
     color: var(--cor-texto-principal);
+    background-image: url(../img/BG.jpeg);
+    background-size: 50%, contain;
+    background-position: center; 
+    background-repeat: repeat;
+    background-blend-mode: overlay; 
     min-height: 100vh;
+    padding-bottom: 40px;
+    margin: 0;
 }
 
-/* --- HEADER --- */
-header { display: flex; justify-content: center; padding: 15px 0; }
+/* HEADER */
+header {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
 
 .headerbox {
-    width: 95%; 
+    width: 95%;
+    max-width: 1200px;
     background-color: var(--cor-container);
-    display: flex; 
-    justify-content: space-evenly; 
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    min-height: 70px; 
-    border-radius: 15px; 
+    padding: 15px 30px;
+    border-radius: 15px;
     border: 1px solid var(--cor-borda);
-    padding: 10px; 
-    gap: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px var(--sombra);
 }
 
 .button {
-    flex: 1; 
-    min-height: 50px; 
-    border-radius: 10px;
-    font-family: 'Montserrat', sans-serif; 
-    font-weight: 600; 
-    font-size: 15px;
-    border: none; 
-    background: transparent; 
+    background-color: transparent;
+    border: 1px solid var(--cor-borda);
     color: var(--cor-texto-principal);
-    cursor: pointer; 
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.button:hover { 
-    background-color: var(--cor-primaria); 
-    color: white; 
-    transform: translateY(-3px); 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* --- BLOCOS SUPERIORES (KPIs) --- */
-.bluebox { 
-    display: flex; 
-    justify-content: space-evenly; 
-    gap: 25px; 
-    margin-top: 50px; 
-    padding: 0 25px; 
-}
-
-.bluebutton {
-    width: 22%; 
-    min-height: 160px; 
-    padding: 25px;
-    background-color: var(--cor-container); 
-    border: 1px solid var(--cor-primaria); /* Borda destaca levemente */
-    border-radius: 15px; 
-    box-shadow: 0 10px 30px var(--sombra);
-    
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between;
-    
-    font-family: 'Montserrat', sans-serif; 
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    transition: transform 0.3s;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
 }
 
-.bluebutton:hover {
-    transform: translateY(-5px);
-    border-color: var(--cor-texto-principal);
+.button:hover {
+    background-color: var(--cor-primaria);
+    color: white;
 }
 
-.numberconsult { 
-    align-self: flex-end; 
-    font-size: 48px; 
-    font-weight: 700; 
+/* CONTAINER PRINCIPAL */
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.whiteboard1 {
+    background-color: var(--cor-container);
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px var(--sombra);
+    border: 1px solid var(--cor-borda);
+    min-height: auto !important; 
+}
+
+/* TABELAS */
+.tabela-consultas {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Cabeçalho da Tabela */
+.tabela-consultas thead th {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
     color: var(--cor-texto-principal);
 }
 
-/* --- QUADROS DO MEIO --- */
-.whiteboards { 
-    display: flex; 
-    justify-content: space-evenly; 
-    gap: 25px; 
-    margin-top: 50px; 
-    padding: 0 25px; 
-}
-
-.whiteboard1, .whiteboard2 {
-    width: 45%; 
-    background-color: var(--cor-container); 
-    border-radius: 15px;
-    border: 1px solid var(--cor-borda); 
-    padding: 25px; 
-    box-shadow: 0 10px 30px var(--sombra);
-    font-family: 'Montserrat', sans-serif; 
+.tabela-consultas thead tr:first-child th {
+    font-size: 1.5rem;
     font-weight: 700;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--cor-primaria);
 }
 
-/* --- TABELAS --- */
-.tabela-consultas { 
-    width: 100%; 
-    border-collapse: collapse; 
-    margin-top: 20px; 
+.tabela-consultas thead tr:last-child th {
+    text-align: left;
+    padding: 15px;
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+    border-bottom: 1px solid var(--cor-borda);
 }
 
+/* Células */
 .tabela-consultas td {
-    border-bottom: 1px solid var(--cor-borda); 
-    padding: 15px 10px; 
-    text-align: center;
-    font-family: 'Roboto', sans-serif; 
-    font-weight: 400; 
-    font-size: 15px;
+    padding: 15px;
+    border-bottom: 1px solid var(--cor-borda);
+    vertical-align: middle;
+}
+
+.tabela-consultas tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Coluna Paciente/Médico */
+.col-paciente strong {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #fff;
+}
+.col-paciente span {
+    font-size: 0.9rem;
     color: var(--cor-texto-secundario);
 }
 
-.tabela-consultas td:first-child {
+/* Coluna Data */
+.col-data {
+    text-align: center;
     color: var(--cor-texto-principal);
-    font-weight: 500;
+}
+.col-data small {
+    color: var(--cor-texto-secundario);
+    display: block;
+    margin-top: 4px;
 }
 
-/* Agendamento */
-.text-book { 
-    padding: 30px; 
-    text-align: center; 
-    font-family: 'Roboto', sans-serif; 
-    color: var(--cor-texto-secundario); 
-    font-weight: 400; 
-    font-size: 1.1rem;
+/* Coluna Ações e Botões */
+.col-acoes {
+    text-align: center;
 }
 
-.agendar-button {
-    width: 100%; 
-    height: 55px; 
-    background-color: var(--cor-primaria);
-    color: white; 
-    border-radius: 10px; 
-    border: none; 
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer; 
-    transition: all 0.3s; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+.acoes-container {
+    display: flex;
+    justify-content: center;
     gap: 10px;
 }
 
-.agendar-button:hover { 
-    background-color: var(--cor-primaria-hover); 
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-/* --- QUADROS DE BAIXO --- */
-.Downboards { 
-    display: flex; 
-    justify-content: space-evenly; 
-    gap: 25px; 
-    margin-top: 50px; 
-    padding: 0 25px; 
-    padding-bottom: 60px; 
-}
-
-.Downboard1 { 
-    width: 45%; 
-    background-color: var(--cor-container); 
-    border-radius: 15px; 
-    padding: 25px; 
-    border: 1px solid var(--cor-borda); 
-    box-shadow: 0 10px 30px var(--sombra);
-    font-family: 'Montserrat', sans-serif; 
+.btn-acao {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 6px;
+    color: white;
     font-weight: 700;
-}
-
-/* Botões de Ação Pequenos */
-.remarcar-btn, .remover-btn { 
-    width: 38px; 
-    height: 38px; 
-    border-radius: 8px; 
-    border: none; 
-    color: white; 
-    cursor: pointer; 
-    margin: 0 3px; 
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
     transition: transform 0.2s;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.remarcar-btn { background-color: var(--cor-sucesso); }
-.remover-btn { background-color: var(--cor-erro); }
-
-.remarcar-btn:hover, .remover-btn:hover {
+.btn-acao:hover {
     transform: scale(1.1);
 }
 
-/* --- RESPONSIVO --- */
-@media (max-width: 910px) {
-    .headerbox, .bluebox, .whiteboards, .Downboards { 
-        flex-direction: column; 
-        height: auto; 
-    }
-    
-    .button, .bluebutton, .whiteboard1, .whiteboard2, .Downboard1 { 
-        width: 100%; 
-        margin-bottom: 20px; 
-    }
-    
-    .bluebutton {
-        min-height: auto;
-        padding: 20px;
-        flex-direction: row; /* Em mobile, número fica ao lado do texto */
-        align-items: center;
-    }
-    
-    .numberconsult {
-        align-self: center;
-        font-size: 36px;
-    }
+.btn-remarcar {
+    background-color: var(--cor-verde);
+}
+
+.btn-cancelar {
+    background-color: var(--cor-vermelho);
+}
+
+.status-concluida {
+    color: var(--cor-verde);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.aviso-vazio {
+    text-align: center;
+    padding: 30px;
+    color: var(--cor-texto-secundario);
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .headerbox { padding: 10px; }
+    .whiteboard1 { width: 95%; padding: 10px; }
+    .tabela-consultas th, .tabela-consultas td { padding: 10px 5px; font-size: 0.9rem; }
 }

@@ -2,118 +2,87 @@
 <html lang="pt-br">
 
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tela do menu Paciente</title>
+  
   <link rel="stylesheet" href="css/MenuPaciente.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!--Botões brancos -->
   <header>
     <div class="headerbox">
-      <button class="button" id="menuBuscaButton"
-        onclick= "window.location.href='menuBusca.html'">
-        Busca
-      </button>
-      <button class="button" id="consultas-button"
-      onclick="window.location.href='Consultas.html'">
-      Consultas
-      </button>
-      <button class="button" id="sairButton"
-        onclick="window.location.href='TelaLogin.html'">
-        Sair
-      </button>
+      <button class="button" id="menuBuscaButton">Busca</button>
+      <button class="button" id="consultas-button" onclick="window.location.href='Consultas.html'">Consultas</button>
+      <button class="button" id="sairButton">Sair</button>
     </div>
   </header>
-
-  <!--Botões brancos -->
-
-  <!-- Botões azuis -->
 
   <main>
     <div class="bluebox">
       <div class="bluebutton"><br>CONSULTAS DE HOJE
-        <div class="numberconsult"id="consultasHoje">0</div>
+        <div class="numberconsult" id="consultasHoje">0</div>
       </div>
       <div class="bluebutton"><br>CONSULTAS TOTAIS
-        <div class="numberconsult"id="consultasTotais">0</div>
+        <div class="numberconsult" id="consultasTotais">0</div>
       </div>
     </div>
 
-    <!-- Botões azuis -->
-
-    <!-- quadros brancos de cima -->
-
     <div class="whiteboards">
       <div class="whiteboard1">
-
         <table class="tabela-consultas">
-
+          <thead>
             <tr>
               <th colspan="3" class="consultas">Próximas Consultas</th>
             </tr>
-
+          </thead>
           <tbody id="tabelaProximas"></tbody>
-
         </table>
       </div>
 
-
       <div class="whiteboard2">
         <table class="table-agendamento">
-
           <tr>
             <th colspan="3" class="consultas">Agendar Nova Consulta</th>
           </tr>
-
           <tr>
-            <th colspan="3" class="text-book"> <img class="calendariozin" src="img/calendarin.svg"
-                alt="calendariozin">Adicione uma nova consulta ao calendario</th>
+            <th colspan="3" class="text-book"> 
+                <img class="calendariozin" src="img/calendarin.svg" alt="calendario">
+                Adicione uma nova consulta ao calendário
+            </th>
           </tr>
-
           <tr>
             <th colspan="3" class="buttonbook">
-              <button class="agendar-button" id="agendarButton"
-                onclick="window.location.href='/TelaAgendamento.html'">
+              <button class="agendar-button" id="agendarButton" onclick="window.location.href='TelaAgendamento.html'">
                 AGENDAR CONSULTA
               </button>
             </th>
           </tr>
-
         </table>
       </div>
     </div>
 
-    <!-- quadros brancos de cima -->
-
-    <!-- quadros de baixo -->
-
     <div class="Downboards">
       <div class="Downboard1">
-
         <table class="tabela-consultas">
-
-          <tr>
-            <th colspan="3" class="consultas">Consultas Recentes</th>
-          </tr>
-
+          <thead>
+            <tr>
+              <th colspan="3" class="consultas">Consultas Recentes</th>
+            </tr>
+          </thead>
           <tbody id="tabelaRecentes"></tbody>
-
         </table>
       </div>
       <div class="logo"><img src="img/logo.png" alt="logo"></div>
     </div>
   </main>
 
-  <!-- quadros de baixo -->
-
+  <script src="js/Setup.js"></script>
   <script src="js/MenuPaciente.js"></script>
 </body>
-
 </html>
