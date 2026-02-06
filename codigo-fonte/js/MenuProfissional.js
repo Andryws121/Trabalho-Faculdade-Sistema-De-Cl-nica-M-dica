@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function carregarConsultasMenuProfissional() {
-    const consultas = JSON.parse(localStorage.getItem("agendamentos")) || [];
+    const consultas = JSON.parse(localStorage.getItem("bd_consultas")) || [];
     const hoje = new Date().toISOString().split("T")[0];
 
     const consultasHoje = [];

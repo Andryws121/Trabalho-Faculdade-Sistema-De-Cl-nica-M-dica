@@ -2,11 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
 let agendamentos = [];
 
 // CARREGAR CONSULTAS DO LOCAL STORAGE
-const consultasSalvas = JSON.parse(localStorage.getItem("agendamentos")) || [];
+const consultasSalvas = JSON.parse(localStorage.getItem("bd_consultas")) || [];
 
 consultasSalvas.forEach((c, index) => {
 
-    const dataObj = new Date(c.data);
+    // Cria data ajustada para evitar problemas de fuso horário (YYYY-MM-DD)
+    const [ano, mes, dia] = c.data.split('-');
+    const dataObj = new Date(ano, mes - 1, dia);
 
     // Dia da semana (0=Dom → mas sua agenda começa em Seg=0)
     let diaSemana = dataObj.getDay(); // 0=Dom,1=Seg,...
@@ -17,12 +19,12 @@ consultasSalvas.forEach((c, index) => {
     const horaFim = horaInicio + 1;
 
     agendamentos.push({
-        id: index + 1,
+        id: c.id, // Usa o ID real do banco
         paciente: c.paciente,
         detalhe: `${c.hora}`,
         inicio: `${horaInicio}.0`,
         fim: `${horaFim}.0`,
-        status: "agendado",
+        status: c.status === 'agendada' ? 'agendado' : c.status, // Normaliza status
         diaDaSemana: diaSemana,
         duracaoDias: 1
     });
@@ -44,6 +46,7 @@ consultasSalvas.forEach((c, index) => {
     const btnMenuAdicionarNota = document.getElementById('ctx-menu-adicionar-nota');
     const btnMenuBloquear = document.getElementById('ctx-menu-bloquear');
     const btnMenuCancelar = document.getElementById('ctx-menu-cancelar');
+    const btnMenuExcluir = document.getElementById('ctx-menu-excluir');
 
     const headersDias = document.querySelectorAll('.grid-header.day-header');
     const sidebarTitle = document.getElementById('sidebar-title');
@@ -54,6 +57,36 @@ consultasSalvas.forEach((c, index) => {
     let selectedDate = new Date();
     let contextEventId = null;
     let rightClickPosition = { dia: null, hora: null };
+
+    // --- FUNÇÃO PARA SALVAR NO "BANCO DE DADOS" ---
+    function salvarAlteracoesNoBanco(id, novosDados) {
+        const banco = JSON.parse(localStorage.getItem("bd_consultas")) || [];
+        
+        // Se for edição de existente
+        if (id) {
+            const index = banco.findIndex(item => item.id == id);
+            if (index !== -1) {
+                // Atualiza apenas os campos passados
+                Object.assign(banco[index], novosDados);
+            }
+        } else {
+            // Se for novo (ex: Nota ou Bloqueio criado na agenda)
+            banco.push(novosDados);
+        }
+
+        localStorage.setItem("bd_consultas", JSON.stringify(banco));
+    }
+
+    // Função auxiliar para calcular data baseada na coluna clicada (Seg, Ter...)
+    function obterDataDaColuna(diaIndex) {
+        // Pega a data selecionada no calendário (ou hoje)
+        const dataBase = new Date(selectedDate);
+        const diaSemanaAtual = dataBase.getDay() === 0 ? 6 : dataBase.getDay() - 1;
+        const diferencaDias = diaIndex - diaSemanaAtual;
+        
+        dataBase.setDate(dataBase.getDate() + diferencaDias);
+        return dataBase.toISOString().split('T')[0]; // Retorna YYYY-MM-DD
+    }
 
     function atualizarSidebar() {
         listaConsultasDia.innerHTML = '';
@@ -74,7 +107,13 @@ consultasSalvas.forEach((c, index) => {
             if (agendamento.status !== 'livre') {
                 const listItem = document.createElement('li');
                 listItem.className = `status-${agendamento.status}`;
-                listItem.innerHTML = `<strong>${agendamento.detalhe || agendamento.paciente}</strong> (${agendamento.status})`;
+                
+                let textoExibicao = agendamento.detalhe || agendamento.paciente;
+                if (agendamento.status === 'nota') {
+                    textoExibicao = agendamento.paciente;
+                }
+
+                listItem.innerHTML = `<strong>${textoExibicao}</strong> (${agendamento.status})`;
                 listaConsultasDia.appendChild(listItem);
             }
         });
@@ -173,6 +212,12 @@ const agendamentosParaMostrar = agendamentos;
             else if (textoNormalizado.includes('cancelado')) { dadosAgendamento.status = 'cancelado'; }
             else if (dadosAgendamento.status !== 'nota') { dadosAgendamento.status = 'agendado'; }
             
+            // Salva no localStorage
+            salvarAlteracoesNoBanco(idDoEvento, {
+                paciente: dadosAgendamento.paciente,
+                status: dadosAgendamento.status
+            });
+
             renderizarAgenda();
         };
         inputNome.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === 'Escape') inputDetalhe.focus(); });
@@ -190,11 +235,13 @@ const agendamentosParaMostrar = agendamentos;
             btnMenuAdicionarNota.style.display = 'none';
             btnMenuBloquear.style.display = 'flex';
             btnMenuCancelar.style.display = 'flex';
+            if (btnMenuExcluir) btnMenuExcluir.style.display = 'flex';
         } else {
             contextEventId = null;
             btnMenuAdicionarNota.style.display = 'flex';
             btnMenuBloquear.style.display = 'none';
             btnMenuCancelar.style.display = 'none';
+            if (btnMenuExcluir) btnMenuExcluir.style.display = 'none';
             
             const gridRect = agendaGrid.getBoundingClientRect();
             const x = event.clientX - gridRect.left;
@@ -225,7 +272,13 @@ const agendamentosParaMostrar = agendamentos;
         if (rightClickPosition.dia !== null && rightClickPosition.hora !== null) {
             const comentario = prompt("Digite sua nota para este horário:");
             if (comentario && comentario.trim() !== "") {
-                const newId = Math.max(0, ...agendamentos.map(ag => ag.id)) + 1;
+                const newId = Date.now(); // Gera ID único
+                const dataCalculada = obterDataDaColuna(rightClickPosition.dia);
+                const horaFormatada = `${rightClickPosition.hora}:00`;
+
+                const usuarioLogado = JSON.parse(localStorage.getItem('sessionToken') || '{}');
+                const nomeMedico = usuarioLogado.nome || 'Profissional';
+
                 const novaNota = {
                     id: newId, paciente: comentario, detalhe: "Nota",
                     inicio: `${rightClickPosition.hora}.0`, fim: `${rightClickPosition.hora + 1}.0`,
@@ -233,6 +286,17 @@ const agendamentosParaMostrar = agendamentos;
                     diaDaSemana: rightClickPosition.dia, 
                     duracaoDias: 1 
                 };
+
+                // Salva no Banco Real
+                salvarAlteracoesNoBanco(null, {
+                    id: newId,
+                    paciente: comentario,
+                    data: dataCalculada,
+                    hora: horaFormatada,
+                    status: 'nota',
+                    medico: nomeMedico
+                });
+
                 agendamentos.push(novaNota);
                 renderizarAgenda();
             }
@@ -248,6 +312,11 @@ const agendamentosParaMostrar = agendamentos;
                 agendamento.status = 'bloqueado';
                 agendamento.paciente = 'Horário Bloqueado';
                 agendamento.detalhe = `${String(agendamento.inicio).replace('.0', ':00').replace('.5', ':30')} - ${String(agendamento.fim).replace('.0', ':00').replace('.5', ':30')}`;
+                
+                salvarAlteracoesNoBanco(contextEventId, {
+                    status: 'bloqueado',
+                    paciente: 'Horário Bloqueado'
+                });
                 renderizarAgenda();
             }
             contextMenu.classList.add('hidden');
@@ -259,12 +328,39 @@ const agendamentosParaMostrar = agendamentos;
             const agendamento = agendamentos.find(ag => ag.id === contextEventId);
             if (agendamento) {
                 agendamento.status = 'cancelado';
+                salvarAlteracoesNoBanco(contextEventId, {
+                    status: 'cancelada' // Nota: no banco usamos 'cancelada' (com 'a') ou padronize
+                });
                 renderizarAgenda();
             }
             contextMenu.classList.add('hidden');
             contextEventId = null;
         }
     });
+
+    // --- BOTÃO EXCLUIR ---
+    if (btnMenuExcluir) {
+        btnMenuExcluir.addEventListener('click', () => {
+            if (contextEventId) {
+                if (confirm("Tem certeza que deseja excluir permanentemente este item?")) {
+                    // 1. Remove do array local (visual)
+                    const index = agendamentos.findIndex(ag => ag.id === contextEventId);
+                    if (index !== -1) agendamentos.splice(index, 1);
+
+                    // 2. Remove do localStorage (banco de dados)
+                    const banco = JSON.parse(localStorage.getItem("bd_consultas")) || [];
+                    const indexBanco = banco.findIndex(item => item.id == contextEventId);
+                    if (indexBanco !== -1) {
+                        banco.splice(indexBanco, 1);
+                        localStorage.setItem("bd_consultas", JSON.stringify(banco));
+                    }
+                    renderizarAgenda();
+                }
+                contextMenu.classList.add('hidden');
+                contextEventId = null;
+            }
+        });
+    }
 
     // --- OUTROS LISTENERS ---
     eventosContainer.addEventListener('mouseover', (event) => {

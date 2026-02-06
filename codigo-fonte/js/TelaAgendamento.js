@@ -126,6 +126,20 @@ function salvarAgendamento() {
     const consultas = JSON.parse(localStorage.getItem('bd_consultas')) || [];
     const idParaEditar = localStorage.getItem('id_consulta_editar');
 
+    // --- VERIFICAÇÃO DE CONFLITO DE HORÁRIO ---
+    const conflito = consultas.find(c => 
+        c.medico === medico && 
+        c.data === data && 
+        c.hora === hora &&
+        c.status !== 'cancelada' && c.status !== 'cancelado' && // Ignora cancelados
+        (idParaEditar ? c.id != idParaEditar : true) // Se for edição, ignora o próprio agendamento
+    );
+
+    if (conflito) {
+        alert(conflito.status === 'bloqueado' ? "Este horário foi bloqueado pelo médico." : "Este horário já está reservado. Por favor, escolha outro.");
+        return;
+    }
+
     if (idParaEditar) {
         // --- ATUALIZAR EXISTENTE ---
         const index = consultas.findIndex(c => c.id == idParaEditar);
