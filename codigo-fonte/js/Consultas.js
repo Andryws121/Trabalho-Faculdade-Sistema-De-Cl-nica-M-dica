@@ -36,7 +36,8 @@ function preencherTabela(idTbody, lista, comAcoes) {
     }
 
     lista.forEach(c => {
-        const dataFormatada = c.data ? c.data.split('-').reverse().slice(0, 2).join('/') : '--/--';
+        const dataFormatada = formatarDataCompleta(c.data);
+        const horaFormatada = c.hora || '--:--';
         
         let colunaAcoes = '';
         
@@ -60,7 +61,7 @@ function preencherTabela(idTbody, lista, comAcoes) {
                 </td>
                 <td class="col-data" style="text-align: center; color: #e9ecef;">
                     ${dataFormatada}<br>
-                    <small style="color: #adb5bd;">${c.hora}</small>
+                    <small style="color: #adb5bd;">${horaFormatada}</small>
                 </td>
                 <td class="col-acoes" style="text-align: center;">
                     ${colunaAcoes}
@@ -69,6 +70,14 @@ function preencherTabela(idTbody, lista, comAcoes) {
         `;
         tbody.innerHTML += html;
     });
+}
+
+function formatarDataCompleta(dataISO) {
+    if (!dataISO) return '--/--/----';
+    const partes = dataISO.split('-');
+    if (partes.length !== 3) return dataISO;
+    const [ano, mes, dia] = partes;
+    return `${dia}/${mes}/${ano}`;
 }
 
 // --- FUNÇÃO QUE FALTAVA: REMARCAR ---
