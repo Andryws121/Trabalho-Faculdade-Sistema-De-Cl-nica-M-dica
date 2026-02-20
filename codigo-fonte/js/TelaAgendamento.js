@@ -95,6 +95,17 @@ function verificarModoEdicao() {
         // Garante que os textos voltem ao normal
         if (tituloPagina) tituloPagina.innerText = "AGENDAR CONSULTA";
         if (botaoSalvar) botaoSalvar.innerText = "CONFIRMAR AGENDAMENTO";
+
+        // Verifica se veio um médico pré-selecionado da Busca
+        const medicoPre = localStorage.getItem('medico_pre_selecionado');
+        if (medicoPre) {
+            const inputMedico = document.getElementById('profissional');
+            if (inputMedico) {
+                inputMedico.value = medicoPre;
+                inputMedico.dispatchEvent(new Event('input')); // Dispara evento para preencher especialidade
+            }
+            localStorage.removeItem('medico_pre_selecionado'); // Limpa após usar
+        }
     }
 }
 
@@ -132,7 +143,7 @@ function salvarAgendamento() {
         c.data === data && 
         c.hora === hora &&
         c.status !== 'cancelada' && c.status !== 'cancelado' && // Ignora cancelados
-        (idParaEditar ? c.id != idParaEditar : true) // Se for edição, ignora o próprio agendamento
+        (idParaEditar ? c.id != parseInt(idParaEditar) : true) // Garante comparação correta de ID
     );
 
     if (conflito) {
@@ -142,7 +153,7 @@ function salvarAgendamento() {
 
     if (idParaEditar) {
         // --- ATUALIZAR EXISTENTE ---
-        const index = consultas.findIndex(c => c.id == idParaEditar);
+        const index = consultas.findIndex(c => c.id == parseInt(idParaEditar));
         if (index !== -1) {
             consultas[index].paciente = paciente;
             consultas[index].medico = medico;
