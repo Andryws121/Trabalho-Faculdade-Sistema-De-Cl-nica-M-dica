@@ -1,34 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
-let agendamentos = [];
+    let agendamentos = [];
 
-// CARREGAR CONSULTAS DO LOCAL STORAGE
-const consultasSalvas = JSON.parse(localStorage.getItem("bd_consultas")) || [];
+    // CARREGAR CONSULTAS DO LOCAL STORAGE
+    const consultasSalvas = JSON.parse(localStorage.getItem("bd_consultas")) || [];
 
-consultasSalvas.forEach((c, index) => {
+    consultasSalvas.forEach((c) => {
+        const [ano, mes, dia] = c.data.split('-');
+        const dataObj = new Date(ano, mes - 1, dia);
 
-    // Cria data ajustada para evitar problemas de fuso horário (YYYY-MM-DD)
-    const [ano, mes, dia] = c.data.split('-');
-    const dataObj = new Date(ano, mes - 1, dia);
+        let diaSemana = dataObj.getDay(); 
+        diaSemana = diaSemana === 0 ? 6 : diaSemana - 1;
 
-    // Dia da semana (0=Dom → mas sua agenda começa em Seg=0)
-    let diaSemana = dataObj.getDay(); // 0=Dom,1=Seg,...
-    diaSemana = diaSemana === 0 ? 6 : diaSemana - 1;
+        const horaInicio = parseInt(c.hora.split(":")[0]);
+        const horaFim = horaInicio + 1;
 
-    // Convertendo horário "10:00" para "10.0"
-    const horaInicio = parseInt(c.hora.split(":")[0]);
-    const horaFim = horaInicio + 1;
-
-    agendamentos.push({
-        id: c.id, // Usa o ID real do banco
-        paciente: c.paciente,
-        detalhe: `${c.hora}`,
-        inicio: `${horaInicio}.0`,
-        fim: `${horaFim}.0`,
-        status: c.status === 'agendada' ? 'agendado' : c.status, // Normaliza status
-        diaDaSemana: diaSemana,
-        duracaoDias: 1
+        agendamentos.push({
+            id: c.id, 
+            paciente: c.paciente,
+            detalhe: `${c.hora}`,
+            inicio: `${horaInicio}.0`,
+            fim: `${horaFim}.0`,
+            status: c.status === 'agendada' ? 'agendado' : c.status, 
+            diaDaSemana: diaSemana,
+            duracaoDias: 1
+        });
     });
-});
 
     const agendaGrid = document.querySelector('.agenda-grid');
     const eventosContainer = document.getElementById('eventos-container');
@@ -48,54 +44,71 @@ consultasSalvas.forEach((c, index) => {
     const btnMenuCancelar = document.getElementById('ctx-menu-cancelar');
     const btnMenuExcluir = document.getElementById('ctx-menu-excluir');
 
+    // Referência aos novos botões do HTML
+    const btnAnterior = document.getElementById('btn-anterior');
+    const btnProximo = document.getElementById('btn-proximo');
+    const btnHoje = document.getElementById('btn-hoje');
+
     const headersDias = document.querySelectorAll('.grid-header.day-header');
     const sidebarTitle = document.getElementById('sidebar-title');
     const diasNomes = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"];
     
     let diaSelecionadoIndex = 0; 
-
     let selectedDate = new Date();
     let contextEventId = null;
     let rightClickPosition = { dia: null, hora: null };
 
-    // --- FUNÇÃO PARA SALVAR NO "BANCO DE DADOS" ---
+    // --- FUNÇÕES AUXILIARES ---
     function salvarAlteracoesNoBanco(id, novosDados) {
         const banco = JSON.parse(localStorage.getItem("bd_consultas")) || [];
-        
-        // Se for edição de existente
         if (id) {
             const index = banco.findIndex(item => item.id == id);
             if (index !== -1) {
-                // Atualiza apenas os campos passados
                 Object.assign(banco[index], novosDados);
             }
         } else {
-            // Se for novo (ex: Nota ou Bloqueio criado na agenda)
             banco.push(novosDados);
         }
-
         localStorage.setItem("bd_consultas", JSON.stringify(banco));
     }
 
-    // Função auxiliar para calcular data baseada na coluna clicada (Seg, Ter...)
     function obterDataDaColuna(diaIndex) {
-        // Pega a data selecionada no calendário (ou hoje)
         const dataBase = new Date(selectedDate);
         const diaSemanaAtual = dataBase.getDay() === 0 ? 6 : dataBase.getDay() - 1;
         const diferencaDias = diaIndex - diaSemanaAtual;
-        
         dataBase.setDate(dataBase.getDate() + diferencaDias);
-        return dataBase.toISOString().split('T')[0]; // Retorna YYYY-MM-DD
+        return dataBase.toISOString().split('T')[0]; 
     }
 
+    // --- FUNÇÃO CENTRAL DE ATUALIZAÇÃO (Sincroniza Tudo) ---
+    function atualizarVisaoData() {
+        // 1. Atualiza o texto do botão
+        datePickerButton.textContent = selectedDate.toLocaleDateString('pt-BR', { 
+            weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' 
+        });
+
+        // 2. Descobre qual é o dia da semana selecionado (0=Seg, 1=Ter...)
+        let diaSemana = selectedDate.getDay();
+        diaSemana = diaSemana === 0 ? 6 : diaSemana - 1;
+        diaSelecionadoIndex = diaSemana;
+
+        // 3. Destaca a coluna do dia correto
+        headersDias.forEach(h => h.classList.remove('active'));
+        const headerToActivate = document.querySelector(`.grid-header.day-header[data-dia="${diaSemana}"]`);
+        if (headerToActivate) {
+            headerToActivate.classList.add('active');
+        }
+
+        // 4. Renderiza a tabela e a sidebar
+        renderizarAgenda();
+    }
+
+    // --- FUNÇÕES DE RENDERIZAÇÃO ---
     function atualizarSidebar() {
         listaConsultasDia.innerHTML = '';
         sidebarTitle.textContent = `Consultas de ${diasNomes[diaSelecionadoIndex]}`;
 
-        const agendamentosDoDia = agendamentos.filter(ag =>
-            ag.diaDaSemana === diaSelecionadoIndex
-        );
-
+        const agendamentosDoDia = agendamentos.filter(ag => ag.diaDaSemana === diaSelecionadoIndex);
         agendamentosDoDia.sort((a, b) => parseFloat(a.inicio) - parseFloat(b.inicio));
 
         if (agendamentosDoDia.length === 0) {
@@ -107,23 +120,17 @@ consultasSalvas.forEach((c, index) => {
             if (agendamento.status !== 'livre') {
                 const listItem = document.createElement('li');
                 listItem.className = `status-${agendamento.status}`;
-                
                 let textoExibicao = agendamento.detalhe || agendamento.paciente;
-                if (agendamento.status === 'nota') {
-                    textoExibicao = agendamento.paciente;
-                }
-
+                if (agendamento.status === 'nota') textoExibicao = agendamento.paciente;
                 listItem.innerHTML = `<strong>${textoExibicao}</strong> (${agendamento.status})`;
                 listaConsultasDia.appendChild(listItem);
             }
         });
     }
+
     function renderizarAgenda() {
         eventosContainer.innerHTML = '';
-
-const agendamentosParaMostrar = agendamentos;
-
-        agendamentosParaMostrar.forEach(agendamento => {
+        agendamentos.forEach(agendamento => {
             const eventoDiv = document.createElement('div');
             eventoDiv.id = `evento-${agendamento.id}`;
             eventoDiv.className = `evento status-${agendamento.status}`;
@@ -139,7 +146,7 @@ const agendamentosParaMostrar = agendamentos;
             const height = (duracao * alturaDaLinhaDeHora); 
             const diaIndex = agendamento.diaDaSemana; 
             const left = `calc(60px + ((100% - 60px) / 7) * ${diaIndex})`;
-            const width = `calc(((100% - 60px) / 7) - 4px)`; // 4px de margem horizontal
+            const width = `calc(((100% - 60px) / 7) - 4px)`; 
 
             if (height > 0) {
                 eventoDiv.style.top = `${top}px`;
@@ -149,11 +156,9 @@ const agendamentosParaMostrar = agendamentos;
                 eventosContainer.appendChild(eventoDiv);
             }
         });
-        
         atualizarSidebar();
     }
 
-    // --- LÓGICA DO CALENDÁRIO ---
     function renderCalendar() {
         const month = selectedDate.getMonth();
         const year = selectedDate.getFullYear();
@@ -161,24 +166,74 @@ const agendamentosParaMostrar = agendamentos;
         calendarDays.innerHTML = '';
         const firstDayOfMonth = new Date(year, month, 1).getDay();
         const lastDateOfMonth = new Date(year, month + 1, 0).getDate();
-        for (let i = 0; i < firstDayOfMonth; i++) { const emptyCell = document.createElement('div'); emptyCell.className = 'calendar-day-empty'; calendarDays.appendChild(emptyCell); }
+        
+        for (let i = 0; i < firstDayOfMonth; i++) { 
+            const emptyCell = document.createElement('div'); 
+            emptyCell.className = 'calendar-day-empty'; 
+            calendarDays.appendChild(emptyCell); 
+        }
         for (let day = 1; day <= lastDateOfMonth; day++) {
             const dayCell = document.createElement('div');
             dayCell.className = 'calendar-day';
             dayCell.textContent = day;
             dayCell.dataset.day = day;
             const today = new Date();
-            if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) { dayCell.classList.add('today'); }
-            if (day === selectedDate.getDate()) { dayCell.classList.add('selected'); }
+            if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) { 
+                dayCell.classList.add('today'); 
+            }
+            if (day === selectedDate.getDate()) { 
+                dayCell.classList.add('selected'); 
+            }
             calendarDays.appendChild(dayCell);
         }
     }
-    function updateDatePickerButton() {
-        datePickerButton.textContent = selectedDate.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+
+    // --- EVENT LISTENERS DE NAVEGAÇÃO ---
+    
+    // Ao clicar em um dia no Calendário Popup
+    calendarDays.addEventListener('click', (event) => { 
+        const dayClicked = event.target.closest('.calendar-day'); 
+        if (dayClicked && dayClicked.dataset.day) { 
+            selectedDate.setDate(parseInt(dayClicked.dataset.day)); 
+            calendarPopup.classList.add('hidden'); 
+            atualizarVisaoData(); 
+        } 
+    });
+
+    // Ao clicar nas abas dos dias da semana (Seg, Ter, Qua...)
+    headersDias.forEach(header => {
+        header.addEventListener('click', () => {
+            const diaIndexClicado = parseInt(header.dataset.dia, 10);
+            const diferenca = diaIndexClicado - diaSelecionadoIndex;
+            
+            selectedDate.setDate(selectedDate.getDate() + diferenca);
+            atualizarVisaoData();
+        });
+    });
+
+    // Botões de navegação lateral
+    if (btnAnterior) {
+        btnAnterior.addEventListener('click', () => {
+            selectedDate.setDate(selectedDate.getDate() - 1);
+            atualizarVisaoData();
+        });
     }
 
-    // --- EVENT LISTENERS ---
+    if (btnProximo) {
+        btnProximo.addEventListener('click', () => {
+            selectedDate.setDate(selectedDate.getDate() + 1);
+            atualizarVisaoData();
+        });
+    }
 
+    if (btnHoje) {
+        btnHoje.addEventListener('click', () => {
+            selectedDate = new Date();
+            atualizarVisaoData();
+        });
+    }
+
+    // --- OUTROS EVENT LISTENERS (Popup e Menus) ---
     eventosContainer.addEventListener('dblclick', (event) => {
         const blocoClicado = event.target.closest('.evento');
         if (!blocoClicado || blocoClicado.classList.contains('editing')) return;
@@ -212,12 +267,7 @@ const agendamentosParaMostrar = agendamentos;
             else if (textoNormalizado.includes('cancelado')) { dadosAgendamento.status = 'cancelado'; }
             else if (dadosAgendamento.status !== 'nota') { dadosAgendamento.status = 'agendado'; }
             
-            // Salva no localStorage
-            salvarAlteracoesNoBanco(idDoEvento, {
-                paciente: dadosAgendamento.paciente,
-                status: dadosAgendamento.status
-            });
-
+            salvarAlteracoesNoBanco(idDoEvento, { paciente: dadosAgendamento.paciente, status: dadosAgendamento.status });
             renderizarAgenda();
         };
         inputNome.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === 'Escape') inputDetalhe.focus(); });
@@ -226,7 +276,6 @@ const agendamentosParaMostrar = agendamentos;
         inputDetalhe.addEventListener('blur', salvarEdicao, { once: true });
     });
 
-    // --- LÓGICA DE CLIQUE DIREITO ---
     agendaGrid.addEventListener('contextmenu', (event) => {
         event.preventDefault();
         const blocoClicado = event.target.closest('.evento');
@@ -267,12 +316,11 @@ const agendamentosParaMostrar = agendamentos;
         contextMenu.classList.remove('hidden');
     });
 
-    // --- BOTÃO ADICIONAR NOTA ---
     btnMenuAdicionarNota.addEventListener('click', () => {
         if (rightClickPosition.dia !== null && rightClickPosition.hora !== null) {
             const comentario = prompt("Digite sua nota para este horário:");
             if (comentario && comentario.trim() !== "") {
-                const newId = Date.now(); // Gera ID único
+                const newId = Date.now(); 
                 const dataCalculada = obterDataDaColuna(rightClickPosition.dia);
                 const horaFormatada = `${rightClickPosition.hora}:00`;
 
@@ -282,19 +330,12 @@ const agendamentosParaMostrar = agendamentos;
                 const novaNota = {
                     id: newId, paciente: comentario, detalhe: "Nota",
                     inicio: `${rightClickPosition.hora}.0`, fim: `${rightClickPosition.hora + 1}.0`,
-                    status: 'nota', 
-                    diaDaSemana: rightClickPosition.dia, 
-                    duracaoDias: 1 
+                    status: 'nota', diaDaSemana: rightClickPosition.dia, duracaoDias: 1 
                 };
 
-                // Salva no Banco Real
                 salvarAlteracoesNoBanco(null, {
-                    id: newId,
-                    paciente: comentario,
-                    data: dataCalculada,
-                    hora: horaFormatada,
-                    status: 'nota',
-                    medico: nomeMedico
+                    id: newId, paciente: comentario, data: dataCalculada,
+                    hora: horaFormatada, status: 'nota', medico: nomeMedico
                 });
 
                 agendamentos.push(novaNota);
@@ -304,33 +345,29 @@ const agendamentosParaMostrar = agendamentos;
         contextMenu.classList.add('hidden');
     });
     
-    // --- BOTÕES BLOQUEAR/CANCELAR ---
     btnMenuBloquear.addEventListener('click', () => {
         if (contextEventId) {
             const agendamento = agendamentos.find(ag => ag.id === contextEventId);
             if (agendamento) {
                 agendamento.status = 'bloqueado';
                 agendamento.paciente = 'Horário Bloqueado';
-                agendamento.detalhe = `${String(agendamento.inicio).replace('.0', ':00').replace('.5', ':30')} - ${String(agendamento.fim).replace('.0', ':00').replace('.5', ':30')}`;
+                agendamento.detalhe = `${String(agendamento.inicio).replace('.0', ':00').replace('.5', ':30')}
+${String(agendamento.fim).replace('.0', ':00').replace('.5', ':30')}`;
                 
-                salvarAlteracoesNoBanco(contextEventId, {
-                    status: 'bloqueado',
-                    paciente: 'Horário Bloqueado'
-                });
+                salvarAlteracoesNoBanco(contextEventId, { status: 'bloqueado', paciente: 'Horário Bloqueado' });
                 renderizarAgenda();
             }
             contextMenu.classList.add('hidden');
             contextEventId = null;
         }
     });
+
     btnMenuCancelar.addEventListener('click', () => {
         if (contextEventId) {
             const agendamento = agendamentos.find(ag => ag.id === contextEventId);
             if (agendamento) {
                 agendamento.status = 'cancelado';
-                salvarAlteracoesNoBanco(contextEventId, {
-                    status: 'cancelada' // Nota: no banco usamos 'cancelada' (com 'a') ou padronize
-                });
+                salvarAlteracoesNoBanco(contextEventId, { status: 'cancelada' });
                 renderizarAgenda();
             }
             contextMenu.classList.add('hidden');
@@ -338,16 +375,13 @@ const agendamentosParaMostrar = agendamentos;
         }
     });
 
-    // --- BOTÃO EXCLUIR ---
     if (btnMenuExcluir) {
         btnMenuExcluir.addEventListener('click', () => {
             if (contextEventId) {
                 if (confirm("Tem certeza que deseja excluir permanentemente este item?")) {
-                    // 1. Remove do array local (visual)
                     const index = agendamentos.findIndex(ag => ag.id === contextEventId);
                     if (index !== -1) agendamentos.splice(index, 1);
 
-                    // 2. Remove do localStorage (banco de dados)
                     const banco = JSON.parse(localStorage.getItem("bd_consultas")) || [];
                     const indexBanco = banco.findIndex(item => item.id == contextEventId);
                     if (indexBanco !== -1) {
@@ -362,7 +396,6 @@ const agendamentosParaMostrar = agendamentos;
         });
     }
 
-    // --- OUTROS LISTENERS ---
     eventosContainer.addEventListener('mouseover', (event) => {
         const blocoHover = event.target.closest('.evento');
         if (!blocoHover || blocoHover.classList.contains('editing')) return;
@@ -383,40 +416,31 @@ const agendamentosParaMostrar = agendamentos;
         popup.style.left = `${leftPos}px`;
         popup.style.top = `${topPos}px`;
     });
+
     eventosContainer.addEventListener('mouseleave', () => {
         popup.classList.add('hidden');
         setTimeout(() => { if (popup.classList.contains('hidden')) { popup.style.display = 'none'; } }, 200);
     });
-    datePickerButton.addEventListener('click', (event) => { event.stopPropagation(); calendarPopup.classList.toggle('hidden'); if (!calendarPopup.classList.contains('hidden')) { const buttonRect = datePickerButton.getBoundingClientRect(); calendarPopup.style.top = `${buttonRect.bottom + 10}px`; calendarPopup.style.left = `${buttonRect.left}px`; renderCalendar(); } });
+
+    datePickerButton.addEventListener('click', (event) => { 
+        event.stopPropagation(); 
+        calendarPopup.classList.toggle('hidden'); 
+        if (!calendarPopup.classList.contains('hidden')) { 
+            const buttonRect = datePickerButton.getBoundingClientRect(); 
+            calendarPopup.style.top = `${buttonRect.bottom + 10}px`; 
+            calendarPopup.style.left = `${buttonRect.left}px`; 
+            renderCalendar(); 
+        } 
+    });
+
     prevMonthBtn.addEventListener('click', () => { selectedDate.setMonth(selectedDate.getMonth() - 1); renderCalendar(); });
     nextMonthBtn.addEventListener('click', () => { selectedDate.setMonth(selectedDate.getMonth() + 1); renderCalendar(); });
-    calendarDays.addEventListener('click', (event) => { const dayClicked = event.target.closest('.calendar-day'); if (dayClicked && dayClicked.dataset.day) { selectedDate.setDate(parseInt(dayClicked.dataset.day)); updateDatePickerButton(); calendarPopup.classList.add('hidden'); console.log("Nova data selecionada:", selectedDate); } });
+    
     window.addEventListener('click', () => {
         contextMenu.classList.add('hidden');
         calendarPopup.classList.add('hidden');
     });
 
-    
-    // --- LISTENER DOS HEADERS ---
-    headersDias.forEach(header => {
-        header.addEventListener('click', () => {
-            const diaIndexClicado = parseInt(header.dataset.dia, 10);
-            diaSelecionadoIndex = diaIndexClicado;
-
-            headersDias.forEach(h => h.classList.remove('active'));
-            header.classList.add('active');
-
-            renderizarAgenda();
-        });
-    });
-
-
     // --- INICIALIZAÇÃO ---
-    const primeiroHeader = document.querySelector('.grid-header.day-header[data-dia="0"]');
-    if (primeiroHeader) {
-        primeiroHeader.classList.add('active');
-    }
-    
-    renderizarAgenda(); // Renderiza grid e sidebar para o dia 0
-    updateDatePickerButton();
+    atualizarVisaoData(); 
 });
