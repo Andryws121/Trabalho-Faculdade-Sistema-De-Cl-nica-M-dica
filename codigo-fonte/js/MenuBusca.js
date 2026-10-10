@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById('searchButton');
     const resultsList = document.getElementById('resultsList');
     const resultsCount = document.getElementById('resultsCount');
+    const backButton = document.getElementById('backButton');
 
     function renderResults(results) {
         resultsList.innerHTML = '';
@@ -70,28 +71,58 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Mapa de classes definido fora do loop para melhor performance
+        const statusClassMap = {
+            'Agendada': 'status-agendada',
+            'Concluída': 'status-concluida',
+            'Cancelada': 'status-cancelada',
+            'Em aberto': 'status-em-aberto'
+        };
+
         results.forEach(item => {
             const li = document.createElement('li');
             li.className = 'result-item';
+            
+            // Torna o item clicável para agendar
+            li.style.cursor = 'pointer';
+            li.title = 'Clique para agendar com este médico';
+            li.addEventListener('click', () => {
+                // Salva o médico selecionado para a tela de agendamento usar
+                localStorage.setItem('medico_pre_selecionado', item.nome);
+                window.location.href = 'TelaAgendamento.html';
+            });
 
-            const statusClassMap = {
-                'Agendada': 'status-agendada',
-                'Concluída': 'status-concluida',
-                'Cancelada': 'status-cancelada',
-                'Em aberto': 'status-em-aberto'
-            };
             const statusClass = statusClassMap[item.status] || '';
 
-            const dateTimeHtml = item.data ? `<p class="datetime">${item.data}</p>` : '';
+            // Criação segura de elementos DOM (Previne XSS)
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'result-info';
 
-            li.innerHTML = `
-                <div class="result-info">
-                    <p class="name">${item.nome}</p>
-                    <p class="details">${item.especialidade}</p>
-                    ${dateTimeHtml}
-                </div>
-                <span class="status-badge ${statusClass}">${item.status}</span>
-            `;
+            const nameP = document.createElement('p');
+            nameP.className = 'name';
+            nameP.textContent = item.nome;
+
+            const detailsP = document.createElement('p');
+            detailsP.className = 'details';
+            detailsP.textContent = item.especialidade;
+
+            infoDiv.appendChild(nameP);
+            infoDiv.appendChild(detailsP);
+
+            if (item.data) {
+                const dateP = document.createElement('p');
+                dateP.className = 'datetime';
+                dateP.textContent = item.data;
+                infoDiv.appendChild(dateP);
+            }
+
+            const statusSpan = document.createElement('span');
+            statusSpan.className = `status-badge ${statusClass}`;
+            statusSpan.textContent = item.status;
+
+            li.appendChild(infoDiv);
+            li.appendChild(statusSpan);
+
             resultsList.appendChild(li);
         });
     }
@@ -103,7 +134,8 @@ function performSearch() {
 
     const filteredResults = allResults.filter(item => {
         // Pesquisa apenas pelo nome
-        const nameMatch = item.nome.toLowerCase().includes(query);
+        const nameMatch = item.nome.toLowerCase().includes(query) || 
+                          item.especialidade.toLowerCase().includes(query);
 
         // Filtra pela especialidade selecionada (se houver)
         const specialtyMatch = selectedEspecialidade ? item.especialidade === selectedEspecialidade : true;
@@ -115,76 +147,105 @@ function performSearch() {
 }
 
     searchButton.addEventListener('click', performSearch);
+    searchInput.addEventListener('input', performSearch);
+
+    if (backButton) {
+        backButton.addEventListener('click', () => {
+            window.location.href = 'MenuPaciente.html';
+            // Verifica se existe histórico anterior na aba (> 1 significa que há algo antes da página atual)
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                // Fallback: Se não houver histórico (ex: abriu link direto), força ir para o Menu
+                window.location.href = 'MenuPaciente.html';
+            }
+        });
+    }
 
     renderResults(allResults);
+
+    // --- Lógica do Filtro de Especialidades (Movida para dentro do escopo correto) ---
+    const especialidadesComuns = [
+        "Cardiologia",
+        "Clínico Geral",
+        "Pediatria",
+        "Ginecologia",
+        "Obstetrícia",
+        "Ortopedia",
+        "Dermatologia",
+        "Psiquiatria",
+        "Neurologia",
+        "Oftalmologia",
+        "Otorrinolaringologia",
+        "Endocrinologia",
+        "Gastroenterologia",
+        "Reumatologia",
+        "Urologia",
+        "Nefrologia",
+        "Hematologia",
+        "Oncologia",
+        "Infectologia",
+        "Pneumologia",
+        "Nutrição Clínica",
+        "Anestesiologia",
+        "Fisioterapia",
+        "Gerontologia",
+        "Alergologia",
+        "Imunologia",
+        "Cirurgia Geral",
+        "Cirurgia Plástica",
+        "Cirurgia Cardiovascular",
+        "Cirurgia Vascular"
+    ];
+
+    // Elementos
+    const btnEspecialidade = document.querySelector("#btnEspecialidade");
+    const listaEspecialidades = document.querySelector("#listaEspecialidades");
+
+    // Preencher lista
+    function carregarEspecialidades() {
+        if (!listaEspecialidades) return;
+        listaEspecialidades.innerHTML = "";
+
+        // Melhoria: Adiciona opção para limpar o filtro e ver todos
+        const liTodas = document.createElement("li");
+        liTodas.textContent = "Todas as Especialidades";
+        liTodas.style.fontWeight = "bold"; // Destaque visual simples
+        liTodas.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (btnEspecialidade) btnEspecialidade.textContent = "Especialidades";
+            selectedEspecialidade = ""; // Limpa a variável
+            listaEspecialidades.classList.add("hidden");
+            performSearch(); // Atualiza a lista
+        });
+        listaEspecialidades.appendChild(liTodas);
+
+        especialidadesComuns.forEach(esp => {
+            const li = document.createElement("li");
+            li.textContent = esp;
+
+            li.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (btnEspecialidade) btnEspecialidade.textContent = esp;
+                selectedEspecialidade = esp; // Agora acessa a variável correta
+                listaEspecialidades.classList.add("hidden");
+                performSearch(); // Atualiza a busca imediatamente ao clicar
+            });
+
+            listaEspecialidades.appendChild(li);
+        });
+    }
+
+    if (btnEspecialidade && listaEspecialidades) {
+        carregarEspecialidades();
+
+        btnEspecialidade.addEventListener("click", (e) => {
+            e.stopPropagation();
+            listaEspecialidades.classList.toggle("hidden");
+        });
+
+        document.addEventListener("click", () => {
+            listaEspecialidades.classList.add("hidden");
+        });
+    }
 });
-
-
-const especialidadesComuns = [
-    "Cardiologia",
-    "Clínico Geral",
-    "Pediatria",
-    "Ginecologia",
-    "Obstetrícia",
-    "Ortopedia",
-    "Dermatologia",
-    "Psiquiatria",
-    "Neurologia",
-    "Oftalmologia",
-    "Otorrinolaringologia",
-    "Endocrinologia",
-    "Gastroenterologia",
-    "Reumatologia",
-    "Urologia",
-    "Nefrologia",
-    "Hematologia",
-    "Oncologia",
-    "Infectologia",
-    "Pneumologia",
-    "Nutrição Clínica",
-    "Anestesiologia",
-    "Fisioterapia",
-    "Gerontologia",
-    "Alergologia",
-    "Imunologia",
-    "Cirurgia Geral",
-    "Cirurgia Plástica",
-    "Cirurgia Cardiovascular",
-    "Cirurgia Vascular"
-];
-
-// Elementos
-const btnEspecialidade = document.querySelector("#btnEspecialidade");
-const listaEspecialidades = document.querySelector("#listaEspecialidades");
-
-// Preencher lista
-function carregarEspecialidades() {
-    listaEspecialidades.innerHTML = "";
-
-    especialidadesComuns.forEach(esp => {
-        const li = document.createElement("li");
-        li.textContent = esp;
-
-li.addEventListener("click", (e) => {
-    e.stopPropagation();
-    btnEspecialidade.textContent = esp;
-    selectedEspecialidade = esp;
-    listaEspecialidades.classList.add("hidden");
-});
-
-        listaEspecialidades.appendChild(li);
-    });
-}
-
-carregarEspecialidades();
-
-btnEspecialidade.addEventListener("click", (e) => {
-    e.stopPropagation();
-    listaEspecialidades.classList.toggle("hidden");
-});
-
-document.addEventListener("click", () => {
-    listaEspecialidades.classList.add("hidden");
-});
-
-
